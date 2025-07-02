@@ -477,6 +477,7 @@ export async function initializeRpcProviderDomains(): Promise<void> {
           }
         }
       }
+      console.log(knownDomainsSet, '/knownDomainsSet');
     } catch (error) {
       console.error('Error initializing known domains:', error);
       knownDomainsSet = new Set<string>();

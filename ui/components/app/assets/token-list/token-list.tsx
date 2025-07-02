@@ -43,9 +43,9 @@ function TokenList({ onTokenClick, safeChains }: TokenListProps) {
   const { privacyMode } = useSelector(getPreferences);
   const tokenSortConfig = useSelector(getTokenSortConfig);
   const selectedAccount = useSelector(getSelectedAccount);
-  const evmBalances = useSelector((state) =>
-    getTokenBalancesEvm(state, selectedAccount.address),
-  );
+  const evmBalances = useSelector((state) => {
+    return getTokenBalancesEvm(state, selectedAccount.address);
+  });
   const trackEvent = useContext(MetaMetricsContext);
   // EVM specific tokenBalance polling, updates state via polling loop per chainId
   pollAndUpdateEvmBalances({
@@ -65,6 +65,7 @@ function TokenList({ onTokenClick, safeChains }: TokenListProps) {
 
   const sortedFilteredTokens = useMemo(() => {
     const balances = isEvm ? evmBalances : multichainAssets;
+    console.log(isEvm, balances, multichainAssets, '/checkBalances');
     const filteredAssets = filterAssets(balances as TokenWithFiatAmount[], [
       {
         key: 'chainId',
@@ -73,6 +74,7 @@ function TokenList({ onTokenClick, safeChains }: TokenListProps) {
       },
     ]);
 
+    console.log(filteredAssets, tokenSortConfig, '/filteredAssets');
     // sort filtered tokens based on the tokenSortConfig in state
     return sortAssets([...filteredAssets], tokenSortConfig);
     // eslint-disable-next-line react-hooks/exhaustive-deps

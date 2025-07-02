@@ -20,5 +20,10 @@
       "url": "./.vscode/package.json-schema.json"
     }
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "workbench.settings.showSuggestions": true,
+  "workbench.editor.splitInGroupLayout": "horizontal",
+  "screencastMode.keyboardOptions": {
+    "showCommandGroups": true
+  }
 }

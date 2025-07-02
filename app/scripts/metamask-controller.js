@@ -601,6 +601,7 @@ export default class MetamaskController extends EventEmitter {
       // TODO: Consider changing `getDefaultNetworkControllerState` on the
       // controller side to include some of these tweaks.
 
+      console.log(networks, '/networks');
       Object.values(networks).forEach((network) => {
         const id = network.rpcEndpoints[0].networkClientId;
         // Process only if the default network has a corresponding networkClientId in BlockExplorerUrl.

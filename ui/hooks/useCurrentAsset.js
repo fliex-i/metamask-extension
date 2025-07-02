@@ -27,6 +27,7 @@ export function useCurrentAsset() {
   });
   const tokenAddress = match?.params?.asset;
   const knownTokens = useSelector(getTokens);
+  console.log(knownTokens, '/knownTokens');
   const token =
     tokenAddress &&
     knownTokens.find(({ address }) =>

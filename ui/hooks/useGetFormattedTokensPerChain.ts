@@ -65,6 +65,76 @@ export const useGetFormattedTokensPerChain = (
         [],
       );
 
+      // 自动补全主流链USDT
+      const USDT_TOKEN_MAP: Record<string, TokenWithBalance> = {
+        // Ethereum Mainnet
+        '0x1': {
+          address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+          symbol: 'USDT',
+          decimals: 6,
+          balance: '0',
+          string: '0',
+        },
+        // BSC
+        '0x38': {
+          address: '0x55d398326f99059fF775485246999027B3197955',
+          symbol: 'USDT',
+          decimals: 18,
+          balance: '0',
+          string: '0',
+        },
+        // Polygon
+        '0x89': {
+          address: '0x3813e82e6f7098b9583FC0F33a962D02018B6803',
+          symbol: 'USDT',
+          decimals: 6,
+          balance: '0',
+          string: '0',
+        },
+        // Arbitrum One
+        '0xa4b1': {
+          address: '0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9',
+          symbol: 'USDT',
+          decimals: 6,
+          balance: '0',
+          string: '0',
+        },
+        // Optimism
+        '0xa': {
+          address: '0x4200000000000000000000000000000000000006',
+          symbol: 'USDT',
+          decimals: 6,
+          balance: '0',
+          string: '0',
+        },
+      };
+      const usdtToken = USDT_TOKEN_MAP[singleChain];
+      if (usdtToken) {
+        // 查询链上 USDT 余额
+        const usdtHexBalance =
+          currentTokenBalances.tokenBalances[account.address]?.[singleChain]?.[
+            usdtToken.address
+          ] ?? '0x0';
+        const usdtDecimalBalance = hexToDecimal(usdtHexBalance);
+        // 只有余额大于0或不隐藏0资产时才补全
+        if (
+          (usdtDecimalBalance !== '0' || !shouldHideZeroBalanceTokens) &&
+          !tokensWithBalances.some(
+            (t: TokenWithBalance) =>
+              t.address.toLowerCase() === usdtToken.address.toLowerCase(),
+          )
+        ) {
+          tokensWithBalances.push({
+            ...usdtToken,
+            balance: usdtDecimalBalance,
+            string: stringifyBalance(
+              new BN(usdtDecimalBalance),
+              new BN(usdtToken.decimals),
+            ),
+          });
+        }
+      }
+
       return {
         chainId: singleChain,
         tokensWithBalances,

@@ -526,63 +526,66 @@ export const getMultichainNetworkConfigurationsByChainId = (
 ): Record<Hex | CaipChainId, NetworkConfiguration> => {
   return {
     ...getNetworkConfigurationsByChainId(state),
-    [MultichainNetworks.SOLANA]: {
-      ...MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.SOLANA],
-      blockExplorerUrls: [],
-      name:
-        MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.SOLANA].nickname ?? '',
-      nativeCurrency: 'sol',
-      rpcEndpoints: [
-        { url: '', type: RpcEndpointType.Custom, networkClientId: '' },
-      ],
-      defaultRpcEndpointIndex: 0,
-      chainId: MultichainNetworks.SOLANA as unknown as Hex,
-    },
-    [MultichainNetworks.BITCOIN]: {
-      ...MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN],
-      blockExplorerUrls: [],
-      name:
-        MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN].nickname ?? '',
-      nativeCurrency: 'BTC',
-      rpcEndpoints: [
-        { url: '', type: RpcEndpointType.Custom, networkClientId: '' },
-      ],
-      defaultRpcEndpointIndex: 0,
-      chainId: MultichainNetworks.BITCOIN as unknown as Hex,
-    },
-    [MultichainNetworks.BITCOIN_TESTNET]: {
-      ...MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN_TESTNET],
-      blockExplorerUrls: [],
-      name:
-        MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN_TESTNET]
-          .nickname ?? '',
-      nativeCurrency: 'tBTC',
-      rpcEndpoints: [
-        { url: '', type: RpcEndpointType.Custom, networkClientId: '' },
-      ],
-      defaultRpcEndpointIndex: 0,
-      chainId: MultichainNetworks.BITCOIN_TESTNET as unknown as Hex,
-    },
-    [MultichainNetworks.BITCOIN_SIGNET]: {
-      ...MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN_SIGNET],
-      blockExplorerUrls: [],
-      name:
-        MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN_SIGNET]
-          .nickname ?? '',
-      nativeCurrency: 'sBTC',
-      rpcEndpoints: [
-        { url: '', type: RpcEndpointType.Custom, networkClientId: '' },
-      ],
-      defaultRpcEndpointIndex: 0,
-      chainId: MultichainNetworks.BITCOIN_SIGNET as unknown as Hex,
-    },
+    // [MultichainNetworks.SOLANA]: {
+    //   ...MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.SOLANA],
+    //   blockExplorerUrls: [],
+    //   name:
+    //     MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.SOLANA].nickname ?? '',
+    //   nativeCurrency: 'sol',
+    //   rpcEndpoints: [
+    //     { url: '', type: RpcEndpointType.Custom, networkClientId: '' },
+    //   ],
+    //   defaultRpcEndpointIndex: 0,
+    //   chainId: MultichainNetworks.SOLANA as unknown as Hex,
+    // },
+    // [MultichainNetworks.BITCOIN]: {
+    //   ...MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN],
+    //   blockExplorerUrls: [],
+    //   name:
+    //     MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN].nickname ?? '',
+    //   nativeCurrency: 'BTC',
+    //   rpcEndpoints: [
+    //     { url: '', type: RpcEndpointType.Custom, networkClientId: '' },
+    //   ],
+    //   defaultRpcEndpointIndex: 0,
+    //   chainId: MultichainNetworks.BITCOIN as unknown as Hex,
+    // },
+    // [MultichainNetworks.BITCOIN_TESTNET]: {
+    //   ...MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN_TESTNET],
+    //   blockExplorerUrls: [],
+    //   name:
+    //     MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN_TESTNET]
+    //       .nickname ?? '',
+    //   nativeCurrency: 'tBTC',
+    //   rpcEndpoints: [
+    //     { url: '', type: RpcEndpointType.Custom, networkClientId: '' },
+    //   ],
+    //   defaultRpcEndpointIndex: 0,
+    //   chainId: MultichainNetworks.BITCOIN_TESTNET as unknown as Hex,
+    // },
+    // [MultichainNetworks.BITCOIN_SIGNET]: {
+    //   ...MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN_SIGNET],
+    //   blockExplorerUrls: [],
+    //   name:
+    //     MULTICHAIN_PROVIDER_CONFIGS[MultichainNetworks.BITCOIN_SIGNET]
+    //       .nickname ?? '',
+    //   nativeCurrency: 'sBTC',
+    //   rpcEndpoints: [
+    //     { url: '', type: RpcEndpointType.Custom, networkClientId: '' },
+    //   ],
+    //   defaultRpcEndpointIndex: 0,
+    //   chainId: MultichainNetworks.BITCOIN_SIGNET as unknown as Hex,
+    // },
   };
 };
 
 export const getMemoizedMultichainNetworkConfigurationsByChainId =
   createDeepEqualSelector(
     [getMultichainNetworkConfigurationsByChainId],
-    (networkConfigurations) => networkConfigurations,
+    (networkConfigurations) => {
+      console.log(networkConfigurations, ' /networkConfigurations');
+    },
+    // networkConfigurations,
   );
 
 export function getLastSelectedNonEvmAccount(state: MultichainState) {

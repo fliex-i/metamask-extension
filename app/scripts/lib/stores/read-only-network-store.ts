@@ -79,6 +79,7 @@ export default class ReadOnlyNetworkStore implements BaseStore {
     if (!this.#initialized) {
       await this.#initializing;
     }
+    console.log(data, '/data');
     this.#state = data;
   }
 

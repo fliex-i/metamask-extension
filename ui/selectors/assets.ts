@@ -154,7 +154,7 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
 
           const tokenFiatAmount = calculateTokenFiatAmount({
             token,
-            chainId,
+            chainId: chainId as Hex,
             balance,
             marketData,
             currencyRates,
@@ -199,6 +199,55 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
         });
       },
     );
+    // 自动补全主流链USDT
+    const USDT_TOKEN_MAP: Record<
+      string,
+      { address: string; symbol: string; decimals: number }
+    > = {
+      '0x1': {
+        address: 'dAC17F958D2ee523a2206206994597C13D831ec7',
+        symbol: 'USDT',
+        decimals: 6,
+      },
+    };
+    Object.entries(USDT_TOKEN_MAP).forEach(([chainId, usdt]) => {
+      const exists = tokensWithBalance.some(
+        (t) =>
+          t.chainId === chainId &&
+          t.address?.toLowerCase() === `0x${usdt.address}`.toLowerCase(),
+      );
+      const usdtBalance =
+        selectedAccountTokenBalancesAcrossChains?.[chainId]?.[usdt.address] ??
+        '0';
+      //  && (usdtBalance !== '0' || !hideZeroBalanceTokens)
+      if (!exists) {
+        const tokenFiatAmount = calculateTokenFiatAmount({
+          token: {
+            ...usdt,
+            isNative: false,
+            image: '', // or provide a valid image URL if available
+            chainId: chainId as Hex,
+          },
+          chainId,
+          balance: usdtBalance,
+          marketData,
+          currencyRates,
+        });
+        tokensWithBalance.push({
+          address: usdt.address,
+          symbol: usdt.symbol,
+          decimals: usdt.decimals,
+          isNative: false,
+          chainId: chainId as Hex,
+          balance: usdtBalance,
+          string: String(usdtBalance),
+          tokenFiatAmount,
+          primary: '',
+          secondary: 0,
+          title: usdt.symbol,
+        });
+      }
+    });
     return tokensWithBalance;
   },
 );

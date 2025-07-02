@@ -70,7 +70,6 @@ export const getMultichainAccountsRemoteFeatureFlags = (
 ) => {
   const multichainAccountsFeatureFlags =
     getRemoteFeatureFlags(state).enableMultichainAccounts;
-
   try {
     assert(multichainAccountsFeatureFlags, MultichainAccountsFeatureFlag);
   } catch (error) {

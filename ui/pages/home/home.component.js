@@ -829,8 +829,8 @@ export default class Home extends PureComponent {
       !showWhatsNew &&
       !showMultiRpcEditModal;
 
-    const showTermsOfUse =
-      completedOnboarding && !onboardedInThisUISession && showTermsOfUsePopup;
+    // const showTermsOfUse =
+    //   completedOnboarding && !onboardedInThisUISession && showTermsOfUsePopup;
 
     return (
       <div className="main-container main-container--has-shadow">
@@ -872,7 +872,7 @@ export default class Home extends PureComponent {
               useExternalServices={useExternalServices}
               setBasicFunctionalityModalOpen={setBasicFunctionalityModalOpen}
             ></AccountOverview>
-            {
+            {/* {
               ///: BEGIN:ONLY_INCLUDE_IF(build-beta)
               <div className="home__support">
                 <BetaHomeFooter />
@@ -885,7 +885,7 @@ export default class Home extends PureComponent {
                 <FlaskHomeFooter />
               </div>
               ///: END:ONLY_INCLUDE_IF
-            }
+            } */}
           </div>
           {this.renderNotifications()}
         </div>

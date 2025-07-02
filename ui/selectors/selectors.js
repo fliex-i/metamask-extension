@@ -37,6 +37,7 @@ import {
   getProviderConfig,
   getSelectedNetworkClientId,
   getNetworkConfigurationsByChainId,
+  // filterNetworkConfigurationsByWhitelist,
 } from '../../shared/modules/selectors/networks';
 // TODO: Remove restricted import
 // eslint-disable-next-line import/no-restricted-paths
@@ -82,7 +83,6 @@ import {
 import { KeyringType } from '../../shared/constants/keyring';
 
 import { TRUNCATED_NAME_CHAR_LIMIT } from '../../shared/constants/labels';
-
 import {
   SWAPS_CHAINID_DEFAULT_TOKEN_MAP,
   ALLOWED_PROD_SWAPS_CHAIN_IDS,
@@ -2344,6 +2344,7 @@ export function getSortedAnnouncementsToShow(state) {
  * @param state
  * @returns {{networkId: string}[]}
  */
+
 export function getOrderedNetworksList(state) {
   return state.metamask.orderedNetworkList;
 }

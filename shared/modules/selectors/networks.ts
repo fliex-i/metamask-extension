@@ -18,6 +18,7 @@ import {
 } from '../../constants/network';
 import { hexToDecimal } from '../conversion.utils';
 import { SOLANA_TEST_CHAINS } from '../../constants/multichain/networks';
+// TODO: Update the import path below if the file location is different
 import { createDeepEqualSelector } from './util';
 
 export type NetworkState = {
@@ -64,11 +65,24 @@ export type EvmAndMultichainNetworkConfigurationsWithCaipChainId = (
 ) & {
   caipChainId: CaipChainId;
 };
+export const ALLOWED_CHAIN_IDS = [1].map(
+  (_chainId) => `0x${hexToDecimal(_chainId)}`,
+);
+export const filterNetworkConfigurationsByWhiteList = (
+  networksObj: Record<string, InternalNetworkConfiguration>,
+) => {
+  return Object.fromEntries(
+    Object.entries(networksObj).filter(([chainId]) =>
+      ALLOWED_CHAIN_IDS.includes(chainId),
+    ),
+  );
+};
 
 export const getNetworkConfigurationsByChainId = createDeepEqualSelector(
   (state: NetworkConfigurationsByChainIdState) =>
     state.metamask.networkConfigurationsByChainId,
-  (networkConfigurationsByChainId) => networkConfigurationsByChainId,
+  (networkConfigurationsByChainId) =>
+    filterNetworkConfigurationsByWhiteList(networkConfigurationsByChainId),
 );
 
 export function getSelectedNetworkClientId(

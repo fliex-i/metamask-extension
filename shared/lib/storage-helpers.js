@@ -7,6 +7,7 @@ export async function getStorageItem(key) {
       return undefined;
     }
 
+    console.log(JSON.parse(serializedData), 'get strong chains');
     return JSON.parse(serializedData);
   } catch (err) {
     return undefined;
