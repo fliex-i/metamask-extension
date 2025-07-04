@@ -1,6 +1,8 @@
 // TODO: Remove restricted import
 // eslint-disable-next-line import/no-restricted-paths
 import enTranslations from '../../app/_locales/en/messages.json';
+// eslint-disable-next-line import/no-restricted-paths
+import jaTranslations from '../../app/_locales/ja/messages.json';
 import {
   FALLBACK_LOCALE,
   I18NMessageDict,
@@ -25,11 +27,16 @@ export async function updateCurrentLocale(locale: string): Promise<void> {
   currentLocale = locale;
 }
 
+export const localMessages: { [key: string]: I18NMessageDict } = {
+  en: enTranslations,
+  ja: jaTranslations,
+};
+
 export function t(key: string, ...substitutions: string[]): string | null {
   return (
     // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
     // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-    getMessage(currentLocale, translations, key, substitutions) ||
-    getMessage(FALLBACK_LOCALE, enTranslations, key, substitutions)
+    getMessage(currentLocale, translations, key, substitutions)
+    // getMessage(FALLBACK_LOCALE, enTranslations, key, substitutions)
   );
 }

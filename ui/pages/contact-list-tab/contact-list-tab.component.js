@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import ContactList from '../../../components/app/contact-list';
+import ContactList from '../../components/app/contact-list';
 import {
   CONTACT_ADD_ROUTE,
   CONTACT_LIST_ROUTE,
   CONTACT_VIEW_ROUTE,
-} from '../../../helpers/constants/routes';
+} from '../../helpers/constants/routes';
 import {
   getNumberOfSettingRoutesInTab,
   handleSettingsRefs,
-} from '../../../helpers/utils/settings-search';
+} from '../../helpers/utils/settings-search';
 import {
   ButtonPrimary,
   Icon,
   IconName,
   IconSize,
-} from '../../../components/component-library';
-import { IconColor, Size } from '../../../helpers/constants/design-system';
+} from '../../components/component-library';
+import { IconColor, Size } from '../../helpers/constants/design-system';
 import EditContact from './edit-contact';
 import AddContact from './add-contact';
 import ViewContact from './view-contact';

@@ -228,7 +228,7 @@ export const AccountListMenu = ({
     <AccountMenu onClose={onClose} showAccountCreation={showAccountCreation}>
       <>
         {/* Search box */}
-        {filteredAccounts.length > 1 ? (
+        {/* {filteredAccounts.length > 1 ? (
           <Box
             paddingLeft={4}
             paddingRight={4}
@@ -252,7 +252,7 @@ export const AccountListMenu = ({
               className=""
             />
           </Box>
-        ) : null}
+        ) : null} */}
         {/* Account list block */}
         <Box className="multichain-account-menu-popover__list">
           {searchResults.length === 0 && searchQuery !== '' ? (

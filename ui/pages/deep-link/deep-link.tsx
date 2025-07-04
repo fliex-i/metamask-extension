@@ -181,7 +181,10 @@ export const DeepLink = () => {
     >
       <>
         <Box display={Display.Flex} flexDirection={FlexDirection.Column}>
-          <img className="loading-logo" src="./images/logo/metamask-fox.svg" />
+          <img
+            className="loading-logo"
+            src="./images/cryptobridge/logo-3d.png"
+          />
           {isLoading && (
             <img
               data-testid="loading-indicator"

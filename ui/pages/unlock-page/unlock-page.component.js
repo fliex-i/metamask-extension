@@ -269,7 +269,12 @@ export default class UnlockPage extends Component {
               marginBottom={isBeta() || isFlask() ? 6 : 0}
               className="unlock-page__mascot-container"
             >
-              {this.renderMascot()}
+              {/* {this.renderMascot()} */}
+              <img
+                src="./images/cryptobridge/logo-3d.png"
+                width="170"
+                height="auto"
+              />
               {isBeta() ? (
                 <Box className="unlock-page__mascot-container__beta">
                   {t('beta')}
@@ -349,34 +354,6 @@ export default class UnlockPage extends Component {
               >
                 {t('forgotPassword')}
               </ButtonLink>
-            </Box>
-            <Box marginTop={6} className="unlock-page__support">
-              {t('needHelp', [
-                <a
-                  href={SUPPORT_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key="need-help-link"
-                  onClick={() => {
-                    this.context.trackEvent(
-                      {
-                        category: MetaMetricsEventCategory.Navigation,
-                        event: MetaMetricsEventName.SupportLinkClicked,
-                        properties: {
-                          url: SUPPORT_LINK,
-                        },
-                      },
-                      {
-                        contextPropsIntoEventProperties: [
-                          MetaMetricsContextProp.PageTitle,
-                        ],
-                      },
-                    );
-                  }}
-                >
-                  {needHelpText}
-                </a>,
-              ])}
             </Box>
           </Box>
         </Box>

@@ -5,14 +5,14 @@ import {
   addToAddressBook,
   showQrScanner,
   qrCodeDetected,
-} from '../../../../store/actions';
-import { getQrCodeData } from '../../../../ducks/app/app';
+} from '../../../store/actions';
+import { getQrCodeData } from '../../../ducks/app/app';
 import {
   getDomainError,
   getDomainResolutions,
   resetDomainResolution,
-} from '../../../../ducks/domains';
-import { getAddressBook, getInternalAccounts } from '../../../../selectors';
+} from '../../../ducks/domains';
+import { getAddressBook, getInternalAccounts } from '../../../selectors';
 import AddContact from './add-contact.component';
 
 const mapStateToProps = (state) => {

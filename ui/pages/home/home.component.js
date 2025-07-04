@@ -88,7 +88,6 @@ function shouldCloseNotificationPopup({
     totalUnapprovedCount === 0 &&
     !hasApprovalFlows &&
     !isSigningQRHardwareTransaction;
-
   return shouldClose;
 }
 

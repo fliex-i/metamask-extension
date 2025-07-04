@@ -12,7 +12,14 @@ const TipsBank = () => {
         <div>{t('tipsBank')}</div>
       </div>
       <div className="tips-bank-des">
-        <div className="tips-bank-start">{t('startNow')}</div>
+        <div
+          onClick={() => {
+            window.open('https://dapp.jdbbanktest.xyz/login/', '_blank');
+          }}
+          className="tips-bank-start"
+        >
+          {t('startNow')}
+        </div>
       </div>
     </div>
   );

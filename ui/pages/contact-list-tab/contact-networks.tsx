@@ -6,7 +6,7 @@ import {
   FlexDirection,
   BlockSize,
   TextVariant,
-} from '../../../helpers/constants/design-system';
+} from '../../helpers/constants/design-system';
 
 import {
   ModalOverlay,
@@ -16,14 +16,14 @@ import {
   Box,
   Text,
   AvatarNetworkSize,
-} from '../../../components/component-library';
+} from '../../components/component-library';
 
-import { getNetworkConfigurationsByChainId } from '../../../../shared/modules/selectors/networks';
-import { TEST_CHAINS } from '../../../../shared/constants/network';
-import { useI18nContext } from '../../../hooks/useI18nContext';
-import { NETWORK_TO_SHORT_NETWORK_NAME_MAP } from '../../../../shared/constants/bridge';
-import { NetworkListItem } from '../../../components/multichain';
-import { getImageForChainId } from '../../../selectors/multichain';
+import { getNetworkConfigurationsByChainId } from '../../../shared/modules/selectors/networks';
+import { TEST_CHAINS } from '../../../shared/constants/network';
+import { useI18nContext } from '../../hooks/useI18nContext';
+import { NETWORK_TO_SHORT_NETWORK_NAME_MAP } from '../../../shared/constants/bridge';
+import { NetworkListItem } from '../../components/multichain';
+import { getImageForChainId } from '../../selectors/multichain';
 
 export const ContactNetworks = ({
   isOpen,

@@ -2,10 +2,10 @@ import React from 'react';
 import { fireEvent } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { renderWithProvider } from '../../../../../test/lib/render-helpers';
+import { renderWithProvider } from '../../../../test/lib/render-helpers';
 import '@testing-library/jest-dom';
-import { MOCK_ADDRESS_BOOK } from '../../../../../test/data/mock-data';
-import { createMockInternalAccount } from '../../../../../test/jest/mocks';
+import { MOCK_ADDRESS_BOOK } from '../../../../test/data/mock-data';
+import { createMockInternalAccount } from '../../../../test/jest/mocks';
 import EditContact from './edit-contact.component';
 
 describe('AddContact component', () => {

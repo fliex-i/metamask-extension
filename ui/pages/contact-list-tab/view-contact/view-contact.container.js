@@ -4,12 +4,12 @@ import { withRouter } from 'react-router-dom';
 import {
   getAddressBookEntry,
   getInternalAccountByAddress,
-} from '../../../../selectors';
+} from '../../../selectors';
 import {
   CONTACT_EDIT_ROUTE,
   CONTACT_LIST_ROUTE,
-} from '../../../../helpers/constants/routes';
-import { toChecksumHexAddress } from '../../../../../shared/modules/hexstring-utils';
+} from '../../../helpers/constants/routes';
+import { toChecksumHexAddress } from '../../../../shared/modules/hexstring-utils';
 import ViewContact from './view-contact.component';
 
 const mapStateToProps = (state, ownProps) => {

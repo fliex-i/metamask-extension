@@ -3652,9 +3652,6 @@
   "noThanks": {
     "message": "No thanks"
   },
-  "noTransactions": {
-    "message": "You have no transactions"
-  },
   "noWebcamFound": {
     "message": "Your computer's webcam was not found. Please try again."
   },
@@ -7202,7 +7199,58 @@
   "bankBtn3": {
     "message": "Skip – I won't use fiat-to-crypto features"
   },
-  "noTrastions": {
+  "noTransactions": {
     "message": "No transactions yet"
+  },
+  "lockNow": {
+    "message": "Lock now"
+  },
+  "blankAccount":{
+    "message":"Bank Account"
+  },
+  "addressBook": {
+    "message": "Address Book"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "defaultCurrency": {
+    "message": "Default Currency"
+  },
+  "language": {
+    "message": "Language"
+  },
+  "Security": {
+    "message": "Security"
+  },
+  "autoLock": {
+    "message": "Auto-lock"
+  },
+  "changePassword": {
+    "message": "Change Password"
+  },
+  "protection": {
+    "message": "Protection"
+  },
+  "resources": {
+    "message": "Resources"
+  },
+  "customerSupport": {
+    "message": "Customer Support"
+  },
+  "submitFeedback": {
+    "message": "Submit Feedback"
+  },
+  "termC": {
+    "message": "Terms and Conditions"
+  },
+  "privacyPolicy": {
+    "message": "Privacy Policy"
+  },
+  "userManual": {
+    "message": "User Manual"
+  },
+  "FAQ": {
+    "message": "FAQ"
   }
 }

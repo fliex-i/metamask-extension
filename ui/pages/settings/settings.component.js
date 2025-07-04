@@ -54,7 +54,7 @@ import SettingsTab from './settings-tab';
 import AdvancedTab from './advanced-tab';
 import InfoTab from './info-tab';
 import SecurityTab from './security-tab';
-import ContactListTab from './contact-list-tab';
+import ContactListTab from '../contact-list-tab';
 import DeveloperOptionsTab from './developer-options-tab';
 import ExperimentalTab from './experimental-tab';
 import SettingsSearch from './settings-search';

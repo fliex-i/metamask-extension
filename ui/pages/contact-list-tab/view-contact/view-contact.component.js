@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-import Button from '../../../../components/ui/button/button.component';
+import Button from '../../../components/ui/button/button.component';
 
 import {
   AvatarAccount,
@@ -12,15 +12,15 @@ import {
   ButtonIconSize,
   IconName,
   Text,
-} from '../../../../components/component-library';
+} from '../../../components/component-library';
 
-import Tooltip from '../../../../components/ui/tooltip';
-import { useI18nContext } from '../../../../hooks/useI18nContext';
-import { useCopyToClipboard } from '../../../../hooks/useCopyToClipboard';
+import Tooltip from '../../../components/ui/tooltip';
+import { useI18nContext } from '../../../hooks/useI18nContext';
+import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard';
 import {
   IconColor,
   TextVariant,
-} from '../../../../helpers/constants/design-system';
+} from '../../../helpers/constants/design-system';
 
 function quadSplit(address) {
   return `0x${address

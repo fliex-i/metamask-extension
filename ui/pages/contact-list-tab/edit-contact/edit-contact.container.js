@@ -6,20 +6,20 @@ import {
   getAddressBookEntry,
   getInternalAccountByAddress,
   getInternalAccounts,
-} from '../../../../selectors';
+} from '../../../selectors';
 import {
   getNetworkConfigurationsByChainId,
   getProviderConfig,
-} from '../../../../../shared/modules/selectors/networks';
+} from '../../../../shared/modules/selectors/networks';
 import {
   CONTACT_VIEW_ROUTE,
   CONTACT_LIST_ROUTE,
-} from '../../../../helpers/constants/routes';
+} from '../../../helpers/constants/routes';
 import {
   addToAddressBook,
   removeFromAddressBook,
   toggleNetworkMenu,
-} from '../../../../store/actions';
+} from '../../../store/actions';
 import EditContact from './edit-contact.component';
 
 const mapStateToProps = (state, ownProps) => {

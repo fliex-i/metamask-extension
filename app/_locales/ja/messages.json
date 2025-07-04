@@ -3476,9 +3476,6 @@
   "noThanks": {
     "message": "結構です"
   },
-  "noTransactions": {
-    "message": "トランザクションがありません"
-  },
   "noWebcamFound": {
     "message": "お使いのコンピューターのWebカメラが見つかりませんでした。もう一度お試しください。"
   },
@@ -6761,7 +6758,79 @@
   "bankBtn3": {
     "message": "法定通貨で暗号通貨を購入する必要はありません"
   },
-  "noTrastions": {
+  "noTransactions": {
     "message": "まだ取引がありません"
+   },
+  "noticesModalTitle": {
+    "message": "プッシュ通知を有効にする"
+  },
+  "noticesModalDesc": {
+    "message": "プッシュ通知を許可すると、アカウント活動のアラートを端末で直接受信できます"
+  },
+  "noticesModalItem1Title": {
+    "message": "送金完了"
+  },
+  "noticesModalItem1Desc": {
+    "message": "アカウント1から10 USDTを送金しました"
+  },
+  "noticesModalNow": {
+    "message": "今すぐ"
+  },
+  "noticesModalItem2Title": {
+    "message": "受取完了"
+  },
+  "noticesModalItem2Desc": {
+    "message": "アカウント2が10 USDTを受取りました"
+  },
+  "lockNow": {
+    "message": "今すぐロック"
+  },
+  "blankAccount": {
+    "message": "銀行口座"
+  },
+  "addressBook": {
+    "message": "アドレス帳"
+  },
+  "preferences": {
+    "message": "設定"
+  },
+  "defaultCurrency": {
+    "message": "既定の通貨"
+  },
+  "language": {
+    "message": "言語"
+  },
+  "Security": {
+    "message": "セキュリティ"
+  },
+  "autoLock": {
+    "message": "自動ロック"
+  },
+  "changePassword": {
+    "message": "パスワード変更"
+  },
+  "protection": {
+    "message": "保護"
+  },
+  "resources": {
+    "message": "リソース"
+  },
+  "customerSupport": {
+    "message": "カスタマーサポート"
+  },
+  "submitFeedback": {
+    "message": "フィードバックを送信"
+  },
+  "termC": {
+    "message": "利用規約"
+  },
+  "privacyPolicy": {
+    "message": "プライバシーポリシー"
+  },
+  "userManual": {
+    "message": "ユーザーマニュアル"
+  },
+  "FAQ": {
+    "message": "よくある質問"
   }
 }

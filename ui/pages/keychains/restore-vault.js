@@ -72,40 +72,7 @@ class RestoreVaultPage extends Component {
             <Text color={TextColor.textDefault}>
               {t('resetWalletSubHeader')}
             </Text>
-            <Text color={TextColor.textDefault} marginTop={4} marginBottom={4}>
-              {t('resetWalletUsingSRP', [
-                <Button
-                  type="link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={ZENDESK_URLS.ADD_MISSING_ACCOUNTS}
-                  key="import-account-secretphase"
-                  className="import-account__link"
-                >
-                  {t('reAddAccounts')}
-                </Button>,
-                <Button
-                  type="link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={ZENDESK_URLS.IMPORT_ACCOUNTS}
-                  key="import-account-reimport-accounts"
-                  className="import-account__link"
-                >
-                  {t('reAdded')}
-                </Button>,
-                <Button
-                  type="link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={ZENDESK_URLS.ADD_CUSTOM_TOKENS}
-                  key="import-account-readd-tokens"
-                  className="import-account__link"
-                >
-                  {t('reAdded')}
-                </Button>,
-              ])}
-            </Text>
+
             <Text color={TextColor.textDefault} margin={0} marginBottom={4}>
               {t('resetWalletWarning')}
             </Text>

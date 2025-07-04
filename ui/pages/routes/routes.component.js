@@ -53,6 +53,7 @@ import {
   IMPORT_SRP_ROUTE,
   DEFI_ROUTE,
   DEEP_LINK_ROUTE,
+  CONTACT_LIST_ROUTE,
 } from '../../helpers/constants/routes';
 
 import {
@@ -149,6 +150,7 @@ const RemoteModeSetupSwaps = mmLazy(() =>
 const RemoteModeSetupDailyAllowance = mmLazy(() =>
   import('../remote-mode/setup/setup-daily-allowance'),
 );
+const ContactList = mmLazy(() => import('../contact-list-tab'));
 const DeepLink = mmLazy(() => import('../deep-link/deep-link'));
 // End Lazy Routes
 
@@ -305,6 +307,7 @@ export default class Routes extends Component {
             component={RestoreVaultPage}
             exact
           />
+
           <Authenticated
             // `:keyringId` is optional here, if not provided, this will fallback
             // to the main seed phrase.
@@ -313,6 +316,7 @@ export default class Routes extends Component {
           />
           <Authenticated path={IMPORT_SRP_ROUTE} component={ImportSrpPage} />
           <Authenticated path={SETTINGS_ROUTE} component={Settings} />
+          <Authenticated path={CONTACT_LIST_ROUTE} component={ContactList} />
           <Authenticated
             path={NOTIFICATIONS_SETTINGS_ROUTE}
             component={NotificationsSettings}

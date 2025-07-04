@@ -5,13 +5,13 @@ import {
   getAddressBook,
   getCompleteAddressBook,
   getInternalAccounts,
-} from '../../../selectors';
+} from '../../selectors';
 
 import {
   CONTACT_ADD_ROUTE,
   CONTACT_EDIT_ROUTE,
   CONTACT_VIEW_ROUTE,
-} from '../../../helpers/constants/routes';
+} from '../../helpers/constants/routes';
 import ContactListTab from './contact-list-tab.component';
 
 const mapStateToProps = (state, ownProps) => {

@@ -60,19 +60,19 @@ PATH_NAME_MAP.set(
   'Add Network From A List Of Popular Custom Networks',
 );
 
-export const CONTACT_LIST_ROUTE = '/settings/contact-list';
+export const CONTACT_LIST_ROUTE = '/contact-list';
 PATH_NAME_MAP.set(CONTACT_LIST_ROUTE, 'Contact List Settings Page');
 
-export const CONTACT_EDIT_ROUTE = '/settings/contact-list/edit-contact';
+export const CONTACT_EDIT_ROUTE = '/contact-list/edit-contact';
 PATH_NAME_MAP.set(
   `${CONTACT_EDIT_ROUTE}/:address`,
   'Edit Contact Settings Page',
 );
 
-export const CONTACT_ADD_ROUTE = '/settings/contact-list/add-contact';
+export const CONTACT_ADD_ROUTE = '/contact-list/add-contact';
 PATH_NAME_MAP.set(CONTACT_ADD_ROUTE, 'Add Contact Settings Page');
 
-export const CONTACT_VIEW_ROUTE = '/settings/contact-list/view-contact';
+export const CONTACT_VIEW_ROUTE = '/contact-list/view-contact';
 PATH_NAME_MAP.set(
   `${CONTACT_VIEW_ROUTE}/:address`,
   'View Contact Settings Page',

@@ -8,19 +8,19 @@ import React, {
 import PropTypes from 'prop-types';
 import { debounce } from 'lodash';
 import { useSelector } from 'react-redux';
-import TextField from '../../../../components/ui/text-field';
-import { CONTACT_LIST_ROUTE } from '../../../../helpers/constants/routes';
-import { isValidDomainName } from '../../../../helpers/utils/util';
-import DomainInput from '../../../confirmations/send/send-content/add-recipient/domain-input';
-import PageContainerFooter from '../../../../components/ui/page-container/page-container-footer';
+import TextField from '../../../components/ui/text-field';
+import { CONTACT_LIST_ROUTE } from '../../../helpers/constants/routes';
+import { isValidDomainName } from '../../../helpers/utils/util';
+import DomainInput from '../../confirmations/send/send-content/add-recipient/domain-input';
+import PageContainerFooter from '../../../components/ui/page-container/page-container-footer';
 import {
   isBurnAddress,
   isValidHexAddress,
-} from '../../../../../shared/modules/hexstring-utils';
-import { INVALID_RECIPIENT_ADDRESS_ERROR } from '../../../confirmations/send/send.constants';
-import { DomainInputResolutionCell } from '../../../../components/multichain/pages/send/components';
-import { isDuplicateContact } from '../../../../components/app/contact-list/utils';
-import { I18nContext } from '../../../../contexts/i18n';
+} from '../../../../shared/modules/hexstring-utils';
+import { INVALID_RECIPIENT_ADDRESS_ERROR } from '../../confirmations/send/send.constants';
+import { DomainInputResolutionCell } from '../../../components/multichain/pages/send/components';
+import { isDuplicateContact } from '../../../components/app/contact-list/utils';
+import { I18nContext } from '../../../contexts/i18n';
 import {
   AvatarNetwork,
   AvatarNetworkSize,
@@ -29,7 +29,7 @@ import {
   IconName,
   IconSize,
   Text,
-} from '../../../../components/component-library';
+} from '../../../components/component-library';
 import {
   AlignItems,
   BackgroundColor,
@@ -38,12 +38,12 @@ import {
   Display,
   IconColor,
   JustifyContent,
-} from '../../../../helpers/constants/design-system';
-import { getImageForChainId } from '../../../../selectors/multichain';
+} from '../../../helpers/constants/design-system';
+import { getImageForChainId } from '../../../selectors/multichain';
 import {
   getCurrentChainId,
   getNetworkConfigurationsByChainId,
-} from '../../../../../shared/modules/selectors/networks';
+} from '../../../../shared/modules/selectors/networks';
 import { ContactNetworks } from '../contact-networks';
 
 const AddContact = ({

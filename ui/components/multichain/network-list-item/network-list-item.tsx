@@ -232,7 +232,7 @@ export const NetworkListItem = ({
         )}
       </Box>
 
-      {renderButton()}
+      {/* {renderButton()} */}
       {showEndAccessory
         ? endAccessory ?? (
             <NetworkListItemMenu
