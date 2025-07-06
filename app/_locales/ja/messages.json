@@ -4686,6 +4686,19 @@
   "secureWallet": {
     "message": "安全なウォレット"
   },
+  "secureWalletGetStartedButton": {
+    "message": "はじめる"
+  },
+  "secureWalletRemindLaterButton": {
+    "message": "あとで通知する"
+  },
+  "secureWalletWalletRecover": {
+    "message": "アプリにログインできなくなった場合や新しい端末を利用する際に、ウォレットを回復する唯一の方法です。"
+  },
+  "secureWalletWalletSaveSrp": {
+    "message": "資金を失うリスクを避けるために、信頼できる場所に$1を保管してウォレットを保護しましょう。",
+    "description": "$1は「秘密のリカバリーフレーズ」ボタンテキスト"
+  },
   "security": {
     "message": "セキュリティ"
   },
@@ -4726,24 +4739,23 @@
     "message": "シークレットリカバリーフレーズは、12、15、18、21、24語で構成されます"
   },
   "seedPhraseReviewDetails": {
-    "message": "シークレットリカバリーフレーズは絶対に他人と共有しないでください。このフレーズにアクセスできる人は、あなたの資金を管理することができます。",
-    "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
+    "message": "シークレットリカバリーフレーズは絶対に他人と共有しないでください。このフレーズにアクセスできる人は、あなたの資金を管理することができます。"
+
   },
   "seedPhraseReviewDetails1": {
-    "message": "このシークレットリカバリーフレーズをオンラインやスマートフォンに保存しないでください。これらはハッカー攻撃に対して脆弱です。",
-    "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
+    "message": "このシークレットリカバリーフレーズをオンラインやスマートフォンに保存しないでください。これらはハッカー攻撃に対して脆弱です。"
+
   },
   "seedPhraseReviewDetails2": {
-    "message": "紙に書き留め、オフラインの安全な場所に保管してください。",
-    "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
+    "message": "紙に書き留め、オフラインの安全な場所に保管してください。"
+
   },
   "seedPhraseReviewDetails3": {
-    "message": "CryptoBridge のスタッフがこのフレーズを尋ねることは決してありません。",
-    "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
+    "message": "CryptoBridge のスタッフがこのフレーズを尋ねることは決してありません。"
+
   },
   "seedPhraseReviewDetails4": {
-    "message": "将来、ウォレットを再インポートする必要がある場合に備えて、このシークレットリカバリーフレーズを安全に保管してください。",
-    "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
+    "message": "将来、ウォレットを再インポートする必要がある場合に備えて、このシークレットリカバリーフレーズを安全に保管してください。"
   },
   "seedPhraseReviewTitle": {
     "message": "シークレットリカバリーフレーズを保存する"
@@ -5468,6 +5480,9 @@
   },
   "srpSecurityQuizGetStarted": {
     "message": "開始"
+  },
+    "welcomeGetStarted": {
+    "message": "始める"
   },
   "srpSecurityQuizImgAlt": {
     "message": "目の中央に鍵穴があり、3つのパスワード入力欄がフローティング表示されている画像"
