@@ -1586,9 +1586,6 @@
   "customTokenWarningInTokenDetectionNetworkWithTDOFF": {
     "message": "Make sure you trust a token before you import it. Learn how to avoid $1. You can also enable token detection $2."
   },
-  "customerSupport": {
-    "message": "customer support"
-  },
   "customizeYourNotifications": {
     "message": "Customize your notifications"
   },

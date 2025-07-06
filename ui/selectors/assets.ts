@@ -22,6 +22,9 @@ import { calculateTokenFiatAmount } from '../components/app/assets/util/calculat
 import { getTokenBalances } from '../ducks/metamask/metamask';
 import { findAssetByAddress } from '../pages/asset/util';
 import { addImportedTokens } from '../store/actions';
+import { useCurrentPrice } from '../pages/asset/hooks/useCurrentPrice';
+import { Asset } from '../pages/asset/types/asset';
+import { AssetType } from '../../shared/constants/transaction';
 import { getSelectedInternalAccount } from './accounts';
 import { getMultichainBalances, getMultichainIsEvm } from './multichain';
 import {
@@ -183,6 +186,14 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
             currencyRates,
           });
 
+          const asset: Asset = {
+            type: AssetType.token,
+            ...token,
+            chainId: chainId as Hex, // Ensure chainId is of type `0x${string}`
+          };
+          console.log(asset, '/asset');
+          // const { currentPrice } = useCurrentPrice(asset);
+
           // Respect the "hide zero balance" setting (when true):
           // - Native tokens should always display with zero balance when on the current network filter.
           // - Native tokens should not display with zero balance when on all networks filter
@@ -217,65 +228,13 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
               primary: '',
               secondary: 0,
               title,
+              currentPrice,
             });
           }
         });
       },
     );
-
-    // 自动补全主流链USDT
-    // const USDT_TOKEN_MAP: Record<string, Token> = {
-    //   '0x1': {
-    //     address: '0xdAC17F958D2ee523a2206206994597C13D831ec7', // EVM address only
-    //     symbol: 'USDT',
-    //     decimals: 6,
-    //     image: '', // Provide a valid image URL if available
-    //     chainId: '0x1',
-    //     isNative: false,
-    //   },
-    // };
-    // Object.entries(USDT_TOKEN_MAP).forEach(async ([chainId, usdt]) => {
-    //   const exists = tokensWithBalance.some(
-    //     (t) =>
-    //       t.chainId === chainId &&
-    //       t.address?.toLowerCase() === usdt.address.toLowerCase(),
-    //   );
-    //   const usdtBalance =
-    //     selectedAccountTokenBalancesAcrossChains?.[chainId]?.[usdt.address] ??
-    //     '0';
-    //   //  && (usdtBalance !== '0' || !hideZeroBalanceTokens)
-    //   if (!exists) {
-    //     // handleAddImportedTokens(params.token, chainId);
-
-    //     const tokenFiatAmount = calculateTokenFiatAmount({
-    //       token: {
-    //         ...usdt,
-    //         isNative: false,
-    //         image: '', // or provide a valid image URL if available
-    //         chainId: chainId as Hex,
-    //         address: usdt.address as Hex, // ensure type compatibility
-    //       },
-    //       chainId: chainId as Hex,
-    //       balance: usdtBalance,
-    //       marketData,
-    //       currencyRates,
-    //     });
-    //     tokensWithBalance.push({
-    //       address: usdt.address as Hex,
-    //       symbol: usdt.symbol,
-    //       decimals: usdt.decimals,
-    //       isNative: false,
-    //       chainId: chainId as Hex,
-    //       balance: usdtBalance,
-    //       string: String(usdtBalance),
-    //       tokenFiatAmount,
-    //       primary: '',
-    //       secondary: 0,
-    //       title: usdt.symbol,
-    //       image: '',
-    //     });
-    //   }
-    // });
+    console.log(tokensWithBalance, '/tokensWithBalance');
     return tokensWithBalance;
   },
 );

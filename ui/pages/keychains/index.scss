@@ -31,10 +31,8 @@
 
 @include design-system.screen-sm-max {
   .import-account {
-    margin: 24px;
     display: flex;
     flex-flow: column nowrap;
-    width: calc(100vw - 80px);
   }
 
   .import-account__title {
@@ -59,14 +57,26 @@
 }
 
 .import-account {
-  &__back-button {
+  &__title {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: 18px;
+    gap: 15px;
+
+    &__back-button {
     @include design-system.Paragraph;
 
-    margin-bottom: 18px;
     color: var(--color-text-default);
-    position: absolute;
-    top: -25px;
+    // position: absolute;
+    // top: -25px;
   }
+  &__center{
+    flex: 1;
+    text-align: center;
+  }
+  }
+
 
   &__link {
     display: inline;

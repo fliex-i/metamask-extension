@@ -6855,9 +6855,6 @@
   "resources": {
     "message": "リソース"
   },
-  "customerSupport": {
-    "message": "カスタマーサポート"
-  },
   "submitFeedback": {
     "message": "フィードバックを送信"
   },

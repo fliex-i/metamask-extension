@@ -165,12 +165,12 @@ export default function SrpInput({ onChange, srpText }) {
           description={t('srpPasteTip')}
           descriptionProps={{ className: 'import-srp__banner-alert-text' }}
         />
-        <Dropdown
+        {/* <Dropdown
           className="import-srp__number-of-words-dropdown"
           onChange={handleNumberOfWordsChange}
           options={numberOfWordsOptions}
           selectedOption={`${numberOfWords}`}
-        />
+        /> */}
       </div>
       <div className="import-srp__srp">
         {[...Array(numberOfWords).keys()].map((index) => {

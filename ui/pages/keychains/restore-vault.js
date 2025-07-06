@@ -55,20 +55,26 @@ class RestoreVaultPage extends Component {
       <Box className="first-view-main-wrapper">
         <Box className="first-view-main">
           <Box className="import-account">
-            <a
-              className="import-account__back-button"
-              onClick={(e) => {
-                e.preventDefault();
-                this.props.leaveImportSeedScreenState();
-                this.props.history.push(DEFAULT_ROUTE);
-              }}
-              href="#"
-            >
-              {`< ${t('back')}`}
-            </a>
-            <Text variant={TextVariant.displayMd} color={TextColor.textDefault}>
-              {t('resetWallet')}
-            </Text>
+            <Box className="import-account__title">
+              <a
+                className="import-account__title__back-button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  this.props.leaveImportSeedScreenState();
+                  this.props.history.push(DEFAULT_ROUTE);
+                }}
+                href="#"
+              >
+                {`< ${t('back')}`}
+              </a>
+              <Text
+                variant={TextVariant.displayMd}
+                color={TextColor.textDefault}
+                className="import-account__title__center"
+              >
+                {t('resetWallet')}
+              </Text>
+            </Box>
             <Text color={TextColor.textDefault}>
               {t('resetWalletSubHeader')}
             </Text>

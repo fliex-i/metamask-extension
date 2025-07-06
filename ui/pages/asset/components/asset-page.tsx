@@ -346,7 +346,7 @@ const AssetPage = ({
           marginInline={4}
           style={{ height: '1px', borderBottomWidth: 0 }}
         ></Box>
-        <Box
+        {/* <Box
           marginTop={2}
           display={Display.Flex}
           flexDirection={FlexDirection.Column}
@@ -458,6 +458,7 @@ const AssetPage = ({
             )}
           </Box>
         </Box>
+        */}
       </Box>
     </Box>
   );

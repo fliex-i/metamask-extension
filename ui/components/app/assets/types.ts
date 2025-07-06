@@ -51,13 +51,17 @@ export type TokenDisplayInfo = TokenDisplayValues & {
   tokenChainImage: string;
 };
 
+export type CurrentPrice = {
+  currentPrice?: number;
+};
+
 // Token type that includes fiat amount, balance, and display values
 export type TokenWithFiatAmount = Token &
   TokenDisplayValues &
   TokenBalanceValues & {
     isStakeable?: boolean;
     title: string;
-  };
+  } & CurrentPrice;
 
 export type TokenFiatDisplayInfo = TokenWithFiatAmount & TokenDisplayInfo;
 
