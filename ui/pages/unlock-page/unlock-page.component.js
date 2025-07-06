@@ -27,12 +27,12 @@ import {
 import Mascot from '../../components/ui/mascot';
 import { DEFAULT_ROUTE } from '../../helpers/constants/routes';
 import {
-  MetaMetricsContextProp,
+  // MetaMetricsContextProp,
   MetaMetricsEventCategory,
   MetaMetricsEventName,
 } from '../../../shared/constants/metametrics';
 import { isFlask, isBeta } from '../../helpers/utils/build-types';
-import { SUPPORT_LINK } from '../../../shared/lib/ui-utils';
+// import { SUPPORT_LINK } from '../../../shared/lib/ui-utils';
 import { getCaretCoordinates } from './unlock-page.util';
 import ResetPasswordModal from './reset-password-modal';
 
@@ -221,8 +221,6 @@ export default class UnlockPage extends Component {
     const { password, error, isLocked, showResetPasswordModal } = this.state;
     const { t } = this.context;
 
-    const needHelpText = t('needHelpLinkText');
-
     return (
       <Box
         display={Display.Flex}
@@ -264,23 +262,6 @@ export default class UnlockPage extends Component {
             width={BlockSize.Full}
             alignItems={AlignItems.center}
           >
-            {/* <Box
-              marginTop={6}
-              marginBottom={isBeta() || isFlask() ? 6 : 0}
-              className="unlock-page__mascot-container"
-            >
-              {/* {this.renderMascot()} */}
-              <img
-                src="./images/cryptobridge/logo-3d.png"
-                width="170"
-                height="auto"
-              />
-              {isBeta() ? (
-                <Box className="unlock-page__mascot-container__beta">
-                  {t('beta')}
-                </Box>
-              ) : null}
-            </Box> */}
             <img
               src="./images/cryptobridge/logo-3d.png"
               width="308"

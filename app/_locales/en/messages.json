@@ -4895,8 +4895,23 @@
   "secureWalletWalletRecover": {
     "message": "It’s the only way to recover your wallet if you get locked out of the app or get a new device."
   },
+  "secureWalletWalletSaveSrp2":{
+    "message": ""
+  },
+  "secureWalletWalletSaveSrp3":{
+    "message": ""
+  },
+  "secureWalletWalletSaveSrp4":{
+    "message": ""
+  },
+  "secureWalletWalletSaveSrp5":{
+    "message": ""
+  },
+  "secureWalletWalletSaveSrp6":{
+    "message": ""
+  },
   "secureWalletWalletSaveSrp": {
-    "message": "Don’t risk losing your funds. Protect your wallet by saving your $1 in a place you trust.",
+    "message": "Don’t risk losing your funds. Protect your wallet by saving your  in a place you trust.",
     "description": "The $1 is the button text 'Secret Recovery Phrase'"
   },
   "security": {
@@ -5920,6 +5935,12 @@
   },
   "stillGettingMessage": {
     "message": "Still getting this message?"
+  },
+  "noTranstionsTitle": {
+    "message": "No transactions yet"
+  },
+  "youareNoTransactions":{
+    "message":"Your transactions will appear here"
   },
   "strong": {
     "message": "Strong"

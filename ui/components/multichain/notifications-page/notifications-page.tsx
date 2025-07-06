@@ -20,7 +20,7 @@ export function NotificationsPage({ children }: NotificationsPageProps) {
 
   return (
     <div className="main-container" data-testid="notifications-page">
-      <Box
+      {/* <Box
         display={[Display.None, Display.Flex]}
         alignItems={AlignItems.center}
         margin={2}
@@ -32,7 +32,7 @@ export function NotificationsPage({ children }: NotificationsPageProps) {
           unsetIconHeight
           onClick={() => history.push(DEFAULT_ROUTE)}
         />
-      </Box>
+      </Box> */}
       <Page>{children}</Page>
     </div>
   );

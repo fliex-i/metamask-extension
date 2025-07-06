@@ -45,13 +45,14 @@ export const AppHeaderLockedContent = ({
           className="multichain-app-header__contents__network-picker"
           data-testid="network-display"
         />
-      </div> */}
+      </div>
       <MetafoxLogo
         unsetIconHeight
         onClick={async () => {
           history.push(DEFAULT_ROUTE);
         }}
       />
+      */}
     </>
   );
 };

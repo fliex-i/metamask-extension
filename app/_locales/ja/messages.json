@@ -38,6 +38,10 @@
   "QRHardwareWalletSteps1Description": {
     "message": "公式QRコードをサポートする以下のパートナーのリストから選択できます。"
   },
+  "stepOf": {
+    "message": "テップ $1/$2",
+    "description": "$1 current step, $2 total steps"
+  },
   "QRHardwareWalletSteps1Title": {
     "message": "QRハードウェアウォレットを接続"
   },
@@ -4698,7 +4702,7 @@
     "message": "安全なウォレット"
   },
   "secureWalletGetStartedButton": {
-    "message": "はじめる"
+    "message": "シークレットリカバリーフレーズを表示"
   },
   "secureWalletRemindLaterButton": {
     "message": "あとで通知する"
@@ -4707,8 +4711,23 @@
     "message": "アプリにログインできなくなった場合や新しい端末を利用する際に、ウォレットを回復する唯一の方法です。"
   },
   "secureWalletWalletSaveSrp": {
-    "message": "資金を失うリスクを避けるために、信頼できる場所に$1を保管してウォレットを保護しましょう。",
+    "message": "シークレットリカバリーフレーズがあれば、ウォレットと資産のすべてにアクセスできます。",
     "description": "$1は「秘密のリカバリーフレーズ」ボタンテキスト"
+  },
+  "secureWalletWalletSaveSrp2":{
+    "message": "12個の単語からなるシークレットリカバリーフレーズを順番どおりに紙に書き写し、金庫や耐火保管庫など、オフラインで安全な場所に保管してください。"
+  },
+  "secureWalletWalletSaveSrp3":{
+    "message": "パスワードを忘れた場合でも、シークレットリカバリーフレーズがあればウォレットを復元できます。"
+  },
+  "secureWalletWalletSaveSrp4":{
+    "message": "他人に絶対に共有したり、オンラインフォームに入力しないでください。"
+  },
+  "secureWalletWalletSaveSrp5":{
+    "message": "CryptoBridgeがシークレットリカバリーフレーズやプライベートキーをお尋ねすることは決してありません。これらを求める人物やウェブサイトがあれば、怪しい可能性があります。"
+  },
+  "secureWalletWalletSaveSrp6":{
+    "message": "CryptoBridgeチームであっても、絶対に共有しないでください。"
   },
   "security": {
     "message": "セキュリティ"
@@ -6881,5 +6900,11 @@
   },
   "newPasswordCreate": {
     "message": "パスワードを設定"
+  },
+   "youareNoTransactions":{
+    "message":"あなたの取引がここに表示されます"
+  },
+  "noTransactionsTitle": {
+    "message": "まだ取引"
   }
 }

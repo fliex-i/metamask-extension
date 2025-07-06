@@ -30,13 +30,27 @@
 
   &__empty {
     flex: 1;
-    display: grid;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
     padding-top: 24px;
+    gap: 8px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
-
+&__empty-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+  }
+  &__empty-title {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--color-text-default);
+    font-size: 18px;
+  }
   &__empty-text {
-    grid-row-start: 2;
     display: flex;
     justify-content: center;
     color: var(--color-text-muted);

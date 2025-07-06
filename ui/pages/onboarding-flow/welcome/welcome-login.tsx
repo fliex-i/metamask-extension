@@ -134,9 +134,9 @@ export default function WelcomeLogin({
           >
             {`${t('termsConditions')}`}
           </Box>
-          <Text as="span" className="welcome-login__footer__text">
-            {`&nbsp;${t('and')}&nbsp;`}
-          </Text>
+          <Box as="span" className="welcome-login__footer__text">
+            {` & `}
+          </Box>
           <Box
             type="link"
             as="a"

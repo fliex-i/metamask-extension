@@ -694,8 +694,16 @@ export default function TransactionList({
               </Box>
             ) : (
               <Box className="transaction-list__empty">
+                <Box
+                  as="img"
+                  src="./images/clock.png"
+                  className="transaction-list__empty-icon"
+                />
+                <Box className="transaction-list__empty-title">
+                  {t('noTransactionsTitle')}
+                </Box>
                 <Box className="transaction-list__empty-text">
-                  {t('noTransactions')}
+                  {t('youareNoTransactions')}
                 </Box>
               </Box>
             )}
@@ -804,13 +812,19 @@ export default function TransactionList({
                     );
                   })
               ) : (
-                <Text
-                  color={TextColor.textAlternative}
-                  variant={TextVariant.bodyMdMedium}
-                  textAlign={TextAlign.Center}
-                >
-                  {t('noTrastions')}
-                </Text>
+                <Box className="transaction-list__empty">
+                  <Box
+                    as="img"
+                    src="./images/clock.png"
+                    className="transaction-list__empty-icon"
+                  />
+                  <Box className="transaction-list__empty-title">
+                    {t('noTransactionsTitle')}
+                  </Box>
+                  <Box className="transaction-list__empty-text">
+                    {t('youareNoTransactions')}
+                  </Box>
+                </Box>
               )}
               {completedTransactions.length > limit && (
                 <Button

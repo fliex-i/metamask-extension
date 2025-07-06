@@ -79,7 +79,14 @@ export default function SecureYourWallet() {
   //   });
   //   setShowSkipSRPBackupPopover(true);
   // };
-
+  const items = [
+    t('secureWalletWalletSaveSrp'),
+    t('secureWalletWalletSaveSrp2'),
+    t('secureWalletWalletSaveSrp3'),
+    t('secureWalletWalletSaveSrp4'),
+    t('secureWalletWalletSaveSrp5'),
+    t('secureWalletWalletRecover6'),
+  ];
   return (
     <Box
       display={Display.Flex}
@@ -126,19 +133,23 @@ export default function SecureYourWallet() {
           />
         </Box>
         <Box>
-          <Text color={TextColor.textAlternative} marginBottom={6} as="div">
-            {t('secureWalletWalletSaveSrp', [
-              [
-                <ButtonLink
-                  key="secureWalletWalletSaveSrp"
-                  size={ButtonLinkSize.Inherit}
-                  onClick={handleOnShowSrpDetailsModal}
-                >
-                  {t('secretRecoveryPhrase')}
-                </ButtonLink>,
-              ],
-            ])}
-          </Text>
+          {items.map((item, index) => {
+            return (
+              <>
+                {item && (
+                  <Text
+                    key={index}
+                    color={TextColor.textAlternative}
+                    marginBottom={6}
+                    as="div"
+                  >
+                    {item}
+                  </Text>
+                )}
+              </>
+            );
+          })}
+
           <Text color={TextColor.textAlternative}>
             {t('secureWalletWalletRecover')}
           </Text>
