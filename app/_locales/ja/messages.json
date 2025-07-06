@@ -6846,5 +6846,8 @@
   },
   "FAQ": {
     "message": "よくある質問"
+  },
+  "importAWallet": {
+    "message": "ウォレットをインポート"
   }
 }
