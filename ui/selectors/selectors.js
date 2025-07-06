@@ -3279,7 +3279,6 @@ export const getUpdatedAndSortedAccounts = createDeepEqualSelector(
 
 export const getUpdatedAndSortedAccountsWithCaipAccountId =
   createDeepEqualSelector(getUpdatedAndSortedAccounts, (accounts) => {
-    console.log(accounts, '/accounts');
     return accounts.map((account) => {
       const { namespace, reference } = parseCaipChainId(account.scopes[0]);
       return {

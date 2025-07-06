@@ -1,10 +1,4 @@
-import React, {
-  PureComponent,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Box, Text } from '../../components/component-library';
@@ -13,7 +7,6 @@ import {
   lockMetamask,
   updateCurrentLocale,
 } from '../../store/actions';
-import { I18nContext } from '../../contexts/i18n';
 import availableCurrencies from '../../helpers/constants/available-conversions.json';
 import Dropdown from '../../components/ui/dropdown';
 import {
@@ -22,10 +15,9 @@ import {
   CONTACT_LIST_ROUTE,
 } from '../../helpers/constants/routes';
 import { getCurrentLocale } from '../../ducks/locale/locale';
-import { localMessages } from '../../../shared/lib/translate';
 // eslint-disable-next-line import/no-restricted-paths
 import locales from '../../../app/_locales/index.json';
-import { I18NMessage } from '../../../shared/modules/i18n';
+import { useI18nContext } from '../../hooks/useI18nContext';
 
 type Item = {
   name: string | null;
@@ -62,13 +54,7 @@ const SettingsPage: React.FC = () => {
       value: locale.code,
     };
   });
-  const t = (key: string) => {
-    const message = key
-      ? localMessages[currentLocale || 'en']?.[key].message || null
-      : null;
-    return message || key;
-  };
-
+  const t = useI18nContext();
   const updateLocale = (newLocale: string) => {
     dispatch(updateCurrentLocale(newLocale));
   };
@@ -176,11 +162,8 @@ const SettingsPage: React.FC = () => {
         ],
       },
     ],
-    [currentLocale, localMessages],
+    [currentLocale],
   );
-  useEffect(() => {
-    console.log(tabs, '/check tabs');
-  }, [currentLocale, localMessages]);
   const updateCurrency = (newCurrency: string) => {
     dispatch(setCurrentCurrency(newCurrency));
     setCurrency(newCurrency);

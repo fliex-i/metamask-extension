@@ -76,11 +76,11 @@ export const AccountListMenu = ({
   allowedAccountTypes = [
     EthAccountType.Eoa,
     EthAccountType.Erc4337,
-    BtcAccountType.P2pkh,
-    BtcAccountType.P2sh,
-    BtcAccountType.P2wpkh,
-    BtcAccountType.P2tr,
-    SolAccountType.DataAccount,
+    // BtcAccountType.P2pkh,
+    // BtcAccountType.P2sh,
+    // BtcAccountType.P2wpkh,
+    // BtcAccountType.P2tr,
+    // SolAccountType.DataAccount,
   ],
 }: AccountListMenuProps) => {
   const t = useI18nContext();

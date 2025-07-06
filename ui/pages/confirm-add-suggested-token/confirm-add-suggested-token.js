@@ -135,10 +135,10 @@ const ConfirmAddSuggestedToken = () => {
   }, [suggestedTokens, tokens, t]);
 
   const handleAddTokensClick = useCallback(async () => {
+    console.log(suggestedTokens, '/suggestedTokens');
     await Promise.all(
       suggestedTokens.map(async ({ requestData: { asset }, id }) => {
         await dispatch(resolvePendingApproval(id, null));
-
         trackEvent({
           event: MetaMetricsEventName.TokenAdded,
           category: MetaMetricsEventCategory.Wallet,

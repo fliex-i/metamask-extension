@@ -368,9 +368,9 @@ const AccountListItem = ({
               {shortenAddress(normalizeSafeAddress(account.address))}
             </Text>
           </Box>
-          <Box className="network-indicator">
+          {/* <Box className="network-indicator">
             <AccountNetworkIndicator scopes={account.scopes} />
-          </Box>
+          </Box> */}
         </Box>
         {accountLabels.length > 0 ? (
           <Box flexDirection={FlexDirection.Row}>

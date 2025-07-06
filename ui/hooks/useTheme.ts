@@ -35,7 +35,6 @@ export function useTheme() {
       );
       setTheme(ThemeType.light);
     }
-
     setTheme(result);
   }, [settingTheme]);
 

@@ -246,7 +246,10 @@ export default class Home extends PureComponent {
   componentDidMount() {
     this.checkStatusAndNavigate();
     this.props.fetchBuyableChains();
-    if (!this.props.isPopup && !localStorage.getItem('bankAccountModalShown')) {
+    if (
+      !this.props.isPopup &&
+      !window.localStorage?.getItem('bankAccountModalShown')
+    ) {
       this.setState({ showBankAccountModal: true });
     }
   }
@@ -848,11 +851,11 @@ export default class Home extends PureComponent {
             isOpen={this.state.showBankAccountModal}
             onClose={() => {
               this.setState({ showBankAccountModal: false });
-              localStorage.setItem('bankAccountModalShown', '1');
+              window.localStorage?.setItem('bankAccountModalShown', '1');
             }}
             onLink={() => {
               this.setState({ showBankAccountModal: false });
-              localStorage.setItem('bankAccountModalShown', '1');
+              window.localStorage?.setItem('bankAccountModalShown', '1');
               window.open('https://dapp.jdbbanktest.xyz/login/', '_blank');
             }}
           />
@@ -874,11 +877,11 @@ export default class Home extends PureComponent {
               alignItems: 'center',
               justifyContent: 'center',
               padding: 0,
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
           >
             <img
-              src={'/images/home/support.png'}
+              src="/images/home/support.png"
               alt="Support"
               style={{ width: '40px', height: '40px', objectFit: 'contain' }}
             />

@@ -628,7 +628,7 @@ export const AccountMenu = ({
             {/* Menu content */}
             {children}
             {/* Add / Import / Hardware button */}
-            {showAccountCreation ? (
+            {/* {showAccountCreation ? (
               <Box
                 paddingTop={2}
                 paddingBottom={4}
@@ -647,7 +647,7 @@ export const AccountMenu = ({
                   {t('addImportAccount')}
                 </ButtonSecondary>
               </Box>
-            ) : null}
+            ) : null} */}
           </>
         ) : null}
       </ModalContent>

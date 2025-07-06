@@ -16,6 +16,7 @@ import { captureConsoleIntegration } from '@sentry/browser';
 import {
   CAIP_FORMATTED_EVM_TEST_CHAINS,
   NetworkStatus,
+  ChainId,
 } from '../../constants/network';
 import { hexToDecimal } from '../conversion.utils';
 import { SOLANA_TEST_CHAINS } from '../../constants/multichain/networks';
@@ -70,16 +71,12 @@ export const ALLOWED_CHAIN_IDS = [1].map((_chainId) => `0x${_chainId}`);
 export const filterNetworkConfigurationsByWhiteList = (
   networksObj: Record<string, InternalNetworkConfiguration>,
 ) => {
-  const filterNetworks = { '0x1': networksObj['0x1'] };
-  //  Object.fromEntries(
-  //   Object.entries(networksObj).filter(([, networkConfig]) => {
-  //     console.log(networkConfig, '/cgeck');
-  //     return networkConfig.name === 'Ethereum Mainnet';
-  //   }),
-  // );
-  console.log(filterNetworks, '/filterNetworks');
-  // return filterNetworks;
-  return networksObj;
+  const filterNetworks = Object.fromEntries(
+    Object.entries(networksObj).filter(([id]) =>
+      ALLOWED_CHAIN_IDS.includes(id),
+    ),
+  );
+  return filterNetworks;
 };
 
 export const getNetworkConfigurationsByChainId = createDeepEqualSelector(
@@ -87,7 +84,7 @@ export const getNetworkConfigurationsByChainId = createDeepEqualSelector(
     state.metamask.networkConfigurationsByChainId,
   (networkConfigurationsByChainId) =>
     filterNetworkConfigurationsByWhiteList(networkConfigurationsByChainId),
-  //  networkConfigurationsByChainId,
+  // networkConfigurationsByChainId,
 );
 
 export function getSelectedNetworkClientId(
@@ -236,6 +233,11 @@ export const getProviderConfig = createSelector(
   (state: ProviderConfigState) => getNetworkConfigurationsByChainId(state),
   getSelectedNetworkClientId,
   (networkConfigurationsByChainId, selectedNetworkClientId) => {
+    console.log(
+      networkConfigurationsByChainId,
+      selectedNetworkClientId,
+      '/networkConfigurationsByChainId',
+    );
     for (const network of Object.values(networkConfigurationsByChainId)) {
       for (const rpcEndpoint of network.rpcEndpoints) {
         if (rpcEndpoint.networkClientId === selectedNetworkClientId) {
@@ -281,6 +283,7 @@ export function getNetworkConfigurations(
  */
 export function isNetworkLoading(state: NetworkState) {
   const selectedNetworkClientId = getSelectedNetworkClientId(state);
+
   return (
     selectedNetworkClientId &&
     state.metamask.networksMetadata[selectedNetworkClientId].status !==

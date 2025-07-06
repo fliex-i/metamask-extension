@@ -138,7 +138,6 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
       ),
     );
 
-    const dispatch = useDispatch();
     const usdtAddress = '0xdAC17F958D2ee523a2206206994597C13D831ec7';
     const TOKEN_USDT: Token = getMemoizedMetadataContract(state, usdtAddress);
 
@@ -147,19 +146,20 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
       ([stringChainKey, tokens]) => {
         const chainId = stringChainKey as Hex;
 
-        const _tokens = tokens as Token[];
+        // const _tokens = tokens as Token[];
 
-        const hasUSDT = _tokens.some(
-          (el: Token) => el.name === TOKEN_USDT.name,
-        );
-        let tokenList: Token[] = [];
-        if (hasUSDT) {
-          tokenList = _tokens;
-        } else {
-          // addImportedTokens([TOKEN_USDT], chainId);
-          tokenList = [..._tokens, TOKEN_USDT];
-        }
-        console.log(tokenList, '/tokenList');
+        // const hasUSDT = _tokens.some(
+        //   (el: Token) => el.name === TOKEN_USDT.name,
+        // );
+        // let tokenList: Token[] = [];
+        // if (hasUSDT) {
+        //   tokenList = _tokens;
+        // } else {
+        //   // addImportedTokens([TOKEN_USDT], chainId);
+        //   tokenList = [..._tokens, TOKEN_USDT];
+        // }
+
+        const tokenList = tokens as Token[];
         tokenList.forEach((token: Token) => {
           const { isNative, address, decimals } = token;
 

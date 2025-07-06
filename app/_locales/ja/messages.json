@@ -3440,6 +3440,20 @@
   "noAccountsFound": {
     "message": "指定された検索クエリでアカウントが見つかりませんでした"
   },
+  "footerAgreementDesc": {
+    "message": "本サービスをご利用になる際は、下記規約に同意いただく必要があります"
+  },
+  "welcomeTitle": {
+    "message": "CryptBridgeへようこそ"
+  },"welcomeDescription": {
+    "message": "1つのプラットフォームで暗号資産と法定通貨をシームレスに利用"
+  },
+  "referralCode": {
+    "message": "紹介コード (任意)"
+  },
+  "referralCodeInputPlace": {
+    "message": "紹介コードを入力"
+  },
   "noActivity": {
     "message": "まだアクティビティがありません"
   },

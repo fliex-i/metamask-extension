@@ -9,6 +9,10 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
+  setCompletedOnboarding,
+  // setSeedPhraseBackedUp,
+} from '../../../store/actions';
+import {
   Box,
   Button,
   ButtonIcon,
@@ -28,7 +32,6 @@ import {
   FlexDirection,
 } from '../../../helpers/constants/design-system';
 import { useI18nContext } from '../../../hooks/useI18nContext';
-import { setSeedPhraseBackedUp } from '../../../store/actions';
 import { MetaMetricsContext } from '../../../contexts/metametrics';
 import {
   MetaMetricsEventCategory,
@@ -109,8 +112,9 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
     [splitSecretRecoveryPhrase],
   );
 
-  const handleConfirmedPhrase = useCallback(() => {
-    dispatch(setSeedPhraseBackedUp(true));
+  const handleConfirmedPhrase = useCallback(async () => {
+    // dispatch(setSeedPhraseBackedUp(true));
+    await dispatch(setCompletedOnboarding());
     trackEvent({
       category: MetaMetricsEventCategory.Onboarding,
       event: MetaMetricsEventName.OnboardingWalletSecurityPhraseConfirmed,

@@ -86,6 +86,7 @@ import {
   isCorrectSignatureApprovalType,
 } from '../../../shared/lib/confirmation.utils';
 import { MultichainAccountListMenu } from '../../components/multichain-accounts/multichain-account-list-menu';
+import { ThemeType } from '../../../shared/constants/preferences';
 import {
   getConnectingLabel,
   hideAppHeader,
@@ -232,7 +233,9 @@ export default class Routes extends Component {
       currentExtensionPopupId,
     } = this.props;
     if (theme !== prevProps.theme) {
-      setTheme(theme);
+      // setTheme(theme);
+      console.log(theme, '/theme');
+      setTheme(ThemeType.light); // TODO: Change to dark when dark mode is ready
     }
 
     // Automatically switch the network if the user

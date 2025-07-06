@@ -33,7 +33,7 @@ export default function GenericAssetCellLayout({
       display={Display.Flex}
       flexDirection={FlexDirection.Row}
       width={BlockSize.Full}
-      height={BlockSize.Full}
+      // height={BlockSize.Full}
       gap={4}
     >
       <Box
