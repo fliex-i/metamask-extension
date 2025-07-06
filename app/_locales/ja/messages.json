@@ -3446,7 +3446,7 @@
   "welcomeTitle": {
     "message": "CryptBridgeへようこそ"
   },"welcomeDescription": {
-    "message": "1つのプラットフォームで暗号資産と法定通貨をシームレスに利用"
+    "message": "1つのプラットフォームで仮想通貨と法定通貨をシームレスに利用"
   },
   "referralCode": {
     "message": "紹介コード (任意)"
@@ -5601,6 +5601,9 @@
   },
   "step1TrezorWallet": {
     "message": "Trezorを接続する"
+  },
+  "termsConditions": {
+    "message":"利用規約"
   },
   "step1TrezorWalletMsg": {
     "message": "Trezorをコンピューターに直接接続し、ロックを解除します。 必ず正しいパスフレーズを使用してください。",

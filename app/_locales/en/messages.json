@@ -7097,9 +7097,6 @@
   "termsConditions": {
     "message":"Terms and Conditions"
   },
-  "privacyPolicy": {
-    "message": "Privacy Policy."
-  },
   "referralCode":{
     "message":"Referral Code (Optional)"
   },

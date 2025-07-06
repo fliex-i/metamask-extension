@@ -1,5 +1,15 @@
 @use "design-system";
 
+.languages{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 5px;
+  .global-icon{
+    width: 24px;
+    height: 24px;
+  }
+}
 .onboarding-app-header {
   position: relative;
   z-index: design-system.$header-z-index;

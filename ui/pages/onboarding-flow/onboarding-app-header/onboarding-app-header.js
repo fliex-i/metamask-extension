@@ -65,20 +65,23 @@ export default function OnboardingAppHeader({ pageState }) {
           />
         </Box>
 
-        <Dropdown
-          data-testid="select-locale"
-          className={classnames('onboarding-app-header__dropdown', {
-            'onboarding-app-header__dropdown--welcome--banner':
-              pageState === WelcomePageState.Banner,
-            'onboarding-app-header__dropdown--welcome--login':
-              pageState === WelcomePageState.Login,
-          })}
-          options={localeOptions}
-          selectedOption={currentLocale}
-          onChange={async (newLocale) =>
-            dispatch(updateCurrentLocale(newLocale))
-          }
-        />
+        <Box className="languages">
+          <Box as="img" src="./images/global.png" className="global-icon" />
+          <Dropdown
+            data-testid="select-locale"
+            className={classnames('onboarding-app-header__dropdown', {
+              'onboarding-app-header__dropdown--welcome--banner':
+                pageState === WelcomePageState.Banner,
+              'onboarding-app-header__dropdown--welcome--login':
+                pageState === WelcomePageState.Login,
+            })}
+            options={localeOptions}
+            selectedOption={currentLocale}
+            onChange={async (newLocale) =>
+              dispatch(updateCurrentLocale(newLocale))
+            }
+          />
+        </Box>
       </Box>
     </Box>
   );

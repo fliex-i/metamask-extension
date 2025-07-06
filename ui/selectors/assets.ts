@@ -217,7 +217,6 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
               // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
               title = token.name || token.symbol;
             }
-
             tokensWithBalance.push({
               ...token,
               address: token.address as CaipAssetType,
@@ -228,7 +227,7 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
               primary: '',
               secondary: 0,
               title,
-              currentPrice,
+              // currentPrice,
             });
           }
         });
