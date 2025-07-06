@@ -4686,6 +4686,19 @@
   "secureWallet": {
     "message": "安全なウォレット"
   },
+  "secureWalletGetStartedButton": {
+    "message": "はじめる"
+  },
+  "secureWalletRemindLaterButton": {
+    "message": "あとで通知する"
+  },
+  "secureWalletWalletRecover": {
+    "message": "アプリにログインできなくなった場合や新しい端末を利用する際に、ウォレットを回復する唯一の方法です。"
+  },
+  "secureWalletWalletSaveSrp": {
+    "message": "資金を失うリスクを避けるために、信頼できる場所に$1を保管してウォレットを保護しましょう。",
+    "description": "$1は「秘密のリカバリーフレーズ」ボタンテキスト"
+  },
   "security": {
     "message": "セキュリティ"
   },
@@ -4724,6 +4737,16 @@
   },
   "seedPhraseReq": {
     "message": "シークレットリカバリーフレーズは、12、15、18、21、24語で構成されます"
+  },
+  "seedPhraseReviewDetails": {
+    "message": "これはあなたの$1です。正しい順序で書き留め、安全に保管してください。秘密の回復フレーズを他人に知られると、ウォレットにアクセスされる可能性があります。$2",
+  "description": "$1は太字の「秘密の回復フレーズ」テキスト、$2は'seedPhraseReviewDetails2'"
+  },
+  "seedPhraseReviewDetails2": {
+    "message": "決して誰とも共有しないでください。"
+  },
+  "seedPhraseReviewTitle": {
+    "message": "秘密の回復フレーズを保存"
   },
   "select": {
     "message": "選択"
@@ -5445,6 +5468,9 @@
   },
   "srpSecurityQuizGetStarted": {
     "message": "開始"
+  },
+    "welcomeGetStarted": {
+    "message": "始める"
   },
   "srpSecurityQuizImgAlt": {
     "message": "目の中央に鍵穴があり、3つのパスワード入力欄がフローティング表示されている画像"
@@ -6766,5 +6792,8 @@
   },
   "importAWallet": {
     "message": "ウォレットをインポート"
+  },
+  "newPasswordCreate": {
+    "message": "新しいパスワードを作成"
   }
 }
