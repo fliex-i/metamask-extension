@@ -4729,6 +4729,10 @@
   "secureWalletWalletSaveSrp6":{
     "message": "CryptoBridgeチームであっても、絶対に共有しないでください。"
   },
+  "secureWalletWalletSaveSrp7":{
+    "message": "資金を失うリスクを避けるために、信頼できる場所に$1を保管してウォレットを保護しましょう。",
+    "description": "$1は「秘密のリカバリーフレーズ」ボタンテキスト"
+  },
   "security": {
     "message": "セキュリティ"
   },

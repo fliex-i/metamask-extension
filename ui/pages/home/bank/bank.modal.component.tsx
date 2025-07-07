@@ -44,7 +44,7 @@ const BankAccountRequiredModal: React.FC<BankAccountRequiredModalProps> = ({
             alignItems={AlignItems.center}
           >
             <img
-              src={'/images/home/card.svg'}
+              src={'/images/home/card.png'}
               alt="CryptoBridge Card"
               style={{ width: 180, margin: '24px 0 16px 0' }}
             />
@@ -112,6 +112,7 @@ const BankAccountRequiredModal: React.FC<BankAccountRequiredModalProps> = ({
               borderRadius: '12px',
               color: '#6F6F6F',
               marginTop: '16px',
+              borderTop: '1px solid #E2E2E2',
             }}
           >
             {t('bankBtn3')}
