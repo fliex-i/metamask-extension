@@ -4911,7 +4911,7 @@
     "message": ""
   },
   "secureWalletWalletSaveSrp": {
-    "message": "Don’t risk losing your funds. Protect your wallet by saving your  in a place you trust.",
+    "message": "Don’t risk losing your funds. Protect your wallet by saving your $1 in a place you trust.",
     "description": "The $1 is the button text 'Secret Recovery Phrase'"
   },
   "security": {

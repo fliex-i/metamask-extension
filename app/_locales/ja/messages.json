@@ -2337,9 +2337,6 @@
   "goerli": {
     "message": "Goerliテストネットワーク"
   },
-  "gotIt": {
-    "message": "了解"
-  },
   "grantExactAccess": {
     "message": "正確なアクセスを許可する"
   },
@@ -4707,11 +4704,32 @@
   "secureWalletRemindLaterButton": {
     "message": "あとで通知する"
   },
+    "srpDetailsTitle": {
+    "message": "シークレットリカバリーフレーズとは？"
+  },
+  "srpDetailsDescription": {
+    "message": "シークレットリカバリーフレーズ（シードフレーズやニーモニックとも呼ばれます）とは、仮想通貨ウォレットにアクセス・管理するための一連の単語です。CryptoBridgeにウォレットを移行（インポート）するには、この12単語からなるフレーズが必要です。"
+  },
+  "srpDetailsOwnsAccessListTitle": {
+    "message": "このフレーズを知っている人は、以下のことが可能になります："
+  },
+  "srpDetailsOwnsAccessListItemOne": {
+    "message": "資金をすべて引き出す"
+  },
+  "srpDetailsOwnsAccessListItemThree": {
+    "message": "ログイン情報を変更する"
+  },
+  "srpDetailsOwnsAccessListItemTwo": {
+    "message": "トランザクション（取引）を承認する"
+  },
+  "gotIt": {
+    "message": "閉じる"
+  },
   "secureWalletWalletRecover": {
     "message": "アプリにログインできなくなった場合や新しい端末を利用する際に、ウォレットを回復する唯一の方法です。"
   },
   "secureWalletWalletSaveSrp": {
-    "message": "シークレットリカバリーフレーズがあれば、ウォレットと資産のすべてにアクセスできます。",
+    "message": "シークレットリカバリーフレーズがあれば、$1 ウォレットと資産のすべてにアクセスできます。",
     "description": "$1は「秘密のリカバリーフレーズ」ボタンテキスト"
   },
   "secureWalletWalletSaveSrp2":{

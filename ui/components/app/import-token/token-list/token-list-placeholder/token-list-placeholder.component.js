@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import ZENDESK_URLS from '../../../../../helpers/constants/zendesk-url';
-// import { ButtonLink, Text, Box } from '../../../../component-library';
+import { Text, Box } from '../../../../component-library';
 import {
   Display,
   FlexDirection,

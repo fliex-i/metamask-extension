@@ -80,7 +80,17 @@ export default function SecureYourWallet() {
   //   setShowSkipSRPBackupPopover(true);
   // };
   const items = [
-    t('secureWalletWalletSaveSrp'),
+    t('secureWalletWalletSaveSrp', [
+      [
+        <ButtonLink
+          key="secureWalletWalletSaveSrp"
+          size={ButtonLinkSize.Inherit}
+          onClick={handleOnShowSrpDetailsModal}
+        >
+          {t('secretRecoveryPhrase')}
+        </ButtonLink>,
+      ],
+    ]),
     t('secureWalletWalletSaveSrp2'),
     t('secureWalletWalletSaveSrp3'),
     t('secureWalletWalletSaveSrp4'),
