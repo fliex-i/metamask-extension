@@ -1385,7 +1385,7 @@
     "description": "$1 represents the name of the snap"
   },
   "continue": {
-    "message": "続行"
+    "message": "次へ"
   },
   "contract": {
     "message": "コントラクト"
@@ -4791,14 +4791,26 @@
     "message": "シークレットリカバリーフレーズは、12、15、18、21、24語で構成されます"
   },
   "seedPhraseReviewDetails": {
-    "message": "これはあなたの$1です。正しい順序で書き留め、安全に保管してください。秘密の回復フレーズを他人に知られると、ウォレットにアクセスされる可能性があります。$2",
-  "description": "$1は太字の「秘密の回復フレーズ」テキスト、$2は'seedPhraseReviewDetails2'"
+    "message": "シークレットリカバリーフレーズは絶対に他人と共有しないでください。このフレーズにアクセスできる人は、あなたの資金を管理することができます。"
+
+  },
+  "seedPhraseReviewDetails1": {
+    "message": "このシークレットリカバリーフレーズをオンラインやスマートフォンに保存しないでください。これらはハッカー攻撃に対して脆弱です。"
+
   },
   "seedPhraseReviewDetails2": {
-    "message": "決して誰とも共有しないでください。"
+    "message": "紙に書き留め、オフラインの安全な場所に保管してください。"
+
+  },
+  "seedPhraseReviewDetails3": {
+    "message": "CryptoBridge のスタッフがこのフレーズを尋ねることは決してありません。"
+
+  },
+  "seedPhraseReviewDetails4": {
+    "message": "将来、ウォレットを再インポートする必要がある場合に備えて、このシークレットリカバリーフレーズを安全に保管してください。"
   },
   "seedPhraseReviewTitle": {
-    "message": "秘密の回復フレーズを保存"
+    "message": "シークレットリカバリーフレーズを保存する"
   },
   "select": {
     "message": "選択"
@@ -6831,16 +6843,16 @@
     "message": "すでにJDB銀行口座をお持ちですか？"
   },
   "bankTips": {
-    "message": "暗号通貨を購入または販売するには、JDB銀行口座を申請するか、既存の口座をリンクしてください。"
+    "message": "法定通貨から仮想通貨への機能を有効にするには、JDB銀行口座の登録または連携が必要です。"
   },
   "bankBtn1": {
-    "message": "はい、私のJDBYesアプリ口座をCryptoBridgeにリンクします"
+    "message": "はい、すでに持っています – 口座を連携する"
   },
   "bankBtn2": {
-    "message": "いいえ、JDBYesアプリに登録します"
+    "message": "いいえ、持っていません – 今すぐ登録"
   },
   "bankBtn3": {
-    "message": "法定通貨で暗号通貨を購入する必要はありません"
+    "message": "スキップ – 法定通貨機能は使いません"
   },
   "noTransactions": {
     "message": "まだ取引がありません"
@@ -6928,5 +6940,10 @@
   },
   "noTransactionsTitle": {
     "message": "まだ取引"
+  "confirmRecoveryPhraseTitle": {
+    "message": "シークレットリカバリーフレーズの確認"
+  },
+  "word": {
+    "message": "単語"
   }
 }
