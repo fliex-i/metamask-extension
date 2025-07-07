@@ -107,17 +107,20 @@ export const AccountNetwork = ({
           </Text>
         </Box>
       </Box>
-      {hasPendingRequests ? (
-        <Box marginRight={5}>
-          <Preloader size={12} />
-        </Box>
-      ) : (
-        // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31879
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        // <ButtonLink onClick={onSwitch} data-testid={`switch_account-${name}`}>
-        //   {addressSupportSmartAccount ? t('switchBack') : t('switch')}
-        // </ButtonLink>
-      )}
+      {
+        hasPendingRequests ? (
+          <Box marginRight={5}>
+            <Preloader size={12} />
+          </Box>
+        ) : null
+        //  (
+        //   // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31879
+        //   // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        //   <ButtonLink onClick={onSwitch} data-testid={`switch_account-${name}`}>
+        //     {addressSupportSmartAccount ? t('switchBack') : t('switch')}
+        //   </ButtonLink>
+        // )
+      }
     </Box>
   );
 };
