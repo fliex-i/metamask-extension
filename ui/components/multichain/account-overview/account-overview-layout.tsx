@@ -14,13 +14,14 @@ import {
   Display,
   JustifyContent,
 } from '../../../helpers/constants/design-system';
+// eslint-disable-next-line import/no-restricted-paths
 import { normalizeSafeAddress } from '../../../../app/scripts/lib/multichain/address';
 import { shortenAddress } from '../../../helpers/utils/util';
+import { CopyIcon } from '../../app/confirm/info/row/copy-icon';
 import {
   AccountOverviewTabsProps,
   AccountOverviewTabs,
 } from './account-overview-tabs';
-import { CopyIcon } from '../../app/confirm/info/row/copy-icon';
 
 export type AccountOverviewLayoutProps = AccountOverviewTabsProps & {
   children: React.ReactElement;
@@ -102,12 +103,14 @@ const AccountOverviewNetworkPicker = () => {
         data-testid="account-overview-network-picker"
         style={{ backgroundColor: 'transparent' }}
       />
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '4px',
-        position: 'relative'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '4px',
+          position: 'relative',
+        }}
+      >
         <div style={{ fontSize: '14px' }}>{shortenedAddress}</div>
         {internalAccount && (
           <CopyIcon

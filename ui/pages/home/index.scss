@@ -24,14 +24,15 @@
     .tips-home-content {
       display: flex;
       align-items: flex-start;
-      padding: 16px;
+      padding: 8px 16px;
       gap: 5px;
-      background: var(--color-primary-attention-home);
+      background: var(--color-primary-attention-bank);
+      margin-top: 2px;
     }
     .tips-bank-content {
       display: flex;
       align-items: flex-start;
-      padding: 16px;
+      padding: 8px 16px;
       gap: 10px;
       background: var(--color-primary-attention-bank);
       flex-flow: row wrap;

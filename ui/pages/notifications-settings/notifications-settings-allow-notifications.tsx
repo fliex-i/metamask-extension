@@ -161,7 +161,7 @@ export function NotificationsSettingsAllowNotifications({
         <NotificationsSettingsType title={t('allowNotifications')} />
       </NotificationsSettingsBox>
       <Text variant={TextVariant.bodyMd} color={TextColor.textAlternative}>
-        {t('notificationsSettingsPageAllowNotifications', [privacyLink])}
+        {t('notificationsSettingsPageAllowNotifications')}
       </Text>
       {error && (
         <Box>
