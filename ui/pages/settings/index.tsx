@@ -104,7 +104,7 @@ const SettingsPage: React.FC = () => {
         ],
       },
       {
-        label: 'preferences',
+        label: t('preferences'),
         items: [
           {
             name: t('defaultCurrency'),
@@ -119,7 +119,7 @@ const SettingsPage: React.FC = () => {
         ],
       },
       {
-        label: 'Security',
+        label: t('security'),
         items: [
           // {
           //   name: t('autoLock'),
@@ -141,7 +141,7 @@ const SettingsPage: React.FC = () => {
         ],
       },
       {
-        label: 'resources',
+        label: t('resources'),
         items: [
           {
             name: t('customerSupport'),
