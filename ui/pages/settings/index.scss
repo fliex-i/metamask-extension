@@ -23,12 +23,12 @@
 &__tabs{
   display: flex;
   flex-flow: column;
-  width: 80vw;
+  width: 95vw;
   gap: 16px;
   background: var(--color-background-default);
   padding: 16px;
   @media screen and (max-width: 768px) {
-    width: 85vw;
+    width: 95vw;
 
   }
   @media screen and (min-width: 1280px) {
