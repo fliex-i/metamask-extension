@@ -353,13 +353,13 @@ export const SmartTransactionStatusPage = ({
           />
           <Title title={title} />
           <Description description={description} />
-          <PortfolioSmartTransactionStatusUrl
+          {/* <PortfolioSmartTransactionStatusUrl
             portfolioSmartTransactionStatusUrl={
               portfolioSmartTransactionStatusUrl
             }
             isSmartTransactionPending={isSmartTransactionPending}
             onCloseExtension={onCloseExtension}
-          />
+          /> */}
         </Box>
         {canShowSimulationDetails && (
           <Box width={BlockSize.Full}>
