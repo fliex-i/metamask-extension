@@ -4414,7 +4414,7 @@
     "message": "仮想通貨を受け取る"
   },
   "recipientAddressPlaceholderNew": {
-    "message": "パブリックアドレス (0x) またはドメイン名を入力してください"
+    "message": "パブリックアドレス (0x)"
   },
   "recommendedGasLabel": {
     "message": "推奨"

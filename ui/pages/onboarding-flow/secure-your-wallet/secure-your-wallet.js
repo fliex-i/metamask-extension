@@ -95,7 +95,7 @@ export default function SecureYourWallet() {
     t('secureWalletWalletSaveSrp3'),
     t('secureWalletWalletSaveSrp4'),
     t('secureWalletWalletSaveSrp5'),
-    t('secureWalletWalletRecover6'),
+    t('secureWalletWalletSaveSrp6'),
   ];
   return (
     <Box
