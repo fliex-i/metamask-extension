@@ -866,7 +866,7 @@ export default class Home extends PureComponent {
             className="home__container--support"
           >
             <img
-              src="/images/home/support.png"
+              src="/images/home/support.svg"
               alt="Support"
               style={{ width: '40px', height: '40px', objectFit: 'contain' }}
             />
