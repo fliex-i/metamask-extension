@@ -443,7 +443,31 @@ export const SendPage = () => {
             <SendPageRecipient />
           )}
         </Box>
+        <div
+          className="attention"
+          style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            padding: '13px',
+            boxSizing: 'border-box',
+          }}
+        >
+          <div className="attention-ico">
+            <img src="../images/icons/attention.svg" />
+          </div>
+          <div className="attention-des">
+            <ul>
+              <li>
+                {t('receiveModalDes1')}
+                <span>{t('receiveModalDes2')}</span>
+              </li>
+              <li>{t('receiveModalDes3')}</li>
+              <li>{t('receiveModalDes4')}</li>
+            </ul>
+          </div>
+        </div>
       </Content>
+
       <Footer>
         <ButtonSecondary
           className="multichain-send-page__nav-button"
