@@ -7283,5 +7283,8 @@
   },
   "word": {
     "message": "Word"
+  },
+  "copy": {
+    "message": "Copy"
   }
 }
