@@ -4602,7 +4602,7 @@
     "message": "Receive crypto"
   },
   "recipientAddressPlaceholderNew": {
-    "message": "Enter public address (0x) or domain name"
+    "message": "Enter public address (0x)"
   },
   "recommendedGasLabel": {
     "message": "Recommended"
