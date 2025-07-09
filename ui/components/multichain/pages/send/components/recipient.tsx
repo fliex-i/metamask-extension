@@ -123,17 +123,18 @@ export const SendPageRecipient = () => {
     contents = (
       <Tabs
         defaultActiveTabKey={
-          userInput.length > 0 ? CONTACTS_TAB_KEY : ACCOUNTS_TAB_KEY
+          CONTACTS_TAB_KEY
+          // userInput.length > 0 ? CONTACTS_TAB_KEY : ACCOUNTS_TAB_KEY
         }
         onTabClick={() => null}
       >
-        {
+        {/* {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           <Tab tabKey={ACCOUNTS_TAB_KEY} name={t('yourAccounts')}>
             <SendPageYourAccounts />
           </Tab>
-        }
+        } */}
         {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
