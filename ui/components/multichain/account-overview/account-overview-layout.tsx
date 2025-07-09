@@ -18,6 +18,7 @@ import {
 import { normalizeSafeAddress } from '../../../../app/scripts/lib/multichain/address';
 import { shortenAddress } from '../../../helpers/utils/util';
 import { CopyIcon } from '../../app/confirm/info/row/copy-icon';
+import Tooltip from '../../ui/tooltip/tooltip';
 import {
   AccountOverviewTabsProps,
   AccountOverviewTabs,
@@ -113,13 +114,15 @@ const AccountOverviewNetworkPicker = () => {
       >
         <div style={{ fontSize: '14px' }}>{shortenedAddress}</div>
         {internalAccount && (
-          <CopyIcon
-            copyText={normalizeSafeAddress(internalAccount.address)}
-            style={{
-              position: 'static',
-              cursor: 'pointer',
-            }}
-          />
+          <Tooltip title={t('copy')} position="top">
+            <CopyIcon
+              copyText={normalizeSafeAddress(internalAccount.address)}
+              style={{
+                position: 'static',
+                cursor: 'pointer',
+              }}
+            />
+          </Tooltip>
         )}
       </div>
     </div>
