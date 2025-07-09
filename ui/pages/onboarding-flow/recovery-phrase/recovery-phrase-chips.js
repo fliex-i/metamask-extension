@@ -65,12 +65,16 @@ export default function RecoveryPhraseChips({
   );
 
   useEffect(() => {
-    setInputValue?.(quizAnswers);
-  }, [quizAnswers, setInputValue]);
+    if (setInputValue) {
+      setInputValue(quizAnswers);
+    }
+    // 只依赖 quizAnswers，假设 setInputValue 是稳定的
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [quizAnswers]);
 
   useEffect(() => {
     setUserSelections(Array(quizWords.length).fill(''));
-  }, [quizWords]);
+  }, [quizWords.length]);
 
   if (confirmPhase && quizWords.length === 3) {
     return (
@@ -197,8 +201,12 @@ export default function RecoveryPhraseChips({
   );
 
   useEffect(() => {
-    setInputValue?.(legacyQuizAnswers);
-  }, [legacyQuizAnswers, setInputValue]);
+    if (setInputValue) {
+      setInputValue(legacyQuizAnswers);
+    }
+    // 只依赖 legacyQuizAnswers，假设 setInputValue 是稳定的
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [legacyQuizAnswers]);
 
   useEffect(() => {
     if (quizWords.length) {
