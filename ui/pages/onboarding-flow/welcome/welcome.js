@@ -27,7 +27,7 @@ const WelcomePageState = {
 };
 
 export default function OnboardingWelcome({
-  pageState = WelcomePageState.Banner,
+  pageState = WelcomePageState.Login,
   setPageState,
 }) {
   const dispatch = useDispatch();

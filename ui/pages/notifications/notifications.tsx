@@ -187,7 +187,7 @@ export default function Notifications() {
         {t('notifications')}
       </Header>
       <Content padding={0}>
-        {hasNotifySnaps && (
+        {/* {hasNotifySnaps && (
           <Tabs
             defaultActiveTabKey={activeTab}
             onTabClick={(tab: string) => setActiveTab(tab as TAB_KEYS)}
@@ -225,7 +225,7 @@ export default function Notifications() {
               tabKey={TAB_KEYS.WEB3}
             />
           </Tabs>
-        )}
+        )} */}
 
         <NotificationsList
           activeTab={activeTab}

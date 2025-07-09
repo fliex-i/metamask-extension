@@ -26,6 +26,7 @@ type Item = {
   onClick?: () => void;
   isLanguage?: boolean;
   currency?: boolean;
+  dontNeedRightIcon?: boolean;
 };
 type TabItem = {
   label: string | null;
@@ -63,6 +64,19 @@ const SettingsPage: React.FC = () => {
 
   const tabs: TabItem[] = useMemo(
     () => [
+      {
+        label: null,
+        items: [
+          {
+            name: t('back'),
+            icon: './images/back.png',
+            onClick: () => {
+              history.go(-1);
+            },
+            dontNeedRightIcon: true,
+          },
+        ],
+      },
       {
         label: null,
         items: [
@@ -176,7 +190,8 @@ const SettingsPage: React.FC = () => {
           <Box key={index} className="settings-page__tabs__tab">
             {tab.label && (
               <Text className="settings-page__tabs__tab__label">
-                {tab.label}
+                {tab.label &&
+                  tab.label.charAt(0).toUpperCase() + tab.label.slice(1)}
               </Text>
             )}
             <Box className="settings-page__tabs__tab__items">
@@ -214,7 +229,16 @@ const SettingsPage: React.FC = () => {
                         className="settings-page__tabs__tab__items-item--icon"
                       />
                       <Box className="settings-page__tabs__tab__items-item__center">
-                        {item.name && <Text as="span">{item.name}</Text>}
+                        {item.name && (
+                          <Text
+                            as="span"
+                            className={
+                              item.dontNeedRightIcon ? 'addWeight' : ''
+                            }
+                          >
+                            {item.name}
+                          </Text>
+                        )}
                         {item.currency && (
                           <Dropdown
                             data-testid="currency-select"
@@ -238,13 +262,14 @@ const SettingsPage: React.FC = () => {
                           />
                         )}
                       </Box>
-                      {item.currency === item.isLanguage && (
-                        <Box
-                          as="img"
-                          src="./images/setting/arrow-right.svg"
-                          alt="arrow"
-                        />
-                      )}
+                      {item.currency === item.isLanguage &&
+                        !item.dontNeedRightIcon && (
+                          <Box
+                            as="img"
+                            src="./images/setting/arrow-right.svg"
+                            alt="arrow"
+                          />
+                        )}
                     </>
                   )}
                 </Box>

@@ -74,9 +74,9 @@ const EditGasFeePopover = () => {
                   priorityLevel={PriorityLevels.tenPercentIncreased}
                 />
               )}
-              {editGasMode === EditGasModes.modifyInPlace && (
+              {/* {editGasMode === EditGasModes.modifyInPlace && (
                 <EditGasItem priorityLevel={PriorityLevels.low} />
-              )}
+              )} */}
               <EditGasItem priorityLevel={PriorityLevels.medium} />
               <EditGasItem priorityLevel={PriorityLevels.high} />
               <div className="edit-gas-fee-popover__content__separator" />
@@ -87,7 +87,7 @@ const EditGasFeePopover = () => {
             </Box>
             <Box>
               <NetworkStatistics />
-              <Text
+              {/* <Text
                 className="edit-gas-fee-popover__know-more"
                 align="center"
                 color={TextColor.textAlternative}
@@ -105,7 +105,7 @@ const EditGasFeePopover = () => {
                     {t('learnMore')}
                   </a>,
                 ])}
-              </Text>
+              </Text> */}
             </Box>
           </div>
         </div>

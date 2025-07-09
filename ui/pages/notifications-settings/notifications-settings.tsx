@@ -118,11 +118,6 @@ export default function NotificationsSettings() {
 
         {isMetamaskNotificationsEnabled && (
           <>
-            {/* Notifications settings per types */}
-            <NotificationsSettingsTypes
-              disabled={loadingAllowNotifications || updatingAccounts}
-            />
-
             {/* Notifications settings per account */}
             <>
               <Box

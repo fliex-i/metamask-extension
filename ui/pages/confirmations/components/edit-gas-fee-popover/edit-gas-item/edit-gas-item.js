@@ -118,13 +118,13 @@ const EditGasItem = ({ priorityLevel }) => {
       data-testid={`edit-gas-fee-item-${priorityLevel}`}
     >
       <span className="edit-gas-item__name">
-        {icon && (
+        {/* {icon && (
           <span
             className={`edit-gas-item__icon edit-gas-item__icon-${priorityLevel}`}
           >
             {PRIORITY_LEVEL_ICON_MAP[icon]}
           </span>
-        )}
+        )} */}
         {t(title)}
       </span>
       <span
@@ -156,7 +156,7 @@ const EditGasItem = ({ priorityLevel }) => {
           '--'
         )}
       </span>
-      <span className="edit-gas-item__tooltip" data-testid="gas-tooltip">
+      {/* <span className="edit-gas-item__tooltip" data-testid="gas-tooltip">
         <InfoTooltip
           contentText={
             <EditGasToolTip
@@ -172,7 +172,7 @@ const EditGasItem = ({ priorityLevel }) => {
           }
           position="top"
         />
-      </span>
+      </span> */}
     </button>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useMemo } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   Button,
   ButtonSize,
@@ -22,7 +22,7 @@ import {
   // ButtonLinkSize,
 } from '../../../components/component-library';
 import { useI18nContext } from '../../../hooks/useI18nContext';
-import { ONBOARDING_PIN_EXTENSION_ROUTE } from '../../../helpers/constants/routes';
+import { DEFAULT_ROUTE } from '../../../helpers/constants/routes';
 import { getFirstTimeFlowType, getHDEntropyIndex } from '../../../selectors';
 import {
   MetaMetricsEventCategory,
@@ -32,6 +32,7 @@ import { MetaMetricsContext } from '../../../contexts/metametrics';
 import { selectIsBackupAndSyncEnabled } from '../../../selectors/identity/backup-and-sync';
 import { getSeedPhraseBackedUp } from '../../../ducks/metamask/metamask';
 import { FirstTimeFlowType } from '../../../../shared/constants/onboarding';
+import { setCompletedOnboarding } from '../../../store/actions';
 
 // import { LottieAnimation } from '../../../components/component-library/lottie-animation';
 
@@ -43,6 +44,8 @@ export default function CreationSuccessful() {
   const hdEntropyIndex = useSelector(getHDEntropyIndex);
   const firstTimeFlowType = useSelector(getFirstTimeFlowType);
   const seedPhraseBackedUp = useSelector(getSeedPhraseBackedUp);
+
+  const dispatch = useDispatch();
   // const learnMoreLink =
   //   'https://support.metamask.io/stay-safe/safety-in-web3/basic-safety-and-security-tips-for-metamask/';
 
@@ -127,7 +130,8 @@ export default function CreationSuccessful() {
         hd_entropy_index: hdEntropyIndex,
       },
     });
-    history.push(ONBOARDING_PIN_EXTENSION_ROUTE);
+    dispatch(setCompletedOnboarding());
+    history.push(DEFAULT_ROUTE);
   }, [
     firstTimeFlowType,
     isBackupAndSyncEnabled,

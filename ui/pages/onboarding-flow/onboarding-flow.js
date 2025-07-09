@@ -324,29 +324,6 @@ export default function OnboardingFlow() {
           <Route exact path="*" component={OnboardingFlowSwitch} />
         </Switch>
       </Box>
-      {pathname === ONBOARDING_COMPLETION_ROUTE && (
-        <Box
-          className="onboarding-flow__twitter-button"
-          type="link"
-          href={TWITTER_URL}
-          onClick={() => {
-            trackEvent({
-              category: MetaMetricsEventCategory.Onboarding,
-              event: MetaMetricsEventName.OnboardingTwitterClick,
-              properties: {
-                text: t('followUsOnTwitter'),
-                location: MetaMetricsEventName.OnboardingWalletCreationComplete,
-                url: TWITTER_URL,
-                hd_entropy_index: hdEntropyIndex,
-              },
-            });
-          }}
-          target="_blank"
-        >
-          <span>{t('followUsOnTwitter')}</span>
-          <i className="fab fa-twitter onboarding-flow__twitter-button__icon" />
-        </Box>
-      )}
     </Box>
   );
 }

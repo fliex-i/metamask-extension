@@ -224,11 +224,7 @@ export default function OnboardingMetametrics() {
       >
         {t('onboardingMetametricsInfuraTerms', [
           <a
-            href={
-              isFirefox
-                ? 'https://addons.mozilla.org/en-CA/firefox/addon/ether-metamask/privacy/'
-                : 'https://metamask.io/privacy.html'
-            }
+            href="https://www.crypto-bridge.co/wp-content/uploads/2025/06/privacy.pdf"
             target="_blank"
             rel="noopener noreferrer"
             key="privacy-link"

@@ -13,6 +13,27 @@
   &__container {
     display: flex;
     min-height: 100%;
+
+    &--support{
+       position: fixed;
+      right: 32px;
+      bottom: 32px;
+      z-index: 9999;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      cursor: pointer;
+      @media screen and (max-width: 768px) {
+        display: none;
+
+      }
+    }
   }
 
   &__main-view {

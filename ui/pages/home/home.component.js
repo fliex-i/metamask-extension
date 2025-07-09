@@ -863,22 +863,7 @@ export default class Home extends PureComponent {
             href="https://www.crypto-bridge.co/jp/#support"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              position: 'fixed',
-              right: '32px',
-              bottom: '32px',
-              zIndex: 9999,
-              width: '56px',
-              height: '56px',
-              borderRadius: '50%',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-              background: '#fff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 0,
-              cursor: 'pointer',
-            }}
+            className="home__container--support"
           >
             <img
               src="/images/home/support.png"
