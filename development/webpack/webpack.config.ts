@@ -74,7 +74,7 @@ const webAccessibleResources =
 const cache = args.cache
   ? ({
       type: 'filesystem',
-      name: `MetaMask—${args.env}`,
+      name: `CryptoBridge${args.env}`,
       version: cacheKey,
       idleTimeout: 0,
       idleTimeoutForInitialStore: 0,
@@ -100,7 +100,7 @@ const cache = args.cache
 // #endregion cache
 
 // #region plugins
-const commitHash = isDevelopment ? getLatestCommit().hash() : null;
+// const commitHash = isDevelopment ? getLatestCommit().hash() : null;
 const plugins: WebpackPluginInstance[] = [
   new SelfInjectPlugin({ test: /^scripts\/inpage\.js$/u }),
   // HtmlBundlerPlugin treats HTML files as entry points
@@ -125,9 +125,10 @@ const plugins: WebpackPluginInstance[] = [
   new ManifestPlugin({
     web_accessible_resources: webAccessibleResources,
     manifest_version: MANIFEST_VERSION,
-    description: commitHash
-      ? `${args.env} build from git id: ${commitHash.substring(0, 8)}`
-      : null,
+    description: '',
+    // commitHash
+    //   ? `${args.env} build from git id: ${commitHash.substring(0, 8)}`
+    //   : null,
     version: version.version,
     versionName: version.versionName,
     browsers: args.browser,
@@ -140,7 +141,7 @@ const plugins: WebpackPluginInstance[] = [
     ...(args.zip
       ? {
           zipOptions: {
-            outFilePath: `../../builds/metamask-[browser]-${version.versionName}.zip`, // relative to output.path
+            outFilePath: `../../builds/CryptoBridge-[browser]-${version.versionName}.zip`, // relative to output.path
             mtime: getLatestCommit().timestamp(),
             excludeExtensions: ['.map'],
             // `level: 9` is the highest; it may increase build time by ~5% over level 1
@@ -196,7 +197,7 @@ const config = {
   context,
   mode: args.env,
   stats: args.stats ? 'normal' : 'none',
-  name: `MetaMask – ${args.env}`,
+  name: `CryptoBridge – ${args.env}`,
   // use the `.browserlistrc` file directly to avoid browserslist searching
   target: `browserslist:${browsersListPath}:defaults`,
   // TODO: look into using SourceMapDevToolPlugin and its exclude option to speed up the build

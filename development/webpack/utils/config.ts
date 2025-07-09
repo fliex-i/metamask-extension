@@ -64,18 +64,18 @@ export function getBuildName(
   isDev: boolean,
   args: Pick<Args, 'manifest_version' | 'lavamoat' | 'snow' | 'lockdown'>,
 ) {
-  const buildName = 'CryptoBridge';
-  // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-  //   build.buildNameOverride ||
-  //   `MetaMask ${type.slice(0, 1).toUpperCase()}${type.slice(1)}`;
-  // if (isDev) {
-  //   const mv3Str = args.manifest_version === 3 ? ' MV3' : '';
-  //   const lavamoatStr = args.lavamoat ? ' lavamoat' : '';
-  //   const snowStr = args.snow ? ' snow' : '';
-  //   const lockdownStr = args.lockdown ? ' lockdown' : '';
-  //   return `${buildName}${mv3Str}${lavamoatStr}${snowStr}${lockdownStr}`;
-  // }
+  const buildName =
+    // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+    build.buildNameOverride ||
+    `CryptoBridge ${type.slice(0, 1).toUpperCase()}${type.slice(1)}`;
+  if (isDev) {
+    // const mv3Str = args.manifest_version === 3 ? ' MV3' : '';
+    // const lavamoatStr = args.lavamoat ? ' lavamoat' : '';
+    // const snowStr = args.snow ? ' snow' : '';
+    // const lockdownStr = args.lockdown ? ' lockdown' : '';
+    return `${buildName}`;
+  }
   return buildName;
 }
 

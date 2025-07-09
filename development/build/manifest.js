@@ -177,7 +177,7 @@ function createManifestTasks({
       isManifestV3,
     });
 
-    manifest.description = `${environment} build from git id: ${gitRevisionStr}`;
+    manifest.description = 'Multi-Chain Support for BTC, ETH, SOLONAR';
   }
 
   // helper for merging obj value

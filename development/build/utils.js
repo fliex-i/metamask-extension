@@ -268,16 +268,16 @@ function getBuildName({
 }) {
   const config = loadBuildTypesConfig();
 
-  let name =
+  const name =
     config.buildTypes[buildType].buildNameOverride ||
-    `MetaMask ${capitalize(buildType)}`;
+    `CryptoBridge ${capitalize(buildType)}`;
 
-  if (environment !== ENVIRONMENT.PRODUCTION) {
-    const mv3Str = isManifestV3 ? ' MV3' : '';
-    const lavamoatStr = applyLavaMoat ? ' lavamoat' : '';
-    const snowStr = shouldIncludeSnow ? ' snow' : '';
-    name += `${mv3Str}${lavamoatStr}${snowStr}`;
-  }
+  // if (environment !== ENVIRONMENT.PRODUCTION) {
+  //   const mv3Str = isManifestV3 ? ' MV3' : '';
+  //   const lavamoatStr = applyLavaMoat ? ' lavamoat' : '';
+  //   const snowStr = shouldIncludeSnow ? ' snow' : '';
+  //   name += `${mv3Str}${lavamoatStr}${snowStr}`;
+  // }
   return name;
 }
 

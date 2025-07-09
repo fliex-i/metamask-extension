@@ -40,14 +40,14 @@ export function build(onComplete: () => void = noop) {
     } as const satisfies WebpackDevServerType.Configuration;
 
     const server = new WebpackDevServer(serverOptions, compiler);
-    server.start().then(() => console.log('🦊 Watching for changes…'));
+    server.start().then(() => console.log(' Watching for changes…'));
   } else {
-    console.error(`🦊 Running ${options.mode} build…`);
+    console.error(` Running ${options.mode} build…`);
     if (watch) {
       // once HMR is ready (__HMR_READY__ variable), this section should be removed.
       compiler.watch(options.watchOptions, (err, stats) => {
         logStats(err ?? undefined, stats);
-        console.error('🦊 Watching for changes…');
+        console.error(' Watching for changes…');
       });
     } else {
       compiler.run((err, stats) => {
