@@ -22,7 +22,6 @@
   @include design-system.screen-lg-min {
     width: $width-screen-lg-min;
   }
-
   &__account-picker {
     height: 62px;
 
@@ -50,7 +49,11 @@
 
       .tab {
         width: 50%;
+       &>button{
+          text-align: left !important;
+        }
       }
+
     }
 
     &__item {

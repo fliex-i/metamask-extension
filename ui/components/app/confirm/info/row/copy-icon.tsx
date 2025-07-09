@@ -1,21 +1,15 @@
 import React, { CSSProperties, useCallback } from 'react';
 
 import { useCopyToClipboard } from '../../../../../hooks/useCopyToClipboard';
+import { IconColor } from '../../../../../helpers/constants/design-system';
 import {
-  BorderColor,
-  IconColor,
-} from '../../../../../helpers/constants/design-system';
-import {
-  AvatarAccount,
-  AvatarAccountSize,
   ButtonIcon,
   ButtonIconSize,
   IconName,
 } from '../../../../component-library';
-import { Toast, ToastContainer } from '../../../../multichain/toast';
+import { Toast } from '../../../../multichain/toast';
 import { useI18nContext } from '../../../../../hooks/useI18nContext';
 import { MILLISECOND } from '../../../../../../shared/constants/time';
-import classnames from '../../../../../../types/classnames';
 
 type CopyCallback = (text: string) => void;
 
@@ -31,6 +25,13 @@ export const CopyIcon: React.FC<{
   const handleClick = useCallback(async () => {
     (handleCopy as CopyCallback)(copyText);
     setShowCopyToast(true);
+    const timer = setTimeout(() => {
+      setShowCopyToast(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [copyText]);
 
   return (
@@ -52,21 +53,19 @@ export const CopyIcon: React.FC<{
         ariaLabel="copy-button"
       />
       {showCopyToast && (
-        <ToastContainer>
-          <Toast
-            className="toast-copy"
-            text={t('copiedExclamation')}
-            onClose={() => setShowCopyToast(false)}
-            startAdornment={undefined}
-            onActionClick={() => {
-              // Use setTimeout to prevent React re-render from
-              // hiding the tooltip
-              setTimeout(() => {
-                setShowCopyToast(false);
-              }, 250 * MILLISECOND);
-            }}
-          />
-        </ToastContainer>
+        <Toast
+          className="toast-copy"
+          text={t('copiedExclamation')}
+          onClose={() => setShowCopyToast(false)}
+          startAdornment={undefined}
+          onActionClick={() => {
+            // Use setTimeout to prevent React re-render from
+            // hiding the tooltip
+            setTimeout(() => {
+              setShowCopyToast(false);
+            }, 250 * MILLISECOND);
+          }}
+        />
       )}
     </>
   );
