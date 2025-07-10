@@ -64,9 +64,52 @@ export default function RecoveryPhraseChips({
     [quizWords, userSelections],
   );
 
+  const allQuizCorrect = useMemo(() => {
+    if (confirmPhase && quizWords.length === 3) {
+      return quizOptions.every(
+        (group, idx) => userSelections[idx] === group.correct
+      );
+    }
+    return false;
+  }, [confirmPhase, quizWords, quizOptions, userSelections]);
+
+  const phrasesToDisplay = secretRecoveryPhrase;
+  const indicesToCheck = useMemo(
+    () => quizWords.map((word) => word.index),
+    [quizWords],
+  );
+  const [legacyQuizAnswers, setLegacyQuizAnswers] = useState(
+    indicesToCheck.map((index) => ({
+      index, // the index in the SRP chips UI where the answer is inserted
+      word: '', // the answer value
+      actualIndexInSrp: -1, // the correct index of the answer value in the secret recovery phrase
+    })),
+  );
+
+  const allLegacyCorrect = useMemo(() => {
+    if (!confirmPhase && quizWords.length === 3) {
+      return legacyQuizAnswers.every(
+        (answer) =>
+          answer.word &&
+          secretRecoveryPhrase[answer.index] === answer.word
+      );
+    }
+    return false;
+  }, [confirmPhase, quizWords, legacyQuizAnswers, secretRecoveryPhrase]);
+
   useEffect(() => {
-    setInputValue?.(quizAnswers);
-  }, [quizAnswers, setInputValue]);
+    if (confirmPhase && quizWords.length === 3) {
+      setInputValue?.(quizAnswers, allQuizCorrect);
+    } else if (typeof setInputValue === 'function') {
+      setInputValue(true);
+    }
+  }, [
+    quizAnswers,
+    allQuizCorrect,
+    setInputValue,
+    confirmPhase,
+    quizWords.length,
+  ]);
 
   useEffect(() => {
     setUserSelections(Array(quizWords.length).fill(''));
@@ -133,19 +176,6 @@ export default function RecoveryPhraseChips({
     );
   }
 
-  const phrasesToDisplay = secretRecoveryPhrase;
-  const indicesToCheck = useMemo(
-    () => quizWords.map((word) => word.index),
-    [quizWords],
-  );
-  const [legacyQuizAnswers, setLegacyQuizAnswers] = useState(
-    indicesToCheck.map((index) => ({
-      index, // the index in the SRP chips UI where the answer is inserted
-      word: '', // the answer value
-      actualIndexInSrp: -1, // the correct index of the answer value in the secret recovery phrase
-    })),
-  );
-
   const setNextTargetIndex = (newQuizAnswers) => {
     const emptyAnswers = newQuizAnswers.reduce((acc, answer) => {
       if (answer.word === '') {
@@ -195,10 +225,6 @@ export default function RecoveryPhraseChips({
     },
     [legacyQuizAnswers],
   );
-
-  useEffect(() => {
-    setInputValue?.(legacyQuizAnswers);
-  }, [legacyQuizAnswers, setInputValue]);
 
   useEffect(() => {
     if (quizWords.length) {
