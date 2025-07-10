@@ -160,9 +160,9 @@ export default function SecureYourWallet() {
             );
           })}
 
-          <Text color={TextColor.textAlternative}>
+          {/* <Text color={TextColor.textAlternative}>
             {t('secureWalletWalletRecover')}
-          </Text>
+          </Text> */}
         </Box>
       </Box>
 

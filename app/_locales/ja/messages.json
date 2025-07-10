@@ -39,7 +39,7 @@
     "message": "公式QRコードをサポートする以下のパートナーのリストから選択できます。"
   },
   "stepOf": {
-    "message": "テップ $1/$2",
+    "message": "ステップ $1/$2",
     "description": "$1 current step, $2 total steps"
   },
   "QRHardwareWalletSteps1Title": {
@@ -323,7 +323,7 @@
     "message": "これはアカウントのトランザクション番号です。最初のトランザクションのナンスは0で、順番に上がっていきます。"
   },
   "advancedGasFeeDefaultOptIn": {
-    "message": "これらの値を$1ネットワークのデフォルトとして保存する",
+    "message": "シークレットリカバリーフレーズを表示",
     "description": "$1 is the current network name."
   },
   "advancedGasFeeModalTitle": {
@@ -3814,17 +3814,17 @@
     "message": "このデータは、ユーザーによる当社のマーケティングコミュニケーションとのインタラクションを把握するために使用されます。また、関連ニュースをお伝えする場合もあります (製品の機能など)。"
   },
   "onboardingPinExtensionDescription": {
-    "message": "CryptoBridgeをブラウザにピン留めすることで、アクセスしやすくなり、トランザクションの承認を簡単に表示できるようになります。"
+    "message": "ブラウザの検索バー右側にあるパズルのアイコンをクリックし、CryptoBridge拡張機能をピン留めすると、すぐにアクセスできるようになります。"
   },
   "onboardingPinExtensionDescription2": {
-    "message": "拡張機能をクリックしてCryptoBridgeを開き、ワンクリックでウォレットにアクセスできます。"
+    "message": "CryptoBridge拡張機能をピン留めした後、アイコンをクリックするとウォレットがすぐ開きます。"
   },
   "onboardingPinExtensionDescription3": {
     "message": "ブラウザの拡張機能アイコンをクリックすると、すぐにアクセスできます",
     "description": "$1 is the browser name"
   },
   "onboardingPinExtensionTitle": {
-    "message": "CryptoBridgeのインストールが完了しました！"
+    "message": "セットアップ完了"
   },
   "onekey": {
     "message": "OneKey"
@@ -4797,23 +4797,26 @@
     "message": "シークレットリカバリーフレーズは、12、15、18、21、24語で構成されます"
   },
   "seedPhraseReviewDetails": {
-    "message": "シークレットリカバリーフレーズは絶対に他人と共有しないでください。このフレーズにアクセスできる人は、あなたの資金を管理することができます。"
+    "message": "シークレットリカバリーフレーズの管理について"
 
   },
   "seedPhraseReviewDetails1": {
-    "message": "このシークレットリカバリーフレーズをオンラインやスマートフォンに保存しないでください。これらはハッカー攻撃に対して脆弱です。"
+    "message": "シークレットリカバリーフレーズは、絶対に第三者と共有しないでください。このフレーズにアクセスできる者は、あなたの資産を自由に操作することが可能です。"
 
   },
   "seedPhraseReviewDetails2": {
-    "message": "紙に書き留め、オフラインの安全な場所に保管してください。"
+    "message": "シークレットリカバリーフレーズを、オンライン上やスマートフォンなどのデジタル機器に保存しないでください。これらの環境はハッキングなどの攻撃に対して脆弱です。"
 
   },
   "seedPhraseReviewDetails3": {
-    "message": "CryptoBridge のスタッフがこのフレーズを尋ねることは決してありません。"
+    "message": "シークレットリカバリーフレーズは紙に書き留め、金庫などのオフラインかつ安全な場所に保管してください。"
 
   },
   "seedPhraseReviewDetails4": {
-    "message": "将来、ウォレットを再インポートする必要がある場合に備えて、このシークレットリカバリーフレーズを安全に保管してください。"
+    "message": "CryptoBridgeのスタッフが、シークレットリカバリーフレーズを尋ねすることは一切ありません。フレーズの提供を求められた場合は、怪しい可能性があります。"
+  },
+  "seedPhraseReviewDetails5": {
+"message": "将来的にウォレットを再インポートする必要が生じた際に備え、シークレットリカバリーフレーズは確実に保管しておいてください。"
   },
   "seedPhraseReviewTitle": {
     "message": "シークレットリカバリーフレーズを保存する"
@@ -6822,7 +6825,7 @@
     "message": "今出発"
   },
   "setPassword": {
-    "message": "パスワード設定"
+    "message": "パスワードを設定"
   },
   "setPasswordTips": {
     "message": "パスワードには以下を含める必要があります。"
@@ -6955,5 +6958,26 @@
   },
   "copy": {
     "message": "コピー"
+  },
+  "typeYourSRP": {
+    "message": "シークレットリカバリーフレーズを入力してください。"
+  },
+  "onboardingSrpInputPlaceholder": {
+    "message": "各単語の間に半角スペースを入れ、周囲に誰もいないことを確認してください。"
+  },
+  "onboardingSrpInputShowAll": {
+    "message": "すべて表示"
+  },
+  "onboardingSrpInputHideAll": {
+    "message": "すべて非表示"
+  },
+  "paste": {
+    "message": "貼り付け"
+  },
+  "walletReadyLoseSrp": {
+    "message": "パスワードを忘れた場合や、新しいデバイスにウォレットをインポートしたい場合でも、シークレットリカバリーフレーズまたはプライベートキーを失うと、ウォレットを復元することはできません。"
+  },
+  "walletReadyLoseSrp1": {
+    "message": "必ずこれらを紙に書き留め、オフラインの安全な場所に保管してください。"
   }
 }

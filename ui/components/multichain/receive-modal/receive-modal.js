@@ -59,7 +59,7 @@ export const ReceiveModal = ({ address, token, onClose }) => {
             }}
           >
             <div className="attention-ico">
-              <img src="../images/icons/attention.svg" />
+              <img src="../../images/icons/attention.svg" />
             </div>
             <div className="attention-des">
               <ul>

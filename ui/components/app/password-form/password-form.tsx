@@ -207,7 +207,7 @@ export default function PasswordForm({ onChange }: PasswordFormProps) {
                     : 'create-password__rule-icon--invalid'
                 }`}
               >
-                •
+                ✖
               </Text>
               <Text
                 variant={TextVariant.inherit}

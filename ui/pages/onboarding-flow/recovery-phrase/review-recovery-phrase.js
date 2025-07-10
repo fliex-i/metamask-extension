@@ -122,6 +122,7 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
             'seedPhraseReviewDetails2',
             'seedPhraseReviewDetails3',
             'seedPhraseReviewDetails4',
+            'seedPhraseReviewDetails5',
           ].map((key) => (
             <Box
               key={key}

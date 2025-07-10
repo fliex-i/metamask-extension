@@ -3982,7 +3982,7 @@
     "description": "$1 is the browser name"
   },
   "onboardingPinExtensionTitle": {
-    "message": "Installation is complete!"
+    "message": "Setup complete!"
   },
   "onboardingSrpImportError": {
     "message": "Use only lowercase letters, check your spelling, and put the words in the original order."
@@ -4984,6 +4984,9 @@
   "seedPhraseReviewDetails4": {
     "message": "Please make sure to save your Secret Recovery Phrase securely — you may need it to import your wallet again in future updated versions.",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
+  },
+  "seedPhraseReviewDetails5": {
+    "message": ""
   },
   "seedPhraseReviewTitle": {
     "message": "Save Your Secret Recovery Phrase"
@@ -6995,7 +6998,10 @@
     "message": "You can back up your wallets or see your Secret Recovery Phrase in Settings > Security & Password."
   },
   "walletReadyLoseSrp": {
-    "message": "If you lose your Secret Recovery Phrase, you won’t be able to use your wallet."
+    "message": "If you lose your Secret Recovery Phrase or Private Key, you will not be able to recover your wallet if you forget your password, or if you want to import your wallet to a new device."
+  },
+  "walletReadyLoseSrp1": {
+    "message": "Please make sure to write your Secret Recovery Phrase and Private Key on a piece of paper and store it in a secure, offline location."
   },
   "walletReadyLoseSrpFromReminder": {
     "message": "This Secret Recovery Phrase can help you regain access if you ever forget your password or lose access to your login."
@@ -7111,7 +7117,7 @@
     "message": "We weren't able to cancel your transaction before it was confirmed on the blockchain."
   },
   "yourWalletIsReady": {
-    "message": "Your wallet is ready!"
+    "message": "Wallet successfully imported"
   },
   "yourWalletIsReadyFromReminder": {
     "message": "Keep your Secret Recovery Phrase safe!"
@@ -7201,19 +7207,19 @@
     "message": "Your Password must include:"
   },
   "setPasswordTips1": {
-    "message": "At least 8 characters"
+    "message": "Must be at least 8 characters long"
   },
   "setPasswordTips2": {
-    "message": "Uppercase letters (A–Z)"
+    "message": "Must include at least one uppercase letter (A–Z)"
   },
   "setPasswordTips3": {
-    "message": "Lowercase letters (a–z)"
+    "message": "Must include at least one lowercase letter (a–z)"
   },
   "setPasswordTips4": {
-    "message": "Numbers (0–9)"
+    "message": "Must include at least one number (0–9)"
   },
   "setPasswordTips5": {
-    "message": "Special symbols (e.g. @, #, $, !)"
+    "message": "Must include at least one symbol (only @, #, $, ! are allowed)"
   },
   "bankTopic": {
     "message": "Bank Account Required"
