@@ -90,6 +90,7 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
     generateQuizWords(splitSecretRecoveryPhrase),
   );
   const [answerSrp, setAnswerSrp] = useState('');
+  const [allCorrect, setAllCorrect] = useState(false);
 
   useEffect(() => {
     if (!secretRecoveryPhrase) {
@@ -98,16 +99,18 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
   }, [history, secretRecoveryPhrase, isFromReminderParam]);
 
   const handleQuizInput = useCallback(
-    (inputValue) => {
+    (inputValue, matched) => {
       const isNotAnswered = inputValue.some((answer) => !answer.word);
       if (isNotAnswered) {
         setAnswerSrp('');
+        setAllCorrect(false);
       } else {
         const copySplitSrp = [...splitSecretRecoveryPhrase];
         inputValue.forEach((answer) => {
           copySplitSrp[answer.index] = answer.word;
         });
         setAnswerSrp(copySplitSrp.join(' '));
+        setAllCorrect(!!matched);
       }
     },
     [splitSecretRecoveryPhrase],
@@ -223,7 +226,7 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
           size={ButtonSize.Lg}
           className="recovery-phrase__footer__confirm--button"
           onClick={() => onContinue()}
-          disabled={answerSrp.trim() === ''}
+          disabled={answerSrp.trim() === '' || !allCorrect}
         >
           {t('continue')}
         </Button>

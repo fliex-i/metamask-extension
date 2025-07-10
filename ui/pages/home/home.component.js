@@ -20,7 +20,8 @@ import ConnectedSites from '../connected-sites';
 import ConnectedAccounts from '../connected-accounts';
 import { isMv3ButOffscreenDocIsMissing } from '../../../shared/modules/mv3.utils';
 import ActionableMessage from '../../components/ui/actionable-message/actionable-message';
-
+import { getEnvironmentType } from '../../../app/scripts/lib/util';
+import { ENVIRONMENT_TYPE_FULLSCREEN } from '../../../shared/constants/app';
 import {
   FontWeight,
   Display,
@@ -859,18 +860,36 @@ export default class Home extends PureComponent {
               window.open('https://dapp.jdbbanktest.xyz/login/', '_blank');
             }}
           />
-          <a
-            href="https://www.crypto-bridge.co/jp/#support"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="home__container--support"
-          >
-            <img
-              src="/images/home/support.svg"
-              alt="Support"
-              style={{ width: '40px', height: '40px', objectFit: 'contain' }}
-            />
-          </a>
+          {getEnvironmentType() !== ENVIRONMENT_TYPE_FULLSCREEN ? null : (
+            <a
+              href="https://www.crypto-bridge.co/jp/#support"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                position: 'fixed',
+                right: '32px',
+                bottom: '32px',
+                zIndex: 9999,
+                width: '56px',
+                height: '56px',
+                borderRadius: '50%',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                background: '#fff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: 0,
+                cursor: 'pointer',
+              }}
+            >
+              <img
+                src="/images/home/support.png"
+                alt="Support"
+                style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+              />
+            </a>
+          )}
+
           {dataCollectionForMarketing === null &&
           participateInMetaMetrics === true
             ? this.renderOnboardingPopover()

@@ -42,6 +42,7 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
   const { search } = useLocation();
   const hdEntropyIndex = useSelector(getHDEntropyIndex);
   const [showSrpDetailsModal, setShowSrpDetailsModal] = React.useState(false);
+  const [isMatched, setIsMatched] = React.useState(false);
   const searchParams = new URLSearchParams(search);
   const isFromReminderParam = searchParams.get('isFromReminder')
     ? '/?isFromReminder=true'
@@ -58,6 +59,11 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
     });
     setShowSrpDetailsModal(true);
   }, [trackEvent]);
+
+  // 只接收布尔值，表示是否全部正确
+  const handleInputValue = React.useCallback((matched) => {
+    setIsMatched(!!matched);
+  }, []);
 
   return (
     <Box
@@ -107,6 +113,7 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
         </Box>
         <RecoveryPhraseChips
           secretRecoveryPhrase={secretRecoveryPhrase.split(' ')}
+          setInputValue={handleInputValue}
         />
         <Box marginTop={4}>
           {[
@@ -145,7 +152,7 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
           size={ButtonSize.Lg}
           data-testid="recovery-phrase-continue"
           className="recovery-phrase__footer--button"
-          disabled={false}
+          disabled={!isMatched}
           onClick={() => {
             trackEvent({
               category: MetaMetricsEventCategory.Onboarding,

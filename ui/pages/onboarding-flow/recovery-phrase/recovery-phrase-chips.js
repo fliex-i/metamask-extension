@@ -32,7 +32,9 @@ export default function RecoveryPhraseChips({
   const t = useI18nContext();
 
   const quizOptions = useMemo(() => {
-    if (!quizWords.length) return [];
+    if (!quizWords.length) {
+      return [];
+    }
     return quizWords.map((quizWord) => {
       const correctWord = secretRecoveryPhrase[quizWord.index];
       const otherWords = secretRecoveryPhrase.filter(
@@ -64,74 +66,14 @@ export default function RecoveryPhraseChips({
     [quizWords, userSelections],
   );
 
-  useEffect(() => {
-    setInputValue?.(quizAnswers);
-  }, [quizAnswers, setInputValue]);
-
-  useEffect(() => {
-    setUserSelections(Array(quizWords.length).fill(''));
-  }, [quizWords]);
-
-  if (confirmPhase && quizWords.length === 3) {
-    return (
-      <Box display={Display.Flex} flexDirection={FlexDirection.Column} gap={4}>
-        {quizOptions.map((group, groupIdx) => {
-          const isGroupAnswered = userSelections[groupIdx] === group.correct;
-          return (
-            <Box key={group.index}>
-              <Text
-                variant={TextVariant.bodyMd}
-                fontWeight={FontWeight.Medium}
-                marginBottom={2}
-              >
-                {`${t('word')} #${group.index + 1}`}
-              </Text>
-              <Box display={Display.Flex} gap={2}>
-                {group.options.map((option) => {
-                  const selected = userSelections[groupIdx] === option;
-                  const canClick =
-                    (!isGroupAnswered && !selected) ||
-                    (isGroupAnswered && selected);
-                  return (
-                    <ButtonBase
-                      key={option}
-                      className={classnames('recovery-phrase-quiz-option', {
-                        'recovery-phrase-quiz-option--selected': selected,
-                      })}
-                      style={{
-                        border: selected
-                          ? '2px solid var(--brand-colors-purple)'
-                          : '1px solid #d6d9dc',
-                        background: '#fff',
-                        minWidth: 120,
-                        minHeight: 40,
-                        fontWeight: selected ? 600 : 400,
-                        opacity: !canClick ? 0.5 : 1,
-                        cursor: 'pointer',
-                      }}
-                      disabled={!canClick}
-                      onClick={() => {
-                        if (!canClick) return;
-                        const newSelections = [...userSelections];
-                        if (isGroupAnswered && selected) {
-                          newSelections[groupIdx] = '';
-                        } else {
-                          newSelections[groupIdx] = option;
-                        }
-                        setUserSelections(newSelections);
-                      }}
-                    >
-                      {option}
-                    </ButtonBase>
-                  );
-                })}
-              </Box>
-            </Box>
-          );
-        })}
-      </Box>
-    );
-  }
+  const allQuizCorrect = useMemo(() => {
+    if (confirmPhase && quizWords.length === 3) {
+      return quizOptions.every(
+        (group, idx) => userSelections[idx] === group.correct,
+      );
+    }
+    return false;
+  }, [confirmPhase, quizWords, quizOptions, userSelections]);
 
   const phrasesToDisplay = secretRecoveryPhrase;
   const indicesToCheck = useMemo(
@@ -145,6 +87,34 @@ export default function RecoveryPhraseChips({
       actualIndexInSrp: -1, // the correct index of the answer value in the secret recovery phrase
     })),
   );
+
+  const allLegacyCorrect = useMemo(() => {
+    if (!confirmPhase && quizWords.length === 3) {
+      return legacyQuizAnswers.every(
+        (answer) =>
+          answer.word && secretRecoveryPhrase[answer.index] === answer.word,
+      );
+    }
+    return false;
+  }, [confirmPhase, quizWords, legacyQuizAnswers, secretRecoveryPhrase]);
+
+  useEffect(() => {
+    if (confirmPhase && quizWords.length === 3) {
+      setInputValue?.(quizAnswers, allQuizCorrect);
+    } else if (typeof setInputValue === 'function') {
+      setInputValue(true);
+    }
+  }, [
+    quizAnswers,
+    allQuizCorrect,
+    setInputValue,
+    confirmPhase,
+    quizWords.length,
+  ]);
+
+  useEffect(() => {
+    setUserSelections(Array(quizWords.length).fill(''));
+  }, [quizWords.length]);
 
   const setNextTargetIndex = (newQuizAnswers) => {
     const emptyAnswers = newQuizAnswers.reduce((acc, answer) => {
@@ -197,8 +167,12 @@ export default function RecoveryPhraseChips({
   );
 
   useEffect(() => {
-    setInputValue?.(legacyQuizAnswers);
-  }, [legacyQuizAnswers, setInputValue]);
+    if (setInputValue) {
+      setInputValue(legacyQuizAnswers);
+    }
+    // 只依赖 legacyQuizAnswers，假设 setInputValue 是稳定的
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [legacyQuizAnswers]);
 
   useEffect(() => {
     if (quizWords.length) {
