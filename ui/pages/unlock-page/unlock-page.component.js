@@ -279,6 +279,7 @@ export default class UnlockPage extends Component {
             </Text>
             <FormTextField
               id="password"
+              type="password"
               label={
                 <Box
                   display={Display.Flex}
