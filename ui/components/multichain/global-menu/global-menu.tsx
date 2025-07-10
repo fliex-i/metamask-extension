@@ -53,6 +53,8 @@ import {
   getUseExternalServices,
 } from '../../../selectors';
 import { BorderStyle } from '../../../helpers/constants/design-system';
+import { getEnvironmentType } from '../../../../app/scripts/lib/util';
+import { ENVIRONMENT_TYPE_FULLSCREEN } from '../../../../shared/constants/app';
 // import { AccountDetailsMenuItem, ViewExplorerMenuItem } from '../menu-items';
 
 const METRICS_LOCATION = 'Global Menu';
@@ -193,15 +195,7 @@ export const GlobalMenu = ({
       >
         {t('settings')}
       </MenuItem>
-      <MenuItem
-        iconName={IconName.Wise}
-        onClick={() => {
-          window.open('https://wise.com/', '_blank');
-        }}
-        data-testid="global-menu-deposit-wise"
-      >
-        {t('depositWise')}
-      </MenuItem>
+
       <MenuItem
         iconName={IconName.Headphones}
         onClick={() => {

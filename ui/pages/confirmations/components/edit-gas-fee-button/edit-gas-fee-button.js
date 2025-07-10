@@ -73,11 +73,11 @@ export default function EditGasFeeButton({ userAcknowledgedGasMissing }) {
   return (
     <div className="edit-gas-fee-button">
       <button onClick={openEditGasFeeModal} data-testid="edit-gas-fee-button">
-        {icon && (
+        {/* {icon && (
           <span className="edit-gas-fee-button__icon">
             {PRIORITY_LEVEL_ICON_MAP[icon]}
           </span>
-        )}
+        )} */}
         <span className="edit-gas-fee-button__label">{t(title)}</span>
         <Icon
           name={IconName.ArrowRight}

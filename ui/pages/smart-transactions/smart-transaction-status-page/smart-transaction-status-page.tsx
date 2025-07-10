@@ -154,13 +154,13 @@ const PortfolioSmartTransactionStatusUrl = ({
       flexDirection={FlexDirection.Column}
       marginTop={2}
     >
-      <Button
+      {/* <Button
         type="link"
         variant={ButtonVariant.Link}
         onClick={handleViewTransactionLinkClick}
       >
         {t('viewTransaction')}
-      </Button>
+      </Button> */}
     </Box>
   );
 };
@@ -353,13 +353,13 @@ export const SmartTransactionStatusPage = ({
           />
           <Title title={title} />
           <Description description={description} />
-          <PortfolioSmartTransactionStatusUrl
+          {/* <PortfolioSmartTransactionStatusUrl
             portfolioSmartTransactionStatusUrl={
               portfolioSmartTransactionStatusUrl
             }
             isSmartTransactionPending={isSmartTransactionPending}
             onCloseExtension={onCloseExtension}
-          />
+          /> */}
         </Box>
         {canShowSimulationDetails && (
           <Box width={BlockSize.Full}>

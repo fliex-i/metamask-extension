@@ -125,12 +125,7 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
             variant: ButtonVariant.Secondary,
             size: ButtonSize.Lg,
             'data-testid': 'srp-quiz-right-answer',
-          },
-          {
-            label: t('learnMoreUpperCase'),
-            onClick: openSupportArticle,
-            variant: ButtonVariant.Link,
-          },
+          }
         ]}
       />
     );

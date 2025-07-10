@@ -137,7 +137,7 @@ export const AccountOverviewTabs = ({
 
         {/* {showNfts && ( */}
         {/* <Tab
-          name={t('nfts')}
+          name={t('activity')}
           tabKey="nfts"
           data-testid="account-overview__nfts-tab"
           {...tabProps}
@@ -148,7 +148,7 @@ export const AccountOverviewTabs = ({
 
         {showActivity && (
           <Tab
-            name={t('activity')}
+            name={t('nfts')}
             tabKey="activity"
             data-testid="account-overview__activity-tab"
             {...tabProps}
