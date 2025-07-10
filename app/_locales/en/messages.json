@@ -4896,22 +4896,22 @@
     "message": "It’s the only way to recover your wallet if you get locked out of the app or get a new device."
   },
   "secureWalletWalletSaveSrp2":{
-    "message": ""
+    "message": "Write down the 12-word Secret Recovery Phrase exactly in order on a physical piece of paper and store the paper in a secure, offline location (e.g. safebox, vault)"
   },
   "secureWalletWalletSaveSrp3":{
-    "message": ""
+    "message": "If you forget your Password, you can restore your wallet using your Secret Recovery Phrase."
   },
   "secureWalletWalletSaveSrp4":{
-    "message": ""
+    "message": "Never share it with anyone or enter it into any online form."
   },
   "secureWalletWalletSaveSrp5":{
-    "message": ""
+    "message": "CryptoBridge will never ask for your Secret Recovery Phrase or Private Key. If anyone or any website asks for it, it’s a scam."
   },
   "secureWalletWalletSaveSrp6":{
     "message": ""
   },
   "secureWalletWalletSaveSrp": {
-    "message": "Don’t risk losing your funds. Protect your wallet by saving your $1 in a place you trust.",
+    "message": "The $1 gives you full access to your wallets and funds",
     "description": "The $1 is the button text 'Secret Recovery Phrase'"
   },
   "security": {
