@@ -46,6 +46,8 @@ import {
   getUseExternalServices,
 } from '../../../selectors';
 import { BorderStyle } from '../../../helpers/constants/design-system';
+import { ENVIRONMENT_TYPE_FULLSCREEN } from '../../../../shared/constants/app';
+import { getEnvironmentType } from '../../../../app/scripts/lib/util';
 
 // import { AccountDetailsMenuItem, ViewExplorerMenuItem } from '../menu-items';
 
