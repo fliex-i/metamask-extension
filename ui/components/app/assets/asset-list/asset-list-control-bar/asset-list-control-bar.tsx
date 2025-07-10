@@ -287,7 +287,7 @@ const AssetListControlBar = ({
             : t('popularNetworks')}
         </ButtonBase>
 
-        <Box
+        {/* <Box
           className="asset-list-control-bar__buttons"
           display={Display.Flex}
           justifyContent={JustifyContent.flexEnd}
@@ -320,7 +320,7 @@ const AssetListControlBar = ({
               }
             />
           )}
-        </Box>
+        </Box> */}
       </Box>
 
       {/* Network Filter Popover */}

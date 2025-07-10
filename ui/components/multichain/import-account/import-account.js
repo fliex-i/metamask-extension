@@ -33,7 +33,7 @@ export const ImportAccount = ({ onActionComplete }) => {
   const trackEvent = useContext(MetaMetricsContext);
   const hdEntropyIndex = useSelector(getHDEntropyIndex);
 
-  const menuItems = [t('privateKey'), t('jsonFile')];
+  const menuItems = [t('privateKey')]; // t('jsonFile')
 
   const [type, setType] = useState(menuItems[0]);
 
@@ -44,6 +44,7 @@ export const ImportAccount = ({ onActionComplete }) => {
       const { selectedAddress } = await dispatch(
         actions.importNewAccount(strategy, importArgs, loadingMessage),
       );
+      console.log(selectedAddress, '/selectedAddress');
       if (selectedAddress) {
         trackImportEvent(strategy, true);
         dispatch(actions.hideWarning());
@@ -124,15 +125,7 @@ export const ImportAccount = ({ onActionComplete }) => {
   return (
     <>
       <Text variant={TextVariant.bodySm} marginTop={2}>
-        {t('importAccountMsg')}{' '}
-        <ButtonLink
-          size={Size.inherit}
-          href={ZENDESK_URLS.IMPORTED_ACCOUNTS}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t('here')}
-        </ButtonLink>
+        {t('importAccountMsg')}
       </Text>
       <Box paddingTop={4} paddingBottom={8}>
         <Label
@@ -150,6 +143,7 @@ export const ImportAccount = ({ onActionComplete }) => {
             }}
           />
         </Label>
+
         {type === menuItems[0] ? (
           <PrivateKeyImportView
             importAccountFunc={importAccount}

@@ -2659,7 +2659,7 @@
     "message": "We apologize, and we will make it faster in the future."
   },
   "importAccountMsg": {
-    "message": "Imported accounts won’t be associated with your CryptoBridge Secret Recovery Phrase. Learn more about imported accounts"
+    "message": "Imported accounts won’t be associated with your CryptoBridge Secret Recovery Phrase."
   },
   "importNFT": {
     "message": "Import NFT"
