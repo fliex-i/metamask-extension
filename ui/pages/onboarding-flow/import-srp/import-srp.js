@@ -225,7 +225,7 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
           >
             {t('continue')}
           </Button>
-          <Button
+          {/* <Button
             width={BlockSize.Full}
             size={ButtonSize.Lg}
             startIconName={IconName.Key}
@@ -247,7 +247,7 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
             }}
           >
             {t('importPrivateKey')}
-          </Button>
+          </Button> */}
         </Box>
       </Box>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
