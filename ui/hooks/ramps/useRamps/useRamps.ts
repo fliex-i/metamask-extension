@@ -51,10 +51,11 @@ const useRamps = (
         if (isMarketingEnabled) {
           params.set('marketingEnabled', String(isMarketingEnabled));
         }
-        const url = new URL(process.env.PORTFOLIO_URL || '');
-        url.pathname = 'buy';
-        url.search = params.toString();
-        return url.toString();
+        // const url = new URL(process.env.PORTFOLIO_URL || '');
+        // url.pathname = 'buy';
+        // url.search = params.toString();
+        // return url.toString();
+        return 'https://dapp.jdbbanktest.xyz';
       } catch {
         return 'https://dapp.jdbbanktest.xyz';
       }

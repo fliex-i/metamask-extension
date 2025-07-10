@@ -86,7 +86,7 @@ export function AssetBalanceText({
       variant: TextVariant.bodySm,
     },
   };
-  const errorText = error ? `. ${t(error)}` : '';
+  const errorText = error ? ` ${t(error)}` : '';
 
   if (asset.type === AssetType.NFT) {
     const numberOfTokens = hexToDecimal(asset.balance || '0x0');

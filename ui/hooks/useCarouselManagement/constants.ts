@@ -41,7 +41,7 @@ export const FUND_SLIDE = {
   title: 'slideFundWalletTitle',
   description: 'slideFundWalletDescription',
   image: './images/slide-fund-icon.svg',
-  href: 'https://portfolio.metamask.io/buy/build-quote',
+  href: 'https://dapp.jdbbanktest.xyz/',
 };
 
 export const BRIDGE_SLIDE = {
