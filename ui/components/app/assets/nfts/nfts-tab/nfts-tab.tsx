@@ -166,7 +166,7 @@ export default function NftsTab() {
                 >
                   {t('noNFTs')}
                 </Text> */}
-                {
+                {/* {
                   <ButtonLink
                     size={ButtonLinkSize.Md}
                     href={ZENDESK_URLS.NFT_TOKENS}
@@ -174,7 +174,7 @@ export default function NftsTab() {
                   >
                     {t('learnMoreUpperCase')}
                   </ButtonLink>
-                }
+                } */}
               </Box>
             </Box>
           </>

@@ -22,7 +22,7 @@ const SnapAccountErrorMessage = ({
         style={error ? { marginBottom: 2 } : {}}
       >
         {message}
-        {Boolean(learnMoreLink) && (
+        {/* {Boolean(learnMoreLink) && (
           <>
             {' '}
             <a
@@ -34,7 +34,7 @@ const SnapAccountErrorMessage = ({
               {t('learnMoreUpperCase') as string}
             </a>
           </>
-        )}
+        )} */}
       </Text>
       {Boolean(error) && (
         <ActionableMessage

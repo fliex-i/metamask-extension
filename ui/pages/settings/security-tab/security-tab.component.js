@@ -279,14 +279,14 @@ export default class SecurityTab extends PureComponent {
             <div className="settings-page__content-item">
               <div className="settings-page__content-description">
                 {t('securityAlertsDescription', [
-                  <a
-                    key="learn_more_link"
-                    href={SECURITY_ALERTS_LEARN_MORE_LINK}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {t('learnMoreUpperCase')}
-                  </a>,
+                  // <a
+                  //   key="learn_more_link"
+                  //   href={SECURITY_ALERTS_LEARN_MORE_LINK}
+                  //   rel="noreferrer"
+                  //   target="_blank"
+                  // >
+                  //   {t('learnMoreUpperCase')}
+                  // </a>,
                 ])}
               </div>
             </div>
@@ -1015,14 +1015,14 @@ export default class SecurityTab extends PureComponent {
           <span>{t('simulationsSettingSubHeader')}</span>
           <div className="settings-page__content-description">
             {t('simulationsSettingDescription', [
-              <a
-                key="learn_more_link"
-                href={TRANSACTION_SIMULATIONS_LEARN_MORE_LINK}
-                rel="noreferrer"
-                target="_blank"
-              >
-                {t('learnMoreUpperCase')}
-              </a>,
+              // <a
+              //   key="learn_more_link"
+              //   href={TRANSACTION_SIMULATIONS_LEARN_MORE_LINK}
+              //   rel="noreferrer"
+              //   target="_blank"
+              // >
+              //   {t('learnMoreUpperCase')}
+              // </a>,
             ])}
           </div>
         </div>

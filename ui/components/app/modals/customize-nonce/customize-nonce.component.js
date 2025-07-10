@@ -73,14 +73,14 @@ const CustomizeNonce = ({
         >
           <Text variant={TextVariant.bodyMd} as="h6">
             {t('editNonceMessage')}
-            <ButtonLink
+            {/* <ButtonLink
               className="customize-nonce-modal__link"
               rel="noopener noreferrer"
               target="_blank"
               href={ZENDESK_URLS.CUSTOMIZE_NONCE}
             >
               {t('learnMoreUpperCase')}
-            </ButtonLink>
+            </ButtonLink> */}
           </Text>
         </Box>
         <Box marginTop={4}>

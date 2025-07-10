@@ -238,7 +238,7 @@ export function SmartAccountUpdate() {
               title={t('smartAccountPayToken')}
               description={t('smartAccountPayTokenDescription')}
             />
-            <ListItem
+            {/* <ListItem
               imgSrc="./images/sparkle.svg"
               title={t('smartAccountSameAccount')}
               description={
@@ -259,7 +259,7 @@ export function SmartAccountUpdate() {
                   </Text>
                 </>
               }
-            />
+            /> */}
             <Button
               variant={ButtonVariant.Secondary}
               size={ButtonSize.Lg}

@@ -44,16 +44,16 @@ export const DeprecatedNetworkModal = ({
               fontWeight={FontWeight.Normal}
             >
               {t('deprecatedNetworkDescription', [
-                <ButtonLink
-                  key="import-token-fake-token-warning"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  href={ZENDESK_URLS.NETWORK_DEPRECATED}
-                  variant={TextVariant.bodySm}
-                  fontWeight={FontWeight.Normal}
-                >
-                  {t('learnMoreUpperCase')}
-                </ButtonLink>,
+                // <ButtonLink
+                //   key="import-token-fake-token-warning"
+                //   rel="noopener noreferrer"
+                //   target="_blank"
+                //   href={ZENDESK_URLS.NETWORK_DEPRECATED}
+                //   variant={TextVariant.bodySm}
+                //   fontWeight={FontWeight.Normal}
+                // >
+                //   {t('learnMoreUpperCase')}
+                // </ButtonLink>,
               ])}
             </Text>
           </Box>

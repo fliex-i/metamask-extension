@@ -187,6 +187,17 @@ export const GlobalMenu = ({
       >
         {t('settings')}
       </MenuItem>
+      {getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN ? null : (
+        <MenuItem
+          iconName={IconName.Wise}
+          onClick={() => {
+            window.open('https://wise.com/', '_blank');
+          }}
+          data-testid="global-menu-deposit-wise"
+        >
+          {t('depositWise')}
+        </MenuItem>
+      )}
 
       <MenuItem
         iconName={IconName.Headphones}

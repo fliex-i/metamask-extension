@@ -70,7 +70,7 @@ export const SmartContractAccountToggleSection = () => {
         </Text>
         <Text color={TextColor.textAlternative} variant={TextVariant.bodySm}>
           {t('enableSmartContractAccountDescription')}{' '}
-          <ButtonLink
+          {/* <ButtonLink
             onClick={() => {
               global.platform.openTab({
                 url: ZENDESK_URLS.ACCOUNT_UPGRADE,
@@ -86,7 +86,7 @@ export const SmartContractAccountToggleSection = () => {
             }}
           >
             {t('learnMoreUpperCase')}
-          </ButtonLink>
+          </ButtonLink> */}
         </Text>
       </Box>
       <Box>

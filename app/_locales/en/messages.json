@@ -1069,7 +1069,7 @@
     "message": "Choose your network"
   },
   "chooseYourNetworkDescription": {
-    "message": "When you use our default settings and configurations, we use Infura as our default remote procedure call (RPC) provider to offer the most reliable and private access to Ethereum data we can. In limited cases, we may use other RPC providers in order to provide the best experience for our users. You can choose your own RPC, but remember that any RPC will receive your IP address and Ethereum wallet to make transactions. To learn more about how Infura handles data for EVM accounts, read our $1, and for Solana accounts, $2.",
+    "message": "When you use our default settings and configurations, we use Infura as our default remote procedure call (RPC) provider to offer the most reliable and private access to Ethereum data we can. In limited cases, we may use other RPC providers in order to provide the best experience for our users. You can choose your own RPC, but remember that any RPC will receive your IP address and Ethereum wallet to make transactions. To learn more about how Infura handles data for EVM accounts, read our $1, and for Solana accounts.",
     "description": "$1 is a link to the privacy policy, $2 is a link to Solana accounts support"
   },
   "chooseYourNetworkDescriptionCallToAction": {
@@ -1762,7 +1762,7 @@
     "message": "Delete MetaMetrics data?"
   },
   "deleteMetaMetricsDataRequestedDescription": {
-    "message": "You initiated this action on $1. This process can take up to 30 days. View the $2",
+    "message": "You initiated this action on $1. This process can take up to 30 days.",
     "description": "$1 will be the date on which teh deletion is requested and $2 will have text saying Privacy Policy "
   },
   "deleteNetworkIntro": {
@@ -2121,7 +2121,7 @@
     "description": "$1 is the return value of eth_chainId from an RPC endpoint"
   },
   "enhancedTokenDetectionAlertMessage": {
-    "message": "Enhanced token detection is currently available on $1. $2"
+    "message": "Enhanced token detection is currently available on $1."
   },
   "ensDomainsSettingDescriptionIntroduction": {
     "message": "CryptoBridge lets you see ENS domains right in your browser's address bar. Here's how it works:"
@@ -2569,7 +2569,7 @@
     "description": "Is the bolded text in 'holdToRevealContent1'"
   },
   "holdToRevealContent3": {
-    "message": "Do not share this with anyone. $1 $2",
+    "message": "Do not share this with anyone.",
     "description": "$1 is a message from 'holdToRevealContent4' and $2 is a text link with the message from 'holdToRevealContent5'"
   },
   "holdToRevealContent4": {
@@ -3591,7 +3591,7 @@
     "message": "Enter the token id"
   },
   "nftWarningContent": {
-    "message": "You're granting access to $1, including any you might own in the future. The party on the other end can transfer these NFTs from your wallet at any time without asking you until you revoke this approval. $2",
+    "message": "You're granting access to $1, including any you might own in the future. The party on the other end can transfer these NFTs from your wallet at any time without asking you until you revoke this approval.",
     "description": "$1 is nftWarningContentBold bold part, $2 is Learn more link"
   },
   "nftWarningContentBold": {
@@ -3788,7 +3788,7 @@
     "message": "Unstaking requested"
   },
   "notificationTransactionFailedMessage": {
-    "message": "Transaction $1 failed! $2",
+    "message": "Transaction $1 failed!",
     "description": "Content of the browser notification that appears when a transaction fails"
   },
   "notificationTransactionFailedTitle": {
@@ -3911,7 +3911,7 @@
     "message": "IPFS gateway URL is valid"
   },
   "onboardingAdvancedPrivacyNetworkDescription": {
-    "message": "When you use our default settings and configurations, we use Infura as our default remote procedure call (RPC) provider to offer the most reliable and private access to Ethereum data we can. In limited cases, we may use other RPC providers in order to provide the best experience for our users. You can choose your own RPC, but remember that any RPC will receive your IP address and Ethereum wallet to make transactions. To learn more about how Infura handles data for EVM accounts, read our $1; for Solana accounts, $2."
+    "message": "When you use our default settings and configurations, we use Infura as our default remote procedure call (RPC) provider to offer the most reliable and private access to Ethereum data we can. In limited cases, we may use other RPC providers in order to provide the best experience for our users. You can choose your own RPC, but remember that any RPC will receive your IP address and Ethereum wallet to make transactions. To learn more about how Infura handles data for EVM accounts, read our $1; for Solana accounts."
   },
   "onboardingAdvancedPrivacyNetworkDescriptionCallToAction": {
     "message": "click here"
@@ -4924,7 +4924,7 @@
     "message": "Security alerts"
   },
   "securityAlertsDescription": {
-    "message": "This feature alerts you to malicious or unusual activity by actively reviewing transaction and signature requests. $1",
+    "message": "This feature alerts you to malicious or unusual activity by actively reviewing transaction and signature requests.",
     "description": "Link to learn more about security alerts"
   },
   "securityAndPrivacy": {
@@ -4966,11 +4966,11 @@
     "message": "Secret Recovery Phrases contain 12, 15, 18, 21, or 24 words"
   },
   "seedPhraseReviewDetails": {
-    "message": "Never share your Secret Recovery Phrase with anyone. Anyone with access to this phrase can control your funds. $2",
+    "message": "Never share your Secret Recovery Phrase with anyone. Anyone with access to this phrase can control your funds.",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
   },
   "seedPhraseReviewDetails1": {
-    "message": "Do not save your Secret Recovery Phrase anywhere online or on your phone, as these are vulnerable to hacker attacks.. $2",
+    "message": "Do not save your Secret Recovery Phrase anywhere online or on your phone, as these are vulnerable to hacker attacks.",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
   },
   "seedPhraseReviewDetails2": {
@@ -7127,6 +7127,12 @@
   },
   "footerAgreementDesc":{
     "message":"By using this service, you agree to our"
+  },
+  "footerAgreementDesc1": {
+    "message": "&"
+  },
+  "footerAgreementDesc2": {
+    "message": ""
   },
   "termsConditions": {
     "message":"Terms and Conditions"

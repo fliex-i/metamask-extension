@@ -123,13 +123,13 @@ export const ConnectedSitePopover = ({
             <Text variant={TextVariant.bodyMd}>
               {t('connectionPopoverDescription')}
             </Text>
-            <ButtonLink
+            {/* <ButtonLink
               href="https://support.metamask.io/more-web3/dapps/connecting-to-a-dapp/"
               externalLink
               size={ButtonLinkSize.Sm}
             >
               {t('learnMoreUpperCase')}
-            </ButtonLink>
+            </ButtonLink> */}
           </Box>
         )}
         <Box paddingTop={2} paddingLeft={4} paddingRight={4}>

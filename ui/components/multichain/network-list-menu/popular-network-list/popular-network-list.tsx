@@ -113,7 +113,7 @@ const PopularNetworkList = ({
                 {' '}
                 {t('popularNetworkAddToolTip')}{' '}
               </Text>
-              <Box key="learn-more-link">
+              {/* <Box key="learn-more-link">
                 <ButtonLink
                   size={ButtonLinkSize.Auto}
                   externalLink
@@ -125,7 +125,7 @@ const PopularNetworkList = ({
                 >
                   {t('learnMoreUpperCase')}
                 </ButtonLink>
-              </Box>
+              </Box> */}
             </Popover>
           </Box>
         </Box>

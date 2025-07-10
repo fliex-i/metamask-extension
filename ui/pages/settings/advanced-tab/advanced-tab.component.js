@@ -246,7 +246,7 @@ export default class AdvancedTab extends PureComponent {
           <span> {t('useSmartAccountTitle')}</span>
           <div className="settings-page__content-description">
             {`${t('useSmartAccountDescription')} `}
-            {learMoreLink}
+            {/* {learMoreLink} */}
           </div>
         </div>
 
@@ -340,7 +340,7 @@ export default class AdvancedTab extends PureComponent {
         <div className="settings-page__content-item">
           <span>{t('smartTransactions')}</span>
           <div className="settings-page__content-description">
-            {t('stxOptInSupportedNetworksDescription', [learMoreLink])}
+            {t('stxOptInSupportedNetworksDescription', [])}
           </div>
         </div>
 
