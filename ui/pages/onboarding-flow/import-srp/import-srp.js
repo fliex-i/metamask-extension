@@ -37,8 +37,6 @@ import {
   ButtonIcon,
   ButtonIconSize,
   ButtonSize,
-  ButtonLink,
-  ButtonLinkSize,
   IconSize,
   Modal,
   ModalOverlay,
@@ -115,30 +113,27 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
   useEffect(() => {
     setSrpError('');
   }, [secretRecoveryPhrase]);
+
   const dispatch = useDispatch();
+
   const [isOpen, setIsOpen] = useState(false);
-  const onClose = () => {
+
+  const onActionComplete = useCallback(async (confirmed) => {
+    if (confirmed) {
+      trackEvent({
+        category: MetaMetricsEventCategory.Navigation,
+        event: MetaMetricsEventName.AccountAddSelected,
+        properties: {
+          account_type: MetaMetricsEventAccountType.Imported,
+          location: 'Main Menu',
+          hd_entropy_index: hdEntropyIndex,
+        },
+      });
+      dispatch(setCompletedOnboarding());
+      history.push(DEFAULT_ROUTE);
+    }
     setIsOpen(false);
-  };
-  const onActionComplete = useCallback(
-    async (confirmed) => {
-      if (confirmed) {
-        trackEvent({
-          category: MetaMetricsEventCategory.Navigation,
-          event: MetaMetricsEventName.AccountAddSelected,
-          properties: {
-            account_type: MetaMetricsEventAccountType.Imported,
-            location: 'Main Menu',
-            hd_entropy_index: hdEntropyIndex,
-          },
-        });
-        dispatch(setCompletedOnboarding());
-        history.push(DEFAULT_ROUTE);
-      }
-      setIsOpen(false);
-    },
-    [onClose],
-  );
+  }, []);
 
   return (
     <>
