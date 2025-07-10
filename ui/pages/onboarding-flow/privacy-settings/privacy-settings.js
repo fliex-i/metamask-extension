@@ -544,14 +544,14 @@ export default function PrivacySettings() {
                     setValue={setTransactionSimulationsEnabled}
                     title={t('simulationsSettingSubHeader')}
                     description={t('simulationsSettingDescription', [
-                      <a
-                        key="learn_more_link"
-                        href={TRANSACTION_SIMULATIONS_LEARN_MORE_LINK}
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        {t('learnMoreUpperCase')}
-                      </a>,
+                      // <a
+                      //   key="learn_more_link"
+                      //   href={TRANSACTION_SIMULATIONS_LEARN_MORE_LINK}
+                      //   rel="noreferrer"
+                      //   target="_blank"
+                      // >
+                      //   {t('learnMoreUpperCase')}
+                      // </a>,
                     ])}
                   />
                   <Setting

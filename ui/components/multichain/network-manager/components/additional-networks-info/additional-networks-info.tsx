@@ -100,7 +100,7 @@ export const AdditionalNetworksInfo = memo(() => {
                 {t('popularNetworkAddToolTip')}
               </Text>
               {/* Learn more link that opens external documentation */}
-              <Box key="learn-more-link">
+              {/* <Box key="learn-more-link">
                 <ButtonLink
                   size={ButtonLinkSize.Auto}
                   externalLink
@@ -108,7 +108,7 @@ export const AdditionalNetworksInfo = memo(() => {
                 >
                   {t('learnMoreUpperCase')}
                 </ButtonLink>
-              </Box>
+              </Box> */}
             </Popover>
           </Box>
         </Box>

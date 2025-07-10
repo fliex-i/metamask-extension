@@ -7128,6 +7128,12 @@
   "footerAgreementDesc":{
     "message":"By using this service, you agree to our"
   },
+  "footerAgreementDesc1": {
+    "message": "&"
+  },
+  "footerAgreementDesc2": {
+    "message": ""
+  },
   "termsConditions": {
     "message":"Terms and Conditions"
   },

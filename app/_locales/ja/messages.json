@@ -3442,7 +3442,13 @@
     "message": "指定された検索クエリでアカウントが見つかりませんでした"
   },
   "footerAgreementDesc": {
-    "message": "本サービスをご利用いただくにあたり、下記規約に同意いただく必要があります"
+    "message": "本サービスをご利用いただくにあたり、"
+  },
+  "footerAgreementDesc1": {
+    "message": "および"
+  },
+  "footerAgreementDesc2": {
+    "message": "に同意いただくものとします"
   },
   "welcomeTitle": {
     "message": "CryptoBridge"

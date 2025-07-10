@@ -128,13 +128,13 @@ const CancelSpeedupPopover = () => {
                         : t('speedUp'),
                     ])}
                   </Text>
-                  <ButtonLink
+                  {/* <ButtonLink
                     variant={TextVariant.bodySm}
                     href="https://community.metamask.io/t/how-to-speed-up-or-cancel-transactions-on-metamask/3296"
                     target="_blank"
                   >
                     {t('learnMoreUpperCase')}
-                  </ButtonLink>
+                  </ButtonLink> */}
                 </>
               }
             />

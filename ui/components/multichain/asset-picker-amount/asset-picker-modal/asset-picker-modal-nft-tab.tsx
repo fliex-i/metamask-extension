@@ -181,13 +181,13 @@ export function AssetPickerModalNftTab({
               >
                 {t('noNFTs')}
               </Text> */}
-              <ButtonLink
+              {/* <ButtonLink
                 size={ButtonLinkSize.Sm}
                 href={ZENDESK_URLS.NFT_TOKENS}
                 externalLink
               >
                 {t('learnMoreUpperCase')}
-              </ButtonLink>
+              </ButtonLink> */}
             </Box>
           </Box>
         </>

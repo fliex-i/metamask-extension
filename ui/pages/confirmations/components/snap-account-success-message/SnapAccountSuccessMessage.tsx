@@ -20,7 +20,7 @@ const SnapAccountSuccessMessage = ({
       <SnapAccountCard address={address} />
       <Text data-testid="snap-account-success-message-text">
         {message}
-        {Boolean(learnMoreLink) && (
+        {/* {Boolean(learnMoreLink) && (
           <>
             {' '}
             <a
@@ -32,7 +32,7 @@ const SnapAccountSuccessMessage = ({
               {t('learnMoreUpperCase') as string}
             </a>
           </>
-        )}
+        )} */}
       </Text>
     </>
   );

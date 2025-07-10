@@ -606,7 +606,7 @@ export default class SelectHardware extends Component {
             <p className="hw-connect__QR-subtitle">
               {this.context.t('keystone')}
             </p>
-            <Button
+            {/* <Button
               className="hw-connect__external-btn-first"
               variant={BUTTON_VARIANT.SECONDARY}
               onClick={() => {
@@ -618,7 +618,7 @@ export default class SelectHardware extends Component {
               }}
             >
               {this.context.t('learnMoreKeystone')}
-            </Button>
+            </Button> */}
             <Button
               className="hw-connect__external-btn"
               variant={BUTTON_VARIANT.SECONDARY}
