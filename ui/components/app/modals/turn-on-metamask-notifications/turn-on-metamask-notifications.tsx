@@ -1,3 +1,4 @@
+import { time } from 'console';
 import React, { useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -96,10 +97,12 @@ export default function TurnOnMetamaskNotifications() {
     {
       title: t('noticesModalItem1Title'),
       desc: t('noticesModalItem1Desc'),
+      time: t('noticeModal1mAgo'),
     },
     {
       title: t('noticesModalItem2Title'),
       desc: t('noticesModalItem2Desc'),
+      time: t('noticeModalNow'),
     },
   ];
   return (
@@ -150,7 +153,7 @@ export default function TurnOnMetamaskNotifications() {
                           as="span"
                           className="notices__content__items__ItemBox__item__now"
                         >
-                          {t('noticesModalNow')}
+                          {item.time}
                         </Text>
                       </Box>
                       <Box className="notices__content__items__ItemBox__bg"></Box>

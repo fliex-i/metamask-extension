@@ -6872,6 +6872,9 @@
   "noticesModalNow": {
     "message": "今すぐ"
   },
+    "noticeModal1mAgo":{
+    "message":"1分前です"
+  },
   "noticesModalItem2Title": {
     "message": "受取完了"
   },

@@ -7182,6 +7182,9 @@
   "noticesModalNow":{
     "message":"now"
   },
+  "noticeModal1mAgo":{
+    "message":"1 minute ago"
+  },
   "noticesModalItem2Title":{
     "message":"Received"
   },
