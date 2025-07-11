@@ -288,19 +288,17 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   const quizContent = stages[stage](); // Pick the content using the right stage from the JSXDict
 
   function getTitle(stage: QuizStage) {
-    const text = t('ofTextNofM');
-    const text1 = t('ofTextNofM1');
     switch (stage) {
       case QuizStage.introduction:
         return t('srpSecurityQuizTitle');
       case QuizStage.questionOne:
       case QuizStage.rightAnswerQuestionOne:
       case QuizStage.wrongAnswerQuestionOne:
-        return text ? `1 ${text} 2` : `${text1} 1/2`;
+        return t('srpQuizStep', ['1', '2']);
       case QuizStage.questionTwo:
       case QuizStage.rightAnswerQuestionTwo:
       case QuizStage.wrongAnswerQuestionTwo:
-        return text ? `2 ${text} 2` : `${text1} 2/2`;
+        return t('srpQuizStep', ['2', '2']);
       default:
         return '';
     }

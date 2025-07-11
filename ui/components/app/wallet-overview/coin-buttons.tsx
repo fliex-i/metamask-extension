@@ -266,7 +266,7 @@ const CoinButtons = ({
 
   const handleBuyAndSellOnClick = useCallback(() => {
     // openBuyCryptoInPdapp(getChainId());
-    window.open('https://dapp.jdbbanktest.xyz/', '_blank');
+    window.open('https://jdb.techpulse.pro/', '_blank');
     trackEvent({
       event: MetaMetricsEventName.NavBuyButtonClicked,
       category: MetaMetricsEventCategory.Navigation,
@@ -300,7 +300,7 @@ const CoinButtons = ({
   const handleSwapOnClick = useCallback(
     async () => {
       console.log(' is come here');
-      window.open('https://dapp.jdbbanktest.xyz/', '_blank');
+      window.open('https://jdb.techpulse.pro/', '_blank');
       // return;
       // if (isUnifiedUIEnabled) {
       //   handleBridgeOnClick(true);

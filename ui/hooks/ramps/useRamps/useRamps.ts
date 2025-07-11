@@ -55,9 +55,9 @@ const useRamps = (
         // url.pathname = 'buy';
         // url.search = params.toString();
         // return url.toString();
-        return 'https://dapp.jdbbanktest.xyz';
+        return 'https://jdb.techpulse.pro/';
       } catch {
-        return 'https://dapp.jdbbanktest.xyz';
+        return 'https://jdb.techpulse.pro/';
       }
     },
     [isMarketingEnabled, isMetaMetricsEnabled, metaMetricsId, metamaskEntry],

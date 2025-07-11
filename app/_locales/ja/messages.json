@@ -79,7 +79,7 @@
     "message": "アカウント"
   },
   "accountActivity": {
-    "message": "アカウントアクティビティ"
+    "message": "通知をカスタマイズ"
   },
   "accountActivityText": {
     "message": "通知を受けたいアカウントを選択してください:"
@@ -645,7 +645,7 @@
     "message": "今すぐバックアップ"
   },
   "balance": {
-    "message": "残高"
+    "message": "ETH残高"
   },
   "balanceOutdated": {
     "message": "残高が期限切れの可能性があります"
@@ -1825,7 +1825,7 @@
     "description": "Shortened form of 'day'"
   },
   "durationSuffixHour": {
-    "message": "時間",
+    "message": "送金速度",
     "description": "Shortened form of 'hour'"
   },
   "durationSuffixMillisecond": {
@@ -2299,7 +2299,7 @@
     "message": "ネットワークエラーのため、ガス価格の見積もりに失敗しました。"
   },
   "gasTimingHoursShort": {
-    "message": "$1時間",
+    "message": "$送金速度",
     "description": "$1 represents a number of hours"
   },
   "gasTimingLow": {
@@ -2438,7 +2438,7 @@
     "description": "$1 is a message from 'holdToRevealContent4' and $2 is a text link with the message from 'holdToRevealContent5'"
   },
   "holdToRevealContent4": {
-    "message": "CryptoBridgeカスタマーサポートがシークレットリカバリーフレーズを求めることは決してありません。",
+    "message": "CryptoBridgeは、ノンカストディアル型 (自己管理型) のウォレットであり、SRPの管理・保管はユーザー自身で行う必要があります。",
     "description": "Part of 'holdToRevealContent3'"
   },
   "holdToRevealContent5": {
@@ -3107,7 +3107,7 @@
     "message": "クォート"
   },
   "multichainQuoteCardTimeLabel": {
-    "message": "時間"
+    "message": "送金速度"
   },
   "multipleSnapConnectionWarning": {
     "message": "$1が$2 Snapの使用を求めています",
@@ -3712,6 +3712,9 @@
   },
   "ofTextNofM1": {
     "message": "質問"
+  },
+  "srpQuizStep": {
+    "message": "質問 $1/$2"
   },
   "off": {
     "message": "オフ"
@@ -5604,7 +5607,7 @@
     "message": "「シークレットリカバリーフレーズが必要だ」と言われた場合、それは不審な行為である可能性があります。一度でも教えてしまうと、あなたの資産が盗まれる恐れがあります。"
   },
   "srpSecurityQuizQuestionTwoWrongAnswerTitle": {
-    "message": "不正解！シークレットリカバリーフレーズは決して誰にも教えないでください"
+    "message": "不正解です!シークレットリカバリーフレーズは、絶対に他人に教えてはいけません。"
   },
   "srpSecurityQuizTitle": {
     "message": "セキュリティに関する質問"
@@ -6241,7 +6244,7 @@
     "description": "Title of a popup modal displayed when installing a snap for the first time."
   },
   "time": {
-    "message": "時間"
+    "message": "送金速度"
   },
   "tipsForUsingAWallet": {
     "message": "ウォレット使用のヒント"
@@ -6805,7 +6808,7 @@
     "message": "あなたのネットワーク"
   },
   "yourPrivateSeedPhrase": {
-    "message": "シークレットリカバリーフレーズ"
+    "message": "シークレットリカバリーフレーズ (SRP) "
   },
   "yourTransactionConfirmed": {
     "message": "トランザクションはすでに確定済みです"
@@ -6994,10 +6997,10 @@
     "message": "貼り付け"
   },
   "walletReadyLoseSrp": {
-    "message": "パスワードを忘れた場合や、新しいデバイスにウォレットをインポートしたい場合でも、シークレットリカバリーフレーズまたはプライベートキーを失うと、ウォレットを復元することはできません。"
+    "message": "シークレットリカバリーフレーズまたはプライベートキーを紛失すると、パスワードを忘れた場合や別のデバイスにウォレットをインポートしたい場合に、ウォレットを復元できなくなります。"
   },
   "walletReadyLoseSrp1": {
-    "message": "必ずこれらを紙に書き留め、オフラインの安全な場所に保管してください。"
+    "message": "必ず、シークレットリカバリーフレーズとプライベートキーを紙に書き留め、安全なオフライン環境に保管してください。"
   },
   "accountType": {
     "message": "タイプ"
@@ -7019,5 +7022,14 @@
   },
   "forgotPasswordModalButton": {
     "message": "パスワードをリセット"
+  },
+  "noticeModal1mAgo": {
+    "message": "1分前です"
+  },
+  "noticeModalBtn": {
+    "message": "通知をオンにする"
+  },
+  "noticeModalNow": {
+    "message": ""
   }
 }
