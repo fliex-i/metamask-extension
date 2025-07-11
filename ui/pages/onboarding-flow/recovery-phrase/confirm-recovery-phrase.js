@@ -190,30 +190,37 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
                 'seedPhraseReviewDetails2',
                 'seedPhraseReviewDetails3',
                 'seedPhraseReviewDetails4',
-              ].map((key) => (
-                <Box
-                  key={key}
-                  display={Display.Flex}
-                  alignItems={AlignItems.flexStart}
-                >
-                  <Text
-                    style={{
-                      color: '#D92D20',
-                      marginRight: 8,
-                      fontSize: 18,
-                      lineHeight: '22px',
-                    }}
+                'seedPhraseReviewDetails5',
+              ].map((key) => {
+                const text = t(key);
+                if (!text || text === key) {
+                  return null;
+                }
+                return (
+                  <Box
+                    key={key}
+                    display={Display.Flex}
+                    alignItems={AlignItems.flexStart}
                   >
-                    •
-                  </Text>
-                  <Text
-                    variant={TextVariant.bodyMd}
-                    style={{ color: '#D92D20' }}
-                  >
-                    {t(key)}
-                  </Text>
-                </Box>
-              ))}
+                    <Text
+                      style={{
+                        color: '#D92D20',
+                        marginRight: 8,
+                        fontSize: 18,
+                        lineHeight: '22px',
+                      }}
+                    >
+                      •
+                    </Text>
+                    <Text
+                      variant={TextVariant.bodyMd}
+                      style={{ color: '#D92D20' }}
+                    >
+                      {text}
+                    </Text>
+                  </Box>
+                );
+              })}
             </Box>
           </>
         )}
