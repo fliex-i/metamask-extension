@@ -3858,6 +3858,9 @@
   "ofTextNofM1": {
     "message": ""
   },
+  "srpQuizStep": {
+    "message": "$1 of $2"
+  },
   "off": {
     "message": "Off"
   },
@@ -5818,7 +5821,7 @@
     "message": "Nope! Never share your Secret Recovery Phrase with anyone, ever"
   },
   "srpSecurityQuizTitle": {
-    "message": "Security quiz"
+    "message": "Security Quiz"
   },
   "srpToggleShow": {
     "message": "Show/Hide this word of the secret recovery phrase",
@@ -6522,7 +6525,7 @@
     "message": "Adding tokens unlocks more ways to use web3."
   },
   "tipsHome": {
-    "message": "Please make sure to securely save your Secret Recovery Phrase and Private Key. If you need to re-install the wallet or change devices, you’ll need them to import your wallet. Without them, you will lose access to your funds permanently"
+    "message": "Please make sure to securely save your Secret Recovery Phrase and Private Key. If you need to re-install the wallet or change devices, you’ll need them to import your wallet. Without them, you will lose access to your funds permanently."
   },
   "tipsHome1": {
     "message": ""
@@ -7225,7 +7228,7 @@
     "message": "Set Password"
   },
   "setPasswordTips": {
-    "message": "Your Password must include:"
+    "message": "Password Requirements:"
   },
   "setPasswordTips1": {
     "message": "Must be at least 8 characters long"
@@ -7325,5 +7328,11 @@
   },
   "accountDetail": {
     "message": "Details"
+  },
+  "noticeModalBtn": {
+    "message": "Done"
+  },
+  "noticeModalNow": {
+    "message": ""
   }
 }

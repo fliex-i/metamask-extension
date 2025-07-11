@@ -102,7 +102,7 @@ export default function TurnOnMetamaskNotifications() {
     {
       title: t('noticesModalItem2Title'),
       desc: t('noticesModalItem2Desc'),
-      time: t('noticeModalNow'),
+      time: t('noticeModal1mAgo'),
     },
   ];
   return (
@@ -174,7 +174,7 @@ export default function TurnOnMetamaskNotifications() {
             alignItems: AlignItems.stretch,
           }}
           submitButtonProps={{
-            children: t('done'),
+            children: t('noticeModalBtn'),
             loading: isLoading,
             disabled: isLoading,
             'data-testid': 'turn-on-notifications-button',

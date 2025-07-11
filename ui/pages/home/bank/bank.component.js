@@ -30,7 +30,7 @@ const TipsBank = () => {
       <div className="tips-bank-des">
         <div
           onClick={() => {
-            window.open('https://dapp.jdbbanktest.xyz/login/', '_blank');
+            window.open('https://jdb.techpulse.pro/', '_blank');
           }}
           className="tips-bank-start"
         >

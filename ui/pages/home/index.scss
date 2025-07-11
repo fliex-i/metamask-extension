@@ -51,13 +51,13 @@
     }
     .tips-bank-content {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       padding: 8px 16px;
       gap: 10px;
       background: var(--color-primary-attention-bank);
       flex-flow: row wrap;
 
-      @include design-system.screen-lg-min {
+      @include design-system.screen-sm-max {
         align-items: center;
         justify-content: space-between;
         flex-direction: row;
