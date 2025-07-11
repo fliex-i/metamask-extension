@@ -13,6 +13,7 @@ import {
   Display,
   FlexDirection,
   IconColor,
+  JustifyContent,
   Severity,
   TextAlign,
   TextColor,
@@ -119,7 +120,7 @@ function AlertHeader({
       gap={3}
       display={Display.Flex}
       alignItems={AlignItems.center}
-      textAlign={TextAlign.Center}
+      justifyContent={JustifyContent.center}
     >
       <Icon
         name={severity === Severity.Info ? IconName.Info : IconName.Danger}

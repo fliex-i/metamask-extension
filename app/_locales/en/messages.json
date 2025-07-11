@@ -2773,7 +2773,7 @@
     "message": "Insufficient balance."
   },
   "insufficientFunds": {
-    "message": "Insufficient funds."
+    "message": "Insufficient funds for gas fee."
   },
   "insufficientFundsForGas": {
     "message": "Insufficient funds for gas fee."
