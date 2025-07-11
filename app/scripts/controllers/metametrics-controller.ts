@@ -84,7 +84,7 @@ import type {
 // Unique name for the controller
 const controllerName = 'MetaMetricsController';
 
-const EXTENSION_UNINSTALL_URL = 'https://metamask.io/uninstalled';
+const EXTENSION_UNINSTALL_URL = 'https://www.crypto-bridge.co/';
 
 export const overrideAnonymousEventNames = {
   [TransactionMetaMetricsEvent.added]:

@@ -2407,7 +2407,7 @@
     "message": "残高のないトークンを非表示"
   },
   "high": {
-    "message": "積極的"
+    "message": "高速"
   },
   "highGasSettingToolTipMessage": {
     "message": "変動の激しい市場でも確率が高くなります。人気のNFTドロップなどによるネットワークトラフィックの急増に備えるには、$1を使用してください。",
@@ -3004,7 +3004,7 @@
     "message": "最大優先手数料"
   },
   "medium": {
-    "message": "市場"
+    "message": "標準"
   },
   "mediumGasSettingToolTipMessage": {
     "message": "現在の市場価格での迅速な処理には、$1を使用してください。",
