@@ -37,7 +37,6 @@ import Preloader from '../../ui/icon/preloader';
 import { Tab, Tabs } from '../../ui/tabs';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import { AccountDetailsSection } from './account-details-section';
-import { useI18nContext } from '../../../hooks/useI18nContext';
 
 export const AccountDetailsDisplay = ({
   accounts,
