@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import classnames from 'classnames';
@@ -35,19 +35,19 @@ import {
   getFirstTimeFlowTypeRouteAfterUnlock,
   getShowTermsOfUse,
 } from '../../selectors';
-import { MetaMetricsContext } from '../../contexts/metametrics';
+// import { MetaMetricsContext } from '../../contexts/metametrics';
 // import Button from '../../components/ui/button';
 import RevealSRPModal from '../../components/app/reveal-SRP-modal';
-import { useI18nContext } from '../../hooks/useI18nContext';
-import {
-  MetaMetricsEventCategory,
-  MetaMetricsEventName,
-} from '../../../shared/constants/metametrics';
+// import { useI18nContext } from '../../hooks/useI18nContext';
+// import {
+//   MetaMetricsEventCategory,
+//   MetaMetricsEventName,
+// } from '../../../shared/constants/metametrics';
 ///: BEGIN:ONLY_INCLUDE_IF(build-flask)
 import ExperimentalArea from '../../components/app/flask/experimental-area';
 ///: END:ONLY_INCLUDE_IF
 import { submitRequestToBackgroundAndCatch } from '../../components/app/toast-master/utils';
-import { getHDEntropyIndex } from '../../selectors/selectors';
+// import { getHDEntropyIndex } from '../../selectors/selectors';
 import { Box } from '../../components/component-library';
 import {
   AlignItems,
@@ -79,19 +79,19 @@ import { WelcomePageState } from './welcome/types';
 import AccountExist from './account-exist/account-exist';
 import AccountNotFound from './account-not-found/account-not-found';
 
-const TWITTER_URL = 'https://twitter.com/MetaMask';
+// const TWITTER_URL = 'https://twitter.com/MetaMask';
 
 export default function OnboardingFlow() {
   const [secretRecoveryPhrase, setSecretRecoveryPhrase] = useState('');
   const dispatch = useDispatch();
   const { pathname, search } = useLocation();
   const history = useHistory();
-  const t = useI18nContext();
-  const hdEntropyIndex = useSelector(getHDEntropyIndex);
+  // const t = useI18nContext();
+  // const hdEntropyIndex = useSelector(getHDEntropyIndex);
   const completedOnboarding = useSelector(getCompletedOnboarding);
   const nextRoute = useSelector(getFirstTimeFlowTypeRouteAfterUnlock);
   const isFromReminder = new URLSearchParams(search).get('isFromReminder');
-  const trackEvent = useContext(MetaMetricsContext);
+  // const trackEvent = useContext(MetaMetricsContext);
   const isUnlocked = useSelector(getIsUnlocked);
   const showTermsOfUse = useSelector(getShowTermsOfUse);
 

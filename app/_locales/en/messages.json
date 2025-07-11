@@ -148,7 +148,7 @@
     "message": "Active"
   },
   "activity": {
-    "message": "Fiat<>Crypto History"
+    "message": "Fiat History"
   },
   "activityLog": {
     "message": "Activity log"
@@ -182,7 +182,7 @@
     "message": "Add the tokens you've acquired using CryptoBridge"
   },
   "addAlias": {
-    "message": "Add alias"
+    "message": "Add Nickname"
   },
   "addBitcoinAccountLabel": {
     "message": "Bitcoin account"
@@ -194,7 +194,7 @@
     "message": "Add a block explorer URL"
   },
   "addContact": {
-    "message": "Add contact"
+    "message": "Add Contac"
   },
   "addCustomNetwork": {
     "message": "Add custom network"
@@ -225,7 +225,7 @@
     "message": "Watch an Ethereum account (Beta)"
   },
   "addFriendsAndAddresses": {
-    "message": "Add friends and addresses you trust"
+    "message": "Add trusted ERC-20 wallet addresses for easy access when sending or receiving crypto."
   },
   "addHardwareWalletLabel": {
     "message": "Hardware wallet"
@@ -518,7 +518,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "CryptoBridge",
     "description": "The name of the application"
   },
   "appNameBeta": {
@@ -1009,7 +1009,7 @@
     "message": "Your browser is not supported..."
   },
   "buildContactList": {
-    "message": "Build your contact list"
+    "message": "Address Book"
   },
   "builtAroundTheWorld": {
     "message": "CryptoBridge is designed and built around the world."
@@ -1165,7 +1165,7 @@
     "message": "Bal:"
   },
   "confirmGasFeeTokenInsufficientBalance": {
-    "message": "Insufficient funds"
+    "message": "Insufficient funds for gas fee"
   },
   "confirmGasFeeTokenMetaMaskFee": {
     "message": "Includes $1 fee"
@@ -1562,7 +1562,7 @@
     "message": "Market gas estimate graph"
   },
   "custom": {
-    "message": "Advanced"
+    "message": "Custom"
   },
   "customGasSettingToolTipMessage": {
     "message": "Use $1 to customize the gas price. This can be confusing if you aren’t familiar. Interact at your own risk.",
@@ -1979,7 +1979,7 @@
     "message": "Edit contact"
   },
   "editGasFeeModalTitle": {
-    "message": "Edit gas fee"
+    "message": "Select Gas Fee"
   },
   "editGasLimitOutOfBounds": {
     "message": "Gas limit must be at least $1"
@@ -2363,13 +2363,13 @@
     "message": "Forgot password?"
   },
   "forgotPasswordModalButton": {
-    "message": "Reset wallet"
+    "message": "Reset Password"
   },
   "forgotPasswordModalDescription1": {
-    "message": "CryptoBridge can’t recover your password for you."
+    "message": "CryptoBridge can’t recover your password."
   },
   "forgotPasswordModalDescription2": {
-    "message": "You can reset your wallet by entering the Secret Recovery Phrase you used when you set up your wallet."
+    "message": "To reset your password, enter your Secret Recovery Phrase or Private Key."
   },
   "forgotPasswordModalTitle": {
     "message": "Forgot your password?"
@@ -2542,7 +2542,7 @@
     "message": "Hide tokens without balance"
   },
   "high": {
-    "message": "Aggressive"
+    "message": "Faster"
   },
   "highGasSettingToolTipMessage": {
     "message": "High probability, even in volatile markets. Use $1 to cover surges in network traffic due to things like popular NFT drops.",
@@ -3080,7 +3080,7 @@
     "description": "$1 is the name of the ticker"
   },
   "low": {
-    "message": "Low"
+    "message": "Slower"
   },
   "lowEstimatedReturnTooltipMessage": {
     "message": "You’ll pay more than $1% of your starting amount in fees. Check your receiving amount and network fees."
@@ -3145,7 +3145,7 @@
     "message": "Max priority fee"
   },
   "medium": {
-    "message": "Market"
+    "message": "Standard"
   },
   "mediumGasSettingToolTipMessage": {
     "message": "Use $1 for fast processing at current market price.",
@@ -3248,7 +3248,7 @@
     "message": "Quote"
   },
   "multichainQuoteCardTimeLabel": {
-    "message": "Time"
+    "message": "Speed"
   },
   "multipleSnapConnectionWarning": {
     "message": "$1 wants to use $2 Snaps",
@@ -3469,7 +3469,7 @@
     "message": "Network provider"
   },
   "networkStatus": {
-    "message": "Network status"
+    "message": "Network Status"
   },
   "networkStatusBaseFeeTooltip": {
     "message": "The base fee is set by the network and changes every 13-14 seconds. Our $1 and $2 options account for sudden increases.",
@@ -3822,7 +3822,7 @@
     "message": "Mark all as read"
   },
   "notificationsPageEmptyTitle": {
-    "message": "Nothing to see here"
+    "message": "No content available at the moment"
   },
   "notificationsPageErrorContent": {
     "message": "Please, try to visit this page again."
@@ -3831,16 +3831,16 @@
     "message": "There has been an error"
   },
   "notificationsPageNoNotificationsContent": {
-    "message": "You have not received any notifications yet."
+    "message": "Please check again later"
   },
   "notificationsSettingsBoxError": {
     "message": "Something went wrong. Please try again."
   },
   "notificationsSettingsPageAllowNotifications": {
-    "message": "Stay in the loop on what’s happening in your wallet with notifications. To use notifications, we use a profile to sync some settings across your devices."
+    "message": "Stay in the loop on what’s happening in your wallet with notifications."
   },
   "notificationsSettingsPageAllowNotificationsLink": {
-    "message": "Learn how we protect your privacy while using this feature."
+    "message": ""
   },
   "numberOfNewTokensDetectedPlural": {
     "message": "$1 new tokens found in this account",
@@ -3854,6 +3854,9 @@
   },
   "ofTextNofM": {
     "message": "of"
+  },
+  "ofTextNofM1": {
+    "message": ""
   },
   "off": {
     "message": "Off"
@@ -3972,7 +3975,7 @@
     "message": "Pin extension"
   },
   "onboardingPinExtensionDescription": {
-    "message": "Pin CryptoBridge on your browser so it’s accessible and easy to view transaction confirmations."
+    "message": "Pin the CryptoBridge extension on your browser for easy access by clicking the puzzle piece icon to the right of your browser’s search bar."
   },
   "onboardingPinExtensionDescription2": {
     "message": "Access your CryptoBridge wallet with 1 click by clicking on the extension."
@@ -4369,7 +4372,7 @@
     "message": "Permissions"
   },
   "permissionsPageEmptyContent": {
-    "message": "Nothing to see here"
+    "message": "No content available at the moment"
   },
   "permissionsPageEmptySubContent": {
     "message": "This is where you can see the permissions you've given to installed Snaps or connected sites."
@@ -4602,7 +4605,7 @@
     "message": "Receive crypto"
   },
   "recipientAddressPlaceholderNew": {
-    "message": "Enter public address (0x)"
+    "message": "Enter public Ethereum address (0x) or Ethereum Name Service(ENS) ID"
   },
   "recommendedGasLabel": {
     "message": "Recommended"
@@ -4734,25 +4737,25 @@
     "message": "Reset"
   },
   "resetWallet": {
-    "message": "Reset wallet"
+    "message": "Change Password"
   },
   "resetWalletSubHeader": {
-    "message": "CryptoBridge does not keep a copy of your password. If you’re having trouble unlocking your account, you will need to reset your wallet. You can do this by providing the Secret Recovery Phrase you used when you set up your wallet."
+    "message": "CryptoBridge does not store your password. If you forget your password, you will need to import your wallet using your Secret Recovery Phrase or Private Key"
   },
   "resetWalletUsingSRP": {
     "message": "This action will delete your current wallet and Secret Recovery Phrase from this device, along with the list of accounts you’ve curated. After resetting with a Secret Recovery Phrase, you’ll see a list of accounts based on the Secret Recovery Phrase you use to reset. This new list will automatically include accounts that have a balance. You’ll also be able to $1 created previously. Custom accounts that you’ve imported will need to be $2, and any custom tokens you’ve added to an account will need to be $3 as well."
   },
   "resetWalletWarning": {
-    "message": "Make sure you’re using the correct Secret Recovery Phrase before proceeding. You will not be able to undo this."
+    "message": "Write down your password, Secret Recovery Phrase, and Private Key on a piece of paper and store it in a secure, offline location."
   },
   "restartMetamask": {
     "message": "Restart CryptoBridge"
   },
   "restore": {
-    "message": "Restore"
+    "message": "Save"
   },
   "restoreUserData": {
-    "message": "Restore user data"
+    "message": "Save user data"
   },
   "resultPageError": {
     "message": "Error"
@@ -4794,6 +4797,9 @@
   },
   "revealSeedWordsQR": {
     "message": "QR"
+  },
+  "revealSeedWordsQRTips": {
+    "message": "Scan the QR code to view your secret recovery phrase securely."
   },
   "revealSeedWordsSRPName": {
     "message": "Secret Recovery Phrase (SRP)"
@@ -5049,7 +5055,7 @@
     "message": "click here"
   },
   "sendNoContactsDescription": {
-    "message": "Contacts allow you to safely send transactions to another account multiple times.  To create a contact, $1",
+    "message": "By adding contacts to your address book in advance, you can send funds to other accounts safely and easily. Click here $1 to add a contact to your address book.",
     "description": "$1 represents the action text 'click here'"
   },
   "sendNoContactsTitle": {
@@ -5633,7 +5639,7 @@
     "message": "Alphabetically (A-Z)"
   },
   "sortByDecliningBalance": {
-    "message": "Declining balance ($1 high-low)",
+    "message": "Balance ($1 high-low)",
     "description": "Indicates a descending order based on token fiat balance. $1 is the preferred currency symbol"
   },
   "source": {
@@ -6507,7 +6513,7 @@
     "description": "Title of a popup modal displayed when installing a snap for the first time."
   },
   "time": {
-    "message": "Time"
+    "message": "Speed"
   },
   "tipsForUsingAWallet": {
     "message": "Tips for using a wallet"
@@ -6516,7 +6522,13 @@
     "message": "Adding tokens unlocks more ways to use web3."
   },
   "tipsHome": {
-    "message": "Please make sure to safely save your secret recovery phrase - you may need it to be re-imported into your wallet in future updated versions."
+    "message": "Please make sure to securely save your Secret Recovery Phrase and Private Key. If you need to re-install the wallet or change devices, you’ll need them to import your wallet. Without them, you will lose access to your funds permanently"
+  },
+  "tipsHome1": {
+    "message": ""
+  },
+  "tipsHome2": {
+    "message": ""
   },
   "to": {
     "message": "To"
@@ -6910,7 +6922,7 @@
     "message": "Used by a variety of different clients"
   },
   "userName": {
-    "message": "Username"
+    "message": "Contact Name"
   },
   "userOpContractDeployError": {
     "message": "Contract deployment from a smart contract account is not supported"
@@ -7126,7 +7138,13 @@
     "message": "We’ll remind you later"
   },
   "welcomeDescription": {
-    "message": "Seamless Access to Crypto & Fiat in One Platform"
+    "message": "Seamless Access to"
+  },
+  "welcomeDescription1": {
+    "message": "Crypto & Fiat in One Platform"
+  },
+  "welcomeDescription2": {
+    "message": ""
   },
   "totalBalance":{
     "message":"Total balance"
@@ -7255,7 +7273,7 @@
     "message": "Preferences"
   },
   "defaultCurrency": {
-    "message": "Default Currency"
+    "message": "Default Display Currency"
   },
   "language": {
     "message": "Language"
@@ -7298,5 +7316,11 @@
   },
   "copy": {
     "message": "Copy"
+  },
+  "accountType": {
+    "message": "Type"
+  },
+  "accountDetail": {
+    "message": "Details"
   }
 }

@@ -84,7 +84,9 @@ export default function WelcomeLogin({
             className="welcome-login__description"
             data-testid="onboarding-desc"
           >
-            {t('welcomeDescription')}
+            {t('welcomeDescription')} <br />
+            {t('welcomeDescription1')} <br />
+            {t('welcomeDescription2')}
           </Text>
         </Box>
 

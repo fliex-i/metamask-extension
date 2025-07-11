@@ -238,6 +238,9 @@ export default function RevealSeedPage() {
               paddingTop={4}
               data-testid="qr-srp"
             >
+              <div style={{ marginBottom: '10px' }}>
+                {t('revealSeedWordsQRTips')}
+              </div>
               <div
                 dangerouslySetInnerHTML={{
                   __html: renderQR().createTableTag(5, 15),

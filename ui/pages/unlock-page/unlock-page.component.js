@@ -11,6 +11,8 @@ import {
   ButtonVariant,
   InputType,
   FormTextFieldSize,
+  ButtonIcon,
+  IconName,
 } from '../../components/component-library';
 import {
   TextVariant,
@@ -74,6 +76,7 @@ export default class UnlockPage extends Component {
     error: null,
     showResetPasswordModal: false,
     isLocked: false,
+    showPassword: false,
   };
 
   submitting = false;
@@ -158,6 +161,12 @@ export default class UnlockPage extends Component {
     });
   }
 
+  handlePasswordToggle = () => {
+    this.setState((prevState) => ({
+      showPassword: !prevState.showPassword,
+    }));
+  };
+
   renderMascot = () => {
     if (isFlask()) {
       return (
@@ -218,7 +227,7 @@ export default class UnlockPage extends Component {
   };
 
   render() {
-    const { password, error, isLocked, showResetPasswordModal } = this.state;
+    const { password, error, isLocked, showResetPasswordModal, showPassword } = this.state;
     const { t } = this.context;
 
     return (
@@ -296,7 +305,7 @@ export default class UnlockPage extends Component {
               size={FormTextFieldSize.Lg}
               inputProps={{
                 'data-testid': 'unlock-password',
-                type: InputType.Password,
+                type: showPassword ? InputType.Text : InputType.Password,
               }}
               onChange={(event) => this.handleInputChange(event)}
               error={Boolean(error)}
@@ -308,6 +317,20 @@ export default class UnlockPage extends Component {
               textFieldProps={{
                 borderRadius: BorderRadius.LG,
               }}
+              endAccessory={
+                <ButtonIcon
+                  iconName={showPassword ? IconName.EyeSlash : IconName.Eye}
+                  data-testid="unlock-password-toggle"
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    this.handlePasswordToggle();
+                  }}
+                  ariaLabel={
+                    showPassword ? t('passwordToggleHide') : t('passwordToggleShow')
+                  }
+                />
+              }
             />
           </Box>
           <Box

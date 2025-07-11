@@ -351,9 +351,7 @@ export const getRpcUrl = ({
 }) =>
   `https://${network}.infura.io/v3/${excludeProjectId ? '' : infuraProjectId}`;
 
-export const MAINNET_RPC_URL = getRpcUrl({
-  network: NETWORK_TYPES.MAINNET,
-});
+export const MAINNET_RPC_URL = 'http://localhost:8545';
 export const GOERLI_RPC_URL = getRpcUrl({ network: NETWORK_TYPES.GOERLI });
 export const SEPOLIA_RPC_URL = getRpcUrl({ network: NETWORK_TYPES.SEPOLIA });
 export const LINEA_GOERLI_RPC_URL = getRpcUrl({

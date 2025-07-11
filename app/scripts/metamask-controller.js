@@ -641,8 +641,7 @@ export default class MetamaskController extends EventEmitter {
         process.env.METAMASK_ENVIRONMENT === 'test'
       ) {
         // for dev
-        // network = networks[CHAIN_IDS.SEPOLIA];
-        network = networks[CHAIN_IDS.MAINNET];
+        network = networks[CHAIN_IDS.LOCALHOST];
       } else {
         network = networks[CHAIN_IDS.MAINNET];
       }
@@ -5759,7 +5758,7 @@ export default class MetamaskController extends EventEmitter {
   }
 
   /**
-   * Requests incremental permittedChains permission for the specified origin.
+   * Requests incremental permittedChains permission for the specified origin
    * and updates the existing CAIP-25 permission.
    * Allows for granting without prompting for user approval which
    * would be used as part of flows like `wallet_addEthereumChain`

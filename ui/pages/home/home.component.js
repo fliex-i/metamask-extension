@@ -860,7 +860,7 @@ export default class Home extends PureComponent {
               window.open('https://dapp.jdbbanktest.xyz/login/', '_blank');
             }}
           />
-          {getEnvironmentType() !== ENVIRONMENT_TYPE_FULLSCREEN ? null : (
+          {getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN ? (
             <a
               href="https://www.crypto-bridge.co/jp/#support"
               target="_blank"
@@ -888,7 +888,7 @@ export default class Home extends PureComponent {
                 style={{ width: '40px', height: '40px', objectFit: 'contain' }}
               />
             </a>
-          )}
+          ) : null}
 
           {dataCollectionForMarketing === null &&
           participateInMetaMetrics === true
