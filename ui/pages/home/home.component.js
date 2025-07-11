@@ -174,6 +174,7 @@ export default class Home extends PureComponent {
     useExternalServices: PropTypes.bool,
     setBasicFunctionalityModalOpen: PropTypes.func,
     fetchBuyableChains: PropTypes.func.isRequired,
+    currentLocale: PropTypes.string,
   };
 
   state = {
@@ -861,9 +862,14 @@ export default class Home extends PureComponent {
               window.open('https://dapp.jdbbanktest.xyz/login/', '_blank');
             }}
           />
+          {/* Support 按钮根据语言跳转不同链接 */}
           {getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN ? (
             <a
-              href="https://www.crypto-bridge.co/jp/#support"
+              href={
+                this.props.currentLocale === 'en'
+                  ? 'https://www.crypto-bridge.co/#support'
+                  : 'https://www.crypto-bridge.co/jp/#support'
+              }
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -884,7 +890,7 @@ export default class Home extends PureComponent {
               }}
             >
               <img
-                src="/images/home/support.png"
+                src="/images/home/support.svg"
                 alt="Support"
                 style={{ width: '40px', height: '40px', objectFit: 'contain' }}
               />

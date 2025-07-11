@@ -37,7 +37,7 @@ export default function PasswordForm({ onChange }: PasswordFormProps) {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
-  const passwordRules: PasswordRule[] = [
+  const getPasswordRules = useCallback((): PasswordRule[] => [
     {
       id: 'length',
       label: t('setPasswordTips1'),
@@ -68,18 +68,18 @@ export default function PasswordForm({ onChange }: PasswordFormProps) {
       isValid: false,
       test: (pwd: string) => /[@#$!]/.test(pwd),
     },
-  ];
+  ], [t]);
 
-  const [rules, setRules] = useState<PasswordRule[]>(passwordRules);
+  const [rules, setRules] = useState<PasswordRule[]>(getPasswordRules());
 
   const checkPasswordRules = useCallback(
     (pwd: string) => {
-      return passwordRules.map((rule) => ({
+      return getPasswordRules().map((rule) => ({
         ...rule,
         isValid: rule.test(pwd),
       }));
     },
-    [passwordRules],
+    [getPasswordRules],
   );
 
   // const getPasswordStrengthLabel = useCallback(
@@ -176,6 +176,14 @@ export default function PasswordForm({ onChange }: PasswordFormProps) {
     },
     [password, t],
   );
+
+  useEffect(() => {
+    setRules(getPasswordRules().map((rule) => ({
+      ...rule,
+      isValid: rule.test(password),
+    })));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [t]);
 
   useEffect(() => {
     if (

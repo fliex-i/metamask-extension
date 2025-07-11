@@ -37,6 +37,7 @@ import Preloader from '../../ui/icon/preloader';
 import { Tab, Tabs } from '../../ui/tabs';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import { AccountDetailsSection } from './account-details-section';
+import { useI18nContext } from '../../../hooks/useI18nContext';
 
 export const AccountDetailsDisplay = ({
   accounts,
@@ -45,6 +46,7 @@ export const AccountDetailsDisplay = ({
   accountType,
   onExportClick,
 }) => {
+  const t = useI18nContext();
   const dispatch = useDispatch();
   const trackEvent = useContext(MetaMetricsContext);
   const formatedAddress = isEvmAccountType(accountType)

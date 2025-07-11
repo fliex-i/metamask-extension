@@ -36,10 +36,11 @@ export default function RecoveryPhraseChips({
     return quizWords.map((quizWord) => {
       const correctWord = secretRecoveryPhrase[quizWord.index];
       const otherWords = secretRecoveryPhrase.filter(
-        (w, idx) => idx !== quizWord.index,
+        (_, idx) => idx !== quizWord.index,
       );
-      const shuffled = [...otherWords].sort(() => Math.random() - 0.5);
-      const distractors = shuffled.slice(0, 2);
+      const distractors = otherWords
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 2);
       const options = [correctWord, ...distractors].sort(
         () => Math.random() - 0.5,
       );
@@ -51,57 +52,35 @@ export default function RecoveryPhraseChips({
     });
   }, [quizWords, secretRecoveryPhrase]);
 
-  const [userSelections, setUserSelections] = useState(
-    Array(quizWords.length).fill(''),
-  );
+  const [userSelections, setUserSelections] = useState([]);
+
+  useEffect(() => {
+    setUserSelections(Array(quizWords.length).fill(''));
+  }, [quizWords]);
 
   const quizAnswers = useMemo(
     () =>
-      quizWords.map((quizWord, idx) => ({
-        index: quizWord.index,
+      quizWords.map((word, idx) => ({
+        index: word.index,
         word: userSelections[idx] || '',
       })),
     [quizWords, userSelections],
   );
 
-  const allQuizCorrect = useMemo(() => {
-    if (confirmPhase && quizWords.length === 3) {
-      return quizOptions.every(
-        (group, idx) => userSelections[idx] === group.correct
-      );
-    }
-    return false;
-  }, [confirmPhase, quizWords, quizOptions, userSelections]);
-
-  const phrasesToDisplay = secretRecoveryPhrase;
-  const indicesToCheck = useMemo(
-    () => quizWords.map((word) => word.index),
-    [quizWords],
+  const allQuizCorrect = useMemo(
+    () =>
+      confirmPhase &&
+      quizWords.length === 3 &&
+      quizOptions.every((group, idx) => userSelections[idx] === group.correct),
+    [confirmPhase, quizWords, quizOptions, userSelections],
   );
-  const [legacyQuizAnswers, setLegacyQuizAnswers] = useState(
-    indicesToCheck.map((index) => ({
-      index, // the index in the SRP chips UI where the answer is inserted
-      word: '', // the answer value
-      actualIndexInSrp: -1, // the correct index of the answer value in the secret recovery phrase
-    })),
-  );
-
-  const allLegacyCorrect = useMemo(() => {
-    if (!confirmPhase && quizWords.length === 3) {
-      return legacyQuizAnswers.every(
-        (answer) =>
-          answer.word &&
-          secretRecoveryPhrase[answer.index] === answer.word
-      );
-    }
-    return false;
-  }, [confirmPhase, quizWords, legacyQuizAnswers, secretRecoveryPhrase]);
 
   useEffect(() => {
-    if (confirmPhase && quizWords.length === 3) {
-      setInputValue?.(quizAnswers, allQuizCorrect);
-    } else if (typeof setInputValue === 'function') {
-      setInputValue(true);
+    if (typeof setInputValue === 'function') {
+      setInputValue(
+        confirmPhase && quizWords.length === 3 ? quizAnswers : true,
+        allQuizCorrect,
+      );
     }
   }, [
     quizAnswers,
@@ -111,15 +90,63 @@ export default function RecoveryPhraseChips({
     quizWords.length,
   ]);
 
+  const phrasesToDisplay = secretRecoveryPhrase;
+  const indicesToCheck = useMemo(
+    () => quizWords.map((word) => word.index),
+    [quizWords],
+  );
+
+  const [legacyQuizAnswers, setLegacyQuizAnswers] = useState([]);
+  const [indexToFocus, setIndexToFocus] = useState(-1);
+
   useEffect(() => {
-    setUserSelections(Array(quizWords.length).fill(''));
+    const initialAnswers = quizWords.map((word) => ({
+      index: word.index,
+      word: '',
+      actualIndexInSrp: -1,
+    }));
+    setLegacyQuizAnswers(initialAnswers);
+    setIndexToFocus(setNextTargetIndex(initialAnswers));
   }, [quizWords]);
+
+  const setNextTargetIndex = (answers) => {
+    const empty = answers.filter((a) => !a.word).map((a) => a.index);
+    return empty.length ? Math.min(...empty) : -1;
+  };
+
+  const addQuizWord = useCallback(
+    (word, actualIndexInSrp) => {
+      const newAnswers = [...legacyQuizAnswers];
+      const targetIdx = newAnswers.findIndex((a) => a.index === indexToFocus);
+      newAnswers[targetIdx] = {
+        index: indexToFocus,
+        word,
+        actualIndexInSrp,
+      };
+      setLegacyQuizAnswers(newAnswers);
+      setIndexToFocus(setNextTargetIndex(newAnswers));
+    },
+    [legacyQuizAnswers, indexToFocus],
+  );
+
+  const removeQuizWord = useCallback(
+    (word) => {
+      const newAnswers = legacyQuizAnswers.map((a) =>
+        a.word === word ? { ...a, word: '', actualIndexInSrp: -1 } : a,
+      );
+      setLegacyQuizAnswers(newAnswers);
+      setIndexToFocus(setNextTargetIndex(newAnswers));
+    },
+    [legacyQuizAnswers],
+  );
+
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   if (confirmPhase && quizWords.length === 3) {
     return (
       <Box display={Display.Flex} flexDirection={FlexDirection.Column} gap={4}>
         {quizOptions.map((group, groupIdx) => {
-          const isGroupAnswered = userSelections[groupIdx] === group.correct;
+          const isCorrect = userSelections[groupIdx] === group.correct;
           return (
             <Box key={group.index}>
               <Text
@@ -132,9 +159,7 @@ export default function RecoveryPhraseChips({
               <Box display={Display.Flex} gap={2}>
                 {group.options.map((option) => {
                   const selected = userSelections[groupIdx] === option;
-                  const canClick =
-                    (!isGroupAnswered && !selected) ||
-                    (isGroupAnswered && selected);
+                  const canClick = !isCorrect || selected;
                   return (
                     <ButtonBase
                       key={option}
@@ -155,13 +180,9 @@ export default function RecoveryPhraseChips({
                       disabled={!canClick}
                       onClick={() => {
                         if (!canClick) return;
-                        const newSelections = [...userSelections];
-                        if (isGroupAnswered && selected) {
-                          newSelections[groupIdx] = '';
-                        } else {
-                          newSelections[groupIdx] = option;
-                        }
-                        setUserSelections(newSelections);
+                        const selections = [...userSelections];
+                        selections[groupIdx] = selected ? '' : option;
+                        setUserSelections(selections);
                       }}
                     >
                       {option}
@@ -175,70 +196,6 @@ export default function RecoveryPhraseChips({
       </Box>
     );
   }
-
-  const setNextTargetIndex = (newQuizAnswers) => {
-    const emptyAnswers = newQuizAnswers.reduce((acc, answer) => {
-      if (answer.word === '') {
-        acc.push(answer.index);
-      }
-      return acc;
-    }, []);
-    const firstEmpty = emptyAnswers.length ? Math.min(...emptyAnswers) : -1;
-
-    return firstEmpty;
-  };
-  const [indexToFocus, setIndexToFocus] = useState(
-    setNextTargetIndex(legacyQuizAnswers),
-  );
-
-  const addQuizWord = useCallback(
-    (word, actualIndexInSrp) => {
-      const newQuizAnswers = [...legacyQuizAnswers];
-      const targetIndex = newQuizAnswers.findIndex(
-        (answer) => answer.index === indexToFocus,
-      );
-      newQuizAnswers[targetIndex] = {
-        index: indexToFocus,
-        word,
-        actualIndexInSrp,
-      };
-      setLegacyQuizAnswers(newQuizAnswers);
-      setIndexToFocus(setNextTargetIndex(newQuizAnswers));
-    },
-    [legacyQuizAnswers, indexToFocus],
-  );
-
-  const removeQuizWord = useCallback(
-    (answerWord) => {
-      const newQuizAnswers = [...legacyQuizAnswers];
-      const targetIndex = newQuizAnswers.findIndex(
-        (answer) => answer.word === answerWord,
-      );
-      newQuizAnswers[targetIndex] = {
-        ...newQuizAnswers[targetIndex],
-        word: '',
-        actualIndexInSrp: -1,
-      };
-
-      setLegacyQuizAnswers(newQuizAnswers);
-      setIndexToFocus(setNextTargetIndex(newQuizAnswers));
-    },
-    [legacyQuizAnswers],
-  );
-
-  useEffect(() => {
-    if (quizWords.length) {
-      const newQuizAnswers = quizWords.map((word) => ({
-        index: word.index,
-        word: '',
-        actualIndexInSrp: -1,
-      }));
-      setLegacyQuizAnswers(newQuizAnswers);
-      setIndexToFocus(setNextTargetIndex(newQuizAnswers));
-    }
-  }, [quizWords]);
-
-  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
     <Box display={Display.Flex} flexDirection={FlexDirection.Column} gap={4}>
@@ -261,23 +218,22 @@ export default function RecoveryPhraseChips({
           className={classnames('recovery-phrase__chips')}
         >
           {phrasesToDisplay.map((word, index) => {
-            const isQuizWord = indicesToCheck.includes(index);
-            const wordToDisplay = isQuizWord
-              ? legacyQuizAnswers.find((answer) => answer.index === index)
-                  ?.word || ''
+            const isQuiz = indicesToCheck.includes(index);
+            const value = isQuiz
+              ? legacyQuizAnswers.find((a) => a.index === index)?.word || ''
               : word;
             return (
               <TextField
                 testId={
-                  confirmPhase && isQuizWord
+                  confirmPhase && isQuiz
                     ? `recovery-phrase-input-${index}`
                     : `recovery-phrase-chip-${index}`
                 }
                 key={index}
-                value={wordToDisplay}
+                value={value}
                 className={classnames({
                   'mm-text-field--target-index': index === indexToFocus,
-                  'mm-text-field--quiz-word': isQuizWord,
+                  'mm-text-field--quiz-word': isQuiz,
                   'mm-text-field--blurred': hoveredIndex !== index,
                 })}
                 startAccessory={
@@ -288,18 +244,12 @@ export default function RecoveryPhraseChips({
                     {index + 1}.
                   </Text>
                 }
-                type={confirmPhase && !isQuizWord ? 'password' : 'text'}
+                type={confirmPhase && !isQuiz ? 'password' : 'text'}
                 readOnly
-                disabled={confirmPhase && !isQuizWord}
+                disabled={confirmPhase && !isQuiz}
                 onClick={() => {
-                  if (!confirmPhase) {
-                    return;
-                  }
-                  if (wordToDisplay === '') {
-                    setIndexToFocus(index);
-                  } else {
-                    removeQuizWord(wordToDisplay);
-                  }
+                  if (!confirmPhase) return;
+                  value === '' ? setIndexToFocus(index) : removeQuizWord(value);
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -311,39 +261,32 @@ export default function RecoveryPhraseChips({
       {quizWords.length === 3 && (
         <Box display={Display.Flex} gap={2} width={BlockSize.Full}>
           {quizWords.map((quizWord) => {
-            const actualIdxInSrp = quizWord.index;
-            // check if the quiz word has been added to the quizAnswers array
-            // here we are checking the answer's actual index in the secret recovery phrase
-            // to handle the case where the quiz words has the same value but different indexes
-            // e.g. the quiz words are ["one", "two", "one"]
+            const actualIdx = quizWord.index;
             const isAnswered = legacyQuizAnswers.some(
-              (answer) => answer.actualIndexInSrp === actualIdxInSrp,
+              (a) => a.actualIndexInSrp === actualIdx,
             );
+            const phrase = secretRecoveryPhrase[actualIdx];
             return isAnswered ? (
               <ButtonBase
-                data-testid={`recovery-phrase-quiz-answered-${actualIdxInSrp}`}
+                data-testid={`recovery-phrase-quiz-answered-${actualIdx}`}
                 key={quizWord.index}
                 color={TextColor.textAlternative}
                 borderRadius={BorderRadius.LG}
                 block
-                onClick={() => {
-                  removeQuizWord(quizWord.word);
-                }}
+                onClick={() => removeQuizWord(quizWord.word)}
               >
-                {secretRecoveryPhrase[actualIdxInSrp]}
+                {phrase}
               </ButtonBase>
             ) : (
               <Button
-                data-testid={`recovery-phrase-quiz-unanswered-${actualIdxInSrp}`}
+                data-testid={`recovery-phrase-quiz-unanswered-${actualIdx}`}
                 key={quizWord.index}
                 variant={ButtonVariant.Secondary}
                 borderRadius={BorderRadius.LG}
                 block
-                onClick={() => {
-                  addQuizWord(quizWord.word, actualIdxInSrp);
-                }}
+                onClick={() => addQuizWord(quizWord.word, actualIdx)}
               >
-                {secretRecoveryPhrase[actualIdxInSrp]}
+                {phrase}
               </Button>
             );
           })}
