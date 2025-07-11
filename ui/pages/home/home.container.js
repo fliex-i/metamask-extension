@@ -28,6 +28,7 @@ import {
   getIsSolanaSupportEnabled,
   ///: END:ONLY_INCLUDE_IF
   getShowUpdateModal,
+  getLocale,
 } from '../../selectors';
 import { getInfuraBlocked } from '../../../shared/modules/selectors/networks';
 import {
@@ -56,6 +57,7 @@ import {
 import { getWeb3ShimUsageAlertEnabledness } from '../../ducks/metamask/metamask';
 import { getSwapsFeatureIsLive } from '../../ducks/swaps/swaps';
 import { fetchBuyableChains } from '../../ducks/ramps';
+
 // TODO: Remove restricted import
 // eslint-disable-next-line import/no-restricted-paths
 import { getEnvironmentType } from '../../../app/scripts/lib/util';
@@ -179,6 +181,7 @@ const mapStateToProps = (state) => {
     hasAllowedPopupRedirectApprovals,
     showMultiRpcModal: state.metamask.preferences.showMultiRpcModal,
     showUpdateModal: getShowUpdateModal(state),
+    currentLocale: getLocale(state),
   };
 };
 

@@ -132,7 +132,7 @@
     "message": "アクティブ"
   },
   "activity": {
-    "message": "法定通貨の履歴"
+    "message": "暗号履歴"
   },
   "activityLog": {
     "message": "アクティビティのログ"
@@ -3430,7 +3430,7 @@
     "message": "慎重に進めてください。"
   },
   "nfts": {
-    "message": "暗号<>暗号履歴"
+    "message": "法定通貨の履歴"
   },
   "nftsPreviouslyOwned": {
     "message": "以前保有"
@@ -4430,7 +4430,7 @@
     "message": "仮想通貨を受け取る"
   },
   "recipientAddressPlaceholderNew": {
-    "message": "イーサリアムのウォレットアドレス (0x…) またはENS (Ethereum Name Service) IDを入力してください"
+    "message": "イーサリアムのウォレットアドレス (0x…)"
   },
   "recommendedGasLabel": {
     "message": "推奨"
@@ -4699,7 +4699,7 @@
     "message": "アカウントを検索"
   },
   "searchNfts": {
-    "message": "NFTを検索"
+    "message": "検索"
   },
   "searchTokens": {
     "message": "トークンを検索"
@@ -4829,7 +4829,7 @@
     "message": "CryptoBridgeのスタッフが、シークレットリカバリーフレーズを尋ねすることは一切ありません。フレーズの提供を求められた場合は、怪しい可能性があります。"
   },
   "seedPhraseReviewDetails5": {
-"message": "将来的にウォレットを再インポートする必要が生じた際に備え、シークレットリカバリーフレーズは確実に保管しておいてください。"
+    "message": "将来的にウォレットを再インポートする必要が生じた際に備え、シークレットリカバリーフレーズは確実に保管しておいてください。"
   },
   "seedPhraseReviewTitle": {
     "message": "シークレットリカバリーフレーズを確認"
@@ -6853,16 +6853,16 @@
     "message": "8文字以上であること"
   },
   "setPasswordTips2": {
-    "message": "英大文字（A～Z）を含むこと"
+    "message": "英大文字（A～Z）を1文字以上含むこと"
   },
   "setPasswordTips3": {
-    "message": "英小文字（a～z）を含むこ"
+    "message": "英小文字（a～z）を1文字以上含むこと"
   },
   "setPasswordTips4": {
-    "message": "数字（0～9）を含むこと"
+    "message": "数字（0～9）を1文字以上含むこと"
   },
   "setPasswordTips5": {
-    "message": "記号（例：@、#、$、! など）を含むこと"
+    "message": "記号（@、#、$、! のみ使用可能）を1文字以上含むこと"
   },
   "bankTopic": {
     "message": "銀行口座の設定"
@@ -7016,5 +7016,8 @@
   },
   "forgotPasswordModalDescription2": {
     "message": "パスワードをライベートキーをリセットするには、シークレットリカバリーフレーズまたはプライベートキーを入力してください。"
+  },
+  "forgotPasswordModalButton": {
+    "message": "パスワードをリセット"
   }
 }

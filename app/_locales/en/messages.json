@@ -148,7 +148,7 @@
     "message": "Active"
   },
   "activity": {
-    "message": "Fiat History"
+    "message": "Crypto History"
   },
   "activityLog": {
     "message": "Activity log"
@@ -194,7 +194,7 @@
     "message": "Add a block explorer URL"
   },
   "addContact": {
-    "message": "Add Contac"
+    "message": "Add Contact"
   },
   "addCustomNetwork": {
     "message": "Add custom network"
@@ -3602,7 +3602,7 @@
     "message": "Proceed with caution."
   },
   "nfts": {
-    "message": "Crypto<>Crypto History"
+    "message": "Fiat History"
   },
   "nftsPreviouslyOwned": {
     "message": "Previously Owned"
@@ -4605,7 +4605,7 @@
     "message": "Receive crypto"
   },
   "recipientAddressPlaceholderNew": {
-    "message": "Enter public Ethereum address (0x) or Ethereum Name Service(ENS) ID"
+    "message": "Enter public Ethereum address (0x)"
   },
   "recommendedGasLabel": {
     "message": "Recommended"
@@ -4874,7 +4874,7 @@
     "message": "Search accounts"
   },
   "searchNfts": {
-    "message": "Search NFTs"
+    "message": "Search"
   },
   "searchTokens": {
     "message": "Search tokens"
@@ -5055,7 +5055,7 @@
     "message": "click here"
   },
   "sendNoContactsDescription": {
-    "message": "By adding contacts to your address book in advance, you can send funds to other accounts safely and easily. Click here $1 to add a contact to your address book.",
+    "message": "By adding contacts to your address book in advance, you can send funds to other accounts safely and easily. $1 to add a contact to your address book.",
     "description": "$1 represents the action text 'click here'"
   },
   "sendNoContactsTitle": {

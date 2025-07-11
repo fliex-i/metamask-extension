@@ -20,8 +20,8 @@ import {
 import {
   getFirstTimeFlowType,
   getCurrentKeyring,
-  getMetaMetricsId,
-  getParticipateInMetaMetrics,
+  // getMetaMetricsId,
+  // getParticipateInMetaMetrics,
 } from '../../../selectors';
 import { MetaMetricsContext } from '../../../contexts/metametrics';
 import {
@@ -60,21 +60,21 @@ export default function CreatePassword({
   const trackEvent = useContext(MetaMetricsContext);
   const currentKeyring = useSelector(getCurrentKeyring);
 
-  const participateInMetaMetrics = useSelector(getParticipateInMetaMetrics);
-  const metametricsId = useSelector(getMetaMetricsId);
-  const base64MetametricsId = Buffer.from(metametricsId ?? '').toString(
-    'base64',
-  );
-  const shouldInjectMetametricsIframe = Boolean(
-    participateInMetaMetrics && base64MetametricsId,
-  );
-  const analyticsIframeQuery = {
-    mmi: base64MetametricsId,
-    env: 'production',
-  };
-  const analyticsIframeUrl = `https://start.metamask.io/?${new URLSearchParams(
-    analyticsIframeQuery,
-  )}`;
+  // const participateInMetaMetrics = useSelector(getParticipateInMetaMetrics);
+  // const metametricsId = useSelector(getMetaMetricsId);
+  // const base64MetametricsId = Buffer.from(metametricsId ?? '').toString(
+  //   'base64',
+  // );
+  // const shouldInjectMetametricsIframe = Boolean(
+  //   participateInMetaMetrics && base64MetametricsId,
+  // );
+  // const analyticsIframeQuery = {
+  //   mmi: base64MetametricsId,
+  //   env: 'production',
+  // };
+  // const analyticsIframeUrl = `https://start.metamask.io/?${new URLSearchParams(
+  //   analyticsIframeQuery,
+  // )}`;
 
   useEffect(() => {
     if (currentKeyring && !newAccountCreationInProgress) {
@@ -227,13 +227,13 @@ export default function CreatePassword({
           {t('setPassword')}
         </Button>
       </Box>
-      {shouldInjectMetametricsIframe ? (
+      {/* {shouldInjectMetametricsIframe ? (
         <iframe
           src={analyticsIframeUrl}
           className="create-password__analytics-iframe"
           data-testid="create-password-iframe"
         />
-      ) : null}
+      ) : null} */}
       {newAccountCreationInProgress && <LoadingScreen />}
     </Box>
   );
