@@ -35,6 +35,7 @@ import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard';
 import { useEIP7702Networks } from '../../../pages/confirmations/hooks/useEIP7702Networks';
 import Preloader from '../../ui/icon/preloader';
 import { Tab, Tabs } from '../../ui/tabs';
+import { useI18nContext } from '../../../hooks/useI18nContext';
 import { AccountDetailsSection } from './account-details-section';
 
 export const AccountDetailsDisplay = ({
@@ -56,7 +57,7 @@ export const AccountDetailsDisplay = ({
   const chainId = useSelector(getCurrentChainId);
   const deviceName = useSelector(getHardwareWalletType);
   const { networkSupporting7702Present, pending } = useEIP7702Networks(address);
-
+  const t = useI18nContext();
   return (
     <Box
       display={Display.Flex}
@@ -122,10 +123,18 @@ export const AccountDetailsDisplay = ({
           onTabClick={() => undefined}
           style={{ width: '100%', marginTop: '8px' }}
         >
-          <Tab name={t('accountType')} tabKey={t('accountType')} style={{ width: '50%' }}>
+          <Tab
+            name={t('accountType')}
+            tabKey={t('accountType')}
+            style={{ width: '50%' }}
+          >
             <SmartAccountTab address={address} />
           </Tab>
-          <Tab name={t('accountDetail')} tabKey={t('accountDetail')} style={{ width: '50%' }}>
+          <Tab
+            name={t('accountDetail')}
+            tabKey={t('accountDetail')}
+            style={{ width: '50%' }}
+          >
             <AccountDetailsSection
               address={address}
               onExportClick={onExportClick}
