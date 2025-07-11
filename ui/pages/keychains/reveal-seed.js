@@ -365,8 +365,8 @@ export default function RevealSeedPage() {
             variant={BUTTON_VARIANT.LINK}
             size={BUTTON_SIZES.INHERIT}
             as="a"
-            href={ZENDESK_URLS.SECRET_RECOVERY_PHRASE}
-            target="_blank"
+            // href={ZENDESK_URLS.SECRET_RECOVERY_PHRASE}
+            // target="_blank"
             rel="noopener noreferrer"
           >
             {t('revealSeedWordsSRPName')}
@@ -387,8 +387,8 @@ export default function RevealSeedPage() {
             variant={BUTTON_VARIANT.LINK}
             size={BUTTON_SIZES.INHERIT}
             as="a"
-            href={ZENDESK_URLS.NON_CUSTODIAL_WALLET}
-            target="_blank"
+            // href={ZENDESK_URLS.NON_CUSTODIAL_WALLET}
+            // target="_blank"
             rel="noopener noreferrer"
           >
             {t('revealSeedWordsNonCustodialWallet')}
