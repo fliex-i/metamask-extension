@@ -67,13 +67,13 @@ export default function HoldToRevealModal({
         marginBottom={6}
       >
         <Text variant={TextVariant.bodyMd}>
-          {t(holdToRevealContent1, [
+          {t('holdToRevealContent1', [
             <Text
               key="hold-to-reveal-2"
               variant={TextVariant.bodyMdBold}
               as="span"
             >
-              {t(holdToRevealContent2)}
+              {t('holdToRevealContent2')}
             </Text>,
           ])}
         </Text>
