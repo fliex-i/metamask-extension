@@ -117,7 +117,7 @@ function AlertHeader({
   return (
     <Box
       gap={3}
-      display={Display.Block}
+      display={Display.Flex}
       alignItems={AlignItems.center}
       textAlign={TextAlign.Center}
     >

@@ -2776,7 +2776,7 @@
     "message": "Insufficient funds."
   },
   "insufficientFundsForGas": {
-    "message": "Insufficient funds for gas"
+    "message": "Insufficient funds for gas fee."
   },
   "insufficientLockedLiquidityDescription": {
     "message": "The lack of adequately locked or burned liquidity leaves the token vulnerable to sudden liquidity withdrawals, potentially causing market instability."

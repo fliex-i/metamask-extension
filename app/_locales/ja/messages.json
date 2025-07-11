@@ -2435,7 +2435,10 @@
   },
   "holdToRevealContent3": {
     "message": "絶対に第三者と共有しないでください。$1",
-    "description": "$1 is a message from 'holdToRevealContent4' and $2 is a text link with the message from 'holdToRevealContent5'"
+    "description": "$1 is a message from 'holdToRevealContent31'"
+  },
+  "holdToRevealContent31": {
+    "message": "は決してありません。求められた場合は、怪しい可能性があります。"
   },
   "holdToRevealContent4": {
     "message": "CryptoBridgeカスタマーサポートがシークレットリカバリーフレーズを求めることは決してありません。",
@@ -2447,11 +2450,14 @@
   },
   "holdToRevealContentPrivateKey1": {
     "message": "秘密鍵は$1",
-    "description": "$1 is a bolded text with the message from 'holdToRevealContentPrivateKey2'"
+    "description": "$1 is a bolded text with the message from 'holdToRevealContentPrivateKey3'"
   },
   "holdToRevealContentPrivateKey2": {
     "message": "セス権となります。",
     "description": "Is the bolded text in 'holdToRevealContentPrivateKey2'"
+  },
+  "holdToRevealContentPrivateKey3": {
+    "message": "プライベートキーは、あなたのウォレットおよび資産への完全なアクセス権となります。"
   },
   "holdToRevealLockedLabel": {
     "message": "長押ししてロックされた円を表示します"
@@ -4562,7 +4568,7 @@
     "message": "リセット"
   },
   "resetWallet": {
-    "message": "パスワードをリセット"
+    "message": "パスワードを変更"
   },
   "resetWalletSubHeader": {
     "message": "CryptoBridgeはあなたのパスワードを保管することはありません。パスワードを忘れた場合、シークレットリカバリーフレーズまたはプライベートキーを使ってウォレットをインポートする必要があります。"
@@ -4611,11 +4617,14 @@
     "description": "This is a sentence consisting of link using 'revealSeedWordsSRPName' as $1 and bolded text using 'revealSeedWordsDescription3' as $2."
   },
   "revealSeedWordsDescription2": {
-    "message": "CryptoBridgeは$1であり、SRPの管理・保管はユーザー自身で行う必要があります。",
-    "description": "$1 is text link with the message from 'revealSeedWordsNonCustodialWallet'"
+    "message": "CryptoBridgeは、$1 のウォレットであり、SRPの管理·保管はユーザー自身で行う必要があります。",
+    "description": "$1 is text link with the message from 'revealSeedWordsNonCustodialWallet1'"
   },
   "revealSeedWordsDescription3": {
     "message": "ウォレットと資金への完全アクセス"
+  },
+  "revealSeedWordsNonCustodialWallet1": {
+    "message": "ノンカストディアル型 (自己管理型)"
   },
   "revealSeedWordsNonCustodialWallet": {
     "message": "ノンカストディアルウォレット"

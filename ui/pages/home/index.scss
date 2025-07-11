@@ -56,11 +56,13 @@
       gap: 10px;
       background: var(--color-primary-attention-bank);
       flex-flow: row wrap;
+      flex-direction: row;
+      justify-content: space-between;
 
       @include design-system.screen-lg-min {
         align-items: center;
-        justify-content: space-between;
-        flex-direction: row;
+        justify-content: center;
+        flex-direction: column;
       }
     }
     .tips-bank-ico {
