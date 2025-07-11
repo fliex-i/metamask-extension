@@ -87,3 +87,8 @@ $font-path: './fonts';
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Inter';
+  src: url('#{$font-path}/Inter/Inter-Regular.woff2') format('woff2');
+}

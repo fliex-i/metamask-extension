@@ -641,7 +641,7 @@ export default class MetamaskController extends EventEmitter {
         process.env.METAMASK_ENVIRONMENT === 'test'
       ) {
         // for dev
-        network = networks[CHAIN_IDS.LOCALHOST];
+        network = networks[CHAIN_IDS.MAINNET];
       } else {
         network = networks[CHAIN_IDS.MAINNET];
       }
