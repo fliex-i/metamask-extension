@@ -6886,7 +6886,7 @@
     "message": "まだ取引がありません"
    },
   "noticesModalTitle": {
-    "message": "プッシュ通知を有効にする"
+    "message": "プッシュ機能をオンにする"
   },
   "noticesModalDesc": {
     "message": "プッシュ通知を許可すると、アクティビティに関する通知が届きます"
