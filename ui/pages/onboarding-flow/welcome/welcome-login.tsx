@@ -130,7 +130,7 @@ export default function WelcomeLogin({
           <Box
             type="link"
             as="a"
-            href="https://www.crypto-bridge.co/wp-content/uploads/2025/06/ENJP-CryptoBridge-Terms-Conditions-2025-06-12-1.pdf"
+            href="https://www.crypto-bridge.co/wp-content/uploads/2025/06/ENJP-CryptoBridge-Terms-Conditions-2025-06-12.pdf"
             target="_blank"
             className="welcome-login__footer__link"
           >
@@ -142,7 +142,7 @@ export default function WelcomeLogin({
           <Box
             type="link"
             as="a"
-            href="https://www.crypto-bridge.co/wp-content/uploads/2025/06/ENJP-CryptoBridge-Privacy-Policy-2025-06-12-1.pdf"
+            href="https://www.crypto-bridge.co/wp-content/uploads/2025/06/EN_JP-CryptoBridge-Privacy-Policy-2025-06-12-1.pdf"
             target="_blank"
             className="welcome-login__footer__link"
           >
