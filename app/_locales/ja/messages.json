@@ -2438,7 +2438,7 @@
     "description": "$1 is a message from 'holdToRevealContent31'"
   },
   "holdToRevealContent31": {
-    "message": "は決してありません。求められた場合は、怪しい可能性があります。"
+    "message": "CryptoBridgeカスタマーサポートがシークレットリカバリーフレーズを求めることは決してありません。求められた場合は、怪しい可能性があります。"
   },
   "holdToRevealContent4": {
     "message": "CryptoBridgeは、ノンカストディアル型 (自己管理型) のウォレットであり、SRPの管理・保管はユーザー自身で行う必要があります。",
@@ -2449,7 +2449,7 @@
     "description": "The text link in 'holdToRevealContent3'"
   },
   "holdToRevealContentPrivateKey1": {
-    "message": "秘密鍵は$1",
+    "message": "シークレットリカバリーフレーズは、ウォレットおよび資産への完全なアクセス権を提供します。",
     "description": "$1 is a bolded text with the message from 'holdToRevealContentPrivateKey3'"
   },
   "holdToRevealContentPrivateKey2": {
@@ -4620,7 +4620,7 @@
     "description": "This is a sentence consisting of link using 'revealSeedWordsSRPName' as $1 and bolded text using 'revealSeedWordsDescription3' as $2."
   },
   "revealSeedWordsDescription2": {
-    "message": "CryptoBridgeは、$1 のウォレットであり、SRPの管理·保管はユーザー自身で行う必要があります。",
+    "message": "CryptoBridgeは、ノンカストディアル型 (自己管理型) のウォレットであり、SRPの管理·保管はユーザー自身で行う必要があります。",
     "description": "$1 is text link with the message from 'revealSeedWordsNonCustodialWallet1'"
   },
   "revealSeedWordsDescription3": {
