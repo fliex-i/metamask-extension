@@ -74,15 +74,12 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   const t = useI18nContext();
   const hdEntropyIndex = useSelector(getHDEntropyIndex);
 
-  // This should not be a state variable, because it's derivable from the state variable `stage`
-  // (Making it a state variable forces the component to render twice)
-  let title = '';
+  // 删除 let title = '';
 
   // Using a dictionary of JSX elements eliminates the need for a switch statement
   const stages: JSXDict = {};
 
   stages[QuizStage.introduction] = () => {
-    title = t('srpSecurityQuizTitle');
     return (
       <QuizContent
         image={'images/reveal-srp.png'}
@@ -107,9 +104,6 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.questionOne] = () => {
-    const text = t('ofTextNofM');
-    const text1 = t('ofTextNofM1');
-    title = text ? `1 ${text} 2` : `${text1} 1/2`;
     return (
       <QuizContent
         content={t('srpSecurityQuizQuestionOneQuestion')}
@@ -134,9 +128,6 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.rightAnswerQuestionOne] = () => {
-    const text = t('ofTextNofM');
-    const text1 = t('ofTextNofM1');
-    title = text ? `1 ${text} 2` : `${text1} 1/2`;
     return (
       <QuizContent
         icon={rightAnswerIcon}
@@ -161,9 +152,6 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.wrongAnswerQuestionOne] = () => {
-    const text = t('ofTextNofM');
-    const text1 = t('ofTextNofM1');
-    title = text ? `1 ${text} 2` : `${text1} 1/2`;
     return (
       <QuizContent
         icon={wrongAnswerIcon}
@@ -188,9 +176,6 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.questionTwo] = () => {
-    const text = t('ofTextNofM');
-    const text1 = t('ofTextNofM1');
-    title = text ? `2 ${text} 2` : `${text1} 2/2`;
     return (
       <QuizContent
         content={t('srpSecurityQuizQuestionTwoQuestion')}
@@ -220,9 +205,6 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.rightAnswerQuestionTwo] = () => {
-    const text = t('ofTextNofM');
-    const text1 = t('ofTextNofM1');
-    title = text ? `2 ${text} 2` : `${text1} 2/2`;
     return (
       <QuizContent
         icon={rightAnswerIcon}
@@ -260,9 +242,6 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.wrongAnswerQuestionTwo] = () => {
-    const text = t('ofTextNofM');
-    const text1 = t('ofTextNofM1');
-    title = text ? `2 ${text} 2` : `${text1} 2/2`;
     return (
       <QuizContent
         icon={wrongAnswerIcon}
@@ -308,6 +287,25 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
 
   const quizContent = stages[stage](); // Pick the content using the right stage from the JSXDict
 
+  function getTitle(stage: QuizStage) {
+    const text = t('ofTextNofM');
+    const text1 = t('ofTextNofM1');
+    switch (stage) {
+      case QuizStage.introduction:
+        return t('srpSecurityQuizTitle');
+      case QuizStage.questionOne:
+      case QuizStage.rightAnswerQuestionOne:
+      case QuizStage.wrongAnswerQuestionOne:
+        return text ? `1 ${text} 2` : `${text1} 1/2`;
+      case QuizStage.questionTwo:
+      case QuizStage.rightAnswerQuestionTwo:
+      case QuizStage.wrongAnswerQuestionTwo:
+        return text ? `2 ${text} 2` : `${text1} 2/2`;
+      default:
+        return '';
+    }
+  }
+
   return (
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
       <ModalOverlay />
@@ -319,7 +317,7 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
         }}
       >
         <ModalHeader onClose={props.onClose} data-testid="srp-quiz-header">
-          {title}
+          {getTitle(stage)}
         </ModalHeader>
         <span data-testid={`srp_stage_${stage}`} />
         {quizContent}

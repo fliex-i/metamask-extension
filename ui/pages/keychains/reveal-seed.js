@@ -30,6 +30,7 @@ import {
   AlignItems,
   BlockSize,
   Display,
+  FlexDirection,
   JustifyContent,
   Severity,
   Size,
@@ -235,12 +236,12 @@ export default function RevealSeedPage() {
               display={Display.Flex}
               justifyContent={JustifyContent.center}
               alignItems={AlignItems.center}
+              flexDirection={FlexDirection.Column}
+              gap={4}
               paddingTop={4}
               data-testid="qr-srp"
             >
-              <div style={{ marginBottom: '10px' }}>
-                {t('revealSeedWordsQRTips')}
-              </div>
+              <div>{t('revealSeedWordsQRTips')}</div>
               <div
                 dangerouslySetInnerHTML={{
                   __html: renderQR().createTableTag(5, 15),
@@ -363,9 +364,9 @@ export default function RevealSeedPage() {
             key="srp-learn-srp"
             variant={BUTTON_VARIANT.LINK}
             size={BUTTON_SIZES.INHERIT}
-            // as="a"
-            // href={ZENDESK_URLS.SECRET_RECOVERY_PHRASE}
-            // target="_blank"
+            as="a"
+            href={ZENDESK_URLS.SECRET_RECOVERY_PHRASE}
+            target="_blank"
             rel="noopener noreferrer"
           >
             {t('revealSeedWordsSRPName')}
@@ -385,9 +386,9 @@ export default function RevealSeedPage() {
             key="srp-learn-more-non-custodial"
             variant={BUTTON_VARIANT.LINK}
             size={BUTTON_SIZES.INHERIT}
-            // as="a"
-            // href={ZENDESK_URLS.NON_CUSTODIAL_WALLET}
-            // target="_blank"
+            as="a"
+            href={ZENDESK_URLS.NON_CUSTODIAL_WALLET}
+            target="_blank"
             rel="noopener noreferrer"
           >
             {t('revealSeedWordsNonCustodialWallet')}
