@@ -58,7 +58,6 @@ export const AccountDetailsDisplay = ({
   const chainId = useSelector(getCurrentChainId);
   const deviceName = useSelector(getHardwareWalletType);
   const { networkSupporting7702Present, pending } = useEIP7702Networks(address);
-  const t = useI18nContext();
   return (
     <Box
       display={Display.Flex}
