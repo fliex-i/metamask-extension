@@ -60,15 +60,14 @@ export default class TokenList extends Component {
 
     return (
       <Box className="token-list">
-        {results.length === 0 ? (
-          <Box
+        {/* <Box
             paddingLeft={4}
             paddingRight={4}
             className="token-list__empty-list"
           >
             <TokenListPlaceholder />
-          </Box>
-        ) : (
+          </Box> */}
+        {results.length === 0 ? <></> : (
           <Box
             className="token-list__tokens-container"
             display={Display.Flex}

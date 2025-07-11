@@ -107,7 +107,9 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.questionOne] = () => {
-    title = `1 ${t('ofTextNofM')} 2`;
+    const text = t('ofTextNofM');
+    const text1 = t('ofTextNofM1');
+    title = text ? `1 ${text} 2` : `${text1} 1/2`;
     return (
       <QuizContent
         content={t('srpSecurityQuizQuestionOneQuestion')}
@@ -132,7 +134,9 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.rightAnswerQuestionOne] = () => {
-    title = `1 ${t('ofTextNofM')} 2`;
+    const text = t('ofTextNofM');
+    const text1 = t('ofTextNofM1');
+    title = text ? `1 ${text} 2` : `${text1} 1/2`;
     return (
       <QuizContent
         icon={rightAnswerIcon}
@@ -157,7 +161,9 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.wrongAnswerQuestionOne] = () => {
-    title = `1 ${t('ofTextNofM')} 2`;
+    const text = t('ofTextNofM');
+    const text1 = t('ofTextNofM1');
+    title = text ? `1 ${text} 2` : `${text1} 1/2`;
     return (
       <QuizContent
         icon={wrongAnswerIcon}
@@ -182,7 +188,9 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.questionTwo] = () => {
-    title = `2 ${t('ofTextNofM')} 2`;
+    const text = t('ofTextNofM');
+    const text1 = t('ofTextNofM1');
+    title = text ? `2 ${text} 2` : `${text1} 2/2`;
     return (
       <QuizContent
         content={t('srpSecurityQuizQuestionTwoQuestion')}
@@ -212,7 +220,9 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.rightAnswerQuestionTwo] = () => {
-    title = `2 ${t('ofTextNofM')} 2`;
+    const text = t('ofTextNofM');
+    const text1 = t('ofTextNofM1');
+    title = text ? `2 ${text} 2` : `${text1} 2/2`;
     return (
       <QuizContent
         icon={rightAnswerIcon}
@@ -250,7 +260,9 @@ export default function SRPQuiz(props: SRPQuizProps): JSX.Element {
   };
 
   stages[QuizStage.wrongAnswerQuestionTwo] = () => {
-    title = `2 ${t('ofTextNofM')} 2`;
+    const text = t('ofTextNofM');
+    const text1 = t('ofTextNofM1');
+    title = text ? `2 ${text} 2` : `${text1} 2/2`;
     return (
       <QuizContent
         icon={wrongAnswerIcon}

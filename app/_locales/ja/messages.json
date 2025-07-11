@@ -39,7 +39,7 @@
     "message": "公式QRコードをサポートする以下のパートナーのリストから選択できます。"
   },
   "stepOf": {
-    "message": "テップ $1/$2",
+    "message": "ステップ $1/$2",
     "description": "$1 current step, $2 total steps"
   },
   "QRHardwareWalletSteps1Title": {
@@ -132,7 +132,7 @@
     "message": "アクティブ"
   },
   "activity": {
-    "message": "法定通貨<>暗号履歴"
+    "message": "法定通貨の履歴"
   },
   "activityLog": {
     "message": "アクティビティのログ"
@@ -166,7 +166,7 @@
     "message": "MetaMaskを使用して取得したトークンを追加します"
   },
   "addAlias": {
-    "message": "別名を追加"
+    "message": "お好きな名前で登録"
   },
   "addBitcoinAccountLabel": {
     "message": "ビットコインアカウント"
@@ -209,7 +209,7 @@
     "message": "イーサリアムアカウントの監視 (ベータ)"
   },
   "addFriendsAndAddresses": {
-    "message": "信頼できる友達とアドレスを追加する"
+    "message": "仮想通貨の送受信をスムーズに行うために、信頼できる友達（ERC-20）のウォレットアドレスを追加する"
   },
   "addHardwareWalletLabel": {
     "message": "ハードウェアウォレット"
@@ -323,7 +323,7 @@
     "message": "これはアカウントのトランザクション番号です。最初のトランザクションのナンスは0で、順番に上がっていきます。"
   },
   "advancedGasFeeDefaultOptIn": {
-    "message": "これらの値を$1ネットワークのデフォルトとして保存する",
+    "message": "シークレットリカバリーフレーズを表示",
     "description": "$1 is the current network name."
   },
   "advancedGasFeeModalTitle": {
@@ -345,7 +345,7 @@
     "message": "AirGap Vault"
   },
   "alert": {
-    "message": "アラート"
+    "message": "エラー：残高不足"
   },
   "alertAccountTypeUpgradeMessage": {
     "message": "アカウントをスマートアカウントにアップデートしようとしています。アカウントアドレスはそのままで、より高速なトランザクションと低いネットワーク手数料が利用できるようになります。$1。"
@@ -363,7 +363,7 @@
     "message": "手数料を更新"
   },
   "alertActionUpdateGasFeeLevel": {
-    "message": "ガスオプションを更新"
+    "message": "オプションを更新"
   },
   "alertDisableTooltip": {
     "message": "これは「設定」>「アラート」で変更できます"
@@ -387,7 +387,7 @@
     "message": "このトランザクションを続行するには、ガスリミットを21000以上に上げる必要があります。"
   },
   "alertMessageInsufficientBalanceWithNativeCurrency": {
-    "message": "アカウントにネットワーク手数料を支払うのに十分な$1がありません。"
+    "message": "この取引に必要なネットワーク手数料を支払うための$1残高が不足しています。"
   },
   "alertMessageNetworkBusy": {
     "message": "ガス価格が高く、見積もりはあまり正確ではありません。"
@@ -426,7 +426,7 @@
     "message": "低ガスリミット"
   },
   "alertReasonInsufficientBalance": {
-    "message": "資金不足"
+    "message": "残高不足"
   },
   "alertReasonNetworkBusy": {
     "message": "ネットワークが混雑中"
@@ -447,7 +447,7 @@
     "message": "このリクエストは、ウォレットで選択されているアカウントとは別のアカウントに対するものです。別のアカウントを使用するには、そのアカウントをサイトに接続してください。"
   },
   "alerts": {
-    "message": "アラート"
+    "message": "エラー：残高不足"
   },
   "all": {
     "message": "すべて"
@@ -465,7 +465,7 @@
     "message": "最低記録"
   },
   "allowNotifications": {
-    "message": "通知を許可する"
+    "message": "プッシュ通知をオンにする"
   },
   "allowWithdrawAndSpend": {
     "message": "$1に以下の額までの引き出しと使用を許可します。",
@@ -493,11 +493,11 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "CryptoBridge",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMaskベータ版",
+    "message": "CryptoBridgeベータ版",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
@@ -960,7 +960,7 @@
     "message": "ガス代合計"
   },
   "bridgeTxDetailsYouReceived": {
-    "message": "受取"
+    "message": "仮想通貨の受取"
   },
   "bridgeTxDetailsYouSent": {
     "message": "送金"
@@ -978,7 +978,7 @@
     "message": "ご使用のブラウザはサポートされていません..."
   },
   "buildContactList": {
-    "message": "連絡先リストを作成する"
+    "message": "アドレス帳に追加"
   },
   "builtAroundTheWorld": {
     "message": "MetaMaskは、世界中でデザイン・開発されています。"
@@ -990,7 +990,7 @@
     "message": "ビジー状態"
   },
   "buyAndSell": {
-    "message": "法定通貨で暗号を購入"
+    "message": "法定通貨で仮想通貨を購入"
   },
   "buyMoreAsset": {
     "message": "$1を追加購入",
@@ -1110,13 +1110,13 @@
     "message": "snapを構成"
   },
   "confirm": {
-    "message": "確認"
+    "message": "次へ"
   },
   "confirmAccountTypeSmartContract": {
     "message": "スマートアカウント"
   },
   "confirmAccountTypeStandard": {
-    "message": "スタンダードアカウント"
+    "message": "デフォルトアカウント"
   },
   "confirmAlertModalAcknowledgeMultiple": {
     "message": "アラートを確認したうえで続行します"
@@ -1134,7 +1134,7 @@
     "message": "残高:"
   },
   "confirmGasFeeTokenInsufficientBalance": {
-    "message": "資金不足"
+    "message": "残高不足"
   },
   "confirmGasFeeTokenMetaMaskFee": {
     "message": "$1の手数料を含む"
@@ -1170,7 +1170,7 @@
     "message": "トランザクション$1"
   },
   "confirmPassword": {
-    "message": "パスワードの確認"
+    "message": "新しいパスワードの確認"
   },
   "confirmRecoveryPhrase": {
     "message": "シークレットリカバリーフレーズの確認"
@@ -1191,7 +1191,7 @@
     "message": "このサイトがNFTの引き出し許可を求めています。"
   },
   "confirmTitleDescDelegationRevoke": {
-    "message": "スタンダードアカウント (EOA) に戻そうとしています。"
+    "message": "デフォルトアカウント (EOA) に戻そうとしています。"
   },
   "confirmTitleDescDelegationUpgrade": {
     "message": "スマートアカウントに切り替えようとしています"
@@ -1375,10 +1375,10 @@
     "message": "接続リクエスト"
   },
   "contactUs": {
-    "message": "お問い合わせ"
+    "message": "カスタマーサポート"
   },
   "contacts": {
-    "message": "連絡先"
+    "message": "アドレス帳"
   },
   "contentFromSnap": {
     "message": "$1のコンテンツ",
@@ -1424,7 +1424,7 @@
     "message": "秘密鍵をコピー"
   },
   "copyToClipboard": {
-    "message": "クリップボードにコピー"
+    "message": "コピー"
   },
   "copyTransactionId": {
     "message": "トランザクションIDをコピー"
@@ -1507,7 +1507,7 @@
     "message": "市場のガス代見積もりグラフ"
   },
   "custom": {
-    "message": "高度な設定"
+    "message": "カスタム設定"
   },
   "customGasSettingToolTipMessage": {
     "message": "ガス価格をカスタマイズするには$1を使用します。慣れていない場合はわかりにくい可能性があります。自己責任で操作してください。",
@@ -1535,7 +1535,7 @@
     "message": "カスタマーサポート"
   },
   "customizeYourNotifications": {
-    "message": "通知のカスタマイズ"
+    "message": "通知をカスタマイズ"
   },
   "customizeYourNotificationsText": {
     "message": "受け取る通知の種類をオンにします"
@@ -1785,13 +1785,13 @@
     "message": "NFTのメディアとデータを表示した場合、IPアドレスがOpenSeaをはじめとするサードパーティに公開されます。その結果、攻撃者がユーザーのIPアドレスとイーサリアムアドレスを関連付けられるようになる可能性があります。NFTの自動検出はこの設定に依存しており、この設定を無効にすると利用できなくなります。"
   },
   "doNotShare": {
-    "message": "これは誰にも教えないでください"
+    "message": "絶対に第三者と共有しないでください。"
   },
   "domain": {
     "message": "ドメイン"
   },
   "done": {
-    "message": "完了"
+    "message": "通知をオンにする"
   },
   "dontShowThisAgain": {
     "message": "今後表示しない"
@@ -1874,7 +1874,7 @@
     "message": "連絡先を編集"
   },
   "editGasFeeModalTitle": {
-    "message": "ガス代を編集"
+    "message": "ガス代を選択"
   },
   "editGasLimitOutOfBounds": {
     "message": "ガスリミットは$1以上にする必要があります"
@@ -2055,7 +2055,7 @@
     "message": "トークン名を入力するか、アドレスを貼り付けてください"
   },
   "enterYourPassword": {
-    "message": "パスワードを入力してください"
+    "message": "パスワードを入力"
   },
   "errorCode": {
     "message": "コード: $1",
@@ -2105,7 +2105,7 @@
     "description": "Title of generic error page"
   },
   "errorPageTryAgain": {
-    "message": "再試行",
+    "message": "質問に戻る",
     "description": "Button for try again"
   },
   "errorStack": {
@@ -2133,7 +2133,7 @@
     "description": "The parameter is the name of the requesting origin"
   },
   "ethereumPublicAddress": {
-    "message": "イーサリアムのパブリックアドレス"
+    "message": "イーサリアムのウォレットアドレス"
   },
   "etherscan": {
     "message": "Etherscan"
@@ -2243,16 +2243,16 @@
     "message": "このデバイスの登録を解除"
   },
   "forgotPassword": {
-    "message": "パスワードを忘れた場合"
+    "message": "パスワードをお忘れですか？"
   },
   "form": {
     "message": "フォーム"
   },
   "from": {
-    "message": "移動元"
+    "message": "送金元"
   },
   "fromAddress": {
-    "message": "移動元: $1",
+    "message": "送金元: $1",
     "description": "$1 is the address to include in the From label. It is typically shortened first using shortenAddress"
   },
   "fromTokenLists": {
@@ -2320,10 +2320,10 @@
     "message": "一般"
   },
   "generalCameraError": {
-    "message": "カメラにアクセスできませんでした。もう一度お試しください"
+    "message": "カメラの使用が許可されていません。もう一度お試しください。"
   },
   "generalCameraErrorTitle": {
-    "message": "問題が発生しました...."
+    "message": "カメラの使用を許可してください"
   },
   "generalDescription": {
     "message": "デバイス間で設定を同期して、ネットワーク設定を選択し、トークンデータを追跡します"
@@ -2391,7 +2391,7 @@
     "message": "アカウントを非表示"
   },
   "hideAdvancedDetails": {
-    "message": "高度な詳細を非表示"
+    "message": "詳細を非表示"
   },
   "hideSentitiveInfo": {
     "message": "機密情報を非表示"
@@ -2426,7 +2426,7 @@
     "message": "履歴"
   },
   "holdToRevealContent1": {
-    "message": "シークレットリカバリーフレーズは$1を提供します。",
+    "message": "シークレットリカバリーフレーズは、ウォレットおよび資産への完全なアクセス権を提供します。",
     "description": "$1 is a bolded text with the message from 'holdToRevealContent2'"
   },
   "holdToRevealContent2": {
@@ -2434,15 +2434,15 @@
     "description": "Is the bolded text in 'holdToRevealContent1'"
   },
   "holdToRevealContent3": {
-    "message": "これは誰にも教えないでください。$1 $2",
+    "message": "絶対に第三者と共有しないでください。$1",
     "description": "$1 is a message from 'holdToRevealContent4' and $2 is a text link with the message from 'holdToRevealContent5'"
   },
   "holdToRevealContent4": {
-    "message": "MetaMaskサポートがこの情報を尋ねることはなく、",
+    "message": "CryptoBridgeカスタマーサポートがシークレットリカバリーフレーズを求めることは決してありません。",
     "description": "Part of 'holdToRevealContent3'"
   },
   "holdToRevealContent5": {
-    "message": "もし尋ねられた場合はフィッシング詐欺の可能性があります。",
+    "message": "。求められた場合は、怪しい可能性があります。",
     "description": "The text link in 'holdToRevealContent3'"
   },
   "holdToRevealContentPrivateKey1": {
@@ -2450,23 +2450,23 @@
     "description": "$1 is a bolded text with the message from 'holdToRevealContentPrivateKey2'"
   },
   "holdToRevealContentPrivateKey2": {
-    "message": "ウォレットと資金への完全アクセスを提供します。",
+    "message": "セス権となります。",
     "description": "Is the bolded text in 'holdToRevealContentPrivateKey2'"
   },
   "holdToRevealLockedLabel": {
     "message": "長押ししてロックされた円を表示します"
   },
   "holdToRevealPrivateKey": {
-    "message": "長押しして秘密鍵を表示します"
+    "message": "長押ししてプライベートキーを確認"
   },
   "holdToRevealPrivateKeyTitle": {
-    "message": "秘密鍵は安全に保管してください"
+    "message": "プライベートキーを安全に保管してください"
   },
   "holdToRevealSRP": {
-    "message": "長押ししてSRPを表示します"
+    "message": "長押ししてシークレットリカバリーフレーズを確認"
   },
   "holdToRevealSRPTitle": {
-    "message": "SRPは安全に保管してください"
+    "message": "安全な場所に保管してください"
   },
   "holdToRevealUnlockedLabel": {
     "message": "長押ししてロックが解除された円を表示します"
@@ -2635,10 +2635,10 @@
     "message": "残高が不十分です。"
   },
   "insufficientFunds": {
-    "message": "資金が不十分です。"
+    "message": "ガス代用の資金が不足しています"
   },
   "insufficientFundsForGas": {
-    "message": "ガス代が足りません"
+    "message": "ガス代が不足しています"
   },
   "insufficientLockedLiquidityDescription": {
     "message": "流動性が十分にロックまたはバーンされていないと、トークンの流動性が突然低下しやすくなり、市場が不安定になる可能性があります。"
@@ -2789,7 +2789,7 @@
     "message": "前回の売却"
   },
   "lavaDomeCopyWarning": {
-    "message": "安全上の理由により、現在このテキストは選択できません。"
+    "message": "セキュリティ保護のため、テキストの選択はできません。"
   },
   "layer1Fees": {
     "message": "レイヤー1手数料"
@@ -2929,7 +2929,7 @@
     "message": "ロック"
   },
   "lockCryptoBridge": {
-    "message": "CryptoBridgeをロック"
+    "message": "今すぐロック"
   },
   "lockTimeInvalid": {
     "message": "ロック時間は0～10080の間の数字で設定する必要があります"
@@ -2955,16 +2955,16 @@
     "message": "低"
   },
   "mainnet": {
-    "message": "イーサリアムメインネット"
+    "message": "Ethereumメインネット"
   },
   "mainnetToken": {
-    "message": "このアドレスは、既知のイーサリアムメインネットのトークンアドレスと一致しています。追加するトークンのコントラクトアドレスとネットワークを再確認してください。"
+    "message": "このアドレスは、既知のEthereumメインネットのトークンアドレスと一致しています。追加するトークンのコントラクトアドレスとネットワークを再確認してください。"
   },
   "makeAnotherSwap": {
     "message": "新しいスワップの作成"
   },
   "makeSureNoOneWatching": {
-    "message": "誰にも見られていないことを確認してください",
+    "message": "周囲に誰もいないことを確認し、画面が他人に見られていないことをご確認ください",
     "description": "Warning to users to be care while creating and saving their new Secret Recovery Phrase"
   },
   "manageDefaultSettings": {
@@ -3375,7 +3375,7 @@
     "message": "NFTが追加されました！"
   },
   "newPassword": {
-    "message": "新しいパスワード (最低8文字)"
+    "message": "新しいパスワード"
   },
   "newPrivacyPolicyActionButton": {
     "message": "続きを表示"
@@ -3452,8 +3452,15 @@
   },
   "welcomeTitle": {
     "message": "CryptoBridge"
-  },"welcomeDescription": {
-    "message": "1つのプラットフォームで仮想通貨と法定通貨をシームレスに利用"
+  },
+  "welcomeDescription": {
+    "message": "１つのプラットフォームで"
+  },
+  "welcomeDescription1": {
+    "message": "仮想通貨と法定通貨を"
+  },
+  "welcomeDescription2": {
+    "message": "シームレスに利用"
   },
   "referralCode": {
     "message": "紹介コード (任意)"
@@ -3567,7 +3574,7 @@
     "message": "現在手数料を取得できません"
   },
   "notificationItemFrom": {
-    "message": "移動元"
+    "message": "送金元"
   },
   "notificationItemLidoStakeReadyToBeWithdrawn": {
     "message": "出金準備ができました"
@@ -3621,7 +3628,7 @@
     "message": "for"
   },
   "notificationItemTo": {
-    "message": "移動先"
+    "message": "受取先"
   },
   "notificationItemTransactionId": {
     "message": "トランザクションID"
@@ -3656,7 +3663,7 @@
     "description": "Additional content in a notification that appears when a transaction is confirmed and has a block explorer URL."
   },
   "notifications": {
-    "message": "通知"
+    "message": "通知の設定"
   },
   "notificationsFeatureToggle": {
     "message": "ウォレットの通知を有効にする",
@@ -3670,7 +3677,7 @@
     "message": "すべて既読にする"
   },
   "notificationsPageEmptyTitle": {
-    "message": "ここに表示する内容はありません"
+    "message": "現在、利用可能なコンテンツはありません"
   },
   "notificationsPageErrorContent": {
     "message": "このページにもう一度アクセスしてみてください"
@@ -3679,16 +3686,16 @@
     "message": "エラーが発生しました"
   },
   "notificationsPageNoNotificationsContent": {
-    "message": "まだ通知を受け取っていません。"
+    "message": "あらためてご確認ください"
   },
   "notificationsSettingsBoxError": {
     "message": "問題が発生しました。もう一度お試しください。"
   },
   "notificationsSettingsPageAllowNotifications": {
-    "message": "通知を使えば、ウォレットで何が起きているか常に把握できます。通知を使用するには、プロファイルを使用してデバイス間で一部の設定を同期します。"
+    "message": "通知設定をオンにしてウォレット内の動きを常に把握しましょう。"
   },
   "notificationsSettingsPageAllowNotificationsLink": {
-    "message": "この機能を使用する際に当社がどのようにユーザーのプライバシーを保護するのか、ご覧ください。"
+    "message": ""
   },
   "numberOfNewTokensDetectedPlural": {
     "message": "$1種類の新しいトークンがこのアカウントで見つかりました",
@@ -3701,7 +3708,10 @@
     "message": "トークンの数"
   },
   "ofTextNofM": {
-    "message": "中の"
+    "message": ""
+  },
+  "ofTextNofM1": {
+    "message": "質問"
   },
   "off": {
     "message": "オフ"
@@ -3777,54 +3787,54 @@
     "message": "同意します"
   },
   "onboardingMetametricsDescription": {
-    "message": "MetaMaskの改善を目的に、基本的な使用状況および診断データを収集したいと思います。ここで提供されるデータが販売されることはありません。"
+    "message": "CryptoBridgeでは、サービス向上を目的として、基本的な利用状況や診断データを収集させていただくことがあります。これらのデータが販売されることは一切ありません。"
   },
   "onboardingMetametricsInfuraTerms": {
-    "message": "このデータを他の目的に使用する際は、お知らせします。詳細は当社の$1をご覧ください。設定でいつでもオプトアウトできます。",
+    "message": "他の目的で使用する場合は、事前にお知らせいたします。詳しくはプライバシーポリシー をご覧ください。設定からいつでもオプトアウトが可能です。",
     "description": "$1 represents `onboardingMetametricsInfuraTermsPolicy`"
   },
   "onboardingMetametricsInfuraTermsPolicy": {
     "message": "プライバシー ポリシー"
   },
   "onboardingMetametricsNeverCollect": {
-    "message": "$1 アプリのクリックやビューは保存されますが、その他の詳細 (ユーザーのパブリックアドレスなど) は保存されません。",
+    "message": "$1 拡張機能およびアプリ内でのクリックや画面の表示回数などは記録されますが、ユーザーのパブリックアドレスなどの情報は収集・保存されません。",
     "description": "$1 represents `onboardingMetametricsNeverCollectEmphasis`"
   },
   "onboardingMetametricsNeverCollectEmphasis": {
-    "message": "非公開:"
+    "message": "非公開情報:"
   },
   "onboardingMetametricsNeverCollectIP": {
-    "message": "$1 大まかな位置情報 (国や地域など) の検出にユーザーのIPアドレスが一時的に使用されますが、保存されることはありません。",
+    "message": "$1 国や地域などの大まかな位置情報を特定するため、一時的にIPアドレスを使用しますが、保存はされません。",
     "description": "$1 represents `onboardingMetametricsNeverCollectIPEmphasis`"
   },
   "onboardingMetametricsNeverCollectIPEmphasis": {
-    "message": "一般:"
+    "message": "一般情報:"
   },
   "onboardingMetametricsNeverSellData": {
-    "message": "$1 使用状況データを共有するか削除するかは、設定でいつでも指定できます。",
+    "message": "$1 使用状況データの共有は任意で、いつでも設定からオン／オフを切り替えることができます。",
     "description": "$1 represents `onboardingMetametricsNeverSellDataEmphasis`"
   },
   "onboardingMetametricsNeverSellDataEmphasis": {
-    "message": "任意:"
+    "message": "任意設定:"
   },
   "onboardingMetametricsTitle": {
     "message": "CryptoBridgeの改善にご協力ください"
   },
   "onboardingMetametricsUseDataCheckbox": {
-    "message": "このデータは、ユーザーによる当社のマーケティングコミュニケーションとのインタラクションを把握するために使用されます。また、関連ニュースをお伝えする場合もあります (製品の機能など)。"
+    "message": "収集したデータは、CryptoBridgeの機能改善や、マーケティングコミュニケーション（新機能のお知らせなど）の最適化に活用されます。"
   },
   "onboardingPinExtensionDescription": {
-    "message": "CryptoBridgeをブラウザにピン留めすることで、アクセスしやすくなり、トランザクションの承認を簡単に表示できるようになります。"
+    "message": "ブラウザの検索バー右側にあるパズルのアイコンをクリックし、CryptoBridge拡張機能をピン留めすると、すぐにアクセスできるようになります。"
   },
   "onboardingPinExtensionDescription2": {
-    "message": "拡張機能をクリックしてCryptoBridgeを開き、ワンクリックでウォレットにアクセスできます。"
+    "message": "CryptoBridge拡張機能をピン留めした後、アイコンをクリックするとウォレットがすぐ開きます。"
   },
   "onboardingPinExtensionDescription3": {
     "message": "ブラウザの拡張機能アイコンをクリックすると、すぐにアクセスできます",
     "description": "$1 is the browser name"
   },
   "onboardingPinExtensionTitle": {
-    "message": "CryptoBridgeのインストールが完了しました！"
+    "message": "セットアップ完了"
   },
   "onekey": {
     "message": "OneKey"
@@ -4205,7 +4215,7 @@
     "message": "出品価格"
   },
   "permitSimulationChange_receive": {
-    "message": "受取"
+    "message": "仮想通貨の受取"
   },
   "permitSimulationChange_revoke2": {
     "message": "取り消す"
@@ -4278,7 +4288,7 @@
     "description": "select this type of file to use to import an account"
   },
   "privateKeyCopyWarning": {
-    "message": "$1の秘密鍵",
+    "message": "$1のプライベートキー",
     "description": "$1 represents the account name"
   },
   "privateKeyHidden": {
@@ -4294,7 +4304,7 @@
     "description": "Explains that the private key input is being shown"
   },
   "privateKeyWarning": {
-    "message": "警告: この鍵は絶対に公開しないでください。秘密鍵を持つ人は誰でも、アカウントに保持されているアセットを盗むことができます。"
+    "message": "注意: このプライベートキーは絶対に他人に教えないでください。プライベートキーを知られると、アカウント内の資産が盗まれる可能性があります。"
   },
   "privateNetwork": {
     "message": "プライベートネットワーク"
@@ -4414,13 +4424,13 @@
     "message": "アカウントオプションメニューで「トークンのインポート」を選択することによって、今後このトークンを戻すことができます。"
   },
   "receive": {
-    "message": "受取"
+    "message": "仮想通貨の受取"
   },
   "receiveCrypto": {
     "message": "仮想通貨を受け取る"
   },
   "recipientAddressPlaceholderNew": {
-    "message": "パブリックアドレス (0x)"
+    "message": "イーサリアムのウォレットアドレス (0x…) またはENS (Ethereum Name Service) IDを入力してください"
   },
   "recommendedGasLabel": {
     "message": "推奨"
@@ -4552,22 +4562,22 @@
     "message": "リセット"
   },
   "resetWallet": {
-    "message": "ウォレットをリセット"
+    "message": "パスワードをリセット"
   },
   "resetWalletSubHeader": {
-    "message": "MetaMaskはパスワードのコピーを保管しません。アカウントのロックを解除できない場合は、ウォレットをリセットする必要があります。これは、ウォレットのセットアップ時に使用したシークレットリカバリーフレーズを入力することで行えます。"
+    "message": "CryptoBridgeはあなたのパスワードを保管することはありません。パスワードを忘れた場合、シークレットリカバリーフレーズまたはプライベートキーを使ってウォレットをインポートする必要があります。"
   },
   "resetWalletUsingSRP": {
     "message": "この操作により、このデバイスから現在のウォレットとシークレットリカバリーフレーズ、および作成されたアカウントのリストが削除されます。シークレットリカバリーフレーズでリセットすると、リセットに使用されたシークレットリカバリーフレーズに基づくアカウントのリストが表示されます。この新しいリストには、残高のあるアカウントが自動的に含まれます。また、以前作成された$1することもできます。インポートしたカスタムアカウントは$2である必要があり、アカウントに追加されたカスタムトークンも$3である必要があります。"
   },
   "resetWalletWarning": {
-    "message": "続行する前に、正しいシークレットリカバリーフレーズを使用していることを確認してください。これは元に戻せません。"
+    "message": "パスワード、シークレットリカバリーフレーズ、プライベートキーは紙に書き留め、安全なオフライン環境に保管してください。"
   },
   "restartMetamask": {
     "message": "CryptoBridge を再起動"
   },
   "restore": {
-    "message": "復元"
+    "message": "保存"
   },
   "restoreUserData": {
     "message": "ユーザーデータの復元"
@@ -4585,7 +4595,7 @@
     "message": "操作が正常に完了しました。"
   },
   "retryTransaction": {
-    "message": "トランザクションを再試行"
+    "message": "トランザクションを質問に戻る"
   },
   "reusedTokenNameWarning": {
     "message": "ここのトークンは、監視する別のトークンのシンボルを再使用します。これは混乱を招いたり紛らわしい場合があります。"
@@ -4601,7 +4611,7 @@
     "description": "This is a sentence consisting of link using 'revealSeedWordsSRPName' as $1 and bolded text using 'revealSeedWordsDescription3' as $2."
   },
   "revealSeedWordsDescription2": {
-    "message": "MetaMaskは$1です。つまり、ユーザーがSRPの所有者となります。",
+    "message": "CryptoBridgeは$1であり、SRPの管理・保管はユーザー自身で行う必要があります。",
     "description": "$1 is text link with the message from 'revealSeedWordsNonCustodialWallet'"
   },
   "revealSeedWordsDescription3": {
@@ -4613,6 +4623,9 @@
   "revealSeedWordsQR": {
     "message": "QR"
   },
+  "revealSeedWordsQRTips": {
+    "message": "QRコードをスキャンして、シークレットリカバリーフレーズを確認"
+  },
   "revealSeedWordsSRPName": {
     "message": "シークレットリカバリーフレーズ (SRP)"
   },
@@ -4620,21 +4633,21 @@
     "message": "テキスト"
   },
   "revealSeedWordsWarning": {
-    "message": "誰にも画面を見られていないことを確認してください。$1",
+    "message": "周囲に誰もいないことを確認し、画面が他人に見られていないことをご確認ください。$1",
     "description": "$1 is bolded text using the message from 'revealSeedWordsWarning2'"
   },
   "revealSeedWordsWarning2": {
-    "message": "MetaMaskサポートがこの情報を尋ねることはありません。",
+    "message": "CryptoBridgeのカスタマーサポートがこの情報を尋ねることは絶対にありません。",
     "description": "The bolded texted in the second part of 'revealSeedWordsWarning'"
   },
   "revealSensitiveContent": {
     "message": "機密のコンテンツを確認"
   },
   "review": {
-    "message": "確認"
+    "message": "次へ"
   },
   "reviewAlert": {
-    "message": "アラートを確認"
+    "message": "エラーを確認"
   },
   "reviewAlerts": {
     "message": "アラートを確認する"
@@ -4668,10 +4681,10 @@
     "message": "安全な送金元:"
   },
   "save": {
-    "message": "保存"
+    "message": "アドレス帳に追加"
   },
   "scanInstructions": {
-    "message": "QRコードにカメラを向けてください"
+    "message": "カメラにQRコードをかざしてください"
   },
   "scanQrCode": {
     "message": "QRコードをスキャン"
@@ -4797,26 +4810,29 @@
     "message": "シークレットリカバリーフレーズは、12、15、18、21、24語で構成されます"
   },
   "seedPhraseReviewDetails": {
-    "message": "シークレットリカバリーフレーズは絶対に他人と共有しないでください。このフレーズにアクセスできる人は、あなたの資金を管理することができます。"
+    "message": "シークレットリカバリーフレーズの管理について"
 
   },
   "seedPhraseReviewDetails1": {
-    "message": "このシークレットリカバリーフレーズをオンラインやスマートフォンに保存しないでください。これらはハッカー攻撃に対して脆弱です。"
+    "message": "シークレットリカバリーフレーズは、絶対に第三者と共有しないでください。このフレーズにアクセスできる者は、あなたの資産を自由に操作することが可能です。"
 
   },
   "seedPhraseReviewDetails2": {
-    "message": "紙に書き留め、オフラインの安全な場所に保管してください。"
+    "message": "シークレットリカバリーフレーズを、オンライン上やスマートフォンなどのデジタル機器に保存しないでください。これらの環境はハッキングなどの攻撃に対して脆弱です。"
 
   },
   "seedPhraseReviewDetails3": {
-    "message": "CryptoBridge のスタッフがこのフレーズを尋ねることは決してありません。"
+    "message": "シークレットリカバリーフレーズは紙に書き留め、金庫などのオフラインかつ安全な場所に保管してください。"
 
   },
   "seedPhraseReviewDetails4": {
-    "message": "将来、ウォレットを再インポートする必要がある場合に備えて、このシークレットリカバリーフレーズを安全に保管してください。"
+    "message": "CryptoBridgeのスタッフが、シークレットリカバリーフレーズを尋ねすることは一切ありません。フレーズの提供を求められた場合は、怪しい可能性があります。"
+  },
+  "seedPhraseReviewDetails5": {
+"message": "将来的にウォレットを再インポートする必要が生じた際に備え、シークレットリカバリーフレーズは確実に保管しておいてください。"
   },
   "seedPhraseReviewTitle": {
-    "message": "シークレットリカバリーフレーズを保存する"
+    "message": "シークレットリカバリーフレーズを確認"
   },
   "select": {
     "message": "選択"
@@ -4834,7 +4850,7 @@
     "message": "すべて選択"
   },
   "selectAnAccount": {
-    "message": "アカウントを選択してください"
+    "message": "アカウント選択"
   },
   "selectAnAccountAlreadyConnected": {
     "message": "このアカウントはすでにMetaMaskに接続されています"
@@ -4876,7 +4892,7 @@
     "message": "ここをクリック"
   },
   "sendNoContactsDescription": {
-    "message": "連絡先を使用すると、別のアカウントに安全に何度もトランザクションを送信できます。連絡先を作成するには、$1",
+    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。連絡先を追加するには、こちらをクリックしてください、$1",
     "description": "$1 represents the action text 'click here'"
   },
   "sendNoContactsTitle": {
@@ -4981,7 +4997,7 @@
     "message": "表示許可"
   },
   "showPrivateKey": {
-    "message": "秘密鍵を表示"
+    "message": "プライベートキーを表示"
   },
   "showSRP": {
     "message": "シークレットリカバリーフレーズを表示"
@@ -5430,13 +5446,13 @@
     "message": "このページを読み込めませんでした。"
   },
   "sortBy": {
-    "message": "並べ替え基準"
+    "message": "並べ替え"
   },
   "sortByAlphabetically": {
     "message": "アルファベット順 (A～Z)"
   },
   "sortByDecliningBalance": {
-    "message": "残高の多い順 ($1 高～低)",
+    "message": "残高順 ($1 高～低)",
     "description": "Indicates a descending order based on token fiat balance. $1 is the preferred currency symbol"
   },
   "source": {
@@ -5546,52 +5562,52 @@
     "message": "目の中央に鍵穴があり、3つのパスワード入力欄がフローティング表示されている画像"
   },
   "srpSecurityQuizIntroduction": {
-    "message": "シークレットリカバリーフレーズを確認するには、2つの質問に正しく答える必要があります。"
+    "message": "シークレットリカバリーフレーズを確認するには、確認のための2つの質問に正しくお答えください。"
   },
   "srpSecurityQuizQuestionOneQuestion": {
-    "message": "シークレットリカバリーフレーズをなくした場合、MetaMaskは..."
+    "message": "シークレットリカバリーフレーズを失った場合、CryptoBridgeはそれを..."
   },
   "srpSecurityQuizQuestionOneRightAnswer": {
-    "message": "どうすることもできません"
+    "message": "取り戻すことはできません"
   },
   "srpSecurityQuizQuestionOneRightAnswerDescription": {
-    "message": "書き留めたり金属に掘ったり、いくつかの秘密の場所に保管したりして、絶対になくさないようにしてください。なくした場合、一生戻ってきません。"
+    "message": "紙に書き留める、金属プレートに刻む、複数の安全な場所に分散して保管するなど、絶対に紛失しないようにしてください。一度失うと、二度と資産を取り戻すことはできません。"
   },
   "srpSecurityQuizQuestionOneRightAnswerTitle": {
-    "message": "正解です！シークレットリカバリーフレーズは誰にも取り戻すことができません"
+    "message": "正解！シークレットリカバリーフレーズは、誰にも復元することはできません。"
   },
   "srpSecurityQuizQuestionOneWrongAnswer": {
-    "message": "それを取り戻すことができます"
+    "message": "復元することができます"
   },
   "srpSecurityQuizQuestionOneWrongAnswerDescription": {
-    "message": "シークレットリカバリーフレーズをなくした場合、一生戻ってきません。誰が何と言おうと、誰にも取り戻すことはできません。"
+    "message": "このフレーズを失ってしまった場合、資産を取り戻す手段は一切ありません。たとえ誰が何と言っても、これを復元できる人や方法は存在しませんのでご注意ください。"
   },
   "srpSecurityQuizQuestionOneWrongAnswerTitle": {
-    "message": "不正解！シークレットリカバリーフレーズは誰にも取り戻せません"
+    "message": "不正解！シークレットリカバリーフレーズは、一度失うと誰にも復元することはできません。"
   },
   "srpSecurityQuizQuestionTwoQuestion": {
-    "message": "誰かにシークレットリカバリーフレーズを尋ねられたら、それがサポート担当者であっても..."
+    "message": "たとえカスタマーサポートの担当者を名乗る相手であっても、誰かにシークレットリカバリーフレーズを尋ねられた場合…"
   },
   "srpSecurityQuizQuestionTwoRightAnswer": {
-    "message": "あなたは騙されようとしています"
+    "message": "教えなてはいけない"
   },
   "srpSecurityQuizQuestionTwoRightAnswerDescription": {
-    "message": "シークレットリカバリーフレーズが必要だと言われたら、それは嘘です。教えてしまったら資産を盗まれます。"
+    "message": "シークレットリカバリーフレーズの提供を求められた場合は、たとえそれがカスタマーサポートを名乗る相手でも不正アクセスの可能性があります。一度でも教えてしまうと、資産を盗まれる恐れがあります。"
   },
   "srpSecurityQuizQuestionTwoRightAnswerTitle": {
-    "message": "正解です！シークレットリカバリーフレーズは決して誰にも教えてはいけません"
+    "message": "正解！シークレットリカバリーフレーズは、決して誰にも教えてはいけません。"
   },
   "srpSecurityQuizQuestionTwoWrongAnswer": {
-    "message": "教えるべきです"
+    "message": "教えるべき"
   },
   "srpSecurityQuizQuestionTwoWrongAnswerDescription": {
-    "message": "シークレットリカバリーフレーズが必要だと言われたら、それは嘘です。教えてしまったら資産を盗まれます。"
+    "message": "「シークレットリカバリーフレーズが必要だ」と言われた場合、それは不審な行為である可能性があります。一度でも教えてしまうと、あなたの資産が盗まれる恐れがあります。"
   },
   "srpSecurityQuizQuestionTwoWrongAnswerTitle": {
     "message": "不正解！シークレットリカバリーフレーズは決して誰にも教えないでください"
   },
   "srpSecurityQuizTitle": {
-    "message": "セキュリティの質問"
+    "message": "セキュリティに関する質問"
   },
   "srpToggleShow": {
     "message": "シークレットリカバリーフレーズのこの単語を表示・非表示",
@@ -5606,10 +5622,10 @@
     "description": "Explains that a word in the secret recovery phrase is being shown"
   },
   "stable": {
-    "message": "安定"
+    "message": "混雑なし"
   },
   "stableLowercase": {
-    "message": "安定"
+    "message": "混雑なし"
   },
   "stake": {
     "message": "ステーク"
@@ -5618,7 +5634,7 @@
     "message": "ステーキング済み"
   },
   "standardAccountLabel": {
-    "message": "スタンダードアカウント"
+    "message": "デフォルトアカウント"
   },
   "startEarning": {
     "message": "収益化を開始"
@@ -5767,7 +5783,7 @@
     "message": "MetaMaskの未来を形作りましょう"
   },
   "swap": {
-    "message": "暗号をカード残高に売却"
+    "message": "仮想通貨をカード残高へ売却"
   },
   "swapAdjustSlippage": {
     "message": "スリッページの調整"
@@ -6234,13 +6250,19 @@
     "message": "トークンを追加すると、Web3の使用方法が増えます。"
   },
   "tipsHome": {
-    "message": "将来のアップデートでウォレットを再インポートする必要がある場合に備えて、秘密のリカバリーフレーズを安全に保存してください。"
+    "message": "シークレットリカバリーフレーズとプライベートキーは、必ず安全な場所に保管してください。"
+  },
+  "tipsHome1": {
+    "message": "ウォレットを再インストールする場合や、別の端末に移行する場合には、これらの情報が必要になります。"
+  },
+  "tipsHome2": {
+    "message": "これらを紛失すると、ウォレットや資産に永久にアクセスできなくなりますので、ご注意ください。"
   },
   "to": {
-    "message": "移動先"
+    "message": "受取先"
   },
   "toAddress": {
-    "message": "移動先: $1",
+    "message": "受取先: $1",
     "description": "$1 is the address to include in the To label. It is typically shortened first using shortenAddress"
   },
   "toggleDecodeDescription": {
@@ -6445,7 +6467,7 @@
     "message": "MetaMaskがうまく起動しませんでした。このエラーは断続的に発生する可能性があるため、拡張機能を再起動してみてください。"
   },
   "tryAgain": {
-    "message": "再試行"
+    "message": "質問に戻る"
   },
   "turnOff": {
     "message": "オフにする"
@@ -6457,7 +6479,7 @@
     "message": "オンにする"
   },
   "turnOnMetamaskNotifications": {
-    "message": "通知をオンにする"
+    "message": "プッシュ通知"
   },
   "turnOnMetamaskNotificationsButton": {
     "message": "オンにする"
@@ -6519,7 +6541,7 @@
     "message": "無制限"
   },
   "unlock": {
-    "message": "ロック解除"
+    "message": "ログイン"
   },
   "unpin": {
     "message": "ピン留めを解除"
@@ -6727,7 +6749,7 @@
     "description": "Used in the 'permission_rpc' message."
   },
   "welcomeBack": {
-    "message": "お帰りなさい"
+    "message": "ログイン"
   },
   "welcomeToMetaMask": {
     "message": "始めましょう"
@@ -6792,40 +6814,40 @@
     "message": "ブロックチェーン上で確定しているため、トランザクションをキャンセルできませんでした。"
   },
   "yourWalletIsReady": {
-    "message": "ウォレットの準備ができました"
+    "message": "ウォレットのインポートに成功"
   },
   "totalBalance": {
     "message":"合計残高"
   },
   "depositWise": {
-    "message": "Wise を通じて入金"
+    "message": "Wiseで入金"
   },
   "receiveModalTips": {
-    "message": "このアドレスにイーサリアムネットワークの資産のみを送信してください"
+    "message": "このアドレスには、イーサリアムネットワークの資産のみを送金してください"
   },
   "receiveModalDes1": {
-    "message": "現時点では、cryptobridgeはerc-20転送のみをサポートしています。"
+    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。受取側のアドレスがERC-20であることを必ずご確認ください。"
   },
   "receiveModalDes2": {
     "message": "受取人のウォレットアドレスがerc-20アドレスであることを再確認してください。"
   },
   "receiveModalDes3": {
-    "message": "間違ったネットワークに資金を送ると、資金が永久的に失われる可能性があります。"
+    "message": "誤ったネットワークへの送金は、永久的に資産を失う原因となります。"
   },
   "receiveModalDes4": {
-    "message": "ネットワークのミスマッチを検知することはできず、互換性のないブロックチェーンネットワークへの送金による資金損失については、cryptobridgeは責任を負いません。"
+    "message": "ネットワークの不一致はシステム側で自動的に検出できないため、互換性のないネットワークへの送金によって発生した資金の損失について、CryptoBridgeは一切の責任を負いかねます。"
   },
   "tipsBank": {
-    "message": "fiat-crypto取引を有効にするには、jdb銀行口座をリンクするか、申請してください。"
+    "message": "法定通貨と仮想通貨の取引を有効にするには、JDB銀行口座を紐付けるもしくは新規開設が必要です。"
   },
   "startNow": {
-    "message": "今出発"
+    "message": "今すぐ開始"
   },
   "setPassword": {
-    "message": "パスワード設定"
+    "message": "パスワードを設定"
   },
   "setPasswordTips": {
-    "message": "パスワードには以下を含める必要があります。"
+    "message": "パスワード要件："
   },
   "setPasswordTips1": {
     "message": "8文字以上であること"
@@ -6843,22 +6865,22 @@
     "message": "記号（例：@、#、$、! など）を含むこと"
   },
   "bankTopic": {
-    "message": "銀行口座が必要です"
+    "message": "銀行口座の設定"
   },
   "bankDes": {
     "message": "すでにJDB銀行口座をお持ちですか？"
   },
   "bankTips": {
-    "message": "法定通貨から仮想通貨への機能を有効にするには、JDB銀行口座の登録または連携が必要です。"
+    "message": "法定通貨から仮想通貨への機能を有効にするには、JDB銀行口座の開設または紐付けが必要です。"
   },
   "bankBtn1": {
-    "message": "はい、すでに持っています – 口座を連携する"
+    "message": "はい、すでに持っています ー JDB銀行口座を紐付ける"
   },
   "bankBtn2": {
     "message": "いいえ、持っていません – 今すぐ登録"
   },
   "bankBtn3": {
-    "message": "スキップ – 法定通貨機能は使いません"
+    "message": "スキップ ー 法定通貨機能は利用しない"
   },
   "noTransactions": {
     "message": "まだ取引がありません"
@@ -6867,7 +6889,7 @@
     "message": "プッシュ通知を有効にする"
   },
   "noticesModalDesc": {
-    "message": "プッシュ通知を許可すると、アカウント活動のアラートを端末で直接受信できます"
+    "message": "プッシュ通知を許可すると、アクティビティに関する通知が届きます"
   },
   "noticesModalItem1Title": {
     "message": "送金完了"
@@ -6876,7 +6898,7 @@
     "message": "アカウント1から10 USDTを送金しました"
   },
   "noticesModalNow": {
-    "message": "今すぐ"
+    "message": "今"
   },
     "noticeModal1mAgo":{
     "message":"1分前です"
@@ -6897,10 +6919,10 @@
     "message": "アドレス帳"
   },
   "preferences": {
-    "message": "設定"
+    "message": "環境設定"
   },
   "defaultCurrency": {
-    "message": "既定の通貨"
+    "message": "デフォルト通貨"
   },
   "language": {
     "message": "言語"
@@ -6945,10 +6967,10 @@
     "message": "パスワードを設定"
   },
    "youareNoTransactions":{
-    "message":"あなたの取引がここに表示されます"
+    "message":"ここにトランザクション履歴が表示されます"
   },
   "noTransactionsTitle": {
-    "message": "まだ取引"
+    "message": "まだトランザクションがありません"
   },
   "confirmRecoveryPhraseTitle": {
     "message": "シークレットリカバリーフレーズの確認"
@@ -6958,5 +6980,44 @@
   },
   "copy": {
     "message": "コピー"
+  },
+  "typeYourSRP": {
+    "message": "シークレットリカバリーフレーズを入力してください。"
+  },
+  "onboardingSrpInputPlaceholder": {
+    "message": "各単語の間に半角スペースを入れ、周囲に誰もいないことを確認してください。"
+  },
+  "onboardingSrpInputShowAll": {
+    "message": "すべて表示"
+  },
+  "onboardingSrpInputHideAll": {
+    "message": "すべて非表示"
+  },
+  "paste": {
+    "message": "貼り付け"
+  },
+  "walletReadyLoseSrp": {
+    "message": "パスワードを忘れた場合や、新しいデバイスにウォレットをインポートしたい場合でも、シークレットリカバリーフレーズまたはプライベートキーを失うと、ウォレットを復元することはできません。"
+  },
+  "walletReadyLoseSrp1": {
+    "message": "必ずこれらを紙に書き留め、オフラインの安全な場所に保管してください。"
+  },
+  "accountType": {
+    "message": "タイプ"
+  },
+  "accountDetail": {
+    "message": "詳細設定"
+  },
+  "enterPassword": {
+    "message": "パスワードを入力してログイン"
+  },
+  "forgotPasswordModalTitle": {
+    "message": "パスワードをお忘れですか？"
+  },
+  "forgotPasswordModalDescription1": {
+    "message": "CryptoBridgeは、お客様のパスワードを復元できません。"
+  },
+  "forgotPasswordModalDescription2": {
+    "message": "パスワードをライベートキーをリセットするには、シークレットリカバリーフレーズまたはプライベートキーを入力してください。"
   }
 }

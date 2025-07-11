@@ -159,12 +159,12 @@ export default function SrpInput({ onChange, srpText }) {
             </Text>
           )}
         </label>
-        <BannerAlert
+        {/* <BannerAlert
           className="import-srp__paste-tip"
           severity={Severity.Info}
           description={t('srpPasteTip')}
           descriptionProps={{ className: 'import-srp__banner-alert-text' }}
-        />
+        /> */}
         {/* <Dropdown
           className="import-srp__number-of-words-dropdown"
           onChange={handleNumberOfWordsChange}

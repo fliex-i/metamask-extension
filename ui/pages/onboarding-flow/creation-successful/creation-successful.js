@@ -69,9 +69,13 @@ export default function CreationSuccessful() {
 
   const renderDetails1 = useMemo(() => {
     if (isWalletReady) {
-      return isFromReminderParam
-        ? t('walletReadyLoseSrpFromReminder')
-        : t('walletReadyLoseSrp');
+      return isFromReminderParam ? (
+        t('walletReadyLoseSrpFromReminder')
+      ) : (
+        <>
+          {t('walletReadyLoseSrp')} <br /> {t('walletReadyLoseSrp1')}
+        </>
+      );
     }
 
     return t('walletReadyLoseSrpRemind');

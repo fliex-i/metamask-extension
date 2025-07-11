@@ -182,9 +182,6 @@ export default function OnboardingPinExtension() {
               <Text variant={TextVariant.bodyMd}>
                 {t('onboardingPinExtensionDescription2')}
               </Text>
-              <Text variant={TextVariant.bodyMd}>
-                {t('onboardingPinExtensionDescription3', [getBrowserName()])}
-              </Text>
             </Box>
           )}
         </Box>

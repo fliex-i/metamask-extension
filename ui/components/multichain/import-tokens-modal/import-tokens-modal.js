@@ -806,15 +806,15 @@ export const ImportTokensModal = ({ onClose }) => {
                         setSearchResults={setSearchResults}
                       />
                     </Box>
-
-                    {searchResults.length === 0 ? (
-                      <Box
+                    {/* <Box
                         paddingLeft={4}
                         paddingRight={4}
                         className="token-list__empty-list"
                       >
                         <TokenListPlaceholder />
-                      </Box>
+                      </Box> */}
+                    {searchResults.length === 0 ? (
+                      <></>
                     ) : (
                       <TokenList
                         currentNetwork={currentNetwork}

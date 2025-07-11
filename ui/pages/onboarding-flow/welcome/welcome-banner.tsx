@@ -44,7 +44,10 @@ export default function WelcomeBanner({ onAccept }: { onAccept: () => void }) {
           className="welcome-banner__description"
           marginBottom={6}
         >
-          {t('welcomeDescription')}
+          {t('welcomeDescription')} <br/>
+          {t('welcomeDescription1')} <br/>
+          {t('welcomeDescription2')}
+
         </Text>
         <ButtonBase
           data-testid="onboarding-get-started-button"

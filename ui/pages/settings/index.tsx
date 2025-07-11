@@ -199,7 +199,7 @@ const SettingsPage: React.FC = () => {
           {
             name: t('termC'),
             icon: './images/setting/terms.svg',
-            link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/ENJP-CryptoBridge-Terms-Conditions-2025-06-12.pdf',
+            link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/EN_JP-CryptoBridge-Privacy-Policy-2025-06-12-1.pdf',
           },
           {
             name: t('privacyPolicy'),
