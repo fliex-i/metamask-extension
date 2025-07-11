@@ -67,7 +67,7 @@ export default function EditGasDisplay({
         {showTopError && (
           <BannerAlert
             severity={Severity.Danger}
-            description={t('insufficientFunds')}
+            description={t('insufficientFundsForGas')}
             marginBottom={6}
           />
         )}

@@ -104,8 +104,6 @@ function PageNumber({
   alertsLength: number;
 }) {
   const t = useI18nContext();
-  const text = t('ofTextNofM');
-  const text1 = t('ofTextNofM1');
   return (
     <Text
       variant={TextVariant.bodySm}
@@ -113,9 +111,7 @@ function PageNumber({
       marginInline={1}
       style={{ whiteSpace: 'nowrap' }}
     >
-      {text && `${selectedIndex + 1} ${text} ${alertsLength}`}
-      {text1 && ` ${text1}  ${selectedIndex + 1}/${alertsLength}`}
-      {/* {`${selectedIndex + 1} ${t('ofTextNofM')} ${alertsLength}`} */}
+      {t('srpQuizStep', [selectedIndex + 1, alertsLength])}
     </Text>
   );
 }
