@@ -20,6 +20,7 @@ import ConnectedSites from '../connected-sites';
 import ConnectedAccounts from '../connected-accounts';
 import { isMv3ButOffscreenDocIsMissing } from '../../../shared/modules/mv3.utils';
 import ActionableMessage from '../../components/ui/actionable-message/actionable-message';
+// eslint-disable-next-line import/no-restricted-paths
 import { getEnvironmentType } from '../../../app/scripts/lib/util';
 import { ENVIRONMENT_TYPE_FULLSCREEN } from '../../../shared/constants/app';
 import {
@@ -860,7 +861,7 @@ export default class Home extends PureComponent {
               window.open('https://dapp.jdbbanktest.xyz/login/', '_blank');
             }}
           />
-          {getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN ? (
+          {getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN ? null : (
             <a
               href="https://www.crypto-bridge.co/jp/#support"
               target="_blank"
@@ -874,7 +875,7 @@ export default class Home extends PureComponent {
                 height: '56px',
                 borderRadius: '50%',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                background: '#fff',
+                background: 'var(--color-background-default)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -888,7 +889,7 @@ export default class Home extends PureComponent {
                 style={{ width: '40px', height: '40px', objectFit: 'contain' }}
               />
             </a>
-          ) : null}
+          )}
 
           {dataCollectionForMarketing === null &&
           participateInMetaMetrics === true
