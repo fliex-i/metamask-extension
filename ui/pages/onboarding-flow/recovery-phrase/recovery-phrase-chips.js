@@ -32,7 +32,9 @@ export default function RecoveryPhraseChips({
   const t = useI18nContext();
 
   const quizOptions = useMemo(() => {
-    if (!quizWords.length) return [];
+    if (!quizWords.length) {
+      return [];
+    }
     return quizWords.map((quizWord) => {
       const correctWord = secretRecoveryPhrase[quizWord.index];
       const otherWords = secretRecoveryPhrase.filter(
@@ -67,7 +69,7 @@ export default function RecoveryPhraseChips({
   const allQuizCorrect = useMemo(() => {
     if (confirmPhase && quizWords.length === 3) {
       return quizOptions.every(
-        (group, idx) => userSelections[idx] === group.correct
+        (group, idx) => userSelections[idx] === group.correct,
       );
     }
     return false;
@@ -90,8 +92,7 @@ export default function RecoveryPhraseChips({
     if (!confirmPhase && quizWords.length === 3) {
       return legacyQuizAnswers.every(
         (answer) =>
-          answer.word &&
-          secretRecoveryPhrase[answer.index] === answer.word
+          answer.word && secretRecoveryPhrase[answer.index] === answer.word,
       );
     }
     return false;
@@ -114,67 +115,6 @@ export default function RecoveryPhraseChips({
   useEffect(() => {
     setUserSelections(Array(quizWords.length).fill(''));
   }, [quizWords]);
-
-  if (confirmPhase && quizWords.length === 3) {
-    return (
-      <Box display={Display.Flex} flexDirection={FlexDirection.Column} gap={4}>
-        {quizOptions.map((group, groupIdx) => {
-          const isGroupAnswered = userSelections[groupIdx] === group.correct;
-          return (
-            <Box key={group.index}>
-              <Text
-                variant={TextVariant.bodyMd}
-                fontWeight={FontWeight.Medium}
-                marginBottom={2}
-              >
-                {`${t('word')} #${group.index + 1}`}
-              </Text>
-              <Box display={Display.Flex} gap={2}>
-                {group.options.map((option) => {
-                  const selected = userSelections[groupIdx] === option;
-                  const canClick =
-                    (!isGroupAnswered && !selected) ||
-                    (isGroupAnswered && selected);
-                  return (
-                    <ButtonBase
-                      key={option}
-                      className={classnames('recovery-phrase-quiz-option', {
-                        'recovery-phrase-quiz-option--selected': selected,
-                      })}
-                      style={{
-                        border: selected
-                          ? '2px solid var(--brand-colors-purple)'
-                          : '1px solid #d6d9dc',
-                        background: '#fff',
-                        minWidth: 120,
-                        minHeight: 40,
-                        fontWeight: selected ? 600 : 400,
-                        opacity: !canClick ? 0.5 : 1,
-                        cursor: 'pointer',
-                      }}
-                      disabled={!canClick}
-                      onClick={() => {
-                        if (!canClick) return;
-                        const newSelections = [...userSelections];
-                        if (isGroupAnswered && selected) {
-                          newSelections[groupIdx] = '';
-                        } else {
-                          newSelections[groupIdx] = option;
-                        }
-                        setUserSelections(newSelections);
-                      }}
-                    >
-                      {option}
-                    </ButtonBase>
-                  );
-                })}
-              </Box>
-            </Box>
-          );
-        })}
-      </Box>
-    );
-  }
 
   const setNextTargetIndex = (newQuizAnswers) => {
     const emptyAnswers = newQuizAnswers.reduce((acc, answer) => {
