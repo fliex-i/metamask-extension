@@ -463,7 +463,10 @@
     "message": "Low gas limit"
   },
   "alertReasonInsufficientBalance": {
-    "message": "Insufficient funds for gas fee"
+    "message": "Insufficient funds"
+  },
+  "noTransactionsTitle": {
+    "message": ""
   },
   "alertReasonMultipleApprovals": {
     "message": "Unnecessary permission"
