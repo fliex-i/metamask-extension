@@ -450,6 +450,9 @@
   "alertReasonInsufficientBalance": {
     "message": "Insufficient funds"
   },
+  "noTransactionsTitle": {
+    "message": ""
+  },
   "alertReasonMultipleApprovals": {
     "message": "Unnecessary permission"
   },
@@ -1165,7 +1168,7 @@
     "message": "Bal:"
   },
   "confirmGasFeeTokenInsufficientBalance": {
-    "message": "Insufficient funds for gas fee"
+    "message": "Insufficient funds"
   },
   "confirmGasFeeTokenMetaMaskFee": {
     "message": "Includes $1 fee"
