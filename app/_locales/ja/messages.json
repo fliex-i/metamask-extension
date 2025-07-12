@@ -2529,7 +2529,7 @@
     "description": "The text link in 'holdToRevealContent3'"
   },
   "holdToRevealContentPrivateKey1": {
-    "message": "プライベートキーは、あなたのウォレットおよび資産への完全なア",
+    "message": "プライベートキーは、あなたのウォレットおよび資産への完全なアセス権となります。",
     "description": "$1 is a bolded text with the message from 'holdToRevealContentPrivateKey3'"
   },
   "holdToRevealContentPrivateKey2": {
@@ -5118,7 +5118,7 @@
     "message": "アカウントを表示"
   },
   "showAdvancedDetails": {
-    "message": "高度な詳細を表示"
+    "message": "詳細を表示"
   },
   "showExtensionInFullSizeView": {
     "message": "拡張機能をフルサイズで表示"

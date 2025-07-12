@@ -14,7 +14,7 @@ import {
   TextColor,
   TextVariant,
 } from '../../../../helpers/constants/design-system';
-import { INSUFFICIENT_FUNDS_ERROR_KEY } from '../../../../helpers/constants/error-keys';
+import { INSUFFICIENT_FUNDS_FOR_GAS_ERROR_KEY } from '../../../../helpers/constants/error-keys';
 import { useGasFeeContext } from '../../../../contexts/gasFee';
 import AppLoadingSpinner from '../../../../components/app/app-loading-spinner';
 import ZENDESK_URLS from '../../../../helpers/constants/zendesk-url';
@@ -55,7 +55,7 @@ const EditGasFeePopover = () => {
           <div className="edit-gas-fee-popover__content">
             <Box>
               {balanceError && (
-                <ErrorMessage errorKey={INSUFFICIENT_FUNDS_ERROR_KEY} />
+                <ErrorMessage errorKey={INSUFFICIENT_FUNDS_FOR_GAS_ERROR_KEY} />
               )}
               <div className="edit-gas-fee-popover__content__header">
                 <span className="edit-gas-fee-popover__content__header-option">
