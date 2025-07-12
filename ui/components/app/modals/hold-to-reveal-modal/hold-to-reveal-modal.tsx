@@ -47,15 +47,12 @@ export default function HoldToRevealModal({
       ? 'holdToRevealContent'
       : 'holdToRevealContentPrivateKey';
 
-  // If this is done inline, verify-locales will output `Forbidden use of template strings in 't' function`
+  // // If this is done inline, verify-locales will output `Forbidden use of template strings in 't' function`
   const holdToRevealContent1 = `${holdToRevealContent}1`;
   const holdToRevealContent2 = `${holdToRevealContent}2`;
-
-  // This is here to stop yarn verify-locales from removing these strings
-  t('holdToRevealContentPrivateKey1');
-  t('holdToRevealContentPrivateKey2');
-  t('holdToRevealContent1');
-  t('holdToRevealContent2');
+  const holdToRevealContent3 = `${holdToRevealContent}3`;
+  const holdToRevealContent4 = `${holdToRevealContent}4`;
+  const holdToRevealContent5 = `${holdToRevealContent}5`;
 
   const MainContent = () => {
     return (
@@ -67,37 +64,39 @@ export default function HoldToRevealModal({
         marginBottom={6}
       >
         <Text variant={TextVariant.bodyMd}>
-          {t('holdToRevealContent1', [
+          {t(holdToRevealContent1, [
             <Text
               key="hold-to-reveal-2"
               variant={TextVariant.bodyMdBold}
               as="span"
             >
-              {t('holdToRevealContent2')}
+              {t(holdToRevealContent2)}
             </Text>,
           ])}
         </Text>
-        <Text variant={TextVariant.bodyMdBold}>
-          {t('holdToRevealContent3', [
-            <Text
-              key="hold-to-reveal-4"
-              variant={TextVariant.bodyMd}
-              as="span"
-              display={Display.Inline}
-            >
-              {t('holdToRevealContent4')}
-            </Text>,
-            <Button
-              key="hold-to-reveal-5"
-              variant={ButtonVariant.Link}
-              size={ButtonSize.Inherit}
-              // href={ZENDESK_URLS.NON_CUSTODIAL_WALLET}
-              // externalLink
-            >
-              {t('holdToRevealContent5')}
-            </Button>,
-          ])}
-        </Text>
+        {t(holdToRevealContent3) && (
+          <Text variant={TextVariant.bodyMdBold}>
+            {t(holdToRevealContent3, [
+              <Text
+                key="hold-to-reveal-4"
+                variant={TextVariant.bodyMd}
+                as="span"
+                display={Display.Inline}
+              >
+                {t(holdToRevealContent4)}
+              </Text>,
+              <Button
+                key="hold-to-reveal-5"
+                variant={ButtonVariant.Link}
+                size={ButtonSize.Inherit}
+                // href={ZENDESK_URLS.NON_CUSTODIAL_WALLET}
+                // externalLink
+              >
+                {t(holdToRevealContent5)}
+              </Button>,
+            ])}
+          </Text>
+        )}
       </Box>
     );
   };

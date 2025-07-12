@@ -1,4 +1,7 @@
 {
+  "FAQ": {
+    "message": "FAQ"
+  },
   "QRHardwareInvalidTransactionTitle": {
     "message": "Error"
   },
@@ -43,6 +46,9 @@
   },
   "QRHardwareWalletSteps2Description": {
     "message": "Ngrave Zero"
+  },
+  "Security": {
+    "message": "Security"
   },
   "SrpListHideAccounts": {
     "message": "Hide $1 accounts",
@@ -90,6 +96,9 @@
   "accountAlreadyExistsTitle": {
     "message": "Wallet already exists"
   },
+  "accountDetail": {
+    "message": "Details"
+  },
   "accountDetails": {
     "message": "Account details"
   },
@@ -128,6 +137,9 @@
   },
   "accountSelectionRequired": {
     "message": "You need to select an account!"
+  },
+  "accountType": {
+    "message": "Type"
   },
   "accountTypeNotSupported": {
     "message": "Account type not supported"
@@ -305,6 +317,9 @@
   },
   "address": {
     "message": "Address"
+  },
+  "addressBook": {
+    "message": "Address Book"
   },
   "addressCopied": {
     "message": "Address copied!"
@@ -603,6 +618,9 @@
     "message": "We use third-party APIs to detect and display new tokens sent to your wallet. Turn off if you don’t want the app to automatically pull data from those services. $1",
     "description": "$1 is a link to a support article"
   },
+  "autoLock": {
+    "message": "Auto-lock"
+  },
   "autoLockTimeLimit": {
     "message": "Auto-lock timer (minutes)"
   },
@@ -678,6 +696,24 @@
   "balanceOutdated": {
     "message": "Balance may be outdated"
   },
+  "bankBtn1": {
+    "message": "No, I don't have a JDB Bank Account – Register Now"
+  },
+  "bankBtn2": {
+    "message": "Yes, I already have a JDB Bank Account – Link My Account"
+  },
+  "bankBtn3": {
+    "message": "Skip – I won't use fiat-to-crypto features"
+  },
+  "bankDes": {
+    "message": "Do you already have a JDB Bank Account?"
+  },
+  "bankTips": {
+    "message": "To activate fiat-to-crypto feature, please apply for a JDB Bank Account or link an existing account."
+  },
+  "bankTopic": {
+    "message": "Bank Account Required"
+  },
   "baseFee": {
     "message": "Base fee"
   },
@@ -737,6 +773,9 @@
   "billionAbbreviation": {
     "message": "B",
     "description": "Shortened form of 'billion'"
+  },
+  "blankAccount": {
+    "message": "Bank Account"
   },
   "blockExplorerAccountAction": {
     "message": "Account",
@@ -1064,6 +1103,9 @@
   },
   "chainListReturnedDifferentTickerSymbol": {
     "message": "This token symbol doesn't match the network name or chain ID entered. Many popular tokens use similar symbols, which scammers can use to trick you into sending them a more valuable token in return. Verify everything before you continue."
+  },
+  "changePassword": {
+    "message": "Change Password"
   },
   "chooseYourNetwork": {
     "message": "Choose your network"
@@ -1463,6 +1505,9 @@
   "copiedExclamation": {
     "message": "Copied."
   },
+  "copy": {
+    "message": "Copy"
+  },
   "copyAddress": {
     "message": "Copy address to clipboard"
   },
@@ -1585,6 +1630,9 @@
   },
   "customTokenWarningInTokenDetectionNetworkWithTDOFF": {
     "message": "Make sure you trust a token before you import it. Learn how to avoid $1. You can also enable token detection $2."
+  },
+  "customerSupport": {
+    "message": "Customer Support"
   },
   "customizeYourNotifications": {
     "message": "Customize your notifications"
@@ -1718,6 +1766,9 @@
   "deepLink_theSwapsPage": {
     "message": "the swaps page"
   },
+  "defaultCurrency": {
+    "message": "Default Display Currency"
+  },
   "defaultRpcUrl": {
     "message": "Default RPC URL"
   },
@@ -1774,6 +1825,9 @@
   },
   "depositCrypto": {
     "message": "Deposit crypto from another account with a wallet address or QR code."
+  },
+  "depositWise": {
+    "message": "Deposit via Wise"
   },
   "deprecatedGoerliNtwrkMsg": {
     "message": "Because of updates to the Ethereum system, the Goerli test network will be phased out soon."
@@ -2353,6 +2407,15 @@
   "followUsOnTwitter": {
     "message": "Follow us on Twitter"
   },
+  "footerAgreementDesc": {
+    "message": "By using this service, you agree to our"
+  },
+  "footerAgreementDesc1": {
+    "message": "&"
+  },
+  "footerAgreementDesc2": {
+    "message": ""
+  },
   "forbiddenIpfsGateway": {
     "message": "Forbidden IPFS Gateway: Please specify a CID gateway"
   },
@@ -2588,6 +2651,15 @@
     "message": "full access to your wallet and funds.",
     "description": "Is the bolded text in 'holdToRevealContentPrivateKey2'"
   },
+  "holdToRevealContentPrivateKey3": {
+    "message": ""
+  },
+  "holdToRevealContentPrivateKey4": {
+    "message": ""
+  },
+  "holdToRevealContentPrivateKey5": {
+    "message": ""
+  },
   "holdToRevealLockedLabel": {
     "message": "hold to reveal circle locked"
   },
@@ -2773,7 +2845,7 @@
     "message": "Insufficient balance."
   },
   "insufficientFunds": {
-    "message": "Insufficient funds"
+    "message": "Insufficient funds for gas fee"
   },
   "insufficientFundsForGas": {
     "message": "Insufficient funds for gas fee."
@@ -2923,6 +2995,9 @@
   "l2FeeTooltip": {
     "message": "L2 gas fee"
   },
+  "language": {
+    "message": "Language"
+  },
   "lastConnected": {
     "message": "Last connected"
   },
@@ -3071,6 +3146,9 @@
   },
   "lockCryptoBridge": {
     "message": "Lock CryptoBridge"
+  },
+  "lockNow": {
+    "message": "Lock now"
   },
   "lockTimeInvalid": {
     "message": "Lock time must be a number between 0 and 10080"
@@ -3649,6 +3727,12 @@
   "noThanks": {
     "message": "No thanks"
   },
+  "noTransactions": {
+    "message": "No transactions yet"
+  },
+  "noTranstionsTitle": {
+    "message": "No transactions yet"
+  },
   "noWebcamFound": {
     "message": "Your computer's webcam was not found. Please try again."
   },
@@ -3681,6 +3765,36 @@
   },
   "notNow": {
     "message": "Not now"
+  },
+  "noticeModal1mAgo": {
+    "message": "1 minute ago"
+  },
+  "noticeModalBtn": {
+    "message": "Done"
+  },
+  "noticeModalNow": {
+    "message": ""
+  },
+  "noticesModalDesc": {
+    "message": "Allow push notifications to receive alerts for account activity directly on your device"
+  },
+  "noticesModalItem1Desc": {
+    "message": "Account 1 sent 10 USDT"
+  },
+  "noticesModalItem1Title": {
+    "message": "Sent"
+  },
+  "noticesModalItem2Desc": {
+    "message": "Account 2 received 10 USDT"
+  },
+  "noticesModalItem2Title": {
+    "message": "Received"
+  },
+  "noticesModalNow": {
+    "message": "now"
+  },
+  "noticesModalTitle": {
+    "message": "Enable push notifications"
   },
   "notificationDetail": {
     "message": "Details"
@@ -3857,9 +3971,6 @@
   },
   "ofTextNofM1": {
     "message": ""
-  },
-  "srpQuizStep": {
-    "message": "$1 of $2"
   },
   "off": {
     "message": "Off"
@@ -4434,6 +4545,9 @@
   "portfolio": {
     "message": "Portfolio"
   },
+  "preferences": {
+    "message": "Preferences"
+  },
   "preparingSwap": {
     "message": "Preparing swap..."
   },
@@ -4460,6 +4574,9 @@
   },
   "privacyMsg": {
     "message": "Privacy policy"
+  },
+  "privacyPolicy": {
+    "message": "Privacy Policy"
   },
   "privateKey": {
     "message": "Private Key",
@@ -4495,6 +4612,9 @@
   },
   "proposedApprovalLimit": {
     "message": "Proposed approval limit"
+  },
+  "protection": {
+    "message": "Protection"
   },
   "provide": {
     "message": "Provide"
@@ -4607,6 +4727,21 @@
   "receiveCrypto": {
     "message": "Receive crypto"
   },
+  "receiveModalDes1": {
+    "message": "At the moment, CryptoBridge only supports ERC-20 transfers."
+  },
+  "receiveModalDes2": {
+    "message": "Please double-check that the recipient’s wallet address is an ERC-20 address."
+  },
+  "receiveModalDes3": {
+    "message": "Sending funds to the wrong network may result in permanent loss of funds."
+  },
+  "receiveModalDes4": {
+    "message": "The system cannot detect network mismatches, and CryptoBridge is not responsible for loss of funds due to sending funds to an incompatible blockchain network."
+  },
+  "receiveModalTips": {
+    "message": "Send only Ethereum network assets to this address"
+  },
   "recipientAddressPlaceholderNew": {
     "message": "Enter public Ethereum address (0x)"
   },
@@ -4639,6 +4774,12 @@
   },
   "redeposit": {
     "message": "Redeposit"
+  },
+  "referralCode": {
+    "message": "Referral Code (Optional)"
+  },
+  "referralCodeInputPlace": {
+    "message": "Enter your referral code"
   },
   "refreshList": {
     "message": "Refresh list"
@@ -4750,6 +4891,9 @@
   },
   "resetWalletWarning": {
     "message": "Write down your password, Secret Recovery Phrase, and Private Key on a piece of paper and store it in a secure, offline location."
+  },
+  "resources": {
+    "message": "Resources"
   },
   "restartMetamask": {
     "message": "Restart CryptoBridge"
@@ -4904,24 +5048,24 @@
   "secureWalletWalletRecover": {
     "message": "It’s the only way to recover your wallet if you get locked out of the app or get a new device."
   },
-  "secureWalletWalletSaveSrp2":{
-    "message": "Write down the 12-word Secret Recovery Phrase exactly in order on a physical piece of paper and store the paper in a secure, offline location (e.g. safebox, vault)"
-  },
-  "secureWalletWalletSaveSrp3":{
-    "message": "If you forget your Password, you can restore your wallet using your Secret Recovery Phrase."
-  },
-  "secureWalletWalletSaveSrp4":{
-    "message": "Never share it with anyone or enter it into any online form."
-  },
-  "secureWalletWalletSaveSrp5":{
-    "message": "CryptoBridge will never ask for your Secret Recovery Phrase or Private Key. If anyone or any website asks for it, it’s a scam."
-  },
-  "secureWalletWalletSaveSrp6":{
-    "message": ""
-  },
   "secureWalletWalletSaveSrp": {
     "message": "The $1 gives you full access to your wallets and funds",
     "description": "The $1 is the button text 'Secret Recovery Phrase'"
+  },
+  "secureWalletWalletSaveSrp2": {
+    "message": "Write down the 12-word Secret Recovery Phrase exactly in order on a physical piece of paper and store the paper in a secure, offline location (e.g. safebox, vault)"
+  },
+  "secureWalletWalletSaveSrp3": {
+    "message": "If you forget your Password, you can restore your wallet using your Secret Recovery Phrase."
+  },
+  "secureWalletWalletSaveSrp4": {
+    "message": "Never share it with anyone or enter it into any online form."
+  },
+  "secureWalletWalletSaveSrp5": {
+    "message": "CryptoBridge will never ask for your Secret Recovery Phrase or Private Key. If anyone or any website asks for it, it’s a scam."
+  },
+  "secureWalletWalletSaveSrp6": {
+    "message": ""
   },
   "security": {
     "message": "Security"
@@ -5107,6 +5251,27 @@
   "setApprovalForAllTitle": {
     "message": "Approve $1 with no spend limit",
     "description": "The token symbol that is being approved"
+  },
+  "setPassword": {
+    "message": "Set Password"
+  },
+  "setPasswordTips": {
+    "message": "Password Requirements:"
+  },
+  "setPasswordTips1": {
+    "message": "Must be at least 8 characters long"
+  },
+  "setPasswordTips2": {
+    "message": "Must include at least one uppercase letter (A–Z)"
+  },
+  "setPasswordTips3": {
+    "message": "Must include at least one lowercase letter (a–z)"
+  },
+  "setPasswordTips4": {
+    "message": "Must include at least one number (0–9)"
+  },
+  "setPasswordTips5": {
+    "message": "Must include at least one symbol (only @, #, $, ! are allowed)"
   },
   "settingAddSnapAccount": {
     "message": "Add account Snap"
@@ -5769,6 +5934,9 @@
     "message": "You can paste your entire secret recovery phrase into any field",
     "description": "Our secret recovery phrase input is split into one field per word. This message explains to users that they can paste their entire secrete recovery phrase into any field, and we will handle it correctly."
   },
+  "srpQuizStep": {
+    "message": "$1 of $2"
+  },
   "srpSecurityQuizGetStarted": {
     "message": "Get started"
   },
@@ -5852,6 +6020,9 @@
   },
   "startEarning": {
     "message": "Start earning"
+  },
+  "startNow": {
+    "message": "Start Now"
   },
   "stateCorruptionAreYouSure": {
     "message": "Are you sure you want to proceed?"
@@ -5948,12 +6119,6 @@
   "stillGettingMessage": {
     "message": "Still getting this message?"
   },
-  "noTranstionsTitle": {
-    "message": "No transactions yet"
-  },
-  "youareNoTransactions":{
-    "message":"Your transactions will appear here"
-  },
   "strong": {
     "message": "Strong"
   },
@@ -6010,6 +6175,9 @@
   },
   "submit": {
     "message": "Submit"
+  },
+  "submitFeedback": {
+    "message": "Submit Feedback"
   },
   "submitted": {
     "message": "Submitted"
@@ -6481,8 +6649,14 @@
   "tenPercentIncreased": {
     "message": "10% increase"
   },
+  "termC": {
+    "message": "Terms and Conditions"
+  },
   "terms": {
     "message": "Terms of use"
+  },
+  "termsConditions": {
+    "message": "Terms and Conditions"
   },
   "termsOfService": {
     "message": "Terms of service"
@@ -6517,6 +6691,9 @@
   },
   "time": {
     "message": "Speed"
+  },
+  "tipsBank": {
+    "message": "Link your JDB Bank Account or apply for one to enable fiat-crypto transactions."
   },
   "tipsForUsingAWallet": {
     "message": "Tips for using a wallet"
@@ -6612,6 +6789,9 @@
   },
   "total": {
     "message": "Total"
+  },
+  "totalBalance": {
+    "message": "Total balance"
   },
   "totalVolume": {
     "message": "Total volume"
@@ -6924,6 +7104,9 @@
   "usedByClients": {
     "message": "Used by a variety of different clients"
   },
+  "userManual": {
+    "message": "User Manual"
+  },
   "userName": {
     "message": "Contact Name"
   },
@@ -7069,6 +7252,21 @@
   "welcomeBack": {
     "message": "Welcome back"
   },
+  "welcomeDescription": {
+    "message": "Seamless Access to"
+  },
+  "welcomeDescription1": {
+    "message": "Crypto & Fiat in One Platform"
+  },
+  "welcomeDescription2": {
+    "message": ""
+  },
+  "welcomeGetStarted": {
+    "message": "Get started"
+  },
+  "welcomeTitle": {
+    "message": "Welcome to CryptoBridge"
+  },
   "welcomeToMetaMask": {
     "message": "Let's get started"
   },
@@ -7083,6 +7281,9 @@
   },
   "withdrawing": {
     "message": "Withdrawing"
+  },
+  "word": {
+    "message": "Word"
   },
   "wrongNetworkName": {
     "message": "According to our records, the network name may not correctly match this chain ID."
@@ -7106,6 +7307,9 @@
   "youSent": {
     "message": "You sent",
     "description": "Label indicating the amount and asset the user sent."
+  },
+  "youareNoTransactions": {
+    "message": "Your transactions will appear here"
   },
   "yourAccounts": {
     "message": "Your accounts"
@@ -7139,200 +7343,5 @@
   },
   "yourWalletIsReadyRemind": {
     "message": "We’ll remind you later"
-  },
-  "welcomeDescription": {
-    "message": "Seamless Access to"
-  },
-  "welcomeDescription1": {
-    "message": "Crypto & Fiat in One Platform"
-  },
-  "welcomeDescription2": {
-    "message": ""
-  },
-  "totalBalance":{
-    "message":"Total balance"
-  },
-  "footerAgreementDesc":{
-    "message":"By using this service, you agree to our"
-  },
-  "footerAgreementDesc1": {
-    "message": "&"
-  },
-  "footerAgreementDesc2": {
-    "message": ""
-  },
-  "termsConditions": {
-    "message":"Terms and Conditions"
-  },
-  "referralCode":{
-    "message":"Referral Code (Optional)"
-  },
-  "referralCodeInputPlace":{
-    "message":"Enter your referral code"
-  },
-  "welcomeGetStarted": {
-    "message": "Get started"
-  },
-  "welcomeTitle": {
-    "message": "Welcome to CryptoBridge"
-  },
-  "depositWise": {
-    "message": "Deposit via Wise"
-  },
-  "receiveModalTips": {
-    "message": "Send only Ethereum network assets to this address"
-  },
-  "receiveModalDes1": {
-    "message": "At the moment, CryptoBridge only supports ERC-20 transfers."
-  },
-  "receiveModalDes2": {
-    "message": "Please double-check that the recipient’s wallet address is an ERC-20 address."
-  },
-  "receiveModalDes3": {
-    "message": "Sending funds to the wrong network may result in permanent loss of funds."
-  },
-  "receiveModalDes4": {
-    "message": "The system cannot detect network mismatches, and CryptoBridge is not responsible for loss of funds due to sending funds to an incompatible blockchain network."
-  },
-  "tipsBank": {
-    "message": "Link your JDB Bank Account or apply for one to enable fiat-crypto transactions."
-  },
-  "startNow": {
-    "message": "Start Now"
-  },
-  "noticesModalTitle":{
-    "message":"Enable push notifications"
-  },
-  "noticesModalDesc":{
-    "message":"Allow push notifications to receive alerts for account activity directly on your device"
-  },
-  "noticesModalItem1Title":{
-    "message":"Sent"
-  },
-  "noticesModalItem1Desc":{
-    "message":"Account 1 sent 10 USDT"
-  },
-  "noticesModalNow":{
-    "message":"now"
-  },
-  "noticeModal1mAgo":{
-    "message":"1 minute ago"
-  },
-  "noticesModalItem2Title":{
-    "message":"Received"
-  },
-  "noticesModalItem2Desc":{
-    "message":"Account 2 received 10 USDT"
-  },
-  "setPassword": {
-    "message": "Set Password"
-  },
-  "setPasswordTips": {
-    "message": "Password Requirements:"
-  },
-  "setPasswordTips1": {
-    "message": "Must be at least 8 characters long"
-  },
-  "setPasswordTips2": {
-    "message": "Must include at least one uppercase letter (A–Z)"
-  },
-  "setPasswordTips3": {
-    "message": "Must include at least one lowercase letter (a–z)"
-  },
-  "setPasswordTips4": {
-    "message": "Must include at least one number (0–9)"
-  },
-  "setPasswordTips5": {
-    "message": "Must include at least one symbol (only @, #, $, ! are allowed)"
-  },
-  "bankTopic": {
-    "message": "Bank Account Required"
-  },
-  "bankDes": {
-    "message": "Do you already have a JDB Bank Account?"
-  },
-  "bankTips": {
-    "message": "To activate fiat-to-crypto feature, please apply for a JDB Bank Account or link an existing account."
-  },
-  "bankBtn1": {
-    "message": "No, I don't have a JDB Bank Account – Register Now"
-  },
-  "bankBtn2": {
-    "message": "Yes, I already have a JDB Bank Account – Link My Account"
-  },
-  "bankBtn3": {
-    "message": "Skip – I won't use fiat-to-crypto features"
-  },
-  "noTransactions": {
-    "message": "No transactions yet"
-  },
-  "lockNow": {
-    "message": "Lock now"
-  },
-  "blankAccount":{
-    "message":"Bank Account"
-  },
-  "addressBook": {
-    "message": "Address Book"
-  },
-  "preferences": {
-    "message": "Preferences"
-  },
-  "defaultCurrency": {
-    "message": "Default Display Currency"
-  },
-  "language": {
-    "message": "Language"
-  },
-  "Security": {
-    "message": "Security"
-  },
-  "autoLock": {
-    "message": "Auto-lock"
-  },
-  "changePassword": {
-    "message": "Change Password"
-  },
-  "protection": {
-    "message": "Protection"
-  },
-  "resources": {
-    "message": "Resources"
-  },
-  "customerSupport": {
-    "message": "Customer Support"
-  },
-  "submitFeedback": {
-    "message": "Submit Feedback"
-  },
-  "termC": {
-    "message": "Terms and Conditions"
-  },
-  "privacyPolicy": {
-    "message": "Privacy Policy"
-  },
-  "userManual": {
-    "message": "User Manual"
-  },
-  "FAQ": {
-    "message": "FAQ"
-  },
-  "word": {
-    "message": "Word"
-  },
-  "copy": {
-    "message": "Copy"
-  },
-  "accountType": {
-    "message": "Type"
-  },
-  "accountDetail": {
-    "message": "Details"
-  },
-  "noticeModalBtn": {
-    "message": "Done"
-  },
-  "noticeModalNow": {
-    "message": ""
   }
 }

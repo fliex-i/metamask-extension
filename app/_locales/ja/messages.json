@@ -1,4 +1,7 @@
 {
+  "FAQ": {
+    "message": "よくある質問"
+  },
   "QRHardwareInvalidTransactionTitle": {
     "message": "エラー"
   },
@@ -38,15 +41,14 @@
   "QRHardwareWalletSteps1Description": {
     "message": "公式QRコードをサポートする以下のパートナーのリストから選択できます。"
   },
-  "stepOf": {
-    "message": "ステップ $1/$2",
-    "description": "$1 current step, $2 total steps"
-  },
   "QRHardwareWalletSteps1Title": {
     "message": "QRハードウェアウォレットを接続"
   },
   "QRHardwareWalletSteps2Description": {
     "message": "Ngrave Zero"
+  },
+  "Security": {
+    "message": "セキュリティ"
   },
   "SrpListHideAccounts": {
     "message": "$1件のアカウントを非表示",
@@ -84,6 +86,9 @@
   "accountActivityText": {
     "message": "通知を受けたいアカウントを選択してください:"
   },
+  "accountDetail": {
+    "message": "詳細設定"
+  },
   "accountDetails": {
     "message": "アカウントの詳細"
   },
@@ -112,6 +117,9 @@
   },
   "accountSelectionRequired": {
     "message": "アカウントを選択する必要があります！"
+  },
+  "accountType": {
+    "message": "タイプ"
   },
   "accountTypeNotSupported": {
     "message": "アカウントタイプがサポートされていません"
@@ -289,6 +297,9 @@
   },
   "address": {
     "message": "アドレス"
+  },
+  "addressBook": {
+    "message": "アドレス帳"
   },
   "addressCopied": {
     "message": "アドレスがコピーされました！"
@@ -578,6 +589,9 @@
     "message": "サードパーティAPIを使用して、ウォレットに送られた新しいトークンを検出・表示します。アプリがこれらのサービスからデータを自動的に取得しないようにするには、オフにしてください。$1",
     "description": "$1 is a link to a support article"
   },
+  "autoLock": {
+    "message": "自動ロック"
+  },
   "autoLockTimeLimit": {
     "message": "オートロックタイマー (分)"
   },
@@ -650,6 +664,24 @@
   "balanceOutdated": {
     "message": "残高が期限切れの可能性があります"
   },
+  "bankBtn1": {
+    "message": "はい、すでに持っています ー JDB銀行口座を紐付ける"
+  },
+  "bankBtn2": {
+    "message": "いいえ、持っていません – 今すぐ登録"
+  },
+  "bankBtn3": {
+    "message": "スキップ ー 法定通貨機能は利用しない"
+  },
+  "bankDes": {
+    "message": "すでにJDB銀行口座をお持ちですか？"
+  },
+  "bankTips": {
+    "message": "法定通貨から仮想通貨への機能を有効にするには、JDB銀行口座の開設または紐付けが必要です。"
+  },
+  "bankTopic": {
+    "message": "銀行口座の設定"
+  },
   "baseFee": {
     "message": "基本手数料"
   },
@@ -709,6 +741,9 @@
   "billionAbbreviation": {
     "message": "B",
     "description": "Shortened form of 'billion'"
+  },
+  "blankAccount": {
+    "message": "銀行口座"
   },
   "blockExplorerAccountAction": {
     "message": "アカウント",
@@ -1034,6 +1069,9 @@
   "chainListReturnedDifferentTickerSymbol": {
     "message": "このトークンシンボルは、入力されたネットワーク名またはチェーンIDと一致しません。人気のトークンの多くはシンボルが似ているため、詐欺師がそれを利用してより価値の高いトークンを送り返すように仕向ける可能性があります。続行する前にすべてを確認してください。"
   },
+  "changePassword": {
+    "message": "パスワード変更"
+  },
   "chooseYourNetwork": {
     "message": "ネットワークを選択してください"
   },
@@ -1173,6 +1211,9 @@
     "message": "新しいパスワードの確認"
   },
   "confirmRecoveryPhrase": {
+    "message": "シークレットリカバリーフレーズの確認"
+  },
+  "confirmRecoveryPhraseTitle": {
     "message": "シークレットリカバリーフレーズの確認"
   },
   "confirmSimulationApprove": {
@@ -1414,6 +1455,9 @@
   "copiedExclamation": {
     "message": "コピーしました。"
   },
+  "copy": {
+    "message": "コピー"
+  },
   "copyAddress": {
     "message": "アドレスをクリップボードにコピー"
   },
@@ -1437,6 +1481,9 @@
   },
   "createPassword": {
     "message": "パスワードを作成"
+  },
+  "createPasswordCreate": {
+    "message": "パスワードを設定"
   },
   "createSnapAccountDescription": {
     "message": "$1がMetaMaskへの新しいアカウントの追加を要求しています。"
@@ -1616,6 +1663,9 @@
   "decryptRequest": {
     "message": "リクエストを解読"
   },
+  "defaultCurrency": {
+    "message": "デフォルト通貨"
+  },
   "defaultRpcUrl": {
     "message": "デフォルトのRPC URL"
   },
@@ -1672,6 +1722,9 @@
   },
   "depositCrypto": {
     "message": "ウォレットアドレスまたはQRコードを使った別のアカウントからの仮想通貨のデポジット"
+  },
+  "depositWise": {
+    "message": "Wiseで入金"
   },
   "deprecatedGoerliNtwrkMsg": {
     "message": "イーサリアムシステムのアップデートに伴い、Goerliテストネットワークはまもなく段階的に廃止される予定です。"
@@ -2042,6 +2095,9 @@
   "enterOptionalPassword": {
     "message": "オプションのパスワードを入力してください"
   },
+  "enterPassword": {
+    "message": "パスワードを入力してログイン"
+  },
   "enterPasswordContinue": {
     "message": "続行するには、パスワードを入力してください"
   },
@@ -2236,6 +2292,15 @@
   "followUsOnTwitter": {
     "message": "Twitterでフォロー"
   },
+  "footerAgreementDesc": {
+    "message": "本サービスをご利用いただくにあたり、"
+  },
+  "footerAgreementDesc1": {
+    "message": "および"
+  },
+  "footerAgreementDesc2": {
+    "message": "に同意いただくものとします"
+  },
   "forbiddenIpfsGateway": {
     "message": "IPFSゲートウェイの使用は禁止されています。CIDゲートウェイを指定してください"
   },
@@ -2243,6 +2308,18 @@
     "message": "このデバイスの登録を解除"
   },
   "forgotPassword": {
+    "message": "パスワードをお忘れですか？"
+  },
+  "forgotPasswordModalButton": {
+    "message": "パスワードをリセット"
+  },
+  "forgotPasswordModalDescription1": {
+    "message": "CryptoBridgeは、お客様のパスワードを復元できません。"
+  },
+  "forgotPasswordModalDescription2": {
+    "message": "パスワードをライベートキーをリセットするには、シークレットリカバリーフレーズまたはプライベートキーを入力してください。"
+  },
+  "forgotPasswordModalTitle": {
     "message": "パスワードをお忘れですか？"
   },
   "form": {
@@ -2336,6 +2413,9 @@
   },
   "goerli": {
     "message": "Goerliテストネットワーク"
+  },
+  "gotIt": {
+    "message": "閉じる"
   },
   "grantExactAccess": {
     "message": "正確なアクセスを許可する"
@@ -2449,7 +2529,7 @@
     "description": "The text link in 'holdToRevealContent3'"
   },
   "holdToRevealContentPrivateKey1": {
-    "message": "シークレットリカバリーフレーズは、ウォレットおよび資産への完全なアクセス権を提供します。",
+    "message": "プライベートキーは、あなたのウォレットおよび資産への完全なア",
     "description": "$1 is a bolded text with the message from 'holdToRevealContentPrivateKey3'"
   },
   "holdToRevealContentPrivateKey2": {
@@ -2457,7 +2537,13 @@
     "description": "Is the bolded text in 'holdToRevealContentPrivateKey2'"
   },
   "holdToRevealContentPrivateKey3": {
-    "message": "プライベートキーは、あなたのウォレットおよび資産への完全なアクセス権となります。"
+    "message": "絶対に第三者と共有しないでください。CryptoBridgeカスタマーサポートがプライベートキーを求めることは決してありません。求められた場合は、怪しい可能性があります。"
+  },
+  "holdToRevealContentPrivateKey4": {
+    "message": ""
+  },
+  "holdToRevealContentPrivateKey5": {
+    "message": ""
   },
   "holdToRevealLockedLabel": {
     "message": "長押ししてロックされた円を表示します"
@@ -2507,6 +2593,9 @@
   "import": {
     "message": "インポート",
     "description": "Button to import an account from a selected file"
+  },
+  "importAWallet": {
+    "message": "ウォレットをインポート"
   },
   "importAccountError": {
     "message": "アカウントのインポート中にエラーが発生しました。"
@@ -2788,6 +2877,9 @@
   "l2FeeTooltip": {
     "message": "L2ガス代"
   },
+  "language": {
+    "message": "言語"
+  },
   "lastConnected": {
     "message": "前回の接続"
   },
@@ -2935,6 +3027,9 @@
     "message": "ロック"
   },
   "lockCryptoBridge": {
+    "message": "今すぐロック"
+  },
+  "lockNow": {
     "message": "今すぐロック"
   },
   "lockTimeInvalid": {
@@ -3383,6 +3478,9 @@
   "newPassword": {
     "message": "新しいパスワード"
   },
+  "newPasswordCreate": {
+    "message": "パスワードを設定"
+  },
   "newPrivacyPolicyActionButton": {
     "message": "続きを表示"
   },
@@ -3447,33 +3545,6 @@
   "noAccountsFound": {
     "message": "指定された検索クエリでアカウントが見つかりませんでした"
   },
-  "footerAgreementDesc": {
-    "message": "本サービスをご利用いただくにあたり、"
-  },
-  "footerAgreementDesc1": {
-    "message": "および"
-  },
-  "footerAgreementDesc2": {
-    "message": "に同意いただくものとします"
-  },
-  "welcomeTitle": {
-    "message": "CryptoBridge"
-  },
-  "welcomeDescription": {
-    "message": "１つのプラットフォームで"
-  },
-  "welcomeDescription1": {
-    "message": "仮想通貨と法定通貨を"
-  },
-  "welcomeDescription2": {
-    "message": "シームレスに利用"
-  },
-  "referralCode": {
-    "message": "紹介コード (任意)"
-  },
-  "referralCodeInputPlace": {
-    "message": "紹介コードを入力"
-  },
   "noActivity": {
     "message": "まだアクティビティがありません"
   },
@@ -3510,6 +3581,12 @@
   "noThanks": {
     "message": "結構です"
   },
+  "noTransactions": {
+    "message": "まだ取引がありません"
+  },
+  "noTransactionsTitle": {
+    "message": "まだトランザクションがありません"
+  },
   "noWebcamFound": {
     "message": "お使いのコンピューターのWebカメラが見つかりませんでした。もう一度お試しください。"
   },
@@ -3542,6 +3619,36 @@
   },
   "notNow": {
     "message": "また後で"
+  },
+  "noticeModal1mAgo": {
+    "message": "1分前です"
+  },
+  "noticeModalBtn": {
+    "message": "通知をオンにする"
+  },
+  "noticeModalNow": {
+    "message": ""
+  },
+  "noticesModalDesc": {
+    "message": "プッシュ通知を許可すると、アクティビティに関する通知が届きます"
+  },
+  "noticesModalItem1Desc": {
+    "message": "アカウント1から10 USDTを送金しました"
+  },
+  "noticesModalItem1Title": {
+    "message": "送金完了"
+  },
+  "noticesModalItem2Desc": {
+    "message": "アカウント2が10 USDTを受取りました"
+  },
+  "noticesModalItem2Title": {
+    "message": "受取完了"
+  },
+  "noticesModalNow": {
+    "message": "今"
+  },
+  "noticesModalTitle": {
+    "message": "プッシュ機能をオンにする"
   },
   "notificationDetail": {
     "message": "詳細"
@@ -3719,9 +3826,6 @@
   "ofTextNofM1": {
     "message": "質問"
   },
-  "srpQuizStep": {
-    "message": "質問 $1/$2"
-  },
   "off": {
     "message": "オフ"
   },
@@ -3845,6 +3949,15 @@
   "onboardingPinExtensionTitle": {
     "message": "セットアップ完了"
   },
+  "onboardingSrpInputHideAll": {
+    "message": "すべて非表示"
+  },
+  "onboardingSrpInputPlaceholder": {
+    "message": "各単語の間に半角スペースを入れ、周囲に誰もいないことを確認してください。"
+  },
+  "onboardingSrpInputShowAll": {
+    "message": "すべて表示"
+  },
   "onekey": {
     "message": "OneKey"
   },
@@ -3927,6 +4040,9 @@
   },
   "passwordsDontMatch": {
     "message": "パスワードが一致しません"
+  },
+  "paste": {
+    "message": "貼り付け"
   },
   "pastePrivateKey": {
     "message": "秘密鍵の文字列をここに貼り付けます:",
@@ -4265,6 +4381,9 @@
   "portfolio": {
     "message": "Portfolio"
   },
+  "preferences": {
+    "message": "環境設定"
+  },
   "preparingSwap": {
     "message": "スワップを準備しています..."
   },
@@ -4290,6 +4409,9 @@
     "message": "プライバシー"
   },
   "privacyMsg": {
+    "message": "プライバシーポリシー"
+  },
+  "privacyPolicy": {
     "message": "プライバシーポリシー"
   },
   "privateKey": {
@@ -4326,6 +4448,9 @@
   },
   "proposedApprovalLimit": {
     "message": "提案された承認限度額"
+  },
+  "protection": {
+    "message": "保護"
   },
   "provide": {
     "message": "提供"
@@ -4438,6 +4563,21 @@
   "receiveCrypto": {
     "message": "仮想通貨を受け取る"
   },
+  "receiveModalDes1": {
+    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。受取側のアドレスがERC-20であることを必ずご確認ください。"
+  },
+  "receiveModalDes2": {
+    "message": "受取人のウォレットアドレスがerc-20アドレスであることを再確認してください。"
+  },
+  "receiveModalDes3": {
+    "message": "誤ったネットワークへの送金は、永久的に資産を失う原因となります。"
+  },
+  "receiveModalDes4": {
+    "message": "ネットワークの不一致はシステム側で自動的に検出できないため、互換性のないネットワークへの送金によって発生した資金の損失について、CryptoBridgeは一切の責任を負いかねます。"
+  },
+  "receiveModalTips": {
+    "message": "このアドレスには、イーサリアムネットワークの資産のみを送金してください"
+  },
   "recipientAddressPlaceholderNew": {
     "message": "イーサリアムのウォレットアドレス (0x…)"
   },
@@ -4470,6 +4610,12 @@
   },
   "redeposit": {
     "message": "再デポジット"
+  },
+  "referralCode": {
+    "message": "紹介コード (任意)"
+  },
+  "referralCodeInputPlace": {
+    "message": "紹介コードを入力"
   },
   "refreshList": {
     "message": "リストを更新"
@@ -4582,6 +4728,9 @@
   "resetWalletWarning": {
     "message": "パスワード、シークレットリカバリーフレーズ、プライベートキーは紙に書き留め、安全なオフライン環境に保管してください。"
   },
+  "resources": {
+    "message": "リソース"
+  },
   "restartMetamask": {
     "message": "CryptoBridge を再起動"
   },
@@ -4626,11 +4775,11 @@
   "revealSeedWordsDescription3": {
     "message": "ウォレットと資金への完全アクセス"
   },
-  "revealSeedWordsNonCustodialWallet1": {
-    "message": "ノンカストディアル型 (自己管理型)"
-  },
   "revealSeedWordsNonCustodialWallet": {
     "message": "ノンカストディアルウォレット"
+  },
+  "revealSeedWordsNonCustodialWallet1": {
+    "message": "ノンカストディアル型 (自己管理型)"
   },
   "revealSeedWordsQR": {
     "message": "QR"
@@ -4735,27 +4884,6 @@
   "secureWalletRemindLaterButton": {
     "message": "あとで通知する"
   },
-    "srpDetailsTitle": {
-    "message": "シークレットリカバリーフレーズとは？"
-  },
-  "srpDetailsDescription": {
-    "message": "シークレットリカバリーフレーズ（シードフレーズやニーモニックとも呼ばれます）とは、仮想通貨ウォレットにアクセス・管理するための一連の単語です。CryptoBridgeにウォレットを移行（インポート）するには、この12単語からなるフレーズが必要です。"
-  },
-  "srpDetailsOwnsAccessListTitle": {
-    "message": "このフレーズを知っている人は、以下のことが可能になります："
-  },
-  "srpDetailsOwnsAccessListItemOne": {
-    "message": "資金をすべて引き出す"
-  },
-  "srpDetailsOwnsAccessListItemThree": {
-    "message": "ログイン情報を変更する"
-  },
-  "srpDetailsOwnsAccessListItemTwo": {
-    "message": "トランザクション（取引）を承認する"
-  },
-  "gotIt": {
-    "message": "閉じる"
-  },
   "secureWalletWalletRecover": {
     "message": "アプリにログインできなくなった場合や新しい端末を利用する際に、ウォレットを回復する唯一の方法です。"
   },
@@ -4763,22 +4891,22 @@
     "message": "$1があれば、ウォレットと資産のすべてにアクセスできます。",
     "description": "$1は「秘密のリカバリーフレーズ」ボタンテキスト"
   },
-  "secureWalletWalletSaveSrp2":{
+  "secureWalletWalletSaveSrp2": {
     "message": "12個の単語からなるシークレットリカバリーフレーズを順番どおりに紙に書き写し、金庫や耐火保管庫など、オフラインで安全な場所に保管してください。"
   },
-  "secureWalletWalletSaveSrp3":{
+  "secureWalletWalletSaveSrp3": {
     "message": "パスワードを忘れた場合でも、シークレットリカバリーフレーズがあればウォレットを復元できます。"
   },
-  "secureWalletWalletSaveSrp4":{
+  "secureWalletWalletSaveSrp4": {
     "message": "他人に絶対に共有したり、オンラインフォームに入力しないでください。"
   },
-  "secureWalletWalletSaveSrp5":{
+  "secureWalletWalletSaveSrp5": {
     "message": "CryptoBridgeがシークレットリカバリーフレーズやプライベートキーをお尋ねすることは決してありません。これらを求める人物やウェブサイトがあれば、怪しい可能性があります。"
   },
-  "secureWalletWalletSaveSrp6":{
+  "secureWalletWalletSaveSrp6": {
     "message": "CryptoBridgeチームであっても、絶対に共有しないでください。"
   },
-  "secureWalletWalletSaveSrp7":{
+  "secureWalletWalletSaveSrp7": {
     "message": "資金を失うリスクを避けるために、信頼できる場所に$1を保管してウォレットを保護しましょう。",
     "description": "$1は「秘密のリカバリーフレーズ」ボタンテキスト"
   },
@@ -4823,19 +4951,15 @@
   },
   "seedPhraseReviewDetails": {
     "message": "シークレットリカバリーフレーズの管理について"
-
   },
   "seedPhraseReviewDetails1": {
     "message": "シークレットリカバリーフレーズは、絶対に第三者と共有しないでください。このフレーズにアクセスできる者は、あなたの資産を自由に操作することが可能です。"
-
   },
   "seedPhraseReviewDetails2": {
     "message": "シークレットリカバリーフレーズを、オンライン上やスマートフォンなどのデジタル機器に保存しないでください。これらの環境はハッキングなどの攻撃に対して脆弱です。"
-
   },
   "seedPhraseReviewDetails3": {
     "message": "シークレットリカバリーフレーズは紙に書き留め、金庫などのオフラインかつ安全な場所に保管してください。"
-
   },
   "seedPhraseReviewDetails4": {
     "message": "CryptoBridgeのスタッフが、シークレットリカバリーフレーズを尋ねすることは一切ありません。フレーズの提供を求められた場合は、怪しい可能性があります。"
@@ -4953,6 +5077,27 @@
   "setApprovalForAllTitle": {
     "message": "使用限度額なしで$1を承認",
     "description": "The token symbol that is being approved"
+  },
+  "setPassword": {
+    "message": "パスワードを設定"
+  },
+  "setPasswordTips": {
+    "message": "パスワード要件："
+  },
+  "setPasswordTips1": {
+    "message": "8文字以上であること"
+  },
+  "setPasswordTips2": {
+    "message": "英大文字（A～Z）を1文字以上含むこと"
+  },
+  "setPasswordTips3": {
+    "message": "英小文字（a～z）を1文字以上含むこと"
+  },
+  "setPasswordTips4": {
+    "message": "数字（0～9）を1文字以上含むこと"
+  },
+  "setPasswordTips5": {
+    "message": "記号（@、#、$、! のみ使用可能）を1文字以上含むこと"
   },
   "settingAddSnapAccount": {
     "message": "snapアカウントを追加"
@@ -5537,6 +5682,24 @@
   "spendingCaps": {
     "message": "使用上限"
   },
+  "srpDetailsDescription": {
+    "message": "シークレットリカバリーフレーズ（シードフレーズやニーモニックとも呼ばれます）とは、仮想通貨ウォレットにアクセス・管理するための一連の単語です。CryptoBridgeにウォレットを移行（インポート）するには、この12単語からなるフレーズが必要です。"
+  },
+  "srpDetailsOwnsAccessListItemOne": {
+    "message": "資金をすべて引き出す"
+  },
+  "srpDetailsOwnsAccessListItemThree": {
+    "message": "ログイン情報を変更する"
+  },
+  "srpDetailsOwnsAccessListItemTwo": {
+    "message": "トランザクション（取引）を承認する"
+  },
+  "srpDetailsOwnsAccessListTitle": {
+    "message": "このフレーズを知っている人は、以下のことが可能になります："
+  },
+  "srpDetailsTitle": {
+    "message": "シークレットリカバリーフレーズとは？"
+  },
   "srpInputNumberOfWords": {
     "message": "$1語のフレーズがあります",
     "description": "This is the text for each option in the dropdown where a user selects how many words their secret recovery phrase has during import. The $1 is the number of words (either 12, 15, 18, 21, or 24)."
@@ -5564,11 +5727,11 @@
     "message": "シークレットリカバリーフレーズ全体をいずれかのフィールドに張り付けできます。",
     "description": "Our secret recovery phrase input is split into one field per word. This message explains to users that they can paste their entire secrete recovery phrase into any field, and we will handle it correctly."
   },
+  "srpQuizStep": {
+    "message": "質問 $1/$2"
+  },
   "srpSecurityQuizGetStarted": {
     "message": "開始"
-  },
-    "welcomeGetStarted": {
-    "message": "始める"
   },
   "srpSecurityQuizImgAlt": {
     "message": "目の中央に鍵穴があり、3つのパスワード入力欄がフローティング表示されている画像"
@@ -5651,6 +5814,9 @@
   "startEarning": {
     "message": "収益化を開始"
   },
+  "startNow": {
+    "message": "今すぐ開始"
+  },
   "stateLogError": {
     "message": "ステートログの取得中にエラーが発生しました。"
   },
@@ -5689,9 +5855,6 @@
   "step1TrezorWallet": {
     "message": "Trezorを接続する"
   },
-  "termsConditions": {
-    "message":"利用規約"
-  },
   "step1TrezorWalletMsg": {
     "message": "Trezorをコンピューターに直接接続し、ロックを解除します。 必ず正しいパスフレーズを使用してください。",
     "description": "$1 represents the `hardwareWalletSupportLinkConversion` localization key"
@@ -5702,6 +5865,10 @@
   "step2LedgerWalletMsg": {
     "message": "コンピューターにLedgerを直接接続します。Ledgerのロックを解除し、イーサリアムアプリを開きます。",
     "description": "$1 represents the `hardwareWalletSupportLinkConversion` localization key"
+  },
+  "stepOf": {
+    "message": "ステップ $1/$2",
+    "description": "$1 current step, $2 total steps"
   },
   "stillGettingMessage": {
     "message": "まだこのメッセージが表示されますか？"
@@ -5762,6 +5929,9 @@
   },
   "submit": {
     "message": "送信"
+  },
+  "submitFeedback": {
+    "message": "フィードバックを送信"
   },
   "submitted": {
     "message": "送信済み"
@@ -6221,7 +6391,13 @@
   "tenPercentIncreased": {
     "message": "10%の増加"
   },
+  "termC": {
+    "message": "利用規約"
+  },
   "terms": {
+    "message": "利用規約"
+  },
+  "termsConditions": {
     "message": "利用規約"
   },
   "termsOfService": {
@@ -6254,6 +6430,9 @@
   },
   "time": {
     "message": "送金速度"
+  },
+  "tipsBank": {
+    "message": "法定通貨と仮想通貨の取引を有効にするには、JDB銀行口座を紐付けるもしくは新規開設が必要です。"
   },
   "tipsForUsingAWallet": {
     "message": "ウォレット使用のヒント"
@@ -6349,6 +6528,9 @@
   },
   "total": {
     "message": "合計"
+  },
+  "totalBalance": {
+    "message": "合計残高"
   },
   "totalVolume": {
     "message": "合計量"
@@ -6523,6 +6705,9 @@
   "twelveHrTitle": {
     "message": "12時間:"
   },
+  "typeYourSRP": {
+    "message": "シークレットリカバリーフレーズを入力してください。"
+  },
   "u2f": {
     "message": "U2F",
     "description": "A name on an API for the browser to interact with devices that support the U2F protocol. On some browsers we use it to connect CryptoBridge to Ledger devices."
@@ -6640,6 +6825,9 @@
   "usedByClients": {
     "message": "さまざまな異なるクライアントによって使用されています"
   },
+  "userManual": {
+    "message": "ユーザーマニュアル"
+  },
   "userName": {
     "message": "ユーザー名"
   },
@@ -6718,6 +6906,12 @@
   "walletConnectionGuide": {
     "message": "弊社のハードウェアウォレット接続ガイド"
   },
+  "walletReadyLoseSrp": {
+    "message": "シークレットリカバリーフレーズまたはプライベートキーを紛失すると、パスワードを忘れた場合や別のデバイスにウォレットをインポートしたい場合に、ウォレットを復元できなくなります。"
+  },
+  "walletReadyLoseSrp1": {
+    "message": "必ず、シークレットリカバリーフレーズとプライベートキーを紙に書き留め、安全なオフライン環境に保管してください。"
+  },
   "wantToAddThisNetwork": {
     "message": "このネットワークを追加しますか？"
   },
@@ -6763,6 +6957,21 @@
   "welcomeBack": {
     "message": "ログイン"
   },
+  "welcomeDescription": {
+    "message": "１つのプラットフォームで"
+  },
+  "welcomeDescription1": {
+    "message": "仮想通貨と法定通貨を"
+  },
+  "welcomeDescription2": {
+    "message": "シームレスに利用"
+  },
+  "welcomeGetStarted": {
+    "message": "始める"
+  },
+  "welcomeTitle": {
+    "message": "CryptoBridge"
+  },
   "welcomeToMetaMask": {
     "message": "始めましょう"
   },
@@ -6777,6 +6986,9 @@
   },
   "withdrawing": {
     "message": "引き出し中"
+  },
+  "word": {
+    "message": "単語"
   },
   "wrongNetworkName": {
     "message": "弊社の記録によると、ネットワーク名がこのチェーンIDと正しく一致していない可能性があります。"
@@ -6800,6 +7012,9 @@
   "youSent": {
     "message": "送金額:",
     "description": "Label indicating the amount and asset the user sent."
+  },
+  "youareNoTransactions": {
+    "message": "ここにトランザクション履歴が表示されます"
   },
   "yourAccounts": {
     "message": "アカウント"
@@ -6827,218 +7042,5 @@
   },
   "yourWalletIsReady": {
     "message": "ウォレットのインポートに成功"
-  },
-  "totalBalance": {
-    "message":"合計残高"
-  },
-  "depositWise": {
-    "message": "Wiseで入金"
-  },
-  "receiveModalTips": {
-    "message": "このアドレスには、イーサリアムネットワークの資産のみを送金してください"
-  },
-  "receiveModalDes1": {
-    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。受取側のアドレスがERC-20であることを必ずご確認ください。"
-  },
-  "receiveModalDes2": {
-    "message": "受取人のウォレットアドレスがerc-20アドレスであることを再確認してください。"
-  },
-  "receiveModalDes3": {
-    "message": "誤ったネットワークへの送金は、永久的に資産を失う原因となります。"
-  },
-  "receiveModalDes4": {
-    "message": "ネットワークの不一致はシステム側で自動的に検出できないため、互換性のないネットワークへの送金によって発生した資金の損失について、CryptoBridgeは一切の責任を負いかねます。"
-  },
-  "tipsBank": {
-    "message": "法定通貨と仮想通貨の取引を有効にするには、JDB銀行口座を紐付けるもしくは新規開設が必要です。"
-  },
-  "startNow": {
-    "message": "今すぐ開始"
-  },
-  "setPassword": {
-    "message": "パスワードを設定"
-  },
-  "setPasswordTips": {
-    "message": "パスワード要件："
-  },
-  "setPasswordTips1": {
-    "message": "8文字以上であること"
-  },
-  "setPasswordTips2": {
-    "message": "英大文字（A～Z）を1文字以上含むこと"
-  },
-  "setPasswordTips3": {
-    "message": "英小文字（a～z）を1文字以上含むこと"
-  },
-  "setPasswordTips4": {
-    "message": "数字（0～9）を1文字以上含むこと"
-  },
-  "setPasswordTips5": {
-    "message": "記号（@、#、$、! のみ使用可能）を1文字以上含むこと"
-  },
-  "bankTopic": {
-    "message": "銀行口座の設定"
-  },
-  "bankDes": {
-    "message": "すでにJDB銀行口座をお持ちですか？"
-  },
-  "bankTips": {
-    "message": "法定通貨から仮想通貨への機能を有効にするには、JDB銀行口座の開設または紐付けが必要です。"
-  },
-  "bankBtn1": {
-    "message": "はい、すでに持っています ー JDB銀行口座を紐付ける"
-  },
-  "bankBtn2": {
-    "message": "いいえ、持っていません – 今すぐ登録"
-  },
-  "bankBtn3": {
-    "message": "スキップ ー 法定通貨機能は利用しない"
-  },
-  "noTransactions": {
-    "message": "まだ取引がありません"
-   },
-  "noticesModalTitle": {
-    "message": "プッシュ機能をオンにする"
-  },
-  "noticesModalDesc": {
-    "message": "プッシュ通知を許可すると、アクティビティに関する通知が届きます"
-  },
-  "noticesModalItem1Title": {
-    "message": "送金完了"
-  },
-  "noticesModalItem1Desc": {
-    "message": "アカウント1から10 USDTを送金しました"
-  },
-  "noticesModalNow": {
-    "message": "今"
-  },
-  "noticesModalItem2Title": {
-    "message": "受取完了"
-  },
-  "noticesModalItem2Desc": {
-    "message": "アカウント2が10 USDTを受取りました"
-  },
-  "lockNow": {
-    "message": "今すぐロック"
-  },
-  "blankAccount": {
-    "message": "銀行口座"
-  },
-  "addressBook": {
-    "message": "アドレス帳"
-  },
-  "preferences": {
-    "message": "環境設定"
-  },
-  "defaultCurrency": {
-    "message": "デフォルト通貨"
-  },
-  "language": {
-    "message": "言語"
-  },
-  "Security": {
-    "message": "セキュリティ"
-  },
-  "autoLock": {
-    "message": "自動ロック"
-  },
-  "changePassword": {
-    "message": "パスワード変更"
-  },
-  "protection": {
-    "message": "保護"
-  },
-  "resources": {
-    "message": "リソース"
-  },
-  "submitFeedback": {
-    "message": "フィードバックを送信"
-  },
-  "termC": {
-    "message": "利用規約"
-  },
-  "privacyPolicy": {
-    "message": "プライバシーポリシー"
-  },
-  "userManual": {
-    "message": "ユーザーマニュアル"
-  },
-  "FAQ": {
-    "message": "よくある質問"
-  },
-  "importAWallet": {
-    "message": "ウォレットをインポート"
-  },
-  "createPasswordCreate": {
-    "message": "パスワードを設定"
-  },
-  "newPasswordCreate": {
-    "message": "パスワードを設定"
-  },
-   "youareNoTransactions":{
-    "message":"ここにトランザクション履歴が表示されます"
-  },
-  "noTransactionsTitle": {
-    "message": "まだトランザクションがありません"
-  },
-  "confirmRecoveryPhraseTitle": {
-    "message": "シークレットリカバリーフレーズの確認"
-  },
-  "word": {
-    "message": "単語"
-  },
-  "copy": {
-    "message": "コピー"
-  },
-  "typeYourSRP": {
-    "message": "シークレットリカバリーフレーズを入力してください。"
-  },
-  "onboardingSrpInputPlaceholder": {
-    "message": "各単語の間に半角スペースを入れ、周囲に誰もいないことを確認してください。"
-  },
-  "onboardingSrpInputShowAll": {
-    "message": "すべて表示"
-  },
-  "onboardingSrpInputHideAll": {
-    "message": "すべて非表示"
-  },
-  "paste": {
-    "message": "貼り付け"
-  },
-  "walletReadyLoseSrp": {
-    "message": "シークレットリカバリーフレーズまたはプライベートキーを紛失すると、パスワードを忘れた場合や別のデバイスにウォレットをインポートしたい場合に、ウォレットを復元できなくなります。"
-  },
-  "walletReadyLoseSrp1": {
-    "message": "必ず、シークレットリカバリーフレーズとプライベートキーを紙に書き留め、安全なオフライン環境に保管してください。"
-  },
-  "accountType": {
-    "message": "タイプ"
-  },
-  "accountDetail": {
-    "message": "詳細設定"
-  },
-  "enterPassword": {
-    "message": "パスワードを入力してログイン"
-  },
-  "forgotPasswordModalTitle": {
-    "message": "パスワードをお忘れですか？"
-  },
-  "forgotPasswordModalDescription1": {
-    "message": "CryptoBridgeは、お客様のパスワードを復元できません。"
-  },
-  "forgotPasswordModalDescription2": {
-    "message": "パスワードをライベートキーをリセットするには、シークレットリカバリーフレーズまたはプライベートキーを入力してください。"
-  },
-  "forgotPasswordModalButton": {
-    "message": "パスワードをリセット"
-  },
-  "noticeModal1mAgo": {
-    "message": "1分前です"
-  },
-  "noticeModalBtn": {
-    "message": "通知をオンにする"
-  },
-  "noticeModalNow": {
-    "message": ""
   }
 }
