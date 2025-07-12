@@ -448,7 +448,7 @@
     "message": "Low gas limit"
   },
   "alertReasonInsufficientBalance": {
-    "message": "Insufficient funds for gas fee"
+    "message": "Insufficient funds"
   },
   "noTransactionsTitle": {
     "message": ""
@@ -1168,7 +1168,7 @@
     "message": "Bal:"
   },
   "confirmGasFeeTokenInsufficientBalance": {
-    "message": "Insufficient funds"
+    "message": "Insufficient funds for gas fee"
   },
   "confirmGasFeeTokenMetaMaskFee": {
     "message": "Includes $1 fee"
