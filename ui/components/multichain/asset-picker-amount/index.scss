@@ -2,6 +2,9 @@
 
 .asset-picker-amount {
   // balance text elements
+  &__balance{
+    gap: 4px;
+  }
   &__balance > *,
   &__balance > div > * {
     font-size: design-system.$font-size-h7;

@@ -222,6 +222,7 @@ export const AssetPickerAmount = ({
       address: asset.details.address,
     };
   }
+  console.log(passedError, error, '/check');
 
   return (
     <Box className="asset-picker-amount">

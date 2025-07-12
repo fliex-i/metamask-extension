@@ -1547,9 +1547,10 @@ const slice = createSlice({
               gasTotal: '0x0', // assume gas is free
             });
 
-          draftTransaction.amount.error = isInsufficientWithoutGas
-            ? INSUFFICIENT_FUNDS_ERROR
-            : INSUFFICIENT_FUNDS_FOR_GAS_ERROR;
+          draftTransaction.amount.error = INSUFFICIENT_FUNDS_ERROR;
+          // isInsufficientWithoutGas
+          //   ? INSUFFICIENT_FUNDS_ERROR
+          //   : INSUFFICIENT_FUNDS_FOR_GAS_ERROR;
           if (draftTransaction.status !== SEND_STATUSES.INVALID) {
             slice.caseReducers.validateSendState(state);
           }

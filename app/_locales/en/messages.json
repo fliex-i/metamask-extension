@@ -465,9 +465,6 @@
   "alertReasonInsufficientBalance": {
     "message": "Insufficient funds"
   },
-  "noTransactionsTitle": {
-    "message": ""
-  },
   "alertReasonMultipleApprovals": {
     "message": "Unnecessary permission"
   },
@@ -2851,7 +2848,7 @@
     "message": "Insufficient funds"
   },
   "insufficientFundsForGas": {
-    "message": "Insufficient funds for gas fee."
+    "message": "Insufficient funds for gas fee"
   },
   "insufficientLockedLiquidityDescription": {
     "message": "The lack of adequately locked or burned liquidity leaves the token vulnerable to sudden liquidity withdrawals, potentially causing market instability."
@@ -3732,6 +3729,9 @@
   },
   "noTransactions": {
     "message": "No transactions yet"
+  },
+  "noTransactionsTitle": {
+    "message": ""
   },
   "noTranstionsTitle": {
     "message": "No transactions yet"
