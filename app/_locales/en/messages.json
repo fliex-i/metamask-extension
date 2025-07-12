@@ -1168,7 +1168,7 @@
     "message": "Bal:"
   },
   "confirmGasFeeTokenInsufficientBalance": {
-    "message": "Insufficient funds"
+    "message": "Insufficient funds for gas fee"
   },
   "confirmGasFeeTokenMetaMaskFee": {
     "message": "Includes $1 fee"
