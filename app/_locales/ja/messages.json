@@ -4435,6 +4435,9 @@
     "description": "Explains that the private key input is being shown"
   },
   "privateKeyWarning": {
+    "message": "注意: プライベートキーは絶対に他人に教えないでください。プライベートキーを知られると、アカウント内の資産が盗まれる可能性があります。"
+  },
+  "privateKeyWarningPre": {
     "message": "注意: このプライベートキーは絶対に他人に教えないでください。プライベートキーを知られると、アカウント内の資産が盗まれる可能性があります。"
   },
   "privateNetwork": {

@@ -73,7 +73,7 @@ export const AccountDetailsAuthenticate = ({
       <BannerAlert
         marginTop={6}
         severity={Severity.Danger}
-        description={t('privateKeyWarning')}
+        description={t('privateKeyWarningPre') || t('privateKeyWarning')}
       />
       <Box display={Display.Flex} marginTop={6} gap={2}>
         <ButtonSecondary onClick={onCancel} block>
