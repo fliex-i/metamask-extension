@@ -2101,7 +2101,7 @@
     "description": "In sentry feedback form, The message displayed after a successful feedback submission."
   },
   "errorPageTitle": {
-    "message": "MetaMaskにエラーが発生しました",
+    "message": "CryptoBridgeにエラーが発生しました",
     "description": "Title of generic error page"
   },
   "errorPageTryAgain": {
@@ -2434,8 +2434,8 @@
     "description": "Is the bolded text in 'holdToRevealContent1'"
   },
   "holdToRevealContent3": {
-    "message": "絶対に第三者と共有しないでください。$1",
-    "description": "$1 is a message from 'holdToRevealContent31'"
+    "message": "絶対に第三者と共有しないでください。CryptoBridgeカスタマーサポートがシークレットリカバリーフレーズを求めることは決してありません。求められた場合は、怪しい可能性があります。",
+    "description": "$1 is a message from 'holdToRevealContent4' and $2 is a text link with the message from 'holdToRevealContent5'"
   },
   "holdToRevealContent31": {
     "message": "CryptoBridgeカスタマーサポートがシークレットリカバリーフレーズを求めることは決してありません。求められた場合は、怪しい可能性があります。"

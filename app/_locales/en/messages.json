@@ -448,7 +448,7 @@
     "message": "Low gas limit"
   },
   "alertReasonInsufficientBalance": {
-    "message": "Insufficient funds"
+    "message": "Insufficient funds for gas fee"
   },
   "alertReasonMultipleApprovals": {
     "message": "Unnecessary permission"
@@ -2773,7 +2773,7 @@
     "message": "Insufficient balance."
   },
   "insufficientFunds": {
-    "message": "Insufficient funds for gas fee."
+    "message": "Insufficient funds"
   },
   "insufficientFundsForGas": {
     "message": "Insufficient funds for gas fee."
