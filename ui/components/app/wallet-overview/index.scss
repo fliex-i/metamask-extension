@@ -11,6 +11,19 @@
 
   &-fullscreen {
     align-items: center;
+
+    @include design-system.screen-lg-min{
+      flex-flow: row nowrap;
+    }
+    @include design-system.screen-md-min {
+    flex-flow: row nowrap;
+    }
+    &__balance{
+      flex: auto;
+    }
+    &__buttons{
+      flex: 1;
+    }
   }
 
   &__balance {
@@ -56,6 +69,38 @@
   flex: 1;
 }
 
+ @include design-system.screen-lg-min {
+  .coin-overviewBtns{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: flex-end;
+    .icon-button-round,
+    .coin-overview,
+    .eth-overview,
+    .token-overview {
+      display: flex;
+      flex-flow: row;
+      height: 36px;
+      width: auto;
+      border-radius:6px;
+      background: var(--brand-colors-purple);
+      padding: 5px 12px;
+      &__circle{
+        height: auto;
+        width: 20px;
+        margin: 0;
+      }
+      &__label-large,&_label{
+        font-size: 15px !important;
+        color: #fff;
+        white-space: nowrap;
+        width: auto;
+
+      }
+    }
+  }
+}
 .coin-overview,
 .eth-overview,
 .token-overview {

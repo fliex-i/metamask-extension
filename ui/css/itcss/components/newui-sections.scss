@@ -52,8 +52,8 @@
 
 @include design-system.screen-sm-min {
   .main-container {
-    width: 85vw;
-    min-height: 90vh;
+    width: 100%;
+    min-height: 100%;
 
     &--has-shadow {
       box-shadow: var(--shadow-size-xs) var(--color-shadow-default);
@@ -63,8 +63,8 @@
 
 @include design-system.screen-md-min {
   .main-container {
-    width: 80vw;
-    min-height: 82vh;
+    width:100%;
+    min-height: 100%;
 
     &--has-shadow {
       box-shadow: var(--shadow-size-xs) var(--color-shadow-default);
@@ -74,8 +74,8 @@
 
 @include design-system.screen-lg-min {
   .main-container {
-    width: 62vw;
-    min-height: 82vh;
+    width: 100%;
+    min-height:100%;
 
     &--has-shadow {
       box-shadow: var(--shadow-size-xs) var(--color-shadow-default);
@@ -108,15 +108,15 @@
   }
 
   @include design-system.screen-sm-min {
-    width: 85vw;
+    width: 100%;
   }
 
   @include design-system.screen-md-min {
-    width: 80vw;
+    width: 100%;
   }
 
   @include design-system.screen-lg-min {
-    width: 62vw;
+    width: 100%;
   }
 }
 

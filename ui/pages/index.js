@@ -13,7 +13,7 @@ import { MetamaskNotificationsProvider } from '../contexts/metamask-notification
 import { AssetPollingProvider } from '../contexts/assetPolling';
 import { MetamaskIdentityProvider } from '../contexts/identity';
 import ErrorPage from './error-page/error-page.component';
-
+import Layout from './layout';
 import Routes from './routes';
 
 class Index extends PureComponent {
@@ -54,7 +54,9 @@ class Index extends PureComponent {
                     <AssetPollingProvider>
                       <MetamaskIdentityProvider>
                         <MetamaskNotificationsProvider>
-                          <Routes />
+                          <Layout>
+                            <Routes />
+                          </Layout>
                         </MetamaskNotificationsProvider>
                       </MetamaskIdentityProvider>
                     </AssetPollingProvider>

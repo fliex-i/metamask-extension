@@ -26,7 +26,7 @@ export const AppHeaderContainer = ({
   return (
     <Box
       display={Display.Flex}
-      className={classnames('multichain-app-header', {
+      className={classnames('multichain-app-header-full-screen', {
         'multichain-app-header-shadow': popupStatus,
       })}
       alignItems={AlignItems.center}

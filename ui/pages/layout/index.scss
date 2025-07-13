@@ -1,0 +1,99 @@
+.layout{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+&__header{
+  display: flex;
+  flex-flow: row nowrap;
+  height: 52px;
+  padding: 0 20px ;
+  justify-content: space-between;
+  background: var(--color-background-default);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  &--left{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 20px;
+    &--logo{
+      height: 100%;
+      width: 200px;
+      min-width: 200px;
+    }
+  }
+  &--right{
+    flex: 1;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+    height: auto;
+    overflow: auto;
+  }
+}
+  &__content{
+    display: flex;
+    flex-direction: row;
+
+    &--sidebar{
+      width: 208px;
+      min-width: 208px;
+      display: flex;
+      flex-flow: column;
+      background: rgb(248, 248, 248);
+      border-right: 1px solid rgba(0, 0, 0, 0.12);
+      @media screen and (max-width: 768px) {
+        display: none;
+
+      }
+      ul{
+        display: flex;
+        flex-flow: column;
+        padding: 12px;
+        margin: 0;
+        li{
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          gap: 10px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 14px;
+          line-height: 20px;
+          height: 36px;
+          padding:0 12px;
+          &.active{
+            background: #F6EEFC;
+            color: var(--color-primary-default);
+          }
+          &:hover{
+           opacity: 0.7;
+           background: #F6EEFC;
+          }
+        }
+      }
+
+    }
+    &--main{
+      flex: 1;
+      width: calc(100vw - 208px);
+      height: calc(100vh - 52px);
+      background: var(--color-background-default);
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+
+      }
+    }
+  }
+}

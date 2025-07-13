@@ -352,6 +352,7 @@ const CoinButtons = ({
       justifyContent={JustifyContent.spaceBetween}
       width={BlockSize.Full}
       gap={3}
+      className={`${classPrefix}-overviewBtns`}
     >
       {
         <IconButton

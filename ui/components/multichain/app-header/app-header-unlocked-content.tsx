@@ -267,8 +267,16 @@ export const AppHeaderUnlockedContent = ({
             ref={menuRef}
             display={Display.Flex}
             justifyContent={JustifyContent.flexEnd}
-            width={getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN ? undefined : BlockSize.Full}
-            style={getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN ? { width: 'auto' } : undefined}
+            width={
+              getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN
+                ? undefined
+                : BlockSize.Full
+            }
+            style={
+              getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN
+                ? { width: 'auto', display: 'none' }
+                : undefined
+            }
           >
             <ButtonIcon
               iconName={IconName.Menu}

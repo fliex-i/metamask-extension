@@ -1,19 +1,46 @@
 @use "design-system";
 
-.multichain-app-header {
+.multichain-app-header-full-screen{
+ @include design-system.screen-sm-min {
+    display: none;
+  }
+
+  @include design-system.screen-md-min {
+    display: block;
+  }
+
+  @include design-system.screen-lg-min {
+    display: block;
+  }
+
+}
+.multichain-app-header{
+  @include design-system.screen-sm-min {
+    display: block;
+  }
+
+  @include design-system.screen-md-min {
+    display: none
+  }
+
+  @include design-system.screen-lg-min {
+    display: none;
+  }
+}
+.multichain-app-header,
+.multichain-app-header-full-screen {
   $height-screen-sm-max: 100%;
-  $width-screen-sm-min: 85vw;
-  $width-screen-md-min: 80vw;
-  $width-screen-lg-min: 62vw;
+  $width-screen-sm-min: 100%;
+  $width-screen-md-min: 100%;
+  $width-screen-lg-min: 100%;
 
   // prevent overflow-x
   max-width: 100%;
   flex-flow: column nowrap;
   z-index: design-system.$header-z-index;
-  min-height: 68px;
+
 
   &__contents {
-    height: 68px;
 
     @include design-system.screen-sm-min {
       width: $width-screen-sm-min;
@@ -36,10 +63,10 @@
       width: fit-content;
     }
 
-    border-bottom: 1px solid #858b9a33;
+    // border-bottom: 1px solid #858b9a33;
 
     &-layout-old-grid {
-      padding: 16px;
+      // padding: 16px;
       display: grid;
       grid-template-columns: 1fr 1fr;
 
@@ -67,7 +94,7 @@
 
   &__lock-contents {
     flex-flow: row nowrap;
-    height: 68px;
+    // height: 68px;
 
     @include design-system.screen-sm-max {
       height: $height-screen-sm-max;
