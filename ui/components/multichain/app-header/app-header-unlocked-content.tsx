@@ -267,6 +267,7 @@ export const AppHeaderUnlockedContent = ({
             ref={menuRef}
             display={Display.Flex}
             justifyContent={JustifyContent.flexEnd}
+            className="multichain-app-header__drown-button"
             width={
               getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN
                 ? undefined
@@ -274,7 +275,7 @@ export const AppHeaderUnlockedContent = ({
             }
             style={
               getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN
-                ? { width: 'auto', display: 'none' }
+                ? { width: 'auto' }
                 : undefined
             }
           >

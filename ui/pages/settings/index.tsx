@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import cs from 'classnames';
 import {
   Box,
   Text,
@@ -240,37 +241,51 @@ const SettingsPage: React.FC = () => {
               )}
               <Box className="settings-page__tabs__tab__items">
                 {tab.items.map((item, _key) => (
-                  <Box
-                    key={_key}
-                    className="settings-page__tabs__tab__items-item"
-                    onClick={item.onClick ? () => item.onClick?.() : undefined}
-                  >
+                  <>
                     {item.link ? (
                       <Box
-                        as="a"
-                        href={item.link}
-                        target="_blank"
-                        rel="noreferrer"
+                        key={_key}
+                        className="settings-page__tabs__tab__items-item"
+                        onClick={
+                          item.onClick ? () => item.onClick?.() : undefined
+                        }
                       >
-                        <Box as="img" src={item.icon} alt={''} />
-                        {item.name && (
-                          <Box className="settings-page__tabs__tab__items-item__center">
-                            <Text as="span">{item.name}</Text>
-                          </Box>
-                        )}
                         <Box
-                          as="img"
-                          src="./images/setting/arrow-right.svg"
-                          alt="arrow"
-                        />
+                          as="a"
+                          href={item.link}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <Box as="img" src={item.icon} alt={''} />
+                          {item.name && (
+                            <Box className="settings-page__tabs__tab__items-item__center">
+                              <Text as="span">{item.name}</Text>
+                            </Box>
+                          )}
+                          <Box
+                            as="img"
+                            src="./images/setting/arrow-right.svg"
+                            alt="arrow"
+                          />
+                        </Box>
                       </Box>
                     ) : (
-                      <>
+                      <Box
+                        key={_key}
+                        className={cs('settings-page__tabs__tab__items-item', {
+                          back: item.dontNeedRightIcon as boolean,
+                        })}
+                        onClick={
+                          item.onClick ? () => item.onClick?.() : undefined
+                        }
+                      >
                         <Box
                           as="img"
                           src={item.icon}
                           alt={''}
-                          className="settings-page__tabs__tab__items-item--icon"
+                          className={cs(
+                            'settings-page__tabs__tab__items-item--icon',
+                          )}
                         />
                         <Box className="settings-page__tabs__tab__items-item__center">
                           {item.name && (
@@ -314,9 +329,9 @@ const SettingsPage: React.FC = () => {
                               alt="arrow"
                             />
                           )}
-                      </>
+                      </Box>
                     )}
-                  </Box>
+                  </>
                 ))}
               </Box>
             </Box>

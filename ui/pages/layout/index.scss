@@ -15,7 +15,7 @@
   padding: 0 20px ;
   justify-content: space-between;
   background: var(--color-background-default);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
   &--left{
     display: flex;
     flex-flow: row;
@@ -25,6 +25,14 @@
       height: 100%;
       width: 200px;
       min-width: 200px;
+    }
+    &--icon{
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      &:hover{
+        opacity: 0.8;
+      }
     }
   }
   &--right{
@@ -46,7 +54,15 @@
       display: flex;
       flex-flow: column;
       background: rgb(248, 248, 248);
-      border-right: 1px solid rgba(0, 0, 0, 0.12);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &.collapsed {
+        width: 0;
+        min-width: 0;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
       @media screen and (max-width: 768px) {
         display: none;
 
@@ -67,23 +83,25 @@
           line-height: 20px;
           height: 36px;
           padding:0 12px;
-          &.active{
+          color: #212121;
+          &.active,.active{
             background: #F6EEFC;
             color: var(--color-primary-default);
           }
           &:hover{
-           opacity: 0.7;
            background: #F6EEFC;
+           color:var(--color-primary-default);
           }
         }
       }
-
     }
     &--main{
       flex: 1;
       width: calc(100vw - 208px);
       height: calc(100vh - 52px);
       background: var(--color-background-default);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
       overflow-y: scroll;
       &::-webkit-scrollbar {
         display: none;

@@ -26,6 +26,7 @@
   @include design-system.screen-lg-min {
     display: none;
   }
+
 }
 .multichain-app-header,
 .multichain-app-header-full-screen {
@@ -39,6 +40,15 @@
   flex-flow: column nowrap;
   z-index: design-system.$header-z-index;
 
+  &__drown-button{
+    display: block;
+    @include design-system.screen-lg-min {
+      display: none;
+    }
+    @include design-system.screen-md-min {
+      display: none;
+    }
+  }
 
   &__contents {
 

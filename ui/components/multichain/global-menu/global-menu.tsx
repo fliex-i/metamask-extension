@@ -168,6 +168,7 @@ export const GlobalMenu = ({
       style={{
         overflow: 'hidden',
         minWidth: 225,
+        zIndex: 20,
       }}
       borderStyle={BorderStyle.none}
       position={PopoverPosition.Auto}

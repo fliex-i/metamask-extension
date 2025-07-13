@@ -59,6 +59,14 @@
         gap: 10px;
         padding: 10px;
         cursor: pointer;
+        &.back{
+          @include design-system.screen-lg-min{
+            display: none;
+          }
+          @include design-system.screen-md-min{
+            display: none;
+          }
+        }
         &:hover{
           opacity: 0.7;
         }
