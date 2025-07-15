@@ -55,9 +55,18 @@ export default class ContactListTab extends Component {
     handleSettingsRefs(t, t('contacts'), this.settingsRefs);
   }
 
+  state = {
+    hasLayerHeader: false,
+  };
+
   componentDidMount() {
     const { t } = this.context;
     handleSettingsRefs(t, t('contacts'), this.settingsRefs);
+
+    const header = document.querySelector('.layout__header');
+    const hasLayerHeader =
+      Boolean(header) && window.getComputedStyle(header).display !== 'none';
+    this.setState({ hasLayerHeader });
   }
 
   renderAddresses() {
@@ -165,8 +174,15 @@ export default class ContactListTab extends Component {
   renderBackButton() {
     const { history } = this.props;
     const { t } = this.context;
+    const { hasLayerHeader } = this.state;
     return (
-      <div style={{ position: 'absolute', top: 16, left: 16, zIndex: 10 }}>
+      <div
+        style={
+          hasLayerHeader
+            ? { padding: '20px 0' }
+            : { position: 'absolute', top: 16, left: 16, zIndex: 10 }
+        }
+      >
         <ButtonIcon
           iconName={IconName.ArrowLeft}
           ariaLabel={t('back')}

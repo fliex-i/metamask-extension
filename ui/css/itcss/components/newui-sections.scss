@@ -87,9 +87,6 @@
     //   box-shadow: var(--shadow-size-xs) var(--color-shadow-default);
     // }
   }
-  .main-container-wrapper {
-    min-height: 100vh;
-  }
 }
 
 @include design-system.screen-sm-max {
