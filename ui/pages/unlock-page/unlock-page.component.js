@@ -77,11 +77,11 @@ export default class UnlockPage extends Component {
     showResetPasswordModal: false,
     isLocked: false,
     showPassword: false,
+    failedAttempts: 0,
+    maxAttempts: 5,
   };
 
   submitting = false;
-
-  failed_attempts = 0;
 
   animationEventEmitter = new EventEmitter();
 
@@ -103,10 +103,10 @@ export default class UnlockPage extends Component {
     event.preventDefault();
     event.stopPropagation();
 
-    const { password } = this.state;
+    const { password, failedAttempts, maxAttempts } = this.state;
     const { onSubmit, forceUpdateMetamaskState } = this.props;
 
-    if (password === '' || this.submitting) {
+    if (password === '' || this.submitting || failedAttempts >= maxAttempts) {
       return;
     }
 
@@ -120,7 +120,7 @@ export default class UnlockPage extends Component {
           category: MetaMetricsEventCategory.Navigation,
           event: MetaMetricsEventName.AppUnlocked,
           properties: {
-            failed_attempts: this.failed_attempts,
+            failed_attempts: failedAttempts,
           },
         },
         {
@@ -128,7 +128,9 @@ export default class UnlockPage extends Component {
         },
       );
     } catch (error) {
-      this.failed_attempts += 1;
+      const newFailedAttempts = failedAttempts + 1;
+      this.setState({ failedAttempts: newFailedAttempts });
+
       const errorMessage = error instanceof Error ? error.message : error;
 
       if (errorMessage === 'Incorrect password') {
@@ -138,12 +140,29 @@ export default class UnlockPage extends Component {
           event: MetaMetricsEventName.AppUnlockedFailed,
           properties: {
             reason: 'incorrect_password',
-            failed_attempts: this.failed_attempts,
+            failed_attempts: newFailedAttempts,
           },
         });
+
+        let attemptError;
+        const warningMessage = `\n\n${this.context.t('warningMessage')}`;
+
+        if (newFailedAttempts === 1) {
+          attemptError = `${this.context.t('attempts')}` + warningMessage;
+        } else if (newFailedAttempts < maxAttempts) {
+          const attemptsMessage = this.context.t('maxAttempts', [
+            newFailedAttempts,
+          ]);
+          attemptError = attemptsMessage + warningMessage;
+        } else {
+          attemptError = this.context.t('maxAttemptsReached');
+        }
+
+        this.setState({ error: attemptError });
+      } else {
+        this.setState({ error: errorMessage });
       }
 
-      this.setState({ error: errorMessage });
       this.submitting = false;
     }
   };
@@ -194,22 +213,26 @@ export default class UnlockPage extends Component {
       return null;
     }
 
+    const errorLines = error.split('\n').filter((line) => line.trim() !== '');
+
     return (
       <Box
         className="unlock-page__help-text"
         display={Display.Flex}
         flexDirection={FlexDirection.Column}
+        gap={1}
       >
-        {error && (
+        {errorLines.map((line, index) => (
           <Text
-            data-testid="unlock-page-help-text"
+            key={index}
+            data-testid={`unlock-page-help-text-${index}`}
             variant={TextVariant.bodySm}
             textAlign={TextAlign.Left}
             color={TextColor.errorDefault}
           >
-            {error}
+            {line}
           </Text>
-        )}
+        ))}
       </Box>
     );
   };
@@ -227,7 +250,8 @@ export default class UnlockPage extends Component {
   };
 
   render() {
-    const { password, error, isLocked, showResetPasswordModal, showPassword } = this.state;
+    const { password, error, isLocked, showResetPasswordModal, showPassword } =
+      this.state;
     const { t } = this.context;
 
     return (
@@ -281,10 +305,21 @@ export default class UnlockPage extends Component {
               as="h1"
               variant={TextVariant.headingLg}
               marginTop={1}
-              marginBottom={2}
               color={TextColor.textDefault}
             >
-              {t('welcomeBack')}
+              {t('welcomeTitle')}
+            </Text>
+            <Text
+              marginInline={5}
+              textAlign={TextAlign.Center}
+              as="h3"
+              className="welcome-login__description"
+              data-testid="onboarding-desc"
+              marginBottom={2}
+            >
+              {t('welcomeDescription')} <br />
+              {t('welcomeDescription1')} <br />
+              {t('welcomeDescription2')}
             </Text>
             <FormTextField
               id="password"
@@ -327,7 +362,9 @@ export default class UnlockPage extends Component {
                     this.handlePasswordToggle();
                   }}
                   ariaLabel={
-                    showPassword ? t('passwordToggleHide') : t('passwordToggleShow')
+                    showPassword
+                      ? t('passwordToggleHide')
+                      : t('passwordToggleShow')
                   }
                 />
               }
@@ -345,6 +382,7 @@ export default class UnlockPage extends Component {
               flexDirection={FlexDirection.Column}
               width={BlockSize.Full}
               gap={4}
+              marginTop={4}
             >
               <Button
                 variant={ButtonVariant.Primary}
@@ -352,7 +390,11 @@ export default class UnlockPage extends Component {
                 block
                 type="submit"
                 data-testid="unlock-submit"
-                disabled={!password || isLocked}
+                disabled={
+                  !password ||
+                  isLocked ||
+                  this.state.failedAttempts >= this.state.maxAttempts
+                }
               >
                 {this.context.t('unlock')}
               </Button>

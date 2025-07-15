@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Spinner = ({ className = '', color = 'var(--color-icon-muted)' }) => {
   return (
-    <div className={`spinner ${className}`}>
+    <div className={`spinner ${className}`} style={{ width: '100px' }}>
       <svg
         className="lds-spinner"
         width="100%"

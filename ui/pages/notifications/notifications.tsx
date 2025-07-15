@@ -184,7 +184,7 @@ export default function Notifications() {
         }
         marginBottom={0}
       >
-        {t('notifications')}
+        {t('notificationsSettings')}
       </Header>
       <Content padding={0}>
         {/* {hasNotifySnaps && (

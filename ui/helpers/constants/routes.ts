@@ -211,6 +211,8 @@ PATH_NAME_MAP.set(`${NOTIFICATIONS_ROUTE}/:uuid`, 'Notification Detail Page');
 export const NOTIFICATIONS_SETTINGS_ROUTE = '/notifications/settings';
 PATH_NAME_MAP.set(NOTIFICATIONS_SETTINGS_ROUTE, 'Notifications Settings Page');
 
+
+
 export const CONNECTED_ROUTE = '/connected';
 PATH_NAME_MAP.set(CONNECTED_ROUTE, 'Sites Connected To This Account Page');
 

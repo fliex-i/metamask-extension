@@ -24,6 +24,7 @@ import {
   SNAP_SETTINGS_ROUTE,
   REVEAL_SRP_LIST_ROUTE,
   BACKUPANDSYNC_ROUTE,
+  AUTO_LOCK_ROUTE,
 } from '../../helpers/constants/routes';
 
 import { getSettingsRoutes } from '../../helpers/utils/settings-search';
@@ -61,6 +62,7 @@ import SettingsSearch from './settings-search';
 import SettingsSearchList from './settings-search-list';
 import { RevealSrpList } from './security-tab/reveal-srp-list';
 import BackupAndSyncTab from './backup-and-sync-tab';
+
 
 class SettingsPage extends PureComponent {
   static propTypes = {
@@ -344,6 +346,11 @@ class SettingsPage extends PureComponent {
         content: t('backupAndSync'),
         icon: <Icon name={IconName.SecurityTime} />,
         key: BACKUPANDSYNC_ROUTE,
+      },
+      {
+        content: t('autoLock'),
+        icon: <Icon name={IconName.Lock} />,
+        key: AUTO_LOCK_ROUTE,
       },
       {
         content: t('contacts'),

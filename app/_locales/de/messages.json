@@ -574,12 +574,7 @@
     "message": "Wir verwenden APIs von Drittanbietern, um neue Token zu erkennen und anzuzeigen, die in Ihrer Wallet gesendet werden. Deaktivieren Sie dies, wenn Sie keine Daten von diesen Diensten beziehen möchten. $1",
     "description": "$1 is a link to a support article"
   },
-  "autoLockTimeLimit": {
-    "message": "Auto-Lock-Timer (Minuten)"
-  },
-  "autoLockTimeLimitDescription": {
-    "message": "Legen Sie die Leerlaufzeit in Minuten fest, nach der CryptoBridge gesperrt werden soll."
-  },
+
   "average": {
     "message": "Durchschnitt"
   },

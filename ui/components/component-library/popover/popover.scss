@@ -1,8 +1,45 @@
 
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes popover-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// .mm-popover {
+//   box-shadow: var(--shadow-size-md) var(--color-shadow-default);
+//   opacity: 0;
+//   pointer-events: none;
+//   transition: opacity 1s cubic-bezier(0.3, 0.8, 0.3, 1);
+
+//   /* Hide the popper when the reference is hidden */
+//   &--reference-hidden[data-popper-reference-hidden="true"] {
+//     visibility: hidden;
+//     pointer-events: none;
+
+//     > .mm-popover__arrow::before {
+//       visibility: hidden;
+//     }
+//   }
+
+//   &--open {
+//     opacity: 1;
+//     pointer-events: auto;
+//   }
+// }
 .mm-popover {
   box-shadow: var(--shadow-size-md) var(--color-shadow-default);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Hide the popper when the reference is hidden */
   &--reference-hidden[data-popper-reference-hidden="true"] {
     visibility: hidden;
     pointer-events: none;
@@ -11,7 +48,15 @@
       visibility: hidden;
     }
   }
+
+  &--open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
 }
+
+
 
 .mm-popover__arrow,
 .mm-popover__arrow::before {

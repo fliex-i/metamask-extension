@@ -168,6 +168,7 @@ export const AccountDetails = ({ address }: AccountDetailsProps) => {
                   display={Display.Flex}
                   alignItems={AlignItems.center}
                   flexDirection={FlexDirection.Column}
+                  style={{ paddingTop: '16px' }}
                 >
                   {avatar}
                   <Text

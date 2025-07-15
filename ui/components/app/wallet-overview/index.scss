@@ -125,6 +125,21 @@
     font-size: 14px;
     font-weight: 400;
     width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__reload-icon {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--spinning {
+      animation: spin 1s linear infinite;
+    }
   }
 
   &__primary-container {
@@ -216,5 +231,15 @@
 
   &__button:last-of-type {
     margin-right: 0;
+  }
+}
+
+// Add keyframes for spinning animation
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

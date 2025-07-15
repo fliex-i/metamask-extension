@@ -60,6 +60,35 @@
     padding: 15px;
   }
 
+  &__contentdes{
+    padding: 0 15px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-direction: column;
+  }
+
+  &__copy,&__code{
+    display: flex;
+    align-items: center;
+    color: #6F6F6F;
+    gap: 5px;
+    width: 100%;
+  }
+
+  &__photo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    color: #171717;
+    gap: 5px;
+    background: #EDEDED;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
   &__image {
     @include design-system.H3;
 

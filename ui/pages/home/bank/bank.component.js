@@ -22,7 +22,10 @@ const TipsBank = () => {
   }
 
   return (
-    <div className="tips-bank-content" style={{ position: 'relative' }}>
+    <div
+      className="tips-bank-content"
+      style={{ position: 'relative', display: visible ? '' : 'none' }}
+    >
       <div className="tips-bank-ico">
         <img src="./images/home/tips.svg" width={20} height={20} />
         <div>{t('tipsBank')}</div>
@@ -37,6 +40,14 @@ const TipsBank = () => {
           {t('startNow')}
         </div>
       </div>
+
+      <img
+        src="./images/home/close.svg"
+        width={20}
+        height={20}
+        className="close"
+        onClick={handleClose}
+      />
     </div>
   );
 };

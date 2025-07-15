@@ -2,10 +2,11 @@ import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import TextField from '../../ui/text-field';
-import { ButtonVariant, Button, Checkbox } from '../../component-library';
+import { ButtonVariant, Button, Text } from '../../component-library';
 import SrpInput from '../srp-input';
 import { PASSWORD_MIN_LENGTH } from '../../../helpers/constants/common';
 import { useSignOut } from '../../../hooks/identity/useAuthentication';
+import { TextColor } from '../../../helpers/constants/design-system';
 
 export default function CreateNewVault({
   disabled = false,
@@ -101,6 +102,7 @@ export default function CreateNewVault({
   return (
     <form className="create-new-vault__form" onSubmit={onImport}>
       <SrpInput onChange={setSeedPhrase} srpText={t('secretRecoveryPhrase')} />
+      <div className="create-new-vault__change-new-password">{t('changeNewPassword')}</div>
       <div className="create-new-vault__create-password">
         <TextField
           data-testid="create-vault-password"
@@ -127,7 +129,7 @@ export default function CreateNewVault({
           largeLabel
         />
       </div>
-      {includeTerms ? (
+      {/* {includeTerms ? (
         <div className="create-new-vault__terms">
           <Checkbox
             id="create-new-vault-terms-checkbox"
@@ -137,7 +139,7 @@ export default function CreateNewVault({
             label={termsOfUse}
           />
         </div>
-      ) : null}
+      ) : null} */}
       <Button
         data-testid="create-new-vault-submit-button"
         className="create-new-vault__submit-button"

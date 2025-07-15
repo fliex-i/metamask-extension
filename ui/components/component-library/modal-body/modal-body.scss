@@ -3,6 +3,6 @@
   overflow-y: auto;
   position: relative; // Allows for absolute positioning of scroll button
   @media screen and (min-width: 1280px) {
-    min-height: 45vh;
+    max-height: 45vh;
   }
 }

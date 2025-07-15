@@ -86,6 +86,7 @@ type PreferencesControllerOptions = {
 
 export type Preferences = {
   autoLockTimeLimit?: number;
+  systemIdleLockEnabled?: boolean;
   showExtensionInFullSizeView: boolean;
   showFiatInTestnets: boolean;
   showTestNetworks: boolean;
@@ -183,6 +184,7 @@ export const getDefaultPreferencesControllerState =
     forgottenPassword: false,
     preferences: {
       autoLockTimeLimit: undefined,
+      systemIdleLockEnabled: false,
       showExtensionInFullSizeView: false,
       showFiatInTestnets: false,
       showTestNetworks: false,

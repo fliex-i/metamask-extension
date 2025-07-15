@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { usePopper } from 'react-popper';
 import classnames from 'classnames';
@@ -49,7 +49,9 @@ export const Popover: PopoverComponent = React.forwardRef(
       null,
     );
     const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-    const popoverRef = React.useRef<HTMLElement | null>(null);
+    const [shouldRender, setShouldRender] = useState(isOpen);
+    const [isVisible, setIsVisible] = useState(isOpen);
+    const popoverRef = useRef<HTMLElement | null>(null);
 
     // Define Popper options
     const { styles, attributes } = usePopper(referenceElement, popperElement, {
@@ -107,6 +109,23 @@ export const Popover: PopoverComponent = React.forwardRef(
     };
 
     useEffect(() => {
+      if (isOpen) {
+        setShouldRender(true);
+        // 需要等下一帧再设置 isVisible，确保 transition 能触发
+        requestAnimationFrame(() => setIsVisible(true));
+      } else {
+        setIsVisible(false);
+      }
+    }, [isOpen]);
+
+    // 监听 transition 结束后卸载
+    const handleTransitionEnd = (event: React.TransitionEvent) => {
+      if (!isVisible && event.target === popoverRef.current) {
+        setShouldRender(false);
+      }
+    };
+
+    useEffect(() => {
       document.addEventListener('keydown', handleEscKey, { capture: true });
       if (isOpen) {
         document.addEventListener('click', handleClickOutside, {
@@ -132,7 +151,7 @@ export const Popover: PopoverComponent = React.forwardRef(
         className={classnames(
           'mm-popover',
           {
-            'mm-popover--open': Boolean(isOpen),
+            'mm-popover--open': isVisible,
             'mm-popover--reference-hidden': Boolean(referenceHidden),
           },
           className,
@@ -148,6 +167,7 @@ export const Popover: PopoverComponent = React.forwardRef(
           setPopperElement(element);
           popoverRef.current = element;
         }}
+        onTransitionEnd={handleTransitionEnd}
         {...attributes.popper}
         {...(props as BoxProps<C>)}
         style={{ ...styles.popper, ...contentStyle, ...props.style }}
@@ -171,9 +191,7 @@ export const Popover: PopoverComponent = React.forwardRef(
 
     return (
       <>
-        {isPortal
-          ? isOpen && createPortal(PopoverContent, document.body)
-          : isOpen && PopoverContent}
+        {shouldRender && (isPortal ? createPortal(PopoverContent, document.body) : PopoverContent)}
       </>
     );
   },

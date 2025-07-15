@@ -4,8 +4,8 @@ import { Duration } from 'luxon';
 import { PriceApiTimePeriod } from './types/PriceApiTimePeriod';
 
 /** Formats a datetime in a short human readable format like 'Feb 8, 12:11 PM' */
-export const getShortDateFormatter = () =>
-  Intl.DateTimeFormat(navigator.language, {
+export const getShortDateFormatter = (locale?: string) =>
+  Intl.DateTimeFormat(locale || navigator.language, {
     month: 'short',
     day: 'numeric',
     hour: 'numeric',

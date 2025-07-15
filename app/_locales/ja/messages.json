@@ -598,6 +598,36 @@
   "autoLockTimeLimitDescription": {
     "message": "MetaMaskがロックされるまでのアイドル時間を分単位で設定します。"
   },
+  "autoLockDescription": {
+    "message": "ウィンドウを閉じるか、バックグラウンドで開いたままにしておくと（フルスクリーンモードや未使用のタブなど）、プラグインは設定された期間後に自動的にロックされます。"
+  },
+  "always": {
+    "message": "常に"
+  },
+  "ifAwayFor1Min": {
+    "message": "1分間離れた場合"
+  },
+  "ifAwayFor5Mins": {
+    "message": "5分間離れた場合"
+  },
+  "ifAwayFor30Mins": {
+    "message": "30分間離れた場合"
+  },
+  "ifAwayFor1Hr": {
+    "message": "1時間離れた場合"
+  },
+  "ifAwayFor4Hr": {
+    "message": "4時間離れた場合"
+  },
+  "never": {
+    "message": "しない"
+  },
+  "systemIdleLock": {
+    "message": "システムアイドルロック"
+  },
+  "systemIdleLockDescription": {
+    "message": "これを有効にすると、アプリがフォアグラウンドで開いている場合でも、ユーザーアクティビティがない場合にアイドルタイマーが開始されます。"
+  },
   "average": {
     "message": "平均"
   },
@@ -1846,6 +1876,9 @@
   "done": {
     "message": "通知をオンにする"
   },
+  "doneButton": {
+    "message": "完了"
+  },
   "dontShowThisAgain": {
     "message": "今後表示しない"
   },
@@ -2635,7 +2668,7 @@
     "description": "$1 is the number of words in the recovery phrase"
   },
   "importPrivateKey": {
-    "message": "秘密鍵"
+    "message": "プライベートキー"
   },
   "importSRPDescription": {
     "message": "12単語または24単語のシークレットリカバリーフレーズを使用して、既存のウォレットをインポートします。"
@@ -2730,7 +2763,7 @@
     "message": "残高が不十分です。"
   },
   "insufficientFunds": {
-    "message": "ガス代用の資金が不足しています"
+    "message": " ガス代が不足しています"
   },
   "insufficientFundsForGas": {
     "message": "ガス代が不足しています"
@@ -3534,7 +3567,7 @@
     "message": "慎重に進めてください。"
   },
   "nfts": {
-    "message": "法定通貨の履歴"
+    "message": "暗号資産間の履歴"
   },
   "nftsPreviouslyOwned": {
     "message": "以前保有"
@@ -3777,6 +3810,9 @@
   },
   "notifications": {
     "message": "通知の設定"
+  },
+  "notificationsSettings": {
+    "message": "通知一覧"
   },
   "notificationsFeatureToggle": {
     "message": "ウォレットの通知を有効にする",
@@ -4415,7 +4451,7 @@
     "message": "プライバシーポリシー"
   },
   "privateKey": {
-    "message": "秘密鍵",
+    "message": "プライベートキー",
     "description": "select this type of file to use to import an account"
   },
   "privateKeyCopyWarning": {
@@ -4567,7 +4603,7 @@
     "message": "仮想通貨を受け取る"
   },
   "receiveModalDes1": {
-    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。受取側のアドレスがERC-20であることを必ずご確認ください。"
+    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。第三者から資金を受け取る場合は、必ずERC-20トークンのみをウォレットアドレスに送金するよう依頼してください。"
   },
   "receiveModalDes2": {
     "message": "受取人のウォレットアドレスがerc-20アドレスであることを再確認してください。"
@@ -4874,6 +4910,9 @@
   "secretRecoveryPhrase": {
     "message": "シークレットリカバリーフレーズ"
   },
+  "secretRecoveryPhraseDescription": {
+    "message": "シークレットリカバリーフレーズ: 安全な場所で保管してください。パスワードを忘れた場合や、新しいデバイスにウォレットをインポートしたい場合、シークレットリカバリーフレーズまたはプライベートキーでウォレットを復元することができます。"
+  },
   "secretRecoveryPhrasePlusNumber": {
     "message": "シークレットリカバリーフレーズ$1",
     "description": "The $1 is the order of the Secret Recovery Phrase"
@@ -5031,11 +5070,11 @@
     "message": "ここをクリック"
   },
   "sendNoContactsDescription": {
-    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。連絡先を追加するには、こちらをクリックしてください、$1",
+    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。連絡先を追加するには、こちらをクリックしてください。$1",
     "description": "$1 represents the action text 'click here'"
   },
   "sendNoContactsTitle": {
-    "message": "まだ連絡先がありません"
+    "message": "まだウォレットアドレスが追加されておりません"
   },
   "sendSelectReceiveAsset": {
     "message": "受け取るアラートを選択してください"
@@ -6892,7 +6931,7 @@
     "message": "確定"
   },
   "visitSupportDataConsentModalDescription": {
-    "message": "MetaMaskの識別子とアプリのバージョンをサポートセンターと共有しますか？これにより問題を解決しやすくなりますが、あくまでもオプションです。"
+    "message": "CryptoBridgeの識別子とアプリのバージョンをサポートセンターと共有しますか？これにより問題を解決しやすくなりますが、あくまでもオプションです。"
   },
   "visitSupportDataConsentModalReject": {
     "message": "共有しない"
@@ -6973,7 +7012,7 @@
     "message": "始める"
   },
   "welcomeTitle": {
-    "message": "CryptoBridge"
+    "message": "CryptoBridgeへようこそ"
   },
   "welcomeToMetaMask": {
     "message": "始めましょう"
@@ -7045,5 +7084,36 @@
   },
   "yourWalletIsReady": {
     "message": "ウォレットのインポートに成功"
+  },
+  "onboardingSrpImportError": {
+    "message": "小文字のみを使用し、スペルを確認し、単語の順序は元のままにしてください."
+  },
+  "unlockPageIncorrectPasswords": {
+    "message": "パスワードが正しくありません"
+  },
+  "onboardingSrpInputClearAll": {
+    "message": "すべて消去"
+  },
+  "scanAddress": {
+    "message": "アドレスコードをスキャンしてアドレスをコピー"
+  },
+  "scanCode": {
+    "message": "WalletConnectコードをスキャンしてサイトに接続"
+  },
+  "scanPhoto": {
+    "message": "または写真を選択"
+  },
+  "changeNewPassword": {
+    "message": "パスワードには、少なくとも1つの大文字、1つの数字、などが含まれている必要があります。"
+  },
+  "attempts": {
+    "message": "パスワードは5回まで入力可能"
+  },
+  "maxAttempts": {
+    "message": "残り回数：$1回まで入力可能",
+    "description": "$1 is the number of remaining attempts"
+  },
+  "warningMessage": {
+    "message": "警告：5回間違えるとウォレットがロックされ、シークレットリカバリーフレーズまたはプライベートキーでのみ解除可能になります。"
   }
 }
