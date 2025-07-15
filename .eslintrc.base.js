@@ -75,9 +75,9 @@ module.exports = {
     // thus triggers the error. Turning this rule off to prevent churn when
     // upgrading eslint and dependencies. This rule should be evaluated and
     // if agreeable turned on upstream in @metamask/eslint-config
-    'import/no-named-as-default-member': 'off',
-    'no-unused-vars': 'off',
-    'no-undef': 'error',
+    // 'import/no-named-as-default-member': 'off',
+    // 'no-unused-vars': 'off',
+    // 'no-undef': 'error',
 
     // This is necessary to run eslint on Windows and not get a thousand CRLF errors
     'prettier/prettier': ['error', { endOfLine: 'auto' }],

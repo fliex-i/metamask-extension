@@ -63,6 +63,7 @@ import {
 // eslint-disable-next-line import/no-restricted-paths
 import { getEnvironmentType } from '../../../app/scripts/lib/util';
 import { ENVIRONMENT_TYPE_POPUP } from '../../../shared/constants/app';
+import { getLocale } from '../../selectors/selectors';
 import OnboardingFlowSwitch from './onboarding-flow-switch/onboarding-flow-switch';
 import CreatePassword from './create-password/create-password';
 import ReviewRecoveryPhrase from './recovery-phrase/review-recovery-phrase';
@@ -78,7 +79,6 @@ import OnboardingAppHeader from './onboarding-app-header/onboarding-app-header';
 import { WelcomePageState } from './welcome/types';
 import AccountExist from './account-exist/account-exist';
 import AccountNotFound from './account-not-found/account-not-found';
-import { getLocale } from '../../selectors/selectors';
 
 // const TWITTER_URL = 'https://twitter.com/MetaMask';
 
@@ -192,7 +192,7 @@ export default function OnboardingFlow() {
           welcomePageState === WelcomePageState.Login,
       })}
     >
-      {!isPopup ? (
+      {!isPopup && (
         <a
           href={
             currentLocale === 'en'
@@ -203,12 +203,9 @@ export default function OnboardingFlow() {
           rel="noopener noreferrer"
           className="onboarding-flow--welcome-login__support"
         >
-          <img
-            src="/images/home/support.svg"
-            alt="Support"
-          />
+          <img src="/images/home/support.svg" alt="Support" />
         </a>
-      ) : null}
+      )}
       {!isPopup && <OnboardingAppHeader pageState={welcomePageState} />}
       <RevealSRPModal
         setSecretRecoveryPhrase={setSecretRecoveryPhrase}

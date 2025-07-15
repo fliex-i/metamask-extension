@@ -225,6 +225,27 @@ export default class Routes extends Component {
     metricsEvent: PropTypes.func,
   };
 
+  state = {
+    hasLayerHeader: false,
+  };
+
+  componentDidMount() {
+    const updateHasLayerHeader = () => {
+      const header = document.querySelector('.layout__header');
+      const hasLayerHeader =
+        Boolean(header) && window.getComputedStyle(header).display !== 'none';
+      this.setState({ hasLayerHeader });
+    };
+
+    updateHasLayerHeader();
+
+    if (this.props.history && this.props.history.listen) {
+      this.unlisten = this.props.history.listen(() => {
+        updateHasLayerHeader();
+      });
+    }
+  }
+
   componentDidUpdate(prevProps) {
     const {
       theme,
@@ -236,7 +257,6 @@ export default class Routes extends Component {
     } = this.props;
     if (theme !== prevProps.theme) {
       // setTheme(theme);
-      console.log(theme, '/theme');
       setTheme(ThemeType.light); // TODO: Change to dark when dark mode is ready
     }
 
@@ -470,6 +490,8 @@ export default class Routes extends Component {
       ///: END:ONLY_INCLUDE_IF
     } = this.props;
 
+    const { hasLayerHeader } = this.state;
+    console.log(hasLayerHeader, '/hasLayerHeader');
     const loadMessage =
       loadingMessage || isNetworkLoading
         ? getConnectingLabel(loadingMessage, this.props, this.context)
@@ -541,6 +563,7 @@ export default class Routes extends Component {
         className={classnames('app', {
           [`os-${os}`]: os,
           [`browser-${browser}`]: browser,
+          'app--full-screen-customer': hasLayerHeader,
         })}
         dir={textDirection}
         onMouseUp={

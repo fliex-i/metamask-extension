@@ -403,16 +403,16 @@ export default class SwapsController extends BaseController<
         newQuotes = mapValues(newQuotes, (quote) =>
           quote.approvalNeeded
             ? {
-                ...quote,
-                approvalNeeded: {
-                  // approvalNeeded is guaranteed to be defined here because of the conditional above, since all quotes are from the same source token
-                  // the approvalNeeded object will be present for all quotes
-                  ...quote.approvalNeeded,
-                  // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-                  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-                  gas: approvalGas || DEFAULT_ERC20_APPROVE_GAS,
-                },
-              }
+              ...quote,
+              approvalNeeded: {
+                // approvalNeeded is guaranteed to be defined here because of the conditional above, since all quotes are from the same source token
+                // the approvalNeeded object will be present for all quotes
+                ...quote.approvalNeeded,
+                // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+                // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+                gas: approvalGas || DEFAULT_ERC20_APPROVE_GAS,
+              },
+            }
             : quote,
         );
       }
@@ -617,9 +617,9 @@ export default class SwapsController extends BaseController<
       // is simply trade.value plus gas fees.
       const ethFee = isSwapsDefaultTokenAddress(sourceToken, chainId)
         ? totalWeiCost
-            .minus(new Numeric(sourceAmount, 10))
-            .toDenomination(EtherDenomination.ETH)
-            .round(6).value
+          .minus(new Numeric(sourceAmount, 10))
+          .toDenomination(EtherDenomination.ETH)
+          .round(6).value
         : totalEthCost;
 
       const decimalAdjustedDestinationAmount = calcTokenAmount(
@@ -812,9 +812,9 @@ export default class SwapsController extends BaseController<
 
     const { gasLimit: newGasEstimate, simulationFails } = quoteToUpdate.trade
       ? await this._timedoutGasReturn(
-          quoteToUpdate.trade,
-          quoteToUpdate.aggregator,
-        )
+        quoteToUpdate.trade,
+        quoteToUpdate.aggregator,
+      )
       : { gasLimit: null, simulationFails: true };
 
     if (newGasEstimate && !simulationFails) {
@@ -1021,7 +1021,7 @@ export default class SwapsController extends BaseController<
     return await contract.allowance(
       walletAddress,
       SWAPS_CHAINID_CONTRACT_ADDRESS_MAP[
-        network.chainId as keyof typeof SWAPS_CHAINID_CONTRACT_ADDRESS_MAP
+      network.chainId as keyof typeof SWAPS_CHAINID_CONTRACT_ADDRESS_MAP
       ],
     );
   }

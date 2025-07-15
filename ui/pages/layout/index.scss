@@ -1,13 +1,8 @@
 .layout{
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 &__header{
   display: flex;
   flex-flow: row nowrap;
@@ -15,7 +10,11 @@
   padding: 0 20px ;
   justify-content: space-between;
   background: var(--color-background-default);
-
+  // position: fixed;
+  // top: 0;
+  // width: 100%;
+  // z-index: 100;
+  // margin-bottom: 52px;
   &--left{
     display: flex;
     flex-flow: row;
@@ -47,6 +46,7 @@
   &__content{
     display: flex;
     flex-direction: row;
+    min-height: 100%;
 
     &--sidebar{
       width: 208px;
@@ -99,10 +99,15 @@
       flex: 1;
       width: calc(100vw - 208px);
       height: calc(100vh - 52px);
+      padding-bottom: 40px;
+      &:not(.layout__header){
+        height: 100vh;
+        padding-bottom: 0px;
+      }
       background: var(--color-background-default);
       border-left: 1px solid rgba(0, 0, 0, 0.1);
       border-top: 1px solid rgba(0, 0, 0, 0.1);
-      overflow-y: scroll;
+      overflow-y: auto;
       &::-webkit-scrollbar {
         display: none;
       }
