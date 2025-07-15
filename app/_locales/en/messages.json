@@ -5073,7 +5073,7 @@
     "message": "Secret Recovery Phrase"
   },
   "secretRecoveryPhraseDescription": {
-    "message": "Secret Recovery Phrase: Keep it safe. If you forget your password or want to import your wallet to a new device, you can recover your wallet using your Secret Recovery Phrase or Private Key."
+    "message": "Secret Recovery Phrase"
   },
   "secretRecoveryPhrasePlusNumber": {
     "message": "Secret Recovery Phrase $1",
