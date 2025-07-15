@@ -18,7 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const [collapsed, setCollapsed] = React.useState(false);
   return (
     <div className="layout">
-      {isUnlocked && (
+      {isUnlocked && !history.location.pathname.includes('onboarding') && (
         <header className="layout__header">
           <div className="layout__header--left">
             <img
@@ -39,7 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </header>
       )}
       <div className="layout__content">
-        {isUnlocked && (
+        {isUnlocked && !history.location.pathname.includes('onboarding') && (
           <div className={cs('layout__content--sidebar', { collapsed })}>
             <ul>
               <li
