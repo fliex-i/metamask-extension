@@ -50,7 +50,7 @@
       background: var(--color-primary-attention-bank);
     }
     .tips-home-des{
-      font-size: 14px;
+      font-size: 12px;
       line-height: 20px;
     }
     .tips-bank-content {
@@ -71,9 +71,9 @@
     }
     .tips-bank-ico {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 5px;
-      font-size: 14px;
+      font-size: 12px;
     }
     .tips-bank-des {
       display: flex;
@@ -95,7 +95,7 @@
       justify-content: center;
       background: var(--brand-colors-purple);
       color: var(--color-text-white);
-      font-size: 14px;
+      font-size: 12px;
       border-radius: 5px;
       cursor: pointer;
     }

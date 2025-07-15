@@ -128,7 +128,7 @@ export default function SecureYourWallet() {
               gap={3}
             >
               <img
-                src={`./images/home/secure${index + 1}.png`}
+                src={`./images/home/secure${index + 1}.svg`}
                 alt=""
                 style={{ width: 36, height: 36 }}
               />

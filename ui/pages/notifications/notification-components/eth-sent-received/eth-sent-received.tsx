@@ -1,6 +1,6 @@
 import React from 'react';
 import { NotificationServicesController } from '@metamask/notification-services-controller';
-import { t } from '../../../../../shared/lib/translate';
+import { useI18nContext } from '../../../../hooks/useI18nContext';
 import { type ExtractedNotification, isOfTypeNodeGuard } from '../node-guard';
 import {
   NotificationComponentType,
@@ -48,33 +48,35 @@ const isETHNotification = isOfTypeNodeGuard([
 
 const isSent = (n: ETHNotification) => n.type === TRIGGER_TYPES.ETH_SENT;
 
-const title = (n: ETHNotification) =>
-  isSent(n) ? t('notificationItemSentTo') : t('notificationItemReceivedFrom');
-
 const getNativeCurrency = (n: ETHNotification) => {
   const nativeCurrency = getNetworkDetailsByChainId(n.chain_id);
   return nativeCurrency;
 };
 
-const getTitle = (n: ETHNotification) => {
-  const address = shortenAddress(isSent(n) ? n.data.to : n.data.from);
-  // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-  const items = createTextItems([title(n) || '', address], TextVariant.bodySm);
-  return items;
-};
-
-const getDescription = (n: ETHNotification) => {
-  const { nativeCurrencySymbol } = getNativeCurrency(n);
-  const items = createTextItems([nativeCurrencySymbol], TextVariant.bodyMd);
-  return items;
-};
-
 export const components: NotificationComponent<ETHNotification> = {
   guardFn: isETHNotification,
   item: ({ notification, onClick }) => {
+    const t = useI18nContext();
     const { nativeCurrencySymbol, nativeCurrencyLogo } =
       getNativeCurrency(notification);
+
+    const title = (n: ETHNotification) =>
+      isSent(n) ? t('notificationItemSentTo') : t('notificationItemReceivedFrom');
+
+    const getTitle = (n: ETHNotification) => {
+      const address = shortenAddress(isSent(n) ? n.data.to : n.data.from);
+      // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+      // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+      const items = createTextItems([title(n) || '', address], TextVariant.bodySm);
+      return items;
+    };
+
+    const getDescription = (n: ETHNotification) => {
+      const { nativeCurrencySymbol } = getNativeCurrency(n);
+      const items = createTextItems([nativeCurrencySymbol], TextVariant.bodyMd);
+      return items;
+    };
+
     return (
       <NotificationListItem
         id={notification.id}
@@ -101,6 +103,7 @@ export const components: NotificationComponent<ETHNotification> = {
   },
   details: {
     title: ({ notification }) => {
+      const t = useI18nContext();
       const { nativeCurrencySymbol } = getNetworkDetailsByChainId(
         notification.chain_id,
       );
@@ -117,47 +120,57 @@ export const components: NotificationComponent<ETHNotification> = {
     },
     body: {
       type: NotificationComponentType.OnChainBody,
-      From: ({ notification }) => (
-        <NotificationDetailAddress
-          side={`${t('notificationItemFrom')}${
-            isSent(notification) ? ` (${t('you')})` : ''
-          }`}
-          address={notification.data.from}
-        />
-      ),
-      To: ({ notification }) => (
-        <NotificationDetailAddress
-          side={`${t('notificationItemTo')}${
-            isSent(notification) ? '' : ` (${t('you')})`
-          }`}
-          address={notification.data.to}
-        />
-      ),
-      Status: ({ notification }) => (
-        <NotificationDetailInfo
-          icon={{
-            iconName: IconName.Check,
-            color: TextColor.successDefault,
-            backgroundColor: BackgroundColor.successMuted,
-          }}
-          // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-          // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-          label={t('notificationItemStatus') || ''}
-          // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-          // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-          detail={t('notificationItemConfirmed') || ''}
-          action={
-            <NotificationDetailCopyButton
-              notification={notification}
-              text={notification.tx_hash}
-              // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-              // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-              displayText={t('notificationItemTransactionId') || ''}
-            />
-          }
-        />
-      ),
+      From: ({ notification }) => {
+        const t = useI18nContext();
+        return (
+          <NotificationDetailAddress
+            side={`${t('notificationItemFrom')}${
+              isSent(notification) ? ` (${t('you')})` : ''
+            }`}
+            address={notification.data.from}
+          />
+        );
+      },
+      To: ({ notification }) => {
+        const t = useI18nContext();
+        return (
+          <NotificationDetailAddress
+            side={`${t('notificationItemTo')}${
+              isSent(notification) ? '' : ` (${t('you')})`
+            }`}
+            address={notification.data.to}
+          />
+        );
+      },
+      Status: ({ notification }) => {
+        const t = useI18nContext();
+        return (
+          <NotificationDetailInfo
+            icon={{
+              iconName: IconName.Check,
+              color: TextColor.successDefault,
+              backgroundColor: BackgroundColor.successMuted,
+            }}
+            // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+            label={t('notificationItemStatus') || ''}
+            // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+            detail={t('notificationItemConfirmed') || ''}
+            action={
+              <NotificationDetailCopyButton
+                notification={notification}
+                text={notification.tx_hash}
+                // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+                // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+                displayText={t('notificationItemTransactionId') || ''}
+              />
+            }
+          />
+        );
+      },
       Asset: ({ notification }) => {
+        const t = useI18nContext();
         const { nativeCurrencyLogo, nativeCurrencySymbol } =
           getNetworkDetailsByChainId(notification.chain_id);
         return (
@@ -186,6 +199,7 @@ export const components: NotificationComponent<ETHNotification> = {
         );
       },
       Network: ({ notification }) => {
+        const t = useI18nContext();
         const { nativeCurrencyLogo, nativeCurrencyName } =
           getNetworkDetailsByChainId(notification.chain_id);
 

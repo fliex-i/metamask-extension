@@ -78,12 +78,20 @@ const SettingsPage: React.FC = () => {
 
   const currencyOptions = useMemo(() => {
     return sortedCurrencies.map(({ code, name }) => {
+      console.log('sortedCurrencies', currentLocale, code);
+
+      if (currentLocale === 'ja' && code === 'jpy') {
+        return {
+          name: '日本円',
+          value: code,
+        };
+      }
       return {
         name: `${code.toUpperCase()}`,
         value: code,
       };
     });
-  }, [sortedCurrencies]);
+  }, [sortedCurrencies, currentLocale]);
   const localeOptions = locales.map((locale: { [key: string]: string }) => {
     return {
       name: `${locale.name}`,
@@ -304,11 +312,7 @@ const SettingsPage: React.FC = () => {
                               options={currencyOptions}
                               selectedOption={currentCurrency}
                               onChange={(newCurrency) => {
-                                if (newCurrency === '日本円') {
-                                  updateCurrency('jpy');
-                                } else {
-                                  updateCurrency(newCurrency);
-                                }
+                                updateCurrency(newCurrency);
                               }}
                               className="center__dropdown"
                             />
@@ -325,7 +329,8 @@ const SettingsPage: React.FC = () => {
                             />
                           )}
                         </Box>
-                        {!item.currency && !item.isLanguage &&
+                        {!item.currency &&
+                          !item.isLanguage &&
                           !item.dontNeedRightIcon && (
                             <Box
                               as="img"

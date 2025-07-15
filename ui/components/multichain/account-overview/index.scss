@@ -37,7 +37,8 @@
   }
 
   &__tab--active {
-    color: var(--color-text-default);
+    color: var(--brand-colors-purple);
+    border-bottom: 2px solid var(--brand-colors-purple);
   }
 
   &__tab button {

@@ -132,10 +132,6 @@
   &__reload-icon {
     transition: transform 0.3s ease;
 
-    &:hover {
-      transform: scale(1.1);
-    }
-
     &--spinning {
       animation: spin 1s linear infinite;
     }

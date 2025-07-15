@@ -52,7 +52,7 @@ const isERC20Notification = isOfTypeNodeGuard([
 const isSent = (n: ERC20Notification) => n.type === TRIGGER_TYPES.ERC20_SENT;
 
 const title = (n: ERC20Notification, t: any) =>
-  isSent(n) ? t('notificationItemSentTo') : t('notificationItemReceivedFrom');
+  isSent(n) ? (t('notificationItemSentTo') || '') : (t('notificationItemReceivedFrom') || '');
 
 const getTitle = (n: ERC20Notification, t: any) => {
   const address = shortenAddress(isSent(n) ? n.data.to : n.data.from);
@@ -106,8 +106,8 @@ export const components: NotificationComponent<ERC20Notification> = {
         <NotificationDetailTitle
           title={`${
             isSent(notification)
-              ? t('notificationItemSent')
-              : t('notificationItemReceived')
+              ? (t('notificationItemSent') || '')
+              : (t('notificationItemReceived') || '')
           } ${notification.data.token.symbol}`}
           date={formatIsoDateString(notification.createdAt)}
         />
@@ -119,8 +119,8 @@ export const components: NotificationComponent<ERC20Notification> = {
         const t = useI18nContext();
         return (
           <NotificationDetailAddress
-            side={`${t('notificationItemFrom')}${
-              isSent(notification) ? ` (${t('you')})` : ''
+            side={`${t('notificationItemFrom') || ''}${
+              isSent(notification) ? ` (${t('you') || ''})` : ''
             }`}
             address={notification.data.from}
           />
@@ -130,8 +130,8 @@ export const components: NotificationComponent<ERC20Notification> = {
         const t = useI18nContext();
         return (
           <NotificationDetailAddress
-            side={`${t('notificationItemTo')}${
-              isSent(notification) ? '' : ` (${t('you')})`
+            side={`${t('notificationItemTo') || ''}${
+              isSent(notification) ? '' : ` (${t('you') || ''})`
             }`}
             address={notification.data.to}
           />

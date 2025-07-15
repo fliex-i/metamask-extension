@@ -306,6 +306,9 @@ const TokenButtons = ({
         // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
         disabled={token.isERC721 || !isBuyableChain}
         round={!displayNewIconButtons}
+        textProps={{
+          ellipsis: false,
+        }}
       />
 
       <IconButton
@@ -330,6 +333,9 @@ const TokenButtons = ({
         data-testid="eth-overview-send"
         disabled={token.isERC721}
         round={!displayNewIconButtons}
+        textProps={{
+          ellipsis: false,
+        }}
       />
 
       <IconButton
@@ -353,6 +359,9 @@ const TokenButtons = ({
         label={t('swap')}
         disabled={!isSwapsChain}
         round={!displayNewIconButtons}
+        textProps={{
+          ellipsis: false,
+        }}
       />
       {displayNewIconButtons ? null : (
         <IconButton
@@ -377,6 +386,9 @@ const TokenButtons = ({
           onClick={() => handleBridgeOnClick(false)}
           disabled={!isBridgeChain}
           round={!displayNewIconButtons}
+          textProps={{
+            ellipsis: false,
+          }}
         />
       )}
     </Box>

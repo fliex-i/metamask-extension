@@ -84,8 +84,8 @@ a:hover {
 }
 
 body.lang-en, .lang-en * {
-  font-family: 'Noto Sans', 'Inter', Arial, sans-serif;
+  font-family: 'Noto Sans', 'Inter', Arial, sans-serif !important;
 }
 body.lang-ja, .lang-ja * {
-  font-family: 'Noto Sans JP', 'Noto Sans', 'Inter', Arial, sans-serif;
+  font-family: 'Noto Sans JP', 'Noto Sans', 'Inter', Arial, sans-serif !important;
 }
