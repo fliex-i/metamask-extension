@@ -611,6 +611,9 @@
   "autoLockTimeLimitDescription": {
     "message": "The plugin will automatically lock after a set period if you close the window or leave it open in the background (such as in full-screen mode or unused tabs)."
   },
+  "autoLockTimeLimitDescriptions": {
+    "message": "The plugin will automatically lock after a set period if you close the window or leave it open in the background (such as in full-screen mode or unused tabs)."
+  },
   "autoLockTimeLimit": {
     "message": "Auto-lock timer (minutes)"
   },
@@ -7411,5 +7414,8 @@
   },
   "warningMessage": {
     "message": "Warning: After 5 failed attempts, your wallet will be locked and you will need to unlock it via your Secret Recovery Phrase or Private Key."
+  },
+  "assetsDetails": {
+    "message": "Assets"
   }
 }

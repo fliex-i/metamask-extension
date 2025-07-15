@@ -1,6 +1,6 @@
 import React from 'react';
 import { NotificationServicesController } from '@metamask/notification-services-controller';
-import { t } from '../../../../../shared/lib/translate';
+import { useI18nContext } from '../../../../hooks/useI18nContext';
 import { type ExtractedNotification, isOfTypeNodeGuard } from '../node-guard';
 import {
   NotificationComponentType,
@@ -51,14 +51,14 @@ const isERC20Notification = isOfTypeNodeGuard([
 
 const isSent = (n: ERC20Notification) => n.type === TRIGGER_TYPES.ERC20_SENT;
 
-const title = (n: ERC20Notification) =>
+const title = (n: ERC20Notification, t: any) =>
   isSent(n) ? t('notificationItemSentTo') : t('notificationItemReceivedFrom');
 
-const getTitle = (n: ERC20Notification) => {
+const getTitle = (n: ERC20Notification, t: any) => {
   const address = shortenAddress(isSent(n) ? n.data.to : n.data.from);
   // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
   // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-  const items = createTextItems([title(n) || '', address], TextVariant.bodySm);
+  const items = createTextItems([title(n, t) || '', address], TextVariant.bodySm);
   return items;
 };
 
@@ -69,87 +69,103 @@ const getDescription = (n: ERC20Notification) => {
 
 export const components: NotificationComponent<ERC20Notification> = {
   guardFn: isERC20Notification,
-  item: ({ notification, onClick }) => (
-    <NotificationListItem
-      id={notification.id}
-      isRead={notification.isRead}
-      icon={{
-        type: NotificationListItemIconType.Token,
-        value: notification.data.token.image,
-        badge: {
-          icon: isSent(notification)
-            ? IconName.Arrow2UpRight
-            : IconName.Received,
-          position: BadgeWrapperPosition.bottomRight,
-        },
-      }}
-      title={getTitle(notification)}
-      description={getDescription(notification)}
-      createdAt={new Date(notification.createdAt)}
-      amount={`${getAmount(
-        notification.data.token.amount,
-        notification.data.token.decimals,
-        {
-          shouldEllipse: true,
-        },
-      )} ${notification.data.token.symbol}`}
-      onClick={onClick}
-    />
-  ),
-  details: {
-    title: ({ notification }) => (
-      <NotificationDetailTitle
-        title={`${
-          isSent(notification)
-            ? t('notificationItemSent')
-            : t('notificationItemReceived')
-        } ${notification.data.token.symbol}`}
-        date={formatIsoDateString(notification.createdAt)}
+  item: ({ notification, onClick }) => {
+    const t = useI18nContext();
+    return (
+      <NotificationListItem
+        id={notification.id}
+        isRead={notification.isRead}
+        icon={{
+          type: NotificationListItemIconType.Token,
+          value: notification.data.token.image,
+          badge: {
+            icon: isSent(notification)
+              ? IconName.Arrow2UpRight
+              : IconName.Received,
+            position: BadgeWrapperPosition.bottomRight,
+          },
+        }}
+        title={getTitle(notification, t)}
+        description={getDescription(notification)}
+        createdAt={new Date(notification.createdAt)}
+        amount={`${getAmount(
+          notification.data.token.amount,
+          notification.data.token.decimals,
+          {
+            shouldEllipse: true,
+          },
+        )} ${notification.data.token.symbol}`}
+        onClick={onClick}
       />
-    ),
+    );
+  },
+  details: {
+    title: ({ notification }) => {
+      const t = useI18nContext();
+      return (
+        <NotificationDetailTitle
+          title={`${
+            isSent(notification)
+              ? t('notificationItemSent')
+              : t('notificationItemReceived')
+          } ${notification.data.token.symbol}`}
+          date={formatIsoDateString(notification.createdAt)}
+        />
+      );
+    },
     body: {
       type: NotificationComponentType.OnChainBody,
-      From: ({ notification }) => (
-        <NotificationDetailAddress
-          side={`${t('notificationItemFrom')}${
-            isSent(notification) ? ` (${t('you')})` : ''
-          }`}
-          address={notification.data.from}
-        />
-      ),
-      To: ({ notification }) => (
-        <NotificationDetailAddress
-          side={`${t('notificationItemTo')}${
-            isSent(notification) ? '' : ` (${t('you')})`
-          }`}
-          address={notification.data.to}
-        />
-      ),
-      Status: ({ notification }) => (
-        <NotificationDetailInfo
-          icon={{
-            iconName: IconName.Check,
-            color: TextColor.successDefault,
-            backgroundColor: BackgroundColor.successMuted,
-          }}
-          // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-          // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-          label={t('notificationItemStatus') || ''}
-          // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-          // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-          detail={t('notificationItemConfirmed') || ''}
-          action={
-            <NotificationDetailCopyButton
-              notification={notification}
-              text={notification.tx_hash}
-              // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-              // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-              displayText={t('notificationItemTransactionId') || ''}
-            />
-          }
-        />
-      ),
+      From: ({ notification }) => {
+        const t = useI18nContext();
+        return (
+          <NotificationDetailAddress
+            side={`${t('notificationItemFrom')}${
+              isSent(notification) ? ` (${t('you')})` : ''
+            }`}
+            address={notification.data.from}
+          />
+        );
+      },
+      To: ({ notification }) => {
+        const t = useI18nContext();
+        return (
+          <NotificationDetailAddress
+            side={`${t('notificationItemTo')}${
+              isSent(notification) ? '' : ` (${t('you')})`
+            }`}
+            address={notification.data.to}
+          />
+        );
+      },
+      Status: ({ notification }) => {
+        const t = useI18nContext();
+        return (
+          <NotificationDetailInfo
+            icon={{
+              iconName: IconName.Check,
+              color: TextColor.successDefault,
+              backgroundColor: BackgroundColor.successMuted,
+            }}
+            // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+            label={t('notificationItemStatus') || ''}
+            // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+            detail={t('notificationItemConfirmed') || ''}
+            action={
+              <NotificationDetailCopyButton
+                notification={notification}
+                text={notification.tx_hash}
+                // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+                // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+                displayText={t('notificationItemTransactionId') || ''}
+              />
+            }
+          />
+        );
+      },
       Asset: ({ notification }) => {
+        const t = useI18nContext();
         const { nativeCurrencyLogo } = getNetworkDetailsByChainId(
           notification.chain_id,
         );
@@ -164,7 +180,7 @@ export const components: NotificationComponent<ERC20Notification> = {
             }}
             // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
             // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-            label={t('asset') || ''}
+            label={t('assetsDetails') || ''}
             detail={notification.data.token.symbol}
             fiatValue={`$${getUsdAmount(
               notification.data.token.amount,
@@ -182,6 +198,7 @@ export const components: NotificationComponent<ERC20Notification> = {
         );
       },
       Network: ({ notification }) => {
+        const t = useI18nContext();
         const { nativeCurrencyLogo, nativeCurrencyName } =
           getNetworkDetailsByChainId(notification.chain_id);
 

@@ -171,7 +171,7 @@ export const components: NotificationComponent<ETHNotification> = {
             }}
             // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
             // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-            label={t('asset') || ''}
+            label={t('assetsDetails') || ''}
             detail={nativeCurrencySymbol}
             fiatValue={`$${formatAmount(
               parseFloat(notification.data.amount.usd),

@@ -1,13 +1,11 @@
 import React from 'react';
 import { NotificationServicesController } from '@metamask/notification-services-controller';
-import { t } from '../../../../../shared/lib/translate';
-
+import { useI18nContext } from '../../../../hooks/useI18nContext';
 import { type ExtractedNotification, isOfTypeNodeGuard } from '../node-guard';
 import {
   NotificationComponentType,
   type NotificationComponent,
 } from '../types/notifications/notifications';
-
 import { shortenAddress } from '../../../../helpers/utils/util';
 import {
   createTextItems,
@@ -28,8 +26,8 @@ import {
   NotificationDetailNetworkFee,
   NotificationDetailBlockExplorerButton,
   NotificationDetailTitle,
-  NotificationDetailNft,
   NotificationDetailCollection,
+  NotificationDetailNft,
 } from '../../../../components/multichain';
 import { NotificationListItemIconType } from '../../../../components/multichain/notification-list-item-icon/notification-list-item-icon';
 import {
@@ -48,23 +46,26 @@ const isERC721Notification = isOfTypeNodeGuard([
   TRIGGER_TYPES.ERC721_SENT,
 ]);
 
-const isSent = (n: ERC721Notification) => n.type === TRIGGER_TYPES.ERC721_SENT;
-const title = (n: ERC721Notification) =>
+const isSent = (n: ERC721Notification) =>
+  n.type === TRIGGER_TYPES.ERC721_SENT;
+const title = (n: ERC721Notification, t: any) =>
   isSent(n)
     ? t('notificationItemNFTSentTo')
     : t('notificationItemNFTReceivedFrom');
 
-const getTitle = (n: ERC721Notification) => {
+const getTitle = (n: ERC721Notification, t: any) => {
   const address = shortenAddress(isSent(n) ? n.data.to : n.data.from);
   // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
   // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-  const items = createTextItems([title(n) || '', address], TextVariant.bodySm);
+  const items = createTextItems([title(n, t) || '', address], TextVariant.bodySm);
   return items;
 };
 
 const getDescription = (n: ERC721Notification) => {
   const items = createTextItems(
-    [n.data.nft.collection.name],
+    // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+    [n.data.nft?.collection.name || ''],
     TextVariant.bodyMd,
   );
   return items;
@@ -73,13 +74,18 @@ const getDescription = (n: ERC721Notification) => {
 export const components: NotificationComponent<ERC721Notification> = {
   guardFn: isERC721Notification,
   item: ({ notification, onClick }) => {
+    const t = useI18nContext();
     return (
       <NotificationListItem
         id={notification.id}
         isRead={notification.isRead}
         icon={{
-          type: NotificationListItemIconType.Nft,
-          value: notification.data.nft.image,
+          type: notification.data.nft?.image
+            ? NotificationListItemIconType.Nft
+            : NotificationListItemIconType.Token,
+          // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+          // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+          value: notification.data.nft?.image || 'http://foo.com/bar.png',
           badge: {
             icon: isSent(notification)
               ? IconName.Arrow2UpRight
@@ -87,16 +93,19 @@ export const components: NotificationComponent<ERC721Notification> = {
             position: BadgeWrapperPosition.bottomRight,
           },
         }}
-        title={getTitle(notification)}
+        title={getTitle(notification, t)}
         description={getDescription(notification)}
         createdAt={new Date(notification.createdAt)}
-        amount={`#${notification.data.nft.token_id}`}
+        // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+        amount={notification.data.nft?.token_id || ''}
         onClick={onClick}
       />
     );
   },
   details: {
     title: ({ notification }) => {
+      const t = useI18nContext();
       return (
         <NotificationDetailTitle
           title={`${
@@ -116,62 +125,81 @@ export const components: NotificationComponent<ERC721Notification> = {
         return (
           <NotificationDetailNft
             networkSrc={nativeCurrencyLogo}
-            tokenId={notification.data.nft.token_id}
-            tokenName={notification.data.nft.name}
-            tokenSrc={notification.data.nft.image}
+            // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+            tokenId={notification.data.nft?.token_id || ''}
+            // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+            tokenName={notification.data.nft?.name || ''}
+            // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+            tokenSrc={notification.data.nft?.image || ''}
             networkName={nativeCurrencyName}
           />
         );
       },
-      From: ({ notification }) => (
-        <NotificationDetailAddress
-          side={`${t('notificationItemFrom')}${
-            isSent(notification) ? ` (${t('you')})` : ''
-          }`}
-          address={notification.data.from}
-        />
-      ),
-      To: ({ notification }) => (
-        <NotificationDetailAddress
-          side={`${t('notificationItemTo')}${
-            isSent(notification) ? '' : ` (${t('you')})`
-          }`}
-          address={notification.data.to}
-        />
-      ),
-      Status: () => (
-        <NotificationDetailInfo
-          icon={{
-            iconName: IconName.Check,
-            color: TextColor.successDefault,
-            backgroundColor: BackgroundColor.successMuted,
-          }}
-          // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-          // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-          label={t('notificationItemStatus') || ''}
-          // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
-          // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-          detail={t('notificationItemConfirmed') || ''}
-        />
-      ),
+      From: ({ notification }) => {
+        const t = useI18nContext();
+        return (
+          <NotificationDetailAddress
+            side={`${t('notificationItemFrom')}${
+              isSent(notification) ? ` (${t('you')})` : ''
+            }`}
+            address={notification.data.from}
+          />
+        );
+      },
+      To: ({ notification }) => {
+        const t = useI18nContext();
+        return (
+          <NotificationDetailAddress
+            side={`${t('notificationItemTo')}${
+              isSent(notification) ? '' : ` (${t('you')})`
+            }`}
+            address={notification.data.to}
+          />
+        );
+      },
+      Status: () => {
+        const t = useI18nContext();
+        return (
+          <NotificationDetailInfo
+            icon={{
+              iconName: IconName.Check,
+              color: TextColor.successDefault,
+              backgroundColor: BackgroundColor.successMuted,
+            }}
+            // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+            label={t('notificationItemStatus') || ''}
+            // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+            detail={t('notificationItemConfirmed') || ''}
+          />
+        );
+      },
       Asset: ({ notification }) => {
+        const t = useI18nContext();
         const { nativeCurrencyLogo } = getNetworkDetailsByChainId(
           notification.chain_id,
         );
         return (
           <NotificationDetailCollection
             icon={{
-              src: notification.data.nft.image,
+              // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+              // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+              src: notification.data.nft?.image || '',
               badgeSrc: nativeCurrencyLogo,
             }}
             // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
             // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
             label={t('notificationItemCollection') || ''}
-            collection={`${notification.data.nft.collection.name} (${notification.data.nft.token_id})`}
+            collection={`${notification.data.nft?.collection.name} (${notification.data.nft?.token_id})`}
           />
         );
       },
       Network: ({ notification }) => {
+        const t = useI18nContext();
         const { nativeCurrencyLogo, nativeCurrencyName } =
           getNetworkDetailsByChainId(notification.chain_id);
 
