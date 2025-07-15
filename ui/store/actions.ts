@@ -3565,6 +3565,10 @@ export function setAutoLockTimeLimit(value: number | null) {
   return setPreference('autoLockTimeLimit', value);
 }
 
+export function setSystemIdleLockEnabled(value: boolean) {
+  return setPreference('systemIdleLockEnabled', value);
+}
+
 export function setCompletedOnboarding(): ThunkAction<
   void,
   MetaMaskReduxState,

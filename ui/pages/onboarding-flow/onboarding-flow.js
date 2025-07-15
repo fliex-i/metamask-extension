@@ -78,6 +78,7 @@ import OnboardingAppHeader from './onboarding-app-header/onboarding-app-header';
 import { WelcomePageState } from './welcome/types';
 import AccountExist from './account-exist/account-exist';
 import AccountNotFound from './account-not-found/account-not-found';
+import { getLocale } from '../../selectors/selectors';
 
 // const TWITTER_URL = 'https://twitter.com/MetaMask';
 
@@ -94,6 +95,7 @@ export default function OnboardingFlow() {
   // const trackEvent = useContext(MetaMetricsContext);
   const isUnlocked = useSelector(getIsUnlocked);
   const showTermsOfUse = useSelector(getShowTermsOfUse);
+  const currentLocale = useSelector(getLocale);
 
   const envType = getEnvironmentType();
   const isPopup = envType === ENVIRONMENT_TYPE_POPUP;
@@ -190,17 +192,23 @@ export default function OnboardingFlow() {
           welcomePageState === WelcomePageState.Login,
       })}
     >
-      {!isPopup && (
-        <Box
-          className="onboarding-flow--welcome-login__service"
-          type="link"
-          as="a"
-          href="https://www.crypto-bridge.co/jp/#support"
+      {!isPopup ? (
+        <a
+          href={
+            currentLocale === 'en'
+              ? 'https://www.crypto-bridge.co/#support'
+              : 'https://www.crypto-bridge.co/jp/#support'
+          }
           target="_blank"
+          rel="noopener noreferrer"
+          className="onboarding-flow--welcome-login__support"
         >
-          <img src="./images/cryptobridge/service.svg" width="20" height="20" />
-        </Box>
-      )}
+          <img
+            src="/images/home/support.svg"
+            alt="Support"
+          />
+        </a>
+      ) : null}
       {!isPopup && <OnboardingAppHeader pageState={welcomePageState} />}
       <RevealSRPModal
         setSecretRecoveryPhrase={setSecretRecoveryPhrase}

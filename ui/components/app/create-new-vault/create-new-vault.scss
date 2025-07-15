@@ -23,4 +23,9 @@
     margin-top: 16px;
     width: 100%
   }
+
+  &__change-new-password {
+    margin-top: 16px;
+    color: var(--color-error-default);
+  }
 }

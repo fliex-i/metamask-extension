@@ -1,13 +1,26 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+<<<<<<< HEAD
 import { Box, Text } from '../../components/component-library';
+=======
+import {
+  Box,
+  Text,
+  Modal,
+  ModalOverlay,
+} from '../../components/component-library';
+import { ModalContent } from '../../components/component-library/modal-content/deprecated';
+import { ModalHeader } from '../../components/component-library/modal-header';
+>>>>>>> e14fa689de (feat: update ui)
 import {
   setCurrentCurrency,
   lockMetamask,
   updateCurrentLocale,
 } from '../../store/actions';
+import AutoLockModal from '../../components/auto-lock-modal/auto-lock-modal';
 import availableCurrencies from '../../helpers/constants/available-conversions.json';
+import availableCurrenciesJp from '../../helpers/constants/available-conversions-jp.json';
 import Dropdown from '../../components/ui/dropdown';
 import {
   DEFAULT_ROUTE,
@@ -18,6 +31,19 @@ import { getCurrentLocale } from '../../ducks/locale/locale';
 // eslint-disable-next-line import/no-restricted-paths
 import locales from '../../../app/_locales/index.json';
 import { useI18nContext } from '../../hooks/useI18nContext';
+<<<<<<< HEAD
+=======
+import { MetaMetricsContext } from '../../contexts/metametrics';
+import {
+  MetaMetricsEventCategory,
+  MetaMetricsEventName,
+  MetaMetricsEventAccountType,
+} from '../../../shared/constants/metametrics';
+import { getHDEntropyIndex } from '../../selectors/selectors';
+import { Display, FlexDirection } from '../../helpers/constants/design-system';
+import { ImportAccount } from '../../components/multichain/import-account';
+import { getCurrentCurrency } from '../../ducks/metamask/metamask';
+>>>>>>> e14fa689de (feat: update ui)
 
 type Item = {
   name: string | null;
@@ -36,6 +62,7 @@ type TabItem = {
 const SettingsPage: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+<<<<<<< HEAD
 
   const sortedCurrencies = availableCurrencies.sort((a, b) => {
     return a.name.toLocaleLowerCase().localeCompare(b.name.toLocaleLowerCase());
@@ -48,7 +75,30 @@ const SettingsPage: React.FC = () => {
     };
   });
 
+=======
+  const trackEvent = useContext(MetaMetricsContext);
+>>>>>>> e14fa689de (feat: update ui)
   const currentLocale = useSelector(getCurrentLocale);
+
+  useEffect(() => {}, [currentLocale]);
+  const sortedCurrencies = useMemo(() => {
+    return currentLocale === 'ja'
+      ? availableCurrenciesJp
+      : availableCurrencies.sort((a, b) => {
+          return a.name
+            .toLocaleLowerCase()
+            .localeCompare(b.name.toLocaleLowerCase());
+        });
+  }, [currentLocale]);
+
+  const currencyOptions = useMemo(() => {
+    return sortedCurrencies.map(({ code, name }) => {
+      return {
+        name: `${code.toUpperCase()}`,
+        value: code,
+      };
+    });
+  }, [sortedCurrencies]);
   const localeOptions = locales.map((locale: { [key: string]: string }) => {
     return {
       name: `${locale.name}`,
@@ -56,11 +106,38 @@ const SettingsPage: React.FC = () => {
     };
   });
   const t = useI18nContext();
-  const updateLocale = (newLocale: string) => {
-    dispatch(updateCurrentLocale(newLocale));
+  const updateLocale = async (newLocale: string) => {
+    try {
+      await dispatch(updateCurrentLocale(newLocale));
+    } catch (error) {
+      console.error('Error updating locale:', error);
+    }
   };
+<<<<<<< HEAD
+=======
+  const [isOpen, setIsOpen] = useState(false);
+  const [isAutoLockModalOpen, setIsAutoLockModalOpen] = useState(false);
+  const hdEntropyIndex = useSelector(getHDEntropyIndex);
 
-  const [currency, setCurrency] = useState(currencyOptions[0].value);
+  const currentCurrency = useSelector(getCurrentCurrency);
+
+  const onActionComplete = useCallback(async (confirmed: boolean) => {
+    if (confirmed) {
+      trackEvent({
+        category: MetaMetricsEventCategory.Navigation,
+        event: MetaMetricsEventName.AccountAddSelected,
+        properties: {
+          account_type: MetaMetricsEventAccountType.Imported,
+          location: 'Main Menu',
+          hd_entropy_index: hdEntropyIndex,
+        },
+      });
+      dispatch(setCompletedOnboarding());
+      history.push(DEFAULT_ROUTE);
+    }
+    setIsOpen(false);
+  }, []);
+>>>>>>> e14fa689de (feat: update ui)
 
   const tabs: TabItem[] = useMemo(
     () => [
@@ -97,7 +174,6 @@ const SettingsPage: React.FC = () => {
             name: t('addressBook'),
             icon: './images/setting/addressBook.svg',
             onClick: () => {
-              console.log('come here');
               history.push(CONTACT_LIST_ROUTE);
             },
           },
@@ -121,10 +197,11 @@ const SettingsPage: React.FC = () => {
       {
         label: t('security'),
         items: [
-          // {
-          //   name: t('autoLock'),
-          //   icon: './images/setting/auto-lock.svg',
-          // },
+          {
+            name: t('autoLock'),
+            icon: './images/setting/auto-lock.svg',
+            onClick: () => setIsAutoLockModalOpen(true),
+          },
           {
             name: t('changePassword'),
             icon: './images/setting/password.svg',
@@ -176,14 +253,14 @@ const SettingsPage: React.FC = () => {
         ],
       },
     ],
-    [currentLocale],
+    [currentLocale, t],
   );
   const updateCurrency = (newCurrency: string) => {
     dispatch(setCurrentCurrency(newCurrency));
-    setCurrency(newCurrency);
   };
 
   return (
+<<<<<<< HEAD
     <Box className="settings-page">
       <Box className="settings-page__tabs">
         {tabs.map((tab, index) => (
@@ -274,11 +351,120 @@ const SettingsPage: React.FC = () => {
                   )}
                 </Box>
               ))}
+=======
+    <>
+      <Box className="settings-page">
+        <Box className="settings-page__tabs">
+          {tabs.map((tab, index) => (
+            <Box key={index} className="settings-page__tabs__tab">
+              {tab.label && (
+                <Text className="settings-page__tabs__tab__label">
+                  {tab.label &&
+                    tab.label.charAt(0).toUpperCase() + tab.label.slice(1)}
+                </Text>
+              )}
+              <Box className="settings-page__tabs__tab__items">
+                {tab.items.map((item, _key) => (
+                  <Box
+                    key={_key}
+                    className="settings-page__tabs__tab__items-item"
+                    onClick={item.onClick ? () => item.onClick?.() : undefined}
+                  >
+                    {item.link ? (
+                      <Box
+                        as="a"
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Box as="img" src={item.icon} alt={''} />
+                        {item.name && (
+                          <Box className="settings-page__tabs__tab__items-item__center">
+                            <Text as="span">{item.name}</Text>
+                          </Box>
+                        )}
+                        <Box
+                          as="img"
+                          src="./images/setting/arrow-right.svg"
+                          alt="arrow"
+                        />
+                      </Box>
+                    ) : (
+                      <>
+                        <Box
+                          as="img"
+                          src={item.icon}
+                          alt={''}
+                          className="settings-page__tabs__tab__items-item--icon"
+                        />
+                        <Box className="settings-page__tabs__tab__items-item__center">
+                          {item.name && (
+                            <Text
+                              as="span"
+                              className={
+                                item.dontNeedRightIcon ? 'addWeight' : ''
+                              }
+                            >
+                              {item.name}
+                            </Text>
+                          )}
+                          {item.currency && (
+                            <Dropdown
+                              data-testid="currency-select"
+                              options={currencyOptions}
+                              selectedOption={currentCurrency}
+                              onChange={(newCurrency) => {
+                                if (newCurrency === '日本円') {
+                                  updateCurrency('jpy');
+                                } else {
+                                  updateCurrency(newCurrency);
+                                }
+                              }}
+                              className="center__dropdown"
+                            />
+                          )}
+                          {item.isLanguage && (
+                            <Dropdown
+                              data-testid="locale-select"
+                              options={localeOptions}
+                              className="center__dropdown"
+                              selectedOption={currentLocale}
+                              onChange={async (newLocale) =>
+                                updateLocale(newLocale)
+                              }
+                            />
+                          )}
+                        </Box>
+                        {!item.currency && !item.isLanguage &&
+                          !item.dontNeedRightIcon && (
+                            <Box
+                              as="img"
+                              src="./images/setting/arrow-right.svg"
+                              alt="arrow"
+                            />
+                          )}
+                      </>
+                    )}
+                  </Box>
+                ))}
+              </Box>
+>>>>>>> e14fa689de (feat: update ui)
             </Box>
           </Box>
+<<<<<<< HEAD
         ))}
       </Box>
     </Box>
+=======
+        </ModalContent>
+      </Modal>
+
+      <AutoLockModal
+        isOpen={isAutoLockModalOpen}
+        onClose={() => setIsAutoLockModalOpen(false)}
+      />
+    </>
+>>>>>>> e14fa689de (feat: update ui)
   );
 };
 

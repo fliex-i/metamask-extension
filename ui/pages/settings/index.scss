@@ -534,3 +534,14 @@
     text-align: right;
   }
 }
+
+
+
+
+.toggle-switch {
+  transition: all 0.2s ease;
+}
+
+.toggle-switch:hover {
+  opacity: 0.8;
+}

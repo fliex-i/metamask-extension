@@ -16,6 +16,8 @@ import {
   Icon,
   IconName,
   IconSize,
+  ButtonIcon,
+  ButtonIconSize,
 } from '../../components/component-library';
 import { IconColor, Size } from '../../helpers/constants/design-system';
 import EditContact from './edit-contact';
@@ -112,7 +114,7 @@ export default class ContactListTab extends Component {
               history.push(CONTACT_ADD_ROUTE);
             }}
           >
-            + {t('addContact')}
+            {t('addContact')}
           </button>
         </div>
       </div>
@@ -160,6 +162,22 @@ export default class ContactListTab extends Component {
     );
   }
 
+  renderBackButton() {
+    const { history } = this.props;
+    const { t } = this.context;
+    return (
+      <div style={{ position: 'absolute', top: 16, left: 16, zIndex: 10 }}>
+        <ButtonIcon
+          iconName={IconName.ArrowLeft}
+          ariaLabel={t('back')}
+          size={ButtonIconSize.Sm}
+          onClick={() => history.goBack()}
+          style={{ background: '#EDEDED', borderRadius: '99px' }}
+        />
+      </div>
+    );
+  }
+
   renderAddressBookContent() {
     const { hideAddressBook } = this.props;
 
@@ -182,7 +200,8 @@ export default class ContactListTab extends Component {
       : addressBook;
 
     return (
-      <div className="address-book-wrapper">
+      <div className="address-book-wrapper" style={{ position: 'relative' }}>
+        {this.renderBackButton()}
         {this.renderAddressBookContent()}
         {this.renderContactContent()}
         {currentPath === CONTACT_LIST_ROUTE &&

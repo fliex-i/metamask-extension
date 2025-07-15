@@ -82,3 +82,10 @@ a:hover {
 * {
   font-family: design-system.$font-family;
 }
+
+body.lang-en, .lang-en * {
+  font-family: 'Noto Sans', 'Inter', Arial, sans-serif;
+}
+body.lang-ja, .lang-ja * {
+  font-family: 'Noto Sans JP', 'Noto Sans', 'Inter', Arial, sans-serif;
+}

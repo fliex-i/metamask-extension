@@ -58,6 +58,13 @@
 
   &__copy-button {
     cursor: pointer;
+    height: 48px;
+    width: 200px;
+    border: 1px solid var(--color-primary-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
   }
 
   &__error {

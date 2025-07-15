@@ -15,6 +15,24 @@ import { MetamaskIdentityProvider } from '../contexts/identity';
 import ErrorPage from './error-page/error-page.component';
 
 import Routes from './routes';
+import { useSelector } from 'react-redux';
+import { getIntlLocale } from '../ducks/locale/locale';
+import { useEffect } from 'react';
+
+// 新增：字体切换管理组件
+function LocaleFontClassManager() {
+  const locale = useSelector(getIntlLocale);
+  useEffect(() => {
+    if (locale && locale.startsWith('ja')) {
+      document.body.classList.add('lang-ja');
+      document.body.classList.remove('lang-en');
+    } else {
+      document.body.classList.add('lang-en');
+      document.body.classList.remove('lang-ja');
+    }
+  }, [locale]);
+  return null;
+}
 
 class Index extends PureComponent {
   state = {};
@@ -36,6 +54,7 @@ class Index extends PureComponent {
         <Provider store={store}>
           <I18nProvider>
             <LegacyI18nProvider>
+              <LocaleFontClassManager />
               <ErrorPage error={error} />
             </LegacyI18nProvider>
           </I18nProvider>
@@ -51,6 +70,7 @@ class Index extends PureComponent {
               <LegacyMetaMetricsProvider>
                 <I18nProvider>
                   <LegacyI18nProvider>
+                    <LocaleFontClassManager />
                     <AssetPollingProvider>
                       <MetamaskIdentityProvider>
                         <MetamaskNotificationsProvider>

@@ -23,6 +23,7 @@ import Alerts from '../../components/app/alerts';
 
 import {
   ASSET_ROUTE,
+  AUTO_LOCK_ROUTE,
   CONFIRM_ADD_SUGGESTED_TOKEN_ROUTE,
   CONFIRM_ADD_SUGGESTED_NFT_ROUTE,
   CONFIRM_TRANSACTION_ROUTE,
@@ -105,6 +106,7 @@ const RestoreVaultPage = mmLazy(() => import('../keychains/restore-vault'));
 const ImportSrpPage = mmLazy(() => import('../multi-srp/import-srp'));
 const RevealSeedConfirmation = mmLazy(() => import('../keychains/reveal-seed'));
 const Settings = mmLazy(() => import('../settings'));
+
 const NotificationsSettings = mmLazy(() => import('../notifications-settings'));
 const NotificationDetails = mmLazy(() => import('../notification-details'));
 const Notifications = mmLazy(() => import('../notifications'));

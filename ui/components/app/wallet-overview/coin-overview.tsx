@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from 'react';
+import React, { useContext, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classnames from 'classnames';
 import { CaipChainId } from '@metamask/utils';
@@ -62,6 +62,8 @@ import {
   AggregatedPercentageOverview,
 } from './aggregated-percentage-overview';
 import { AggregatedPercentageOverviewCrossChains } from './aggregated-percentage-overview-cross-chains';
+import { multichainUpdateBalance } from '../../../store/actions';
+import { submitRequestToBackground } from '../../../store/background-connection';
 
 export type CoinOverviewProps = {
   account: InternalAccount;
@@ -203,9 +205,57 @@ export const CoinOverview = ({
 
   const tokensMarketData = useSelector(getTokensMarketData);
 
+  // Add refresh state
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
   const handleSensitiveToggle = () => {
     dispatch(setPrivacyMode(!privacyMode));
   };
+
+  // Add refresh balance handler
+  const handleRefreshBalance = useCallback(async () => {
+    if (isRefreshing) return; // Prevent multiple simultaneous refreshes
+
+    setIsRefreshing(true);
+
+    try {
+      // Call the appropriate balance update method based on network type
+      if (isEvm) {
+        // For EVM networks, trigger a balance refresh through the background
+        // This will update both native token and ERC20 token balances
+        await dispatch(multichainUpdateBalance(account.id));
+
+        // Also trigger account tracker update for EVM networks
+        // This ensures native token balances are updated
+        try {
+          await submitRequestToBackground('updateAccounts', []);
+        } catch (error) {
+          console.warn('Failed to update accounts:', error);
+        }
+      } else {
+        // For non-EVM networks, use the multichain update method
+        await dispatch(multichainUpdateBalance(account.id));
+      }
+
+      // Track the refresh event
+      trackEvent({
+        category: MetaMetricsEventCategory.Navigation,
+        event: MetaMetricsEventName.PortfolioLinkClicked, // Using existing event for now
+        properties: {
+          location: 'Home',
+          networkType: isEvm ? 'EVM' : 'Non-EVM',
+          action: 'balance_refresh',
+        },
+      });
+    } catch (error) {
+      console.error('Failed to refresh balance:', error);
+    } finally {
+      // Add a minimum delay to show the animation
+      setTimeout(() => {
+        setIsRefreshing(false);
+      }, 1000);
+    }
+  }, [isRefreshing, isEvm, account.id, dispatch, trackEvent]);
 
   const handlePortfolioOnClick = useCallback(() => {
     const url = getPortfolioUrl(
@@ -290,7 +340,25 @@ export const CoinOverview = ({
           disabled={!balanceIsCached}
         >
           <div className={`${classPrefix}-overview__balance`}>
+<<<<<<< HEAD
             <div className={`${classPrefix}-overview__total-title`}>{t('totalBalance')}</div>
+=======
+            <div className={`${classPrefix}-overview__total-title`}>
+              {t('totalBalance')}{' '}
+              <img
+                src="/images/home/reload.svg"
+                alt=""
+                className={classnames(`${classPrefix}-overview__reload-icon`, {
+                  [`${classPrefix}-overview__reload-icon--spinning`]: isRefreshing,
+                })}
+                style={{ cursor: 'pointer' }}
+                width={20}
+                height={20}
+                onClick={handleRefreshBalance}
+                data-testid="refresh-balance-button"
+              />
+            </div>
+>>>>>>> e14fa689de (feat: update ui)
             <div className={`${classPrefix}-overview__primary-container`}>
               {isEvm ? (
                 <LegacyAggregatedBalance

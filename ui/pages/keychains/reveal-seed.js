@@ -356,7 +356,7 @@ export default function RevealSeedPage() {
       paddingRight={4}
       gap={4}
     >
-      <Text variant={TextVariant.headingLg}>{t('secretRecoveryPhrase')}</Text>
+      <Text variant={TextVariant.headingLg}>{t('secretRecoveryPhraseDescription')}</Text>
       <Text variant={TextVariant.bodyMd}>
         {t('revealSeedWordsDescription1', [
           <Button

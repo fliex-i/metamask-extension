@@ -49,10 +49,14 @@
       gap: 5px;
       background: var(--color-primary-attention-bank);
     }
+    .tips-home-des{
+      font-size: 14px;
+      line-height: 20px;
+    }
     .tips-bank-content {
       display: flex;
       align-items: flex-start;
-      padding: 8px 16px;
+      padding: 8px 40px 8px 16px;
       gap: 10px;
       background: var(--color-primary-attention-bank);
       flex-flow: row wrap;
@@ -69,6 +73,7 @@
       display: flex;
       align-items: flex-start;
       gap: 5px;
+      font-size: 14px;
     }
     .tips-bank-des {
       display: flex;

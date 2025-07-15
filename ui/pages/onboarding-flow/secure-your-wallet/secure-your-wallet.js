@@ -3,7 +3,6 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import {
-  TextAlign,
   TextVariant,
   JustifyContent,
   AlignItems,
@@ -24,7 +23,6 @@ import {
   Button,
   Text,
   ButtonSize,
-  // ButtonVariant,
   ButtonLink,
   ButtonLinkSize,
 } from '../../../components/component-library';
@@ -69,16 +67,6 @@ export default function SecureYourWallet() {
     history.push(`${ONBOARDING_REVIEW_SRP_ROUTE}${isFromReminderParam}`);
   };
 
-  // const handleClickNotRecommended = () => {
-  //   trackEvent({
-  //     category: MetaMetricsEventCategory.Onboarding,
-  //     event: MetaMetricsEventName.OnboardingWalletSecuritySkipInitiated,
-  //     properties: {
-  //       hd_entropy_index: hdEntropyIndex,
-  //     },
-  //   });
-  //   setShowSkipSRPBackupPopover(true);
-  // };
   const items = [
     t('secureWalletWalletSaveSrp', [
       [
@@ -95,8 +83,8 @@ export default function SecureYourWallet() {
     t('secureWalletWalletSaveSrp3'),
     t('secureWalletWalletSaveSrp4'),
     t('secureWalletWalletSaveSrp5'),
-    t('secureWalletWalletSaveSrp6'),
   ];
+
   return (
     <Box
       display={Display.Flex}
@@ -130,39 +118,25 @@ export default function SecureYourWallet() {
             {t('seedPhraseIntroTitle')}
           </Text>
         </Box>
-        <Box
-          className="secure-your-wallet__srp-design-container"
-          marginBottom={6}
-          width={BlockSize.Full}
-          textAlign={TextAlign.Center}
-        >
-          <img
-            className="secure-your-wallet__srp-design-image"
-            src="./images/srp-lock-design.png"
-            alt={t('srpDesignImageAlt')}
-          />
-        </Box>
         <Box>
-          {items.map((item, index) => {
-            return (
-              <>
-                {item && (
-                  <Text
-                    key={index}
-                    color={TextColor.textAlternative}
-                    marginBottom={6}
-                    as="div"
-                  >
-                    {item}
-                  </Text>
-                )}
-              </>
-            );
-          })}
-
-          {/* <Text color={TextColor.textAlternative}>
-            {t('secureWalletWalletRecover')}
-          </Text> */}
+          {items.map((item, index) => (
+            <Box
+              key={index}
+              display={Display.Flex}
+              alignItems={AlignItems.center}
+              marginBottom={6}
+              gap={3}
+            >
+              <img
+                src={`./images/home/secure${index + 1}.png`}
+                alt=""
+                style={{ width: 36, height: 36 }}
+              />
+              <Text color={TextColor.textAlternative} as="div">
+                {item}
+              </Text>
+            </Box>
+          ))}
         </Box>
       </Box>
 
@@ -180,15 +154,6 @@ export default function SecureYourWallet() {
         >
           {t('secureWalletGetStartedButton')}
         </Button>
-        {/* <Button
-          data-testid="secure-wallet-later"
-          variant={ButtonVariant.Secondary}
-          size={ButtonSize.Lg}
-          block
-          onClick={handleClickNotRecommended}
-        >
-          {t('secureWalletRemindLaterButton')}
-        </Button> */}
       </Box>
     </Box>
   );

@@ -121,6 +121,7 @@ const AccountOverviewNetworkPicker = () => {
                 position: 'static',
                 cursor: 'pointer',
               }}
+              showToast={false}
             />
           </Tooltip>
         )}

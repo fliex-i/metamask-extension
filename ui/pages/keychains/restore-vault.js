@@ -79,7 +79,7 @@ class RestoreVaultPage extends Component {
               {t('resetWalletSubHeader')}
             </Text>
 
-            <Text color={TextColor.textDefault} margin={0} marginBottom={4}>
+            <Text color={TextColor.textDefault} marginTop={4} marginBottom={4}>
               {t('resetWalletWarning')}
             </Text>
             <CreateNewVault
