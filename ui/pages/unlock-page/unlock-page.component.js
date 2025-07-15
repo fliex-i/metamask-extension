@@ -151,7 +151,7 @@ export default class UnlockPage extends Component {
           attemptError = `${this.context.t('attempts')}` + warningMessage;
         } else if (newFailedAttempts < maxAttempts) {
           const attemptsMessage = this.context.t('maxAttempts', [
-            newFailedAttempts,
+            maxAttempts - newFailedAttempts,
           ]);
           attemptError = attemptsMessage + warningMessage;
         } else {
