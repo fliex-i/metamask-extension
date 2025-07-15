@@ -357,7 +357,11 @@ export default function RevealSeedPage() {
       paddingRight={4}
       gap={4}
     >
-      <Text variant={TextVariant.headingLg}>{t('secretRecoveryPhraseDescription')}</Text>
+      <Text variant={TextVariant.headingLg}>
+        {screen === PASSWORD_PROMPT_SCREEN || !completedLongPress
+          ? t('secretRecoveryPhraseDescription')
+          : t('secretRecoveryPhraseDescription1')}
+      </Text>
       <Text variant={TextVariant.bodyMd}>
         {t('revealSeedWordsDescription1', [
           <Button

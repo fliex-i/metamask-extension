@@ -2573,7 +2573,11 @@
     "description": "Is the bolded text in 'holdToRevealContentPrivateKey2'"
   },
   "holdToRevealContentPrivateKey3": {
-    "message": "絶対に第三者と共有しないでください。CryptoBridgeカスタマーサポートがプライベートキーを求めることは決してありません。求められた場合は、怪しい可能性があります。"
+    "message": "絶対に第三者と共有しないでください。CryptoBridgeカスタマーサポートがプライベートキーを求めることは決してありません。求められた場合は、怪しい可能性があります。",
+    "description": "Is the bolded text in 'holdToRevealContentPrivateKey44'"
+  },
+  "holdToRevealContentPrivateKey44": {
+    "message": "絶対に第三者と共有しないでください。"
   },
   "holdToRevealContentPrivateKey4": {
     "message": ""
@@ -3750,13 +3754,13 @@
     "message": "受け取りました"
   },
   "notificationItemReceivedFrom": {
-    "message": "次の相手から受け取りました:"
+    "message": "送金先:"
   },
   "notificationItemSent": {
     "message": "送りました"
   },
   "notificationItemSentTo": {
-    "message": "次の相手に送りました:"
+    "message": "送金元:"
   },
   "notificationItemStakeCompleted": {
     "message": "ステーキングが完了しました"
@@ -4915,6 +4919,9 @@
   },
   "secretRecoveryPhraseDescription": {
     "message": "シークレットリカバリーフレーズ"
+  },
+  "secretRecoveryPhraseDescription1": {
+    "message": "シークレットリカバリーフレーズ: 安全な場所で保管してください。パスワードを忘れた場合や、新しいデバイスにウォレットをインポートしたい場合、シークレットリカバリーフレーズまたはプライベートキーでウォレットを復元することができます。"
   },
   "secretRecoveryPhrasePlusNumber": {
     "message": "シークレットリカバリーフレーズ$1",

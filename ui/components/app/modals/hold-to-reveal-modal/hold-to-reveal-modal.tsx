@@ -75,11 +75,11 @@ export default function HoldToRevealModal({
           ])}
         </Text>
         {t(holdToRevealContent3) && (
-          <Text variant={TextVariant.bodyMdBold}>
+          <Text variant={TextVariant.bodyMd}>
             {t(holdToRevealContent3, [
               <Text
                 key="hold-to-reveal-4"
-                variant={TextVariant.bodyMd}
+                variant={TextVariant.bodyMdBold}
                 as="span"
                 display={Display.Inline}
               >

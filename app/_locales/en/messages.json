@@ -5075,6 +5075,9 @@
   "secretRecoveryPhraseDescription": {
     "message": "Secret Recovery Phrase"
   },
+  "secretRecoveryPhraseDescription1": {
+    "message": "Keep it safe. If you forget your password or want to import your wallet to a new device, you can recover your wallet using your Secret Recovery Phrase or Private Key."
+  },
   "secretRecoveryPhrasePlusNumber": {
     "message": "Secret Recovery Phrase $1",
     "description": "The $1 is the order of the Secret Recovery Phrase"
