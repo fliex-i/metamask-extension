@@ -66,12 +66,15 @@
 
   &__sub-title {
     font-size: small;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
   }
 
   &__link {
-    background-color: transparent;
-    color: var(--color-primary-default);
+    padding: 12px 16px;
+    border-radius: 4px;
+    color: white;
+    background-color: var(--color-primary-default);
+    cursor: pointer;
   }
 
   &__input {

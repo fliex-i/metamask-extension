@@ -45,6 +45,7 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
             ariaLabel={t('back')}
             size={ButtonIconSize.Sm}
             onClick={onBack}
+            style={{ background: '#EDEDED', borderRadius: '99px' }}
             {...backButtonProps}
           />
         ))
@@ -60,6 +61,7 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
             size={ButtonIconSize.Sm}
             onClick={onClose}
             {...closeButtonProps}
+            style={{ background: '#EDEDED', borderRadius: '99px' }}
           />
         ))
       }

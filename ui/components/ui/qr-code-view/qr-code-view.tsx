@@ -142,7 +142,7 @@ function QrCodeView({
       </Text>
       <Box
         display={Display.Flex}
-        marginBottom={4}
+        marginBottom={1}
         gap={2}
         alignItems={AlignItems.center}
         color={TextColor.primaryDefault}

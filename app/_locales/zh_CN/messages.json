@@ -561,6 +561,39 @@
   "attributions": {
     "message": "参与者"
   },
+  "autoLock": {
+    "message": "自动锁定"
+  },
+  "always": {
+    "message": "始终"
+  },
+  "ifAwayFor1Min": {
+    "message": "离开1分钟后"
+  },
+  "ifAwayFor5Mins": {
+    "message": "离开5分钟后"
+  },
+  "ifAwayFor30Mins": {
+    "message": "离开30分钟后"
+  },
+  "ifAwayFor1Hr": {
+    "message": "离开1小时后"
+  },
+  "ifAwayFor4Hr": {
+    "message": "离开4小时后"
+  },
+  "never": {
+    "message": "从不"
+  },
+  "autoLockTimeLimitDescription": {
+    "message": "如果您关闭窗口或将其在后台保持打开状态（例如在全屏模式或未使用的标签页中），插件将在设定时间后自动锁定。"
+  },
+  "systemIdleLock": {
+    "message": "系统空闲锁定"
+  },
+  "systemIdleLockDescription": {
+    "message": "启用此选项后，如果没有用户活动，空闲计时器将开始计时 — 即使应用程序仍在前台打开。"
+  },
   "auroraRpcDeprecationMessage": {
     "message": "Infura RPC（远程过程调用）URL 不再支持 Aurora。"
   },
@@ -576,9 +609,6 @@
   },
   "autoLockTimeLimit": {
     "message": "自动锁定计时器（分钟）"
-  },
-  "autoLockTimeLimitDescription": {
-    "message": "设置 CryptoBridge 将被锁定前的空闲时间（单位：分钟）。"
   },
   "average": {
     "message": "平均值"

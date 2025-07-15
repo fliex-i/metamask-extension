@@ -368,7 +368,7 @@ const CoinButtons = ({
               <Icon
                 name={IconName.PlusAndMinus}
                 color={IconColor.iconDefault}
-                size={IconSize.Sm}
+                size={IconSize.Lg}
               />
             )
           }
@@ -401,7 +401,7 @@ const CoinButtons = ({
             <Icon
               name={IconName.SwapHorizontal}
               color={IconColor.iconDefault}
-              size={IconSize.Sm}
+              size={IconSize.Lg}
             />
           )
         }
@@ -461,7 +461,7 @@ const CoinButtons = ({
             <Icon
               name={IconName.Arrow2UpRight}
               color={IconColor.iconDefault}
-              size={IconSize.Sm}
+              size={IconSize.Lg}
             />
           )
         }
@@ -498,6 +498,10 @@ const CoinButtons = ({
                 setSelectedReceiveAddress(null);
                 setSelectedToken(null);
               }}
+              onBack={() => {
+                setShowReceiveModal(false);
+                setShowAssetListModal(true);
+              }}
             />
           )}
           <IconButton
@@ -514,7 +518,7 @@ const CoinButtons = ({
                 <Icon
                   name={IconName.ScanBarcode}
                   color={IconColor.iconDefault}
-                  size={IconSize.Sm}
+                  size={IconSize.Lg}
                 />
               )
             }

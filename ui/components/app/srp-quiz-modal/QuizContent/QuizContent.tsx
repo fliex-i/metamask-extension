@@ -38,7 +38,7 @@ export default function QuizContent({
           <img
             src={image}
             alt={t('srpSecurityQuizImgAlt')}
-            width="300"
+            width="200"
             style={{ maxWidth: '100%' }} // should probably be in a className instead
           />
         </Box>

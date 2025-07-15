@@ -605,6 +605,15 @@
   "attributions": {
     "message": "Attributions"
   },
+  "autoLock": {
+    "message": "Auto-lock"
+  },
+  "autoLockTimeLimitDescription": {
+    "message": "The plugin will automatically lock after a set period if you close the window or leave it open in the background (such as in full-screen mode or unused tabs)."
+  },
+  "autoLockTimeLimit": {
+    "message": "Auto-lock timer (minutes)"
+  },
   "auroraRpcDeprecationMessage": {
     "message": "The Infura RPC URL is no longer supporting Aurora."
   },
@@ -618,14 +627,33 @@
     "message": "We use third-party APIs to detect and display new tokens sent to your wallet. Turn off if you don’t want the app to automatically pull data from those services. $1",
     "description": "$1 is a link to a support article"
   },
-  "autoLock": {
-    "message": "Auto-lock"
+
+  "always": {
+    "message": "Always"
   },
-  "autoLockTimeLimit": {
-    "message": "Auto-lock timer (minutes)"
+  "ifAwayFor1Min": {
+    "message": "If away for 1 min"
   },
-  "autoLockTimeLimitDescription": {
-    "message": "Set the idle time in minutes before CryptoBridge will become locked."
+  "ifAwayFor5Mins": {
+    "message": "If away for 5 mins"
+  },
+  "ifAwayFor30Mins": {
+    "message": "If away for 30 mins"
+  },
+  "ifAwayFor1Hr": {
+    "message": "If away for 1 hr"
+  },
+  "ifAwayFor4Hr": {
+    "message": "If away for 4 hr"
+  },
+  "never": {
+    "message": "Never"
+  },
+  "systemIdleLock": {
+    "message": "System idle lock"
+  },
+  "systemIdleLockDescription": {
+    "message": "When this is enabled, the idle timer will start if there's no user activity — even if the app is still open in the foreground."
   },
   "average": {
     "message": "Average"
@@ -1767,7 +1795,7 @@
     "message": "the swaps page"
   },
   "defaultCurrency": {
-    "message": "Default Display Currency"
+    "message": "Default Currency"
   },
   "defaultRpcUrl": {
     "message": "Default RPC URL"
@@ -1947,6 +1975,9 @@
     "message": "Domain"
   },
   "done": {
+    "message": "Done"
+  },
+  "doneButton": {
     "message": "Done"
   },
   "dontShowThisAgain": {
@@ -2845,7 +2876,7 @@
     "message": "Insufficient balance."
   },
   "insufficientFunds": {
-    "message": "Insufficient funds"
+    "message": " Insufficient funds"
   },
   "insufficientFundsForGas": {
     "message": "Insufficient funds for gas fee"
@@ -3680,7 +3711,7 @@
     "message": "Proceed with caution."
   },
   "nfts": {
-    "message": "Fiat History"
+    "message": "Crypto History"
   },
   "nftsPreviouslyOwned": {
     "message": "Previously Owned"
@@ -3925,6 +3956,9 @@
     "description": "Additional content in a notification that appears when a transaction is confirmed and has a block explorer URL."
   },
   "notifications": {
+    "message": "Notifications"
+  },
+  "notificationsSettings": {
     "message": "Notifications"
   },
   "notificationsFeatureToggle": {
@@ -4731,7 +4765,7 @@
     "message": "Receive crypto"
   },
   "receiveModalDes1": {
-    "message": "At the moment, CryptoBridge only supports ERC-20 transfers."
+    "message": "At the moment, CryptoBridge only supports ERC-20 transfers. If receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
   },
   "receiveModalDes2": {
     "message": "Please double-check that the recipient’s wallet address is an ERC-20 address."
@@ -5035,6 +5069,9 @@
   "secretRecoveryPhrase": {
     "message": "Secret Recovery Phrase"
   },
+  "secretRecoveryPhraseDescription": {
+    "message": "Secret Recovery Phrase: Keep it safe. If you forget your password or want to import your wallet to a new device, you can recover your wallet using your Secret Recovery Phrase or Private Key."
+  },
   "secretRecoveryPhrasePlusNumber": {
     "message": "Secret Recovery Phrase $1",
     "description": "The $1 is the order of the Secret Recovery Phrase"
@@ -5068,7 +5105,7 @@
     "message": "CryptoBridge will never ask for your Secret Recovery Phrase or Private Key. If anyone or any website asks for it, it’s a scam."
   },
   "secureWalletWalletSaveSrp6": {
-    "message": ""
+    "message": "Do not share this under any circumstances, even with the CryptoBridge team."
   },
   "security": {
     "message": "Security"
@@ -5331,7 +5368,7 @@
     "message": "Show permissions"
   },
   "showPrivateKey": {
-    "message": "Show private key"
+    "message": "Show Private Key"
   },
   "showSRP": {
     "message": "Show Secret Recovery Phrase"
@@ -7346,5 +7383,33 @@
   },
   "yourWalletIsReadyRemind": {
     "message": "We’ll remind you later"
+  },
+  "privateKeyWarningPre": {
+    "message": "Warning: Never share this private key with anyone. If someone gains access to your private key, the assets in your account may be stolen."
+  },
+  "scanAddress": {
+    "message": "Scan address codes to copy address"
+  },
+  "scanCode": {
+    "message": "Scan WalletConnect code to connect to sites"
+  },
+  "scanPhoto": {
+    "message": "Or Select a photo"
+  },
+  "unlockPageIncorrectPasswords": {
+    "message": "Incorrect password"
+  },
+  "changeNewPassword": {
+    "message": "Password must contain at least 1 uppercase letter, one number, etc."
+  },
+  "attempts": {
+    "message": "You have a maximum of 5 attempts to enter your password."
+  },
+  "maxAttempts": {
+    "message": "You have $1 more attempts to enter your password.",
+    "description": "$1 is the number of remaining attempts"
+  },
+  "warningMessage": {
+    "message": "Warning: After 5 failed attempts, your wallet will be locked and you will need to unlock it via your Secret Recovery Phrase or Private Key."
   }
 }

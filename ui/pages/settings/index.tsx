@@ -7,7 +7,6 @@ import React, {
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import cs from 'classnames';
 import {
   Box,
   Text,
@@ -22,7 +21,9 @@ import {
   updateCurrentLocale,
   setCompletedOnboarding,
 } from '../../store/actions';
+import AutoLockModal from '../../components/auto-lock-modal/auto-lock-modal';
 import availableCurrencies from '../../helpers/constants/available-conversions.json';
+import availableCurrenciesJp from '../../helpers/constants/available-conversions-jp.json';
 import Dropdown from '../../components/ui/dropdown';
 import {
   DEFAULT_ROUTE,
@@ -42,6 +43,7 @@ import {
 import { getHDEntropyIndex } from '../../selectors/selectors';
 import { Display, FlexDirection } from '../../helpers/constants/design-system';
 import { ImportAccount } from '../../components/multichain/import-account';
+import { getCurrentCurrency } from '../../ducks/metamask/metamask';
 
 type Item = {
   name: string | null;
@@ -61,19 +63,27 @@ const SettingsPage: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const trackEvent = useContext(MetaMetricsContext);
-
-  const sortedCurrencies = availableCurrencies.sort((a, b) => {
-    return a.name.toLocaleLowerCase().localeCompare(b.name.toLocaleLowerCase());
-  });
-
-  const currencyOptions = sortedCurrencies.map(({ code, name }) => {
-    return {
-      name: `${code.toUpperCase()}`,
-      value: code,
-    };
-  });
-
   const currentLocale = useSelector(getCurrentLocale);
+
+  useEffect(() => {}, [currentLocale]);
+  const sortedCurrencies = useMemo(() => {
+    return currentLocale === 'ja'
+      ? availableCurrenciesJp
+      : availableCurrencies.sort((a, b) => {
+          return a.name
+            .toLocaleLowerCase()
+            .localeCompare(b.name.toLocaleLowerCase());
+        });
+  }, [currentLocale]);
+
+  const currencyOptions = useMemo(() => {
+    return sortedCurrencies.map(({ code, name }) => {
+      return {
+        name: `${code.toUpperCase()}`,
+        value: code,
+      };
+    });
+  }, [sortedCurrencies]);
   const localeOptions = locales.map((locale: { [key: string]: string }) => {
     return {
       name: `${locale.name}`,
@@ -81,11 +91,18 @@ const SettingsPage: React.FC = () => {
     };
   });
   const t = useI18nContext();
-  const updateLocale = (newLocale: string) => {
-    dispatch(updateCurrentLocale(newLocale));
+  const updateLocale = async (newLocale: string) => {
+    try {
+      await dispatch(updateCurrentLocale(newLocale));
+    } catch (error) {
+      console.error('Error updating locale:', error);
+    }
   };
   const [isOpen, setIsOpen] = useState(false);
+  const [isAutoLockModalOpen, setIsAutoLockModalOpen] = useState(false);
   const hdEntropyIndex = useSelector(getHDEntropyIndex);
+
+  const currentCurrency = useSelector(getCurrentCurrency);
 
   const onActionComplete = useCallback(async (confirmed: boolean) => {
     if (confirmed) {
@@ -103,8 +120,6 @@ const SettingsPage: React.FC = () => {
     }
     setIsOpen(false);
   }, []);
-
-  const [currency, setCurrency] = useState(currencyOptions[0].value);
 
   const tabs: TabItem[] = useMemo(
     () => [
@@ -141,7 +156,6 @@ const SettingsPage: React.FC = () => {
             name: t('addressBook'),
             icon: './images/setting/addressBook.svg',
             onClick: () => {
-              console.log('come here');
               history.push(CONTACT_LIST_ROUTE);
             },
           },
@@ -165,10 +179,11 @@ const SettingsPage: React.FC = () => {
       {
         label: t('security'),
         items: [
-          // {
-          //   name: t('autoLock'),
-          //   icon: './images/setting/auto-lock.svg',
-          // },
+          {
+            name: t('autoLock'),
+            icon: './images/setting/auto-lock.svg',
+            onClick: () => setIsAutoLockModalOpen(true),
+          },
           {
             name: t('changePassword'),
             icon: './images/setting/password.svg',
@@ -220,11 +235,10 @@ const SettingsPage: React.FC = () => {
         ],
       },
     ],
-    [currentLocale],
+    [currentLocale, t],
   );
   const updateCurrency = (newCurrency: string) => {
     dispatch(setCurrentCurrency(newCurrency));
-    setCurrency(newCurrency);
   };
 
   return (
@@ -241,51 +255,37 @@ const SettingsPage: React.FC = () => {
               )}
               <Box className="settings-page__tabs__tab__items">
                 {tab.items.map((item, _key) => (
-                  <>
+                  <Box
+                    key={_key}
+                    className="settings-page__tabs__tab__items-item"
+                    onClick={item.onClick ? () => item.onClick?.() : undefined}
+                  >
                     {item.link ? (
                       <Box
-                        key={_key}
-                        className="settings-page__tabs__tab__items-item"
-                        onClick={
-                          item.onClick ? () => item.onClick?.() : undefined
-                        }
+                        as="a"
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
                       >
+                        <Box as="img" src={item.icon} alt={''} />
+                        {item.name && (
+                          <Box className="settings-page__tabs__tab__items-item__center">
+                            <Text as="span">{item.name}</Text>
+                          </Box>
+                        )}
                         <Box
-                          as="a"
-                          href={item.link}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <Box as="img" src={item.icon} alt={''} />
-                          {item.name && (
-                            <Box className="settings-page__tabs__tab__items-item__center">
-                              <Text as="span">{item.name}</Text>
-                            </Box>
-                          )}
-                          <Box
-                            as="img"
-                            src="./images/setting/arrow-right.svg"
-                            alt="arrow"
-                          />
-                        </Box>
+                          as="img"
+                          src="./images/setting/arrow-right.svg"
+                          alt="arrow"
+                        />
                       </Box>
                     ) : (
-                      <Box
-                        key={_key}
-                        className={cs('settings-page__tabs__tab__items-item', {
-                          back: item.dontNeedRightIcon as boolean,
-                        })}
-                        onClick={
-                          item.onClick ? () => item.onClick?.() : undefined
-                        }
-                      >
+                      <>
                         <Box
                           as="img"
                           src={item.icon}
                           alt={''}
-                          className={cs(
-                            'settings-page__tabs__tab__items-item--icon',
-                          )}
+                          className="settings-page__tabs__tab__items-item--icon"
                         />
                         <Box className="settings-page__tabs__tab__items-item__center">
                           {item.name && (
@@ -302,9 +302,13 @@ const SettingsPage: React.FC = () => {
                             <Dropdown
                               data-testid="currency-select"
                               options={currencyOptions}
-                              selectedOption={currency}
+                              selectedOption={currentCurrency}
                               onChange={(newCurrency) => {
-                                updateCurrency(newCurrency);
+                                if (newCurrency === '日本円') {
+                                  updateCurrency('jpy');
+                                } else {
+                                  updateCurrency(newCurrency);
+                                }
                               }}
                               className="center__dropdown"
                             />
@@ -321,7 +325,7 @@ const SettingsPage: React.FC = () => {
                             />
                           )}
                         </Box>
-                        {item.currency === item.isLanguage &&
+                        {!item.currency && !item.isLanguage &&
                           !item.dontNeedRightIcon && (
                             <Box
                               as="img"
@@ -329,9 +333,9 @@ const SettingsPage: React.FC = () => {
                               alt="arrow"
                             />
                           )}
-                      </Box>
+                      </>
                     )}
-                  </>
+                  </Box>
                 ))}
               </Box>
             </Box>
@@ -366,6 +370,11 @@ const SettingsPage: React.FC = () => {
           </Box>
         </ModalContent>
       </Modal>
+
+      <AutoLockModal
+        isOpen={isAutoLockModalOpen}
+        onClose={() => setIsAutoLockModalOpen(false)}
+      />
     </>
   );
 };

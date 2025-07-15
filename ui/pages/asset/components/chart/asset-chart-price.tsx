@@ -14,6 +14,8 @@ import {
   getShortDateFormatter,
 } from '../../util';
 import { Skeleton } from '../../../../components/component-library/skeleton';
+import { useSelector } from 'react-redux';
+import { getIntlLocale } from '../../../../ducks/locale/locale';
 
 /**
  * A component that shows a skeleton loading state in place of the the main price
@@ -142,6 +144,8 @@ const AssetChartPrice = forwardRef(
     const shouldShowDelta =
       !loading && priceDelta !== undefined && comparePrice !== undefined;
 
+    const locale = useSelector(getIntlLocale);
+
     return (
       <Box marginLeft={4} marginRight={4}>
         {shouldShowMainPriceLoading && <AssetChartMainPriceLoading />}
@@ -187,7 +191,7 @@ const AssetChartPrice = forwardRef(
               variant={TextVariant.bodyMdMedium}
               color={TextColor.textAlternative}
             >
-              {getShortDateFormatter().format(date)}
+              {getShortDateFormatter(locale).format(date)}
             </Text>
           </Box>
         )}

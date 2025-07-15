@@ -73,7 +73,8 @@ export default function CreationSuccessful() {
         t('walletReadyLoseSrpFromReminder')
       ) : (
         <>
-          {t('walletReadyLoseSrp')} <br /> {t('walletReadyLoseSrp1')}
+          {t('walletReadyLoseSrp')} <br />
+          <br /> {t('walletReadyLoseSrp1')}
         </>
       );
     }
@@ -214,7 +215,7 @@ export default function CreationSuccessful() {
           width={BlockSize.Full}
           onClick={onDone}
         >
-          {t('done')}
+          {t('doneButton')}
         </Button>
       </Box>
     </Box>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import log from 'loglevel';
 import { BrowserQRCodeReader } from '@zxing/browser';
@@ -62,6 +62,7 @@ export default function QRCodeScanner({ hideModal, qrCodeDetected }) {
   const [isMounted, setIsMounted] = useState(false);
   const [codeReader, setCodeReader] = useState(null);
   const [permissionChecker, setPermissionChecker] = useState(null);
+  const fileInputRef = useRef(null);
 
   const checkPermissions = useCallback(async () => {
     try {
@@ -150,6 +151,32 @@ export default function QRCodeScanner({ hideModal, qrCodeDetected }) {
     stopAndClose,
     t,
   ]);
+
+  const handleFileChange = async (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) {
+      const img = new window.Image();
+      img.src = URL.createObjectURL(file);
+      img.onload = async () => {
+        const codeReaderForImage = new BrowserQRCodeReader();
+        try {
+          const result = await codeReaderForImage.decodeFromImageElement(img);
+          const parsed = parseContent(result.text);
+          if (parsed.type === 'unknown') {
+            setErrorData(new Error(t('unknownQrCode')));
+          } else {
+            qrCodeDetected(parsed);
+            stopAndClose();
+          }
+        } catch (err) {
+          setErrorData(new Error(t('unknownQrCode')));
+        }
+      };
+      img.onerror = () => {
+        setErrorData(new Error(t('unknownQrCode')));
+      };
+    }
+  };
 
   const checkEnvironment = async () => {
     try {
@@ -257,7 +284,10 @@ export default function QRCodeScanner({ hideModal, qrCodeDetected }) {
       <>
         <div className="qr-scanner__title">{`${t('scanQrCode')}`}</div>
         <div className="qr-scanner__content">
-          <div className="qr-scanner__content__video-wrapper">
+          <div
+            className="qr-scanner__content__video-wrapper"
+            style={{ borderRadius: '8px' }}
+          >
             <video
               id="video"
               style={{
@@ -268,6 +298,35 @@ export default function QRCodeScanner({ hideModal, qrCodeDetected }) {
           </div>
         </div>
         <div className="qr-scanner__status">{getQRScanMessage(isReady)}</div>
+        {/* {isReady !== READY_STATE.READY && ( */}
+        <div className="qr-scanner__contentdes">
+          <div className="qr-scanner__copy">
+            <div>
+              <img src="/images/cryptobridge/copy.svg" alt="scanAddress" />
+            </div>
+            <div>{t('scanAddress')}</div>
+          </div>
+          <div className="qr-scanner__code">
+            <img src="/images/cryptobridge/code.svg" alt="scanAddress" />{' '}
+            <div>{t('scanCode')}</div>
+          </div>
+          <div
+            className="qr-scanner__photo"
+            onClick={() => fileInputRef.current && fileInputRef.current.click()}
+            style={{ cursor: 'pointer' }}
+          >
+            <img src="/images/cryptobridge/photo.svg" alt="scanAddress" />{' '}
+            {t('scanPhoto')}
+            <input
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              style={{ display: 'none' }}
+              onChange={handleFileChange}
+            />
+          </div>
+        </div>
+        {/* )} */}
       </>
     );
   };

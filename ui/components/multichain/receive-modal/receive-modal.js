@@ -18,7 +18,7 @@ import {
 } from '../../../helpers/constants/design-system';
 import { endTrace, TraceName } from '../../../../shared/lib/trace';
 
-export const ReceiveModal = ({ address, token, onClose }) => {
+export const ReceiveModal = ({ address, token, onClose, onBack }) => {
   const t = useI18nContext();
   const {
     metadata: { name },
@@ -34,7 +34,7 @@ export const ReceiveModal = ({ address, token, onClose }) => {
     <Modal isOpen onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader marginBottom={4} onClose={onClose}>
+        <ModalHeader marginBottom={4} onClose={onClose} onBack={onBack}>
           {t('receive')}
         </ModalHeader>
         <Box
@@ -84,4 +84,5 @@ ReceiveModal.propTypes = {
   address: PropTypes.string.isRequired,
   token: PropTypes.object,
   onClose: PropTypes.func.isRequired,
+  onBack: PropTypes.func, // 新增onBack为可选函数
 };

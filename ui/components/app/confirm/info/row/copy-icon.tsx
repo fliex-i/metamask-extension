@@ -17,22 +17,24 @@ export const CopyIcon: React.FC<{
   copyText: string;
   color?: IconColor;
   style?: CSSProperties;
-}> = ({ copyText, color, style = {} }) => {
+  showToast?: boolean;
+}> = ({ copyText, color, style = {}, showToast = true }) => {
   const [copied, handleCopy] = useCopyToClipboard();
   const t = useI18nContext();
   const [showCopyToast, setShowCopyToast] = React.useState(false);
 
   const handleClick = useCallback(async () => {
     (handleCopy as CopyCallback)(copyText);
-    setShowCopyToast(true);
-    const timer = setTimeout(() => {
-      setShowCopyToast(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [copyText]);
+    if (showToast) {
+      setShowCopyToast(true);
+      const timer = setTimeout(() => {
+        setShowCopyToast(false);
+      }, 3000);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [copyText, showToast]);
 
   return (
     <>
@@ -52,15 +54,13 @@ export const CopyIcon: React.FC<{
         onClick={handleClick}
         ariaLabel="copy-button"
       />
-      {showCopyToast && (
+      {showToast && showCopyToast && (
         <Toast
           className="toast-copy"
           text={t('copiedExclamation')}
           onClose={() => setShowCopyToast(false)}
           startAdornment={undefined}
           onActionClick={() => {
-            // Use setTimeout to prevent React re-render from
-            // hiding the tooltip
             setTimeout(() => {
               setShowCopyToast(false);
             }, 250 * MILLISECOND);
