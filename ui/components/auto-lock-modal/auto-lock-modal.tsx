@@ -46,7 +46,6 @@ const AutoLockModal: React.FC<AutoLockModalProps> = ({ isOpen, onClose }) => {
 
   // Auto-lock time options
   const timeOptions = [
-    { value: 0, label: t('always') },
     { value: 1, label: t('ifAwayFor1Min') },
     { value: 5, label: t('ifAwayFor5Mins') },
     { value: 30, label: t('ifAwayFor30Mins') },
@@ -87,18 +86,18 @@ const AutoLockModal: React.FC<AutoLockModalProps> = ({ isOpen, onClose }) => {
           {t('autoLock')}
         </ModalHeader>
 
-        <Box paddingLeft={4} paddingRight={4} paddingBottom={4} paddingTop={0}>
+        <Box paddingLeft={4} paddingRight={4} paddingBottom={4} paddingTop={4}>
           {/* Auto Lock Time Limit */}
           <Box marginBottom={4}>
-            <Text variant={TextVariant.bodyMd} marginBottom={2}>
+            {/* <Text variant={TextVariant.bodyMd} marginBottom={2}>
               {t('autoLockTimeLimit')}
-            </Text>
+            </Text> */}
             <Text
               variant={TextVariant.bodySm}
               color={TextColor.textAlternative}
               marginBottom={3}
             >
-              {t('autoLockTimeLimitDescription')}
+              {t('autoLockTimeLimitDescriptions')}
             </Text>
 
             {/* Time Options List */}

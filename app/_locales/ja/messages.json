@@ -596,6 +596,9 @@
     "message": "オートロックタイマー (分)"
   },
   "autoLockTimeLimitDescription": {
+    "message": "CryptoBridgeMetaMaskがロックされるまでのアイドル時間を分単位で設定します。"
+  },
+  "autoLockTimeLimitDescriptions": {
     "message": "MetaMaskがロックされるまでのアイドル時間を分単位で設定します。"
   },
   "autoLockDescription": {
@@ -605,28 +608,28 @@
     "message": "常に"
   },
   "ifAwayFor1Min": {
-    "message": "1分間離れた場合"
+    "message": "1分間操作がない場合自動的にロックする"
   },
   "ifAwayFor5Mins": {
-    "message": "5分間離れた場合"
+    "message": "5分間操作がない場合自動的にロックする"
   },
   "ifAwayFor30Mins": {
-    "message": "30分間離れた場合"
+    "message": "30分間操作がない場合自動的にロックする"
   },
   "ifAwayFor1Hr": {
-    "message": "1時間離れた場合"
+    "message": "1時間操作がない場合自動的にロックする"
   },
   "ifAwayFor4Hr": {
-    "message": "4時間離れた場合"
+    "message": "4時間操作がない場合自動的にロックする"
   },
   "never": {
-    "message": "しない"
+    "message": "自動的にロックしない"
   },
   "systemIdleLock": {
-    "message": "システムアイドルロック"
+    "message": "システムアイドルによるロック"
   },
   "systemIdleLockDescription": {
-    "message": "これを有効にすると、アプリがフォアグラウンドで開いている場合でも、ユーザーアクティビティがない場合にアイドルタイマーが開始されます。"
+    "message": "この設定を有効にすると、前面で開かれていても、一定時間ユーザーの操作がない場合にアイドルタイマーが作動し、自動でロックされます。"
   },
   "average": {
     "message": "平均"
@@ -7115,5 +7118,8 @@
   },
   "warningMessage": {
     "message": "警告：5回間違えるとウォレットがロックされ、シークレットリカバリーフレーズまたはプライベートキーでのみ解除可能になります。"
+  },
+  "assetsDetails": {
+    "message": "資産タイプ"
   }
 }
