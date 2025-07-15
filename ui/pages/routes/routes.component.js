@@ -230,10 +230,20 @@ export default class Routes extends Component {
   };
 
   componentDidMount() {
-    const header = document.querySelector('.layout__header');
-    const hasLayerHeader =
-      Boolean(header) && window.getComputedStyle(header).display !== 'none';
-    this.setState({ hasLayerHeader });
+    const updateHasLayerHeader = () => {
+      const header = document.querySelector('.layout__header');
+      const hasLayerHeader =
+        Boolean(header) && window.getComputedStyle(header).display !== 'none';
+      this.setState({ hasLayerHeader });
+    };
+
+    updateHasLayerHeader();
+
+    if (this.props.history && this.props.history.listen) {
+      this.unlisten = this.props.history.listen(() => {
+        updateHasLayerHeader();
+      });
+    }
   }
 
   componentDidUpdate(prevProps) {
