@@ -3781,7 +3781,7 @@
     "message": "for"
   },
   "notificationItemTo": {
-    "message": "受取先"
+    "message": "受取人"
   },
   "notificationItemTransactionId": {
     "message": "トランザクションID"
