@@ -1,355 +1,108 @@
-import React, { useEffect, useState } from 'react';
-import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import classnames from 'classnames';
-import Unlock from '../unlock-page';
+import { useHistory } from 'react-router-dom';
 import {
-  ///: BEGIN:ONLY_INCLUDE_IF(build-flask)
-  ONBOARDING_EXPERIMENTAL_AREA,
-  ///: END:ONLY_INCLUDE_IF
-  ONBOARDING_CREATE_PASSWORD_ROUTE,
-  ONBOARDING_REVIEW_SRP_ROUTE,
-  ONBOARDING_CONFIRM_SRP_ROUTE,
-  ONBOARDING_UNLOCK_ROUTE,
-  ONBOARDING_WELCOME_ROUTE,
-  DEFAULT_ROUTE,
   ONBOARDING_SECURE_YOUR_WALLET_ROUTE,
-  ONBOARDING_PRIVACY_SETTINGS_ROUTE,
   ONBOARDING_COMPLETION_ROUTE,
+  ONBOARDING_CREATE_PASSWORD_ROUTE,
   ONBOARDING_IMPORT_WITH_SRP_ROUTE,
-
-  ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE,
-  ONBOARDING_PIN_EXTENSION_ROUTE,
-  ONBOARDING_METAMETRICS,
-  ONBOARDING_ACCOUNT_EXIST,
-  ONBOARDING_ACCOUNT_NOT_FOUND,
-} from '../../helpers/constants/routes';
+} from '../../../helpers/constants/routes';
+import { getCurrentKeyring, getFirstTimeFlowType } from '../../../selectors';
+import { FirstTimeFlowType } from '../../../../shared/constants/onboarding';
+import { MetaMetricsContext } from '../../../contexts/metametrics';
+import { setFirstTimeFlowType } from '../../../store/actions';
+import LoadingScreen from '../../../components/ui/loading-screen';
 import {
-  getCompletedOnboarding,
-  getIsUnlocked,
-} from '../../ducks/metamask/metamask';
-import {
-  createNewVaultAndGetSeedPhrase,
-  unlockAndGetSeedPhrase,
-  createNewVaultAndRestore,
-  setImportMethod,
-} from '../../store/actions';
-import * as actions from '../../store/actions';
-import {
-  getFirstTimeFlowTypeRouteAfterUnlock,
-  getShowTermsOfUse,
-} from '../../selectors';
-import { ImportMethod } from '../../../shared/constants/onboarding';
-// import { MetaMetricsContext } from '../../contexts/metametrics';
-// import Button from '../../components/ui/button';
-import RevealSRPModal from '../../components/app/reveal-SRP-modal';
-// import { useI18nContext } from '../../hooks/useI18nContext';
-// import {
-//   MetaMetricsEventCategory,
-//   MetaMetricsEventName,
-// } from '../../../shared/constants/metametrics';
-///: BEGIN:ONLY_INCLUDE_IF(build-flask)
-import ExperimentalArea from '../../components/app/flask/experimental-area';
-///: END:ONLY_INCLUDE_IF
-import { submitRequestToBackgroundAndCatch } from '../../components/app/toast-master/utils';
-// import { getHDEntropyIndex } from '../../selectors/selectors';
-import { Box } from '../../components/component-library';
-import {
-  AlignItems,
-  BackgroundColor,
-  BlockSize,
-  BorderColor,
-  BorderRadius,
-  BorderStyle,
-  Display,
-  FlexDirection,
-  JustifyContent,
-} from '../../helpers/constants/design-system';
-// eslint-disable-next-line import/no-restricted-paths
-import { getEnvironmentType } from '../../../app/scripts/lib/util';
-import { ENVIRONMENT_TYPE_POPUP } from '../../../shared/constants/app';
-import { getLocale } from '../../selectors/selectors';
-import OnboardingFlowSwitch from './onboarding-flow-switch/onboarding-flow-switch';
-import CreatePassword from './create-password/create-password';
-import ReviewRecoveryPhrase from './recovery-phrase/review-recovery-phrase';
-import SecureYourWallet from './secure-your-wallet/secure-your-wallet';
-import ConfirmRecoveryPhrase from './recovery-phrase/confirm-recovery-phrase';
-import PrivacySettings from './privacy-settings/privacy-settings';
-import CreationSuccessful from './creation-successful/creation-successful';
-import OnboardingWelcome from './welcome/welcome';
-import ImportSRP from './import-srp/import-srp';
+  MetaMetricsEventAccountType,
+  MetaMetricsEventCategory,
+  MetaMetricsEventName,
+} from '../../../../shared/constants/metametrics';
+import WelcomeLogin from './welcome-login';
+import WelcomeBanner from './welcome-banner';
 
-import ImportMethodSelector from './import-method-selector/import-method-selector';
-import OnboardingPinExtension from './pin-extension/pin-extension';
-import MetaMetricsComponent from './metametrics/metametrics';
-import OnboardingAppHeader from './onboarding-app-header/onboarding-app-header';
-import { WelcomePageState } from './welcome/types';
-import AccountExist from './account-exist/account-exist';
-import AccountNotFound from './account-not-found/account-not-found';
+const WelcomePageState = {
+  Banner: 'Banner',
+  Login: 'Login',
+};
 
-// const TWITTER_URL = 'https://twitter.com/MetaMask';
-
-export default function OnboardingFlow() {
-  const [secretRecoveryPhrase, setSecretRecoveryPhrase] = useState('');
-
+export default function OnboardingWelcome({
+  pageState = WelcomePageState.Login,
+  setPageState,
+}) {
   const dispatch = useDispatch();
-  const { pathname, search } = useLocation();
   const history = useHistory();
-  // const t = useI18nContext();
-  // const hdEntropyIndex = useSelector(getHDEntropyIndex);
-  const completedOnboarding = useSelector(getCompletedOnboarding);
-  const nextRoute = useSelector(getFirstTimeFlowTypeRouteAfterUnlock);
-  const isFromReminder = new URLSearchParams(search).get('isFromReminder');
-  // const trackEvent = useContext(MetaMetricsContext);
-  const isUnlocked = useSelector(getIsUnlocked);
-  const showTermsOfUse = useSelector(getShowTermsOfUse);
-  const currentLocale = useSelector(getLocale);
+  const currentKeyring = useSelector(getCurrentKeyring);
+  const firstTimeFlowType = useSelector(getFirstTimeFlowType);
+  const [newAccountCreationInProgress, setNewAccountCreationInProgress] =
+    useState(false);
 
-  const envType = getEnvironmentType();
-  const isPopup = envType === ENVIRONMENT_TYPE_POPUP;
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
-  // If the user has not agreed to the terms of use, we show the banner
-  // Otherwise, we show the login page
-  const [welcomePageState, setWelcomePageState] = useState(
-    WelcomePageState.Login,
-  );
-
+  // Don't allow users to come back to this screen after they
+  // have already imported or created a wallet
   useEffect(() => {
-    setOnboardingDate();
-  }, []);
-
-  useEffect(() => {
-    if (completedOnboarding && !isFromReminder) {
-      history.push(DEFAULT_ROUTE);
-    }
-  }, [history, completedOnboarding, isFromReminder]);
-
-  useEffect(() => {
-    if (isUnlocked && !completedOnboarding && !secretRecoveryPhrase) {
-      const needsSRP = [
-        ONBOARDING_SECURE_YOUR_WALLET_ROUTE,
-        ONBOARDING_REVIEW_SRP_ROUTE,
-        ONBOARDING_CONFIRM_SRP_ROUTE,
-      ].some((route) => pathname.startsWith(route));
-
-      if (needsSRP) {
-        history.push(ONBOARDING_UNLOCK_ROUTE);
+    if (currentKeyring && !newAccountCreationInProgress) {
+      if (firstTimeFlowType === FirstTimeFlowType.import) {
+        history.replace(ONBOARDING_COMPLETION_ROUTE);
       }
-    }
-    if (pathname === ONBOARDING_WELCOME_ROUTE) {
-      setWelcomePageState(WelcomePageState.Login);
-      // showTermsOfUse ? WelcomePageState.Banner :
-    } else {
-      setWelcomePageState(null);
+      if (firstTimeFlowType === FirstTimeFlowType.restore) {
+        history.replace(ONBOARDING_COMPLETION_ROUTE);
+      } else {
+        history.replace(ONBOARDING_SECURE_YOUR_WALLET_ROUTE);
+      }
     }
   }, [
-    isUnlocked,
-    completedOnboarding,
-    secretRecoveryPhrase,
-    pathname,
+    currentKeyring,
     history,
-    showTermsOfUse,
+    firstTimeFlowType,
+    newAccountCreationInProgress,
   ]);
+  const trackEvent = useContext(MetaMetricsContext);
 
-  const handleCreateNewAccount = async (password) => {
-    const newSecretRecoveryPhrase = await dispatch(
-      createNewVaultAndGetSeedPhrase(password),
-    );
-    setSecretRecoveryPhrase(newSecretRecoveryPhrase);
-  };
+  const onCreateClick = useCallback(async () => {
+    setIsLoggingIn(true);
+    setNewAccountCreationInProgress(true);
+    dispatch(setFirstTimeFlowType(FirstTimeFlowType.create));
+    trackEvent({
+      category: MetaMetricsEventCategory.Onboarding,
+      event: MetaMetricsEventName.WalletSetupStarted,
+      properties: {
+        account_type: MetaMetricsEventAccountType.Default,
+      },
+    });
 
-  const handleUnlock = async (password) => {
-    const retrievedSecretRecoveryPhrase = await dispatch(
-      unlockAndGetSeedPhrase(password),
-    );
-    setSecretRecoveryPhrase(retrievedSecretRecoveryPhrase);
-    history.push(nextRoute);
-  };
+    history.push(ONBOARDING_CREATE_PASSWORD_ROUTE);
+  }, [dispatch, history, trackEvent]);
 
-  const handleImportWithRecoveryPhrase = async (password, srp) => {
-    // Set the import method to seedPhrase
-    await dispatch(setImportMethod(ImportMethod.seedPhrase));
-    return await dispatch(createNewVaultAndRestore(password, srp));
-  };
+  const onImportClick = useCallback(async () => {
+    setIsLoggingIn(true);
+    await dispatch(setFirstTimeFlowType(FirstTimeFlowType.import));
+    trackEvent({
+      category: MetaMetricsEventCategory.Onboarding,
+      event: MetaMetricsEventName.WalletImportStarted,
+      properties: {
+        account_type: MetaMetricsEventAccountType.Imported,
+      },
+    });
 
-
-
-  const showPasswordModalToAllowSRPReveal =
-    pathname === `${ONBOARDING_REVIEW_SRP_ROUTE}/` &&
-    completedOnboarding &&
-    !secretRecoveryPhrase &&
-    isFromReminder;
-
-  const isWelcomeAndUnlockPage =
-    pathname === ONBOARDING_WELCOME_ROUTE ||
-    pathname === ONBOARDING_UNLOCK_ROUTE;
+    history.push(ONBOARDING_IMPORT_WITH_SRP_ROUTE);
+  }, [dispatch, history, trackEvent]);
 
   return (
-    <Box
-      backgroundColor={BackgroundColor.backgroundDefault}
-      width={BlockSize.Full}
-      height={BlockSize.Full}
-      display={Display.Flex}
-      flexDirection={FlexDirection.Column}
-      alignItems={
-        pathname === ONBOARDING_WELCOME_ROUTE
-          ? AlignItems.flexStart
-          : AlignItems.center
-      }
-      justifyContent={JustifyContent.flexStart}
-      className={classnames('onboarding-flow', {
-        'onboarding-flow--welcome-banner':
-          welcomePageState === WelcomePageState.Banner,
-        'onboarding-flow--welcome-login':
-          welcomePageState === WelcomePageState.Login,
-      })}
-    >
-      {!isPopup && (
-        <a
-          href={
-            currentLocale === 'en'
-              ? 'https://www.crypto-bridge.co/#support'
-              : 'https://www.crypto-bridge.co/jp/#support'
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-          className="onboarding-flow--welcome-login__support"
-        >
-          <img src="/images/home/support.svg" alt="Support" />
-        </a>
+    <>
+      {pageState === WelcomePageState.Banner && (
+        <WelcomeBanner onAccept={() => setPageState(WelcomePageState.Login)} />
       )}
-      {!isPopup && <OnboardingAppHeader pageState={welcomePageState} />}
-      <RevealSRPModal
-        setSecretRecoveryPhrase={setSecretRecoveryPhrase}
-        onClose={() => history.goBack()}
-        isOpen={showPasswordModalToAllowSRPReveal}
-      />
-      <Box
-        paddingInline={isWelcomeAndUnlockPage ? 0 : 6}
-        paddingTop={isWelcomeAndUnlockPage ? 0 : 8}
-        paddingBottom={isWelcomeAndUnlockPage ? 0 : 8}
-        width={BlockSize.Full}
-        borderStyle={
-          isWelcomeAndUnlockPage || isPopup
-            ? BorderStyle.none
-            : BorderStyle.solid
-        }
-        borderRadius={BorderRadius.LG}
-        marginTop={pathname === ONBOARDING_WELCOME_ROUTE || isPopup ? 0 : 3}
-        marginInline="auto"
-        borderColor={BorderColor.borderMuted}
-        style={{
-          maxWidth: isWelcomeAndUnlockPage ? 'none' : '584px',
-          minHeight: isWelcomeAndUnlockPage ? 'auto' : '627px',
-          height:
-            pathname === ONBOARDING_WELCOME_ROUTE || isPopup ? '100%' : 'auto',
-        }}
-      >
-        <Switch>
-          <Route path={ONBOARDING_ACCOUNT_EXIST} component={AccountExist} />
-          <Route
-            path={ONBOARDING_ACCOUNT_NOT_FOUND}
-            component={AccountNotFound}
-          />
-          <Route
-            path={ONBOARDING_CREATE_PASSWORD_ROUTE}
-            render={(routeProps) => (
-              <CreatePassword
-                {...routeProps}
-                createNewAccount={handleCreateNewAccount}
-                importWithRecoveryPhrase={handleImportWithRecoveryPhrase}
-                secretRecoveryPhrase={secretRecoveryPhrase}
-              />
-            )}
-          />
-          <Route
-            path={ONBOARDING_SECURE_YOUR_WALLET_ROUTE}
-            component={SecureYourWallet}
-          />
-          <Route
-            path={ONBOARDING_REVIEW_SRP_ROUTE}
-            render={() => (
-              <ReviewRecoveryPhrase
-                secretRecoveryPhrase={secretRecoveryPhrase}
-              />
-            )}
-          />
-          <Route
-            path={ONBOARDING_CONFIRM_SRP_ROUTE}
-            render={() => (
-              <ConfirmRecoveryPhrase
-                secretRecoveryPhrase={secretRecoveryPhrase}
-              />
-            )}
-          />
-          <Route
-            path={ONBOARDING_IMPORT_WITH_SRP_ROUTE}
-            render={(routeProps) => (
-              <ImportSRP
-                {...routeProps}
-                submitSecretRecoveryPhrase={setSecretRecoveryPhrase}
-              />
-            )}
-          />
-
-          <Route
-            path={ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE}
-            component={ImportMethodSelector}
-          />
-          <Route
-            path={ONBOARDING_UNLOCK_ROUTE}
-            render={(routeProps) => (
-              <Unlock {...routeProps} onSubmit={handleUnlock} />
-            )}
-          />
-          <Route
-            path={ONBOARDING_PRIVACY_SETTINGS_ROUTE}
-            component={PrivacySettings}
-          />
-          <Route
-            path={ONBOARDING_COMPLETION_ROUTE}
-            component={CreationSuccessful}
-          />
-          <Route
-            path={ONBOARDING_WELCOME_ROUTE}
-            render={(routeProps) => (
-              <OnboardingWelcome
-                {...routeProps}
-                pageState={welcomePageState}
-                setPageState={setWelcomePageState}
-              />
-            )}
-          />
-          <Route
-            path={ONBOARDING_PIN_EXTENSION_ROUTE}
-            component={OnboardingPinExtension}
-          />
-          <Route
-            path={ONBOARDING_METAMETRICS}
-            component={MetaMetricsComponent}
-          />
-          {
-            ///: BEGIN:ONLY_INCLUDE_IF(build-flask)
-          }
-          <Route
-            path={ONBOARDING_EXPERIMENTAL_AREA}
-            render={(routeProps) => (
-              <ExperimentalArea
-                {...routeProps}
-                redirectTo={ONBOARDING_WELCOME_ROUTE}
-              />
-            )}
-          />
-          {
-            ///: END:ONLY_INCLUDE_IF
-          }
-          <Route exact path="*" component={OnboardingFlowSwitch} />
-        </Switch>
-      </Box>
-    </Box>
+      {pageState === WelcomePageState.Login && (
+        <WelcomeLogin onCreate={onCreateClick} onImport={onImportClick} />
+      )}
+      {isLoggingIn && <LoadingScreen />}
+    </>
   );
 }
-function setOnboardingDate() {
-  submitRequestToBackgroundAndCatch('setOnboardingDate');
-}
 
+OnboardingWelcome.propTypes = {
+  pageState: PropTypes.oneOf(Object.values(WelcomePageState)),
+  setPageState: PropTypes.func.isRequired,
+};
