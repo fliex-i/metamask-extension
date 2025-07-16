@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { useSelector } from 'react-redux';
 import { useCurrencyDisplay } from '../../../hooks/useCurrencyDisplay';
 import { EtherDenomination } from '../../../../shared/constants/common';
+import { getCurrentLocale } from '../../../ducks/locale/locale';
 import { SensitiveText, Box } from '../../component-library';
 import {
   AlignItems,
@@ -36,6 +38,7 @@ export default function CurrencyDisplay({
   privacyMode = false,
   ...props
 }) {
+  const currentLocale = useSelector(getCurrentLocale);
   const [title, parts] = useCurrencyDisplay(value, {
     account,
     displayValue,
@@ -47,6 +50,13 @@ export default function CurrencyDisplay({
     suffix,
     isAggregatedFiatOverviewBalance,
   });
+
+  const displaySuffix = React.useMemo(() => {
+    if (currentLocale === 'ja' && parts.suffix === 'JPY') {
+      return '日本円';
+    }
+    return parts.suffix;
+  }, [currentLocale, parts.suffix]);
 
   return (
     <Box
@@ -81,7 +91,7 @@ export default function CurrencyDisplay({
         {parts.prefix}
         {parts.value}
       </SensitiveText>
-      {parts.suffix ? (
+      {displaySuffix ? (
         <SensitiveText
           as="span"
           className={
@@ -94,7 +104,7 @@ export default function CurrencyDisplay({
           isHidden={privacyMode}
           {...suffixProps}
         >
-          {parts.suffix}
+          {displaySuffix}
         </SensitiveText>
       ) : null}
     </Box>

@@ -880,8 +880,6 @@ export default class Home extends PureComponent {
                 width: '56px',
                 height: '56px',
                 borderRadius: '50%',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                background: '#fff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -892,7 +890,7 @@ export default class Home extends PureComponent {
               <img
                 src="/images/home/support.svg"
                 alt="Support"
-                style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+                style={{ width: '56px', height: '56px', objectFit: 'contain' }}
               />
             </a>
           ) : null}

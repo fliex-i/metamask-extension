@@ -6,6 +6,7 @@ import {
   getConversionRate,
   getCurrentCurrency,
 } from '../ducks/metamask/metamask';
+import { getCurrentLocale } from '../ducks/locale/locale';
 import { decEthToConvertedCurrency } from '../../shared/modules/conversion.utils';
 
 /**
@@ -25,6 +26,7 @@ export function useEthFiatAmount(
 ) {
   const conversionRate = useSelector(getConversionRate);
   const currentCurrency = useSelector(getCurrentCurrency);
+  const currentLocale = useSelector(getCurrentLocale);
   const userPrefersShownFiat = useSelector(getShouldShowFiat);
   const showFiat = overrides.showFiat ?? userPrefersShownFiat;
   const formattedFiat = useMemo(
@@ -41,10 +43,17 @@ export function useEthFiatAmount(
     return undefined;
   }
 
+  const displayCurrency = useMemo(() => {
+    if (currentLocale === 'ja' && currentCurrency.toUpperCase() === 'JPY') {
+      return '日本円';
+    }
+    return currentCurrency.toUpperCase();
+  }, [currentLocale, currentCurrency]);
+
   return hideCurrencySymbol
     ? formatCurrency(formattedFiat, currentCurrency)
     : `${formatCurrency(
         formattedFiat,
         currentCurrency,
-      )} ${currentCurrency.toUpperCase()}`;
+      )} ${displayCurrency}`;
 }

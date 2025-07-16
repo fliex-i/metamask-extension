@@ -17,6 +17,8 @@ import {
   ONBOARDING_PRIVACY_SETTINGS_ROUTE,
   ONBOARDING_COMPLETION_ROUTE,
   ONBOARDING_IMPORT_WITH_SRP_ROUTE,
+  ONBOARDING_IMPORT_WITH_PRIVATE_KEY_ROUTE,
+  ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE,
   ONBOARDING_PIN_EXTENSION_ROUTE,
   ONBOARDING_METAMETRICS,
   ONBOARDING_ACCOUNT_EXIST,
@@ -30,11 +32,14 @@ import {
   createNewVaultAndGetSeedPhrase,
   unlockAndGetSeedPhrase,
   createNewVaultAndRestore,
+  setImportMethod,
 } from '../../store/actions';
+import * as actions from '../../store/actions';
 import {
   getFirstTimeFlowTypeRouteAfterUnlock,
   getShowTermsOfUse,
 } from '../../selectors';
+import { ImportMethod } from '../../../shared/constants/onboarding';
 // import { MetaMetricsContext } from '../../contexts/metametrics';
 // import Button from '../../components/ui/button';
 import RevealSRPModal from '../../components/app/reveal-SRP-modal';
@@ -73,6 +78,8 @@ import PrivacySettings from './privacy-settings/privacy-settings';
 import CreationSuccessful from './creation-successful/creation-successful';
 import OnboardingWelcome from './welcome/welcome';
 import ImportSRP from './import-srp/import-srp';
+import ImportPrivateKey from './import-private-key/import-private-key';
+import ImportMethodSelector from './import-method-selector/import-method-selector';
 import OnboardingPinExtension from './pin-extension/pin-extension';
 import MetaMetricsComponent from './metametrics/metametrics';
 import OnboardingAppHeader from './onboarding-app-header/onboarding-app-header';
@@ -84,6 +91,8 @@ import AccountNotFound from './account-not-found/account-not-found';
 
 export default function OnboardingFlow() {
   const [secretRecoveryPhrase, setSecretRecoveryPhrase] = useState('');
+  const [privateKey, setPrivateKey] = useState('');
+  const [isPrivateKeyImport, setIsPrivateKeyImport] = useState(false);
   const dispatch = useDispatch();
   const { pathname, search } = useLocation();
   const history = useHistory();
@@ -117,6 +126,11 @@ export default function OnboardingFlow() {
   }, [history, completedOnboarding, isFromReminder]);
 
   useEffect(() => {
+    // 如果是私钥导入流程，不执行跳转逻辑
+    if (isPrivateKeyImport) {
+      return;
+    }
+
     if (isUnlocked && !completedOnboarding && !secretRecoveryPhrase) {
       const needsSRP = [
         ONBOARDING_SECURE_YOUR_WALLET_ROUTE,
@@ -141,6 +155,7 @@ export default function OnboardingFlow() {
     pathname,
     history,
     showTermsOfUse,
+    isPrivateKeyImport,
   ]);
 
   const handleCreateNewAccount = async (password) => {
@@ -159,7 +174,35 @@ export default function OnboardingFlow() {
   };
 
   const handleImportWithRecoveryPhrase = async (password, srp) => {
+    // Set the import method to seedPhrase
+    await dispatch(setImportMethod(ImportMethod.seedPhrase));
     return await dispatch(createNewVaultAndRestore(password, srp));
+  };
+
+  const handleImportWithPrivateKey = async (password, pk) => {
+    // Import private key and create vault
+    try {
+      // Set the import method to privateKey
+      await dispatch(setImportMethod(ImportMethod.privateKey));
+
+      // Create a new vault without generating a seed phrase
+      await dispatch(actions.createNewVault(password));
+
+      // Then import the private key as an additional account
+      await dispatch(
+        actions.importNewAccount('privateKey', [pk], 'Importing private key...'),
+      );
+
+      // Set the private key state so the CreatePassword component knows this is a private key import
+      setPrivateKey(pk);
+      setIsPrivateKeyImport(true); // 标记私钥导入流程
+
+      return true;
+    } catch (error) {
+      console.error('Error importing private key:', error);
+      setIsPrivateKeyImport(false); // 出错时重置状态
+      throw error;
+    }
   };
 
   const showPasswordModalToAllowSRPReveal =
@@ -246,7 +289,10 @@ export default function OnboardingFlow() {
                 {...routeProps}
                 createNewAccount={handleCreateNewAccount}
                 importWithRecoveryPhrase={handleImportWithRecoveryPhrase}
+                importWithPrivateKey={handleImportWithPrivateKey}
                 secretRecoveryPhrase={secretRecoveryPhrase}
+                privateKey={privateKey}
+                setIsPrivateKeyImport={setIsPrivateKeyImport}
               />
             )}
           />
@@ -278,6 +324,19 @@ export default function OnboardingFlow() {
                 submitSecretRecoveryPhrase={setSecretRecoveryPhrase}
               />
             )}
+          />
+          <Route
+            path={ONBOARDING_IMPORT_WITH_PRIVATE_KEY_ROUTE}
+            render={(routeProps) => (
+              <ImportPrivateKey
+                {...routeProps}
+                submitPrivateKey={setPrivateKey}
+              />
+            )}
+          />
+          <Route
+            path={ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE}
+            component={ImportMethodSelector}
           />
           <Route
             path={ONBOARDING_UNLOCK_ROUTE}

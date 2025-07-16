@@ -4082,6 +4082,12 @@
   "onboardingImportWallet": {
     "message": "Import wallet"
   },
+  "chooseImportMethod": {
+    "message": "Choose Import Method"
+  },
+  "importWalletVia": {
+    "message": "Import Wallet via"
+  },
   "onboardingMetametricsAgree": {
     "message": "I agree"
   },
@@ -6748,13 +6754,13 @@
     "message": "Adding tokens unlocks more ways to use web3."
   },
   "tipsHome": {
-    "message": "Please make sure to securely save your Secret Recovery Phrase and Private Key. If you need to re-install the wallet or change devices, you’ll need them to import your wallet. Without them, you will lose access to your funds permanently."
+    "message": "Please make sure to securely save your Secret Recovery Phrase and Private Key. "
   },
   "tipsHome1": {
-    "message": ""
+    "message": "If you need to re-install the wallet or change devices, you’ll need them to import your wallet."
   },
   "tipsHome2": {
-    "message": ""
+    "message": "Without them, you will lose access to your funds permanently."
   },
   "to": {
     "message": "To"
@@ -7420,5 +7426,8 @@
   },
   "assetsDetails": {
     "message": "Assets"
+  },
+  "onboardingImportPrivateKey": {
+    "message": "Import Private Key"
   }
 }

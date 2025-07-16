@@ -8,6 +8,7 @@ import { calcTokenAmount } from '../../../shared/lib/transactions-controller-uti
 import { Numeric } from '../../../shared/modules/Numeric';
 import * as util from './util';
 import { formatCurrency } from './confirm-tx.util';
+import BigNumber from 'bignumber.js';
 
 const DEFAULT_SYMBOL = '';
 
@@ -206,6 +207,7 @@ export function getTokenIdParam(tokenData = {}) {
  * @param {string} [tokenSymbol] - The token symbol
  * @param {boolean} [formatted] - Whether the return value should be formatted or not
  * @param {boolean} [hideCurrencySymbol] - excludes the currency symbol in the result if true
+ * @param {string} [locale] - The current locale for currency display
  * @returns {string|undefined} The token amount in the user's chosen fiat currency, optionally formatted and localize
  */
 export function getTokenFiatAmount(
@@ -216,6 +218,7 @@ export function getTokenFiatAmount(
   tokenSymbol,
   formatted = true,
   hideCurrencySymbol = false,
+  locale = 'en',
 ) {
   // If the conversionRate is 0 (i.e. unknown) or the contract exchange rate
   // is currently unknown, the fiat amount cannot be calculated so it is not
@@ -242,6 +245,11 @@ export function getTokenFiatAmount(
   }
 
   currentTokenInFiat = currentTokenInFiat.round(2).toString();
+
+  const displayCurrency = locale === 'ja' && currentCurrency.toUpperCase() === 'JPY'
+    ? '日本円'
+    : currentCurrency.toUpperCase();
+
   let result;
   if (hideCurrencySymbol && formatted) {
     result = formatCurrency(currentTokenInFiat, currentCurrency);
@@ -249,7 +257,7 @@ export function getTokenFiatAmount(
     result = `${formatCurrency(
       currentTokenInFiat,
       currentCurrency,
-    )} ${currentCurrency.toUpperCase()}`;
+    )} ${displayCurrency}`;
   } else {
     result = currentTokenInFiat;
   }

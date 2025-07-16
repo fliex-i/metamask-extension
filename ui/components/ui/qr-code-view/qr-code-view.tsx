@@ -14,16 +14,15 @@ import {
   Text,
   AvatarToken,
   AvatarTokenSize,
+  Button,
+  ButtonVariant,
 } from '../../component-library';
 import { MetaMetricsContext } from '../../../contexts/metametrics';
 import type { MetaMaskReduxState } from '../../../store/store';
 import {
-  AlignItems,
-  Display,
-  IconColor,
   TextAlign,
-  TextColor,
   TextVariant,
+  TextColor,
 } from '../../../helpers/constants/design-system';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import { MINUTE } from '../../../../shared/constants/time';
@@ -131,23 +130,18 @@ function QrCodeView({
         marginBottom={4}
       >
         {addressStart}
-        <Text
+        {/* <Text
           variant={TextVariant.bodyMd}
           color={TextColor.textMuted}
           className="qr-code__address-inner-segment"
-        >
-          {addressMiddle}
-        </Text>
+        > */}
+        {addressMiddle}
+        {/* </Text> */}
         {addressEnd}
       </Text>
-      <Box
-        display={Display.Flex}
-        marginBottom={1}
-        gap={2}
-        alignItems={AlignItems.center}
-        color={TextColor.primaryDefault}
-        className="qr-code__copy-button"
-        data-testid="address-copy-button-text"
+      <Button
+        variant={ButtonVariant.Link}
+        startIconName={copied ? IconName.CopySuccess : IconName.Copy}
         onClick={() => {
           handleCopy(checksummedAddress);
           trackEvent({
@@ -158,14 +152,19 @@ function QrCodeView({
             },
           });
         }}
+        paddingBottom={3}
+        paddingTop={3}
+        paddingLeft={4}
+        paddingRight={4}
+        style={{
+          borderRadius: '8px',
+          backgroundColor: '#EDEDED',
+          color: '#171717',
+        }}
+        data-testid="address-copy-button-text"
       >
-        <Icon
-          name={copied ? IconName.CopySuccess : IconName.Copy}
-          size={IconSize.Sm}
-          color={IconColor.primaryDefault}
-        />
         {t('copyAddressShort')}
-      </Box>
+      </Button>
     </div>
   );
 }

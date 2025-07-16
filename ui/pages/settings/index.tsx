@@ -215,11 +215,11 @@ const SettingsPage: React.FC = () => {
             icon: './images/setting/customer.svg',
             link: 'https://www.crypto-bridge.co/jp/#support',
           },
-          {
-            name: t('submitFeedback'),
-            icon: './images/setting/exit.svg',
-            link: 'https://www.crypto-bridge.co/jp/#support',
-          },
+          // {
+          //   name: t('submitFeedback'),
+          //   icon: './images/setting/exit.svg',
+          //   link: 'https://www.crypto-bridge.co/jp/#support',
+          // },
           {
             name: t('termC'),
             icon: './images/setting/terms.svg',

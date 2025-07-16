@@ -6,8 +6,58 @@
 
   &__create-password {
     display: flex;
-    flex-direction: column;
     width: 100%;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  &__create-password-input {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__create-password-rules {
+    flex: 2;
+    margin-top: 10px;
+  }
+
+  &__rules-list {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  &__rule-item {
+    list-style: none;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__rule-icon {
+    font-size: 16px;
+
+    &--valid {
+      color: var(--color-success-default);
+    }
+
+    &--invalid {
+      color: var(--color-text-default);
+    }
+  }
+
+  &__rule-text {
+    &--valid {
+      color: var(--color-success-default);
+    }
+
+    &--invalid {
+      color: var(--color-text-default);
+    }
   }
 
   &__terms {

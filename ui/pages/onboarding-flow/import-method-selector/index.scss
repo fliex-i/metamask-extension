@@ -1,0 +1,54 @@
+@use "design-system";
+
+.import-method-selector {
+  // 白色卡片样式
+  .import-method-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .import-method-option {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--color-primary-default);
+      background-color: var(--color-primary-muted);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-primary-default);
+      outline-offset: 2px;
+    }
+  }
+
+  // 确保图标容器有固定尺寸
+  .import-method-option img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  // 响应式设计
+  @media (max-width: 480px) {
+    .import-method-card {
+      margin: 16px;
+      padding: 20px !important;
+    }
+
+    .import-method-option {
+      padding: 12px !important;
+    }
+  }
+}

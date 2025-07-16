@@ -74,7 +74,7 @@ export const ConnectedSiteMenu = ({
   );
   return (
     <>
-      <Box
+      {/* <Box
         className={classNames(
           `multichain-connected-site-menu${disabled ? '--disabled' : ''}`,
           className,
@@ -130,7 +130,7 @@ export const ConnectedSiteMenu = ({
             </BadgeWrapper>
           </Tooltip>
         )}
-      </Box>
+      </Box> */}
       {showPopover && (
         <ConnectedSitePopover
           referenceElement={referenceElement}

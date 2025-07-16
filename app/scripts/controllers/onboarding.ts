@@ -5,7 +5,7 @@ import {
   RestrictedMessenger,
 } from '@metamask/base-controller';
 import log from 'loglevel';
-import { FirstTimeFlowType } from '../../../shared/constants/onboarding';
+import { FirstTimeFlowType, ImportMethod } from '../../../shared/constants/onboarding';
 
 // Unique name for the controller
 const controllerName = 'OnboardingController';
@@ -16,6 +16,7 @@ const controllerName = 'OnboardingController';
 export type OnboardingControllerState = {
   seedPhraseBackedUp: boolean | null;
   firstTimeFlowType: FirstTimeFlowType | null;
+  importMethod: ImportMethod | null;
   completedOnboarding: boolean;
   onboardingTabs?: Record<string, string>;
 };
@@ -26,6 +27,7 @@ export type OnboardingControllerState = {
 export const getDefaultOnboardingControllerState = () => ({
   seedPhraseBackedUp: null,
   firstTimeFlowType: null,
+  importMethod: null,
   completedOnboarding: false,
 });
 
@@ -46,6 +48,10 @@ const controllerMetadata = {
     anonymous: true,
   },
   firstTimeFlowType: {
+    persist: true,
+    anonymous: true,
+  },
+  importMethod: {
     persist: true,
     anonymous: true,
   },
@@ -70,7 +76,28 @@ export type OnboardingControllerGetStateAction = ControllerGetStateAction<
 /**
  * Actions exposed by the {@link OnboardingController}.
  */
-export type OnboardingControllerActions = OnboardingControllerGetStateAction;
+export type OnboardingControllerActions =
+  | OnboardingControllerGetStateAction
+  | {
+      type: `${typeof controllerName}:setSeedPhraseBackedUp`;
+      handler: OnboardingController['setSeedPhraseBackedUp'];
+    }
+  | {
+      type: `${typeof controllerName}:completeOnboarding`;
+      handler: OnboardingController['completeOnboarding'];
+    }
+  | {
+      type: `${typeof controllerName}:setFirstTimeFlowType`;
+      handler: OnboardingController['setFirstTimeFlowType'];
+    }
+  | {
+      type: `${typeof controllerName}:setImportMethod`;
+      handler: OnboardingController['setImportMethod'];
+    }
+  | {
+      type: `${typeof controllerName}:registerOnboarding`;
+      handler: OnboardingController['registerOnboarding'];
+    };
 
 /**
  * Event emitted when the state of the {@link OnboardingController} changes.
@@ -172,6 +199,17 @@ export default class OnboardingController extends BaseController<
   setFirstTimeFlowType(type: FirstTimeFlowType): void {
     this.update((state) => {
       state.firstTimeFlowType = type;
+    });
+  }
+
+  /**
+   * Setter for the `importMethod` property
+   *
+   * @param method - Indicates the method used to import the wallet - seedPhrase or privateKey
+   */
+  setImportMethod(method: ImportMethod): void {
+    this.update((state) => {
+      state.importMethod = method;
     });
   }
 

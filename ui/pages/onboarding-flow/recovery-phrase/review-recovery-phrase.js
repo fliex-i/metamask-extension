@@ -99,14 +99,14 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
           marginBottom={4}
           width={BlockSize.Full}
         >
-          {!isFromReminderParam && (
+          {/* {!isFromReminderParam && (
             <Text
               variant={TextVariant.bodyMd}
               color={TextColor.textAlternative}
             >
               {t('stepOf', [2, 3])}
             </Text>
-          )}
+          )} */}
           <Text variant={TextVariant.headingLg} as="h2">
             {t('seedPhraseReviewTitle')}
           </Text>

@@ -94,7 +94,7 @@ export const AccountDetailsDisplay = ({
         <ButtonIcon
           color={IconColor.iconAlternative}
           iconName={copied ? IconName.CopySuccess : IconName.Copy}
-          size={ButtonIconSize.Md}
+          size={ButtonIconSize.Lg}
           style={{
             cursor: 'pointer',
             position: 'absolute',

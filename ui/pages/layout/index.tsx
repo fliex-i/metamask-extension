@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import cs from 'classnames';
 import { AppHeader } from '../../components/multichain/app-header/app-header-full-screen';
@@ -7,15 +7,23 @@ import { DEFAULT_ROUTE, SETTINGS_ROUTE } from '../../helpers/constants/routes';
 import { useI18nContext } from '../../hooks/useI18nContext';
 import { ButtonIcon, IconName } from '../../components/component-library';
 import { getIsUnlocked } from '../../ducks/metamask/metamask';
+import { lockMetamask } from '../../store/actions';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const t = useI18nContext();
   const history = useHistory();
+  const dispatch = useDispatch();
   const isUnlocked = useSelector(getIsUnlocked);
   const HandlerMenuClick = (route: string) => {
     history.push(route);
   };
   const [collapsed, setCollapsed] = React.useState(false);
+
+  const handleLockClick = () => {
+    dispatch(lockMetamask());
+    history.push(DEFAULT_ROUTE);
+  };
+
   return (
     <div className="layout">
       {isUnlocked && !history.location.pathname.includes('onboarding') && (
@@ -73,6 +81,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 ></ButtonIcon>
 
                 <span>{t('settings')}</span>
+              </li>
+              <li onClick={handleLockClick}>
+                <ButtonIcon
+                  iconName={IconName.Lock}
+                  ariaLabel={t('lockNow')}
+                ></ButtonIcon>
+
+                <span>{t('lockNow')}</span>
               </li>
             </ul>
           </div>

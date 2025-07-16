@@ -111,9 +111,9 @@ export default function SecureYourWallet() {
           marginBottom={4}
           width={BlockSize.Full}
         >
-          <Text variant={TextVariant.bodyMd} color={TextColor.textAlternative}>
+          {/* <Text variant={TextVariant.bodyMd} color={TextColor.textAlternative}>
             {t('stepOf', [2, 3])}
-          </Text>
+          </Text> */}
           <Text variant={TextVariant.headingLg} as="h2">
             {t('seedPhraseIntroTitle')}
           </Text>

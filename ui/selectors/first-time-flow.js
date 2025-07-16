@@ -57,6 +57,10 @@ export const getFirstTimeFlowType = (state) => {
   return state.metamask.firstTimeFlowType;
 };
 
+export const getImportMethod = (state) => {
+  return state.metamask.importMethod;
+};
+
 export const getOnboardingInitiator = (state) => {
   const { onboardingTabs } = state.metamask;
 

@@ -28,6 +28,7 @@ import {
 import { useI18nContext } from '../../../../../../../hooks/useI18nContext';
 import { useGasFeeToken } from '../../hooks/useGasFeeToken';
 import { getCurrentCurrency } from '../../../../../../../ducks/metamask/metamask';
+import { getCurrentLocale } from '../../../../../../../ducks/locale/locale';
 import { GasFeeTokenIcon, GasFeeTokenIconSize } from '../gas-fee-token-icon';
 
 export type GasFeeTokenListItemProps = {
@@ -46,12 +47,20 @@ export function GasFeeTokenListItem({
   const t = useI18nContext();
   const gasFeeToken = useGasFeeToken({ tokenAddress });
   const currentCurrency = useSelector(getCurrentCurrency);
+  const currentLocale = useSelector(getCurrentLocale);
 
   if (!gasFeeToken) {
     return null;
   }
 
   const { amountFiat, amountFormatted, balanceFiat, symbol } = gasFeeToken;
+
+  const displayCurrency = React.useMemo(() => {
+    if (currentLocale === 'ja' && currentCurrency.toUpperCase() === 'JPY') {
+      return '日本円';
+    }
+    return currentCurrency.toUpperCase();
+  }, [currentLocale, currentCurrency]);
 
   return (
     <ListItem
@@ -65,7 +74,7 @@ export function GasFeeTokenListItem({
       leftPrimary={symbol}
       leftSecondary={`${t(
         'confirmGasFeeTokenBalance',
-      )} ${balanceFiat} ${currentCurrency.toUpperCase()}`}
+      )} ${balanceFiat} ${displayCurrency}`}
       rightPrimary={amountFiat}
       rightSecondary={`${amountFormatted} ${symbol}`}
       warning={warning && <WarningIndicator text={warning} />}

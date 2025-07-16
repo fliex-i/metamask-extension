@@ -50,8 +50,54 @@
       background: var(--color-primary-attention-bank);
     }
     .tips-home-des{
-      font-size: 12px;
+      font-size: 14px;
       line-height: 20px;
+      position: relative;
+
+      &.collapsed {
+        .tips-home-line {
+          display: none;
+
+          &:first-child {
+            display: block;
+          }
+        }
+      }
+
+      &.expanded {
+        .tips-home-line {
+          display: block;
+        }
+      }
+
+      .tips-home-line {
+        margin-bottom: 4px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .tips-toggle-btn {
+        background: none;
+        border: none;
+        color: var(--color-primary-default);
+        font-size: 12px;
+        cursor: pointer;
+        padding: 4px 8px;
+        margin-top: 8px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: var(--color-background-alternative);
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px var(--color-primary-default);
+        }
+      }
     }
     .tips-bank-content {
       display: flex;
@@ -73,7 +119,7 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      font-size: 12px;
+      font-size: 14px;
     }
     .tips-bank-des {
       display: flex;
@@ -95,7 +141,7 @@
       justify-content: center;
       background: var(--brand-colors-purple);
       color: var(--color-text-white);
-      font-size: 12px;
+      font-size: 14px;
       border-radius: 5px;
       cursor: pointer;
     }
