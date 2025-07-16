@@ -1,5 +1,6 @@
 // import EventEmitter from 'events';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import classnames from 'classnames';
 // import Mascot from '../../../components/ui/mascot';
 import {
@@ -20,17 +21,26 @@ import {
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import { isFlask, isBeta } from '../../../helpers/utils/build-types';
 import ExpandableInputButton from '../../../components/ui/expandable-input-button';
+import { ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE } from '../../../helpers/constants/routes';
 
 type WelcomeLoginProps = {
   onCreate: () => void;
   onImport: () => void;
+  onImportPrivateKey: () => void;
 };
 
 export default function WelcomeLogin({
   onCreate,
   onImport,
+  onImportPrivateKey,
 }: WelcomeLoginProps) {
   const t = useI18nContext();
+  const history = useHistory();
+
+  const handleImportClick = (): void => {
+    history.push(ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE);
+  };
+
   return (
     <Box
       style={{ height: '100%' }}
@@ -110,7 +120,7 @@ export default function WelcomeLogin({
             size={ButtonBaseSize.Lg}
             backgroundColor={BackgroundColor.transparent}
             className="welcome-login__import-button"
-            onClick={onImport}
+            onClick={handleImportClick}
           >
             {t('onboardingImportWallet')}
           </ButtonBase>

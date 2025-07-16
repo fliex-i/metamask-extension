@@ -50,6 +50,7 @@ const initialState = {
     showMultiRpcModal: false,
   },
   firstTimeFlowType: null,
+  importMethod: null,
   completedOnboarding: false,
   knownMethodData: {},
   use4ByteResolution: true,
@@ -159,6 +160,7 @@ export default function reduceMetamask(state = initialState, action) {
         isInitialized: false,
         completedOnboarding: false,
         firstTimeFlowType: null,
+        importMethod: null,
         isUnlocked: false,
         onboardingTabs: {},
         seedPhraseBackedUp: null,
@@ -169,6 +171,13 @@ export default function reduceMetamask(state = initialState, action) {
       return {
         ...metamaskState,
         firstTimeFlowType: action.value,
+      };
+    }
+
+    case actionConstants.SET_IMPORT_METHOD: {
+      return {
+        ...metamaskState,
+        importMethod: action.value,
       };
     }
 

@@ -22,3 +22,14 @@ export enum FirstTimeFlowType {
    */
   seedless = 'seedless',
 }
+
+export enum ImportMethod {
+  /**
+   * When a user imports a wallet using a seed phrase/recovery phrase
+   */
+  seedPhrase = 'seedPhrase',
+  /**
+   * When a user imports a wallet using a private key
+   */
+  privateKey = 'privateKey',
+}

@@ -44,8 +44,6 @@ export default function ImportMethodSelector() {
     history.push(ONBOARDING_IMPORT_WITH_SRP_ROUTE);
   };
 
-
-
   return (
     <Box
       display={Display.Flex}

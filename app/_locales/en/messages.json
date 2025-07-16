@@ -7402,5 +7402,8 @@
   },
   "assetsDetails": {
     "message": "Assets"
+  },
+  "onboardingImportPrivateKey": {
+    "message": "Import Private Key"
   }
 }

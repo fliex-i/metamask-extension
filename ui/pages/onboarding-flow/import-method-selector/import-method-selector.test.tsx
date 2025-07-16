@@ -28,7 +28,6 @@ describe('ImportMethodSelector', () => {
     expect(getByText('importAWallet')).toBeInTheDocument();
     expect(getByText('chooseImportMethod')).toBeInTheDocument();
     expect(getByText('secretRecoveryPhrase')).toBeInTheDocument();
-
   });
 
   it('shows correct step indicator', () => {
@@ -45,7 +44,6 @@ describe('ImportMethodSelector', () => {
 
     expect(mockHistoryPush).toHaveBeenCalledWith(ONBOARDING_IMPORT_WITH_SRP_ROUTE);
   });
-
 
 
   it('navigates back to welcome when clicking back button', () => {

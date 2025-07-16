@@ -4623,6 +4623,23 @@ export function setFirstTimeFlowType(
   };
 }
 
+export function setImportMethod(
+  method: ImportMethod,
+): ThunkAction<Promise<void>, MetaMaskReduxState, unknown, AnyAction> {
+  return async (dispatch: MetaMaskReduxDispatch) => {
+    try {
+      log.debug(`background.setImportMethod`);
+      await submitRequestToBackground('setImportMethod', [method]);
+      dispatch({
+        type: actionConstants.SET_IMPORT_METHOD,
+        value: method,
+      });
+    } catch (err) {
+      dispatch(displayWarning(err));
+    }
+  };
+}
+
 export function setSelectedNetworkConfigurationId(
   networkConfigurationId: string,
 ): PayloadAction<string> {

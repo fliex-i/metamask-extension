@@ -16,7 +16,7 @@ import {
 } from '../../../helpers/constants/design-system';
 import {
   ONBOARDING_CREATE_PASSWORD_ROUTE,
-  ONBOARDING_WELCOME_ROUTE,
+  ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE,
   DEFAULT_ROUTE,
 } from '../../../helpers/constants/routes';
 import { useI18nContext } from '../../../hooks/useI18nContext';
@@ -44,13 +44,15 @@ import {
 import SRPDetailsModal from '../../../components/app/srp-details-modal';
 import { ModalContent } from '../../../components/component-library/modal-content/deprecated';
 import { ModalHeader } from '../../../components/component-library/modal-header';
-import { setCompletedOnboarding } from '../../../store/actions';
+import { setCompletedOnboarding, setImportMethod } from '../../../store/actions';
+import { ImportMethod } from '../../../../shared/constants/onboarding';
 import { ImportAccount } from '../../../components/multichain/import-account';
 
 const hasUpperCase = (draftSrp) => {
   return draftSrp !== draftSrp.toLowerCase();
 };
 export default function ImportSRP({ submitSecretRecoveryPhrase }) {
+  const dispatch = useDispatch();
   const [secretRecoveryPhrase, setSecretRecoveryPhrase] = useState('');
   const [showSrpDetailsModal, setShowSrpDetailsModal] = useState(false);
   const [srpError, setSrpError] = useState('');
@@ -77,7 +79,7 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
     setShowSrpDetailsModal(true);
   }, [trackEvent]);
 
-  const onContinue = useCallback(() => {
+  const onContinue = useCallback(async () => {
     let newSrpError = '';
     if (
       hasUpperCase(secretRecoveryPhrase) ||
@@ -91,6 +93,9 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
     if (newSrpError) {
       return;
     }
+
+    // Set the import method to seedPhrase
+    await dispatch(setImportMethod(ImportMethod.seedPhrase));
 
     submitSecretRecoveryPhrase(secretRecoveryPhrase);
     trackEvent({
@@ -108,13 +113,12 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
     trackEvent,
     history,
     submitSecretRecoveryPhrase,
+    dispatch,
   ]);
 
   useEffect(() => {
     setSrpError('');
   }, [secretRecoveryPhrase]);
-
-  const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -156,18 +160,18 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
               color={IconColor.iconDefault}
               size={ButtonIconSize.Md}
               data-testid="import-srp-back-button"
-              onClick={() => history.push(ONBOARDING_WELCOME_ROUTE)}
+              onClick={() => history.push(ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE)}
               ariaLabel={t('back')}
             />
           </Box>
-          <Box textAlign={TextAlign.Left}>
+          {/* <Box textAlign={TextAlign.Left}>
             <Text
               variant={TextVariant.bodyMd}
               color={TextColor.textAlternative}
             >
-              {t('stepOf', [1, 2])}
+              {t('stepOf', [2, 3])}
             </Text>
-          </Box>
+          </Box> */}
           <Box textAlign={TextAlign.Left} marginBottom={2}>
             <Text variant={TextVariant.headingLg}>{t('importAWallet')}</Text>
           </Box>

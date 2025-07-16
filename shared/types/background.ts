@@ -208,6 +208,7 @@ export type ControllerStatePropertiesEnumerated = {
   isUpdatingFCMToken: NotificationServicesPushController.NotificationServicesPushControllerState['isUpdatingFCMToken'];
   completedOnboarding: OnboardingControllerState['completedOnboarding'];
   firstTimeFlowType: OnboardingControllerState['firstTimeFlowType'];
+  importMethod: OnboardingControllerState['importMethod'];
   onboardingTabs?: OnboardingControllerState['onboardingTabs'];
   seedPhraseBackedUp: OnboardingControllerState['seedPhraseBackedUp'];
   subjects: PermissionControllerState<PermissionConstraint>['subjects'];
