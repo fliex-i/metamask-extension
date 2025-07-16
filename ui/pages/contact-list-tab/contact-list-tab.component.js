@@ -179,7 +179,7 @@ export default class ContactListTab extends Component {
       <div
         style={
           hasLayerHeader
-            ? { padding: '20px 0' }
+            ? { padding: '20px 0', display: 'flex', alignItems: 'center' }
             : { position: 'absolute', top: 16, left: 16, zIndex: 10 }
         }
       >
@@ -190,6 +190,9 @@ export default class ContactListTab extends Component {
           onClick={() => history.goBack()}
           style={{ background: '#EDEDED', borderRadius: '99px' }}
         />
+        <span style={{ marginLeft: '10px', fontSize: '16px' }}>
+          {t('back')}
+        </span>
       </div>
     );
   }

@@ -129,6 +129,53 @@ describe('CreateNewVault', () => {
     expect(submitButton).toBeDisabled();
   });
 
+  it('should display password requirements when password input is focused', () => {
+    const props = {
+      onSubmit: jest.fn(),
+      submitText: 'Submit',
+    };
+
+    const { queryByTestId, queryByText } = renderWithProvider(
+      <CreateNewVault {...props} />,
+      store,
+    );
+
+    expect(queryByText('Password Requirements:')).toBeInTheDocument();
+
+    expect(queryByText('Must be at least 8 characters long')).toBeInTheDocument();
+    expect(queryByText('Must include at least one uppercase letter (A–Z)')).toBeInTheDocument();
+    expect(queryByText('Must include at least one lowercase letter (a–z)')).toBeInTheDocument();
+    expect(queryByText('Must include at least one number (0–9)')).toBeInTheDocument();
+    expect(queryByText('Must include at least one symbol (only @, #, $, ! are allowed)')).toBeInTheDocument();
+  });
+
+  it('should show password rules validation in real-time', () => {
+    const props = {
+      onSubmit: jest.fn(),
+      submitText: 'Submit',
+    };
+
+    const { queryByTestId } = renderWithProvider(
+      <CreateNewVault {...props} />,
+      store,
+    );
+
+    const passwordInput = queryByTestId('create-vault-password');
+
+    fireEvent.change(passwordInput, { target: { value: '12345678' } });
+
+    const lengthRule = passwordInput.closest('.create-new-vault__create-password').querySelector('.create-new-vault__rule-item');
+    expect(lengthRule.textContent).toContain('•');
+    expect(lengthRule.textContent).toContain('Must be at least 8 characters long');
+
+    fireEvent.change(passwordInput, { target: { value: 'Test@123' } });
+
+    const ruleItems = passwordInput.closest('.create-new-vault__create-password').querySelectorAll('.create-new-vault__rule-item');
+    ruleItems.forEach((item) => {
+      expect(item.textContent).toContain('•');
+    });
+  });
+
   it('should sign out the user and submit successfully when password and confirm password match', () => {
     const props = {
       onSubmit: jest.fn(),

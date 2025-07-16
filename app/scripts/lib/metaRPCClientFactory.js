@@ -77,7 +77,9 @@ class MetaRPCClient {
     }
 
     if (error) {
-      const e = new JsonRpcError(error.code, error.message, error.data);
+      // Ensure error.message is not empty or undefined
+      const errorMessage = error.message || 'Unknown error occurred';
+      const e = new JsonRpcError(error.code, errorMessage, error.data);
       // preserve the stack from serializeError
       e.stack = error.stack;
       if (cb) {

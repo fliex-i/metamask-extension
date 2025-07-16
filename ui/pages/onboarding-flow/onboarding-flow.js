@@ -17,6 +17,8 @@ import {
   ONBOARDING_PRIVACY_SETTINGS_ROUTE,
   ONBOARDING_COMPLETION_ROUTE,
   ONBOARDING_IMPORT_WITH_SRP_ROUTE,
+
+  ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE,
   ONBOARDING_PIN_EXTENSION_ROUTE,
   ONBOARDING_METAMETRICS,
   ONBOARDING_ACCOUNT_EXIST,
@@ -30,11 +32,14 @@ import {
   createNewVaultAndGetSeedPhrase,
   unlockAndGetSeedPhrase,
   createNewVaultAndRestore,
+  setImportMethod,
 } from '../../store/actions';
+import * as actions from '../../store/actions';
 import {
   getFirstTimeFlowTypeRouteAfterUnlock,
   getShowTermsOfUse,
 } from '../../selectors';
+import { ImportMethod } from '../../../shared/constants/onboarding';
 // import { MetaMetricsContext } from '../../contexts/metametrics';
 // import Button from '../../components/ui/button';
 import RevealSRPModal from '../../components/app/reveal-SRP-modal';
@@ -73,6 +78,8 @@ import PrivacySettings from './privacy-settings/privacy-settings';
 import CreationSuccessful from './creation-successful/creation-successful';
 import OnboardingWelcome from './welcome/welcome';
 import ImportSRP from './import-srp/import-srp';
+
+import ImportMethodSelector from './import-method-selector/import-method-selector';
 import OnboardingPinExtension from './pin-extension/pin-extension';
 import MetaMetricsComponent from './metametrics/metametrics';
 import OnboardingAppHeader from './onboarding-app-header/onboarding-app-header';
@@ -84,6 +91,7 @@ import AccountNotFound from './account-not-found/account-not-found';
 
 export default function OnboardingFlow() {
   const [secretRecoveryPhrase, setSecretRecoveryPhrase] = useState('');
+
   const dispatch = useDispatch();
   const { pathname, search } = useLocation();
   const history = useHistory();
@@ -159,8 +167,12 @@ export default function OnboardingFlow() {
   };
 
   const handleImportWithRecoveryPhrase = async (password, srp) => {
+    // Set the import method to seedPhrase
+    await dispatch(setImportMethod(ImportMethod.seedPhrase));
     return await dispatch(createNewVaultAndRestore(password, srp));
   };
+
+
 
   const showPasswordModalToAllowSRPReveal =
     pathname === `${ONBOARDING_REVIEW_SRP_ROUTE}/` &&
@@ -279,6 +291,11 @@ export default function OnboardingFlow() {
               />
             )}
           />
+
+          <Route
+            path={ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE}
+            component={ImportMethodSelector}
+          />
           <Route
             path={ONBOARDING_UNLOCK_ROUTE}
             render={(routeProps) => (
@@ -332,7 +349,7 @@ export default function OnboardingFlow() {
     </Box>
   );
 }
-
 function setOnboardingDate() {
   submitRequestToBackgroundAndCatch('setOnboardingDate');
 }
+

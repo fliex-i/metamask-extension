@@ -8018,9 +8018,11 @@ export default class MetamaskController extends EventEmitter {
 
   rejectPendingApproval = (id, error) => {
     try {
+      // Ensure error.message is not empty or undefined
+      const errorMessage = error.message || 'Unknown error occurred';
       this.approvalController.reject(
         id,
-        new JsonRpcError(error.code, error.message, error.data),
+        new JsonRpcError(error.code, errorMessage, error.data),
       );
     } catch (exp) {
       if (!(exp instanceof ApprovalRequestNotFoundError)) {

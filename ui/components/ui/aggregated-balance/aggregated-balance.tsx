@@ -33,7 +33,7 @@ import {
   getMultichainShouldShowFiat,
 } from '../../../selectors/multichain';
 import { formatWithThreshold } from '../../app/assets/util/formatWithThreshold';
-import { getIntlLocale } from '../../../ducks/locale/locale';
+import { getIntlLocale, getCurrentLocale } from '../../../ducks/locale/locale';
 import Spinner from '../spinner';
 import { useMultichainSelector } from '../../../hooks/useMultichainSelector';
 
@@ -49,6 +49,7 @@ export const AggregatedBalance = ({
   const { privacyMode, showNativeTokenAsMainBalance } =
     useSelector(getPreferences);
   const locale = useSelector(getIntlLocale);
+  const currentLocale = useSelector(getCurrentLocale);
   const balances = useSelector(getTokenBalances);
   const assets = useSelector(getAccountAssets);
   const selectedAccount = useSelector(getSelectedInternalAccount);
@@ -89,6 +90,13 @@ export const AggregatedBalance = ({
     },
   );
 
+  const displayCurrency = React.useMemo(() => {
+    if (currentLocale === 'ja' && currentCurrency.toUpperCase() === 'JPY') {
+      return '日本円';
+    }
+    return currentCurrency.toUpperCase();
+  }, [currentLocale, currentCurrency]);
+
   if (!balances || !assets[selectedAccount.id]?.length) {
     return <Spinner className="loading-overlay__spinner" />;
   }
@@ -125,7 +133,7 @@ export const AggregatedBalance = ({
           !isNonEvmRatesAvailable ||
           !shouldShowFiat
             ? currentNetwork.network.ticker
-            : currentCurrency.toUpperCase()}
+            : displayCurrency}
         </SensitiveText>
 
         <ButtonIcon

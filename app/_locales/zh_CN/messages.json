@@ -3791,6 +3791,18 @@
   "onboardingImportWallet": {
     "message": "导入现有钱包"
   },
+  "importAWallet": {
+    "message": "导入钱包"
+  },
+  "stepOf": {
+    "message": "第 $1 步，共 $2 步"
+  },
+  "chooseImportMethod": {
+    "message": "选择导入方式"
+  },
+  "importWalletVia": {
+    "message": "通过以下方式导入钱包"
+  },
   "onboardingMetametricsAgree": {
     "message": "我同意"
   },

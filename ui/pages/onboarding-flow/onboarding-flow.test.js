@@ -16,6 +16,7 @@ import {
   ONBOARDING_PRIVACY_SETTINGS_ROUTE,
   ONBOARDING_COMPLETION_ROUTE,
   ONBOARDING_IMPORT_WITH_SRP_ROUTE,
+  ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE,
   ONBOARDING_PIN_EXTENSION_ROUTE,
   ONBOARDING_METAMETRICS,
 } from '../../helpers/constants/routes';
@@ -199,6 +200,17 @@ describe('Onboarding Flow', () => {
 
     const importSrp = queryByTestId('import-srp');
     expect(importSrp).toBeInTheDocument();
+  });
+
+  it('should render import method selector', () => {
+    const { queryByTestId } = renderWithProvider(
+      <OnboardingFlow />,
+      store,
+      ONBOARDING_IMPORT_METHOD_SELECTOR_ROUTE,
+    );
+
+    const importMethodSelector = queryByTestId('import-method-selector');
+    expect(importMethodSelector).toBeInTheDocument();
   });
 
   describe('Unlock Screen', () => {

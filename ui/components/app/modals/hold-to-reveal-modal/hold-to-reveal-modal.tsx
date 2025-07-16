@@ -51,7 +51,7 @@ export default function HoldToRevealModal({
   const holdToRevealContent1 = `${holdToRevealContent}1`;
   const holdToRevealContent2 = `${holdToRevealContent}2`;
   const holdToRevealContent3 = `${holdToRevealContent}3`;
-  const holdToRevealContent4 = `${holdToRevealContent}4`;
+  const holdToRevealContent4 = holdToRevealType === 'PrivateKey' ? `${holdToRevealContent}44` : `${holdToRevealContent}4`;
   const holdToRevealContent5 = `${holdToRevealContent}5`;
 
   const MainContent = () => {
