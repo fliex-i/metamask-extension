@@ -10,6 +10,11 @@
     justify-content: space-between;
     gap: 16px;
     margin-top: 16px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 24px;
+    }
   }
 
   &__create-password-input {
@@ -17,11 +22,20 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    @media (max-width: 768px) {
+      flex: none;
+    }
   }
 
   &__create-password-rules {
     flex: 2;
     margin-top: 10px;
+
+    @media (max-width: 768px) {
+      flex: none;
+      margin-top: 0;
+    }
   }
 
   &__rules-list {
