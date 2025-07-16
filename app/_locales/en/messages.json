@@ -18,7 +18,7 @@
     "message": "Reject"
   },
   "QRHardwareSignRequestDescription": {
-    "message": "After you've signed with your wallet, click on 'Get Signature' to receive the signature"
+    "message": "After you’ve signed with your wallet, click on 'Get Signature' to receive the signature"
   },
   "QRHardwareSignRequestGetSignature": {
     "message": "Get signature"
@@ -90,7 +90,7 @@
     "message": "Log in"
   },
   "accountAlreadyExistsLoginDescription": {
-    "message": "A wallet using $1 already exists. Do you want to try logging in instead?",
+    "message": "A wallet using “$1” already exists. Do you want to try logging in instead?",
     "description": "$1 is the account email"
   },
   "accountAlreadyExistsTitle": {
@@ -123,7 +123,7 @@
     "message": "Yes, create a new wallet"
   },
   "accountNotFoundDescription": {
-    "message": "We couldn't find a wallet for $1. Do you want to create a new one with this login?",
+    "message": "We couldn’t find a wallet for “$1”. Do you want to create a new one with this login?",
     "description": "$1 is the account email"
   },
   "accountNotFoundTitle": {
@@ -212,7 +212,7 @@
     "message": "Add custom network"
   },
   "addEthereumChainWarningModalHeader": {
-    "message": "Only add this RPC provider if you're sure you can trust it. $1",
+    "message": "Only add this RPC provider if you’re sure you can trust it. $1",
     "description": "$1 is addEthereumChainWarningModalHeaderPartTwo passed separately so that it can be bolded"
   },
   "addEthereumChainWarningModalHeaderPartTwo": {
@@ -285,7 +285,7 @@
     "message": "Add RPC URL"
   },
   "addSnapAccountToggle": {
-    "message": "Enable 'Add account Snap (Beta)'"
+    "message": "Enable \"Add account Snap (Beta)\""
   },
   "addSnapAccountsDescription": {
     "message": "Turning on this feature will give you the option to add the new Beta account Snaps right from your account list. If you install an account Snap, remember that it is a third-party service."
@@ -300,7 +300,7 @@
     "message": "Add token"
   },
   "addTokenByContractAddress": {
-    "message": "Can't find a token? You can manually add any token by pasting its address. Token contract addresses can be found on $1",
+    "message": "Can’t find a token? You can manually add any token by pasting its address. Token contract addresses can be found on $1",
     "description": "$1 is a blockchain explorer for a specific network, e.g. Etherscan for Ethereum"
   },
   "addUrl": {
@@ -364,7 +364,7 @@
     "message": "Gas price"
   },
   "advancedPriorityFeeToolTip": {
-    "message": "Priority fee (aka \"miner tip\") goes directly to miners and incentivizes them to prioritize your transaction."
+    "message": "Priority fee (aka “miner tip”) goes directly to miners and incentivizes them to prioritize your transaction."
   },
   "airDropPatternDescription": {
     "message": "The token's on-chain history reveals prior instances of suspicious airdrop activities."
@@ -415,13 +415,13 @@
     "message": "You're interacting with this address for the first time. Make sure that it's correct before you continue."
   },
   "alertMessageGasEstimateFailed": {
-    "message": "We're unable to provide an accurate fee and this estimate might be high. We suggest you to input a custom gas limit, but there's a risk the transaction will still fail."
+    "message": "We’re unable to provide an accurate fee and this estimate might be high. We suggest you to input a custom gas limit, but there’s a risk the transaction will still fail."
   },
   "alertMessageGasFeeLow": {
     "message": "When choosing a low fee, expect slower transactions and longer wait times. For faster transactions, choose Market or Aggressive fee options."
   },
   "alertMessageGasTooLow": {
-    "message": "To continue with this transaction, you'll need to increase the gas limit to 21000 or higher."
+    "message": "To continue with this transaction, you’ll need to increase the gas limit to 21000 or higher."
   },
   "alertMessageInsufficientBalanceWithNativeCurrency": {
     "message": "You do not have enough $1 in your account to pay for network fees."
@@ -430,10 +430,10 @@
     "message": "Gas prices are high and estimates are less accurate."
   },
   "alertMessageNoGasPrice": {
-    "message": "We can't move forward with this transaction until you manually update the fee."
+    "message": "We can’t move forward with this transaction until you manually update the fee."
   },
   "alertMessageSignInDomainMismatch": {
-    "message": "The site making the request is not the site you're signing into. This could be an attempt to steal your login credentials."
+    "message": "The site making the request is not the site you’re signing into. This could be an attempt to steal your login credentials."
   },
   "alertMessageSignInWrongAccount": {
     "message": "This site is asking you to sign in using the wrong account."
@@ -627,7 +627,7 @@
     "message": "Autodetect tokens"
   },
   "autoDetectTokensDescription": {
-    "message": "We use third-party APIs to detect and display new tokens sent to your wallet. Turn off if you don't want the app to automatically pull data from those services. $1",
+    "message": "We use third-party APIs to detect and display new tokens sent to your wallet. Turn off if you don’t want the app to automatically pull data from those services. $1",
     "description": "$1 is a link to a support article"
   },
 
@@ -674,11 +674,11 @@
     "message": "Turn on backup and sync"
   },
   "backupAndSyncEnableConfirmation": {
-    "message": "When you turn on backup and sync, you're also turning on $1. Do you want to continue?",
+    "message": "When you turn on backup and sync, you’re also turning on $1. Do you want to continue?",
     "description": "$1 is backupAndSyncBasicFunctionalityNameMention in bold."
   },
   "backupAndSyncEnableDescription": {
-    "message": "Backup and sync lets us store encrypted data for your custom settings and features. This keeps your CryptoBridge experience the same across devices and restores settings and features if you ever need to reinstall CryptoBridge. This doesn't back up your Secret Recovery Phrase. $1.",
+    "message": "Backup and sync lets us store encrypted data for your custom settings and features. This keeps your CryptoBridge experience the same across devices and restores settings and features if you ever need to reinstall CryptoBridge. This doesn’t back up your Secret Recovery Phrase. $1.",
     "description": "$1 is link to the backup and sync privacy policy."
   },
   "backupAndSyncEnableDescriptionUpdatePreferences": {
@@ -698,7 +698,7 @@
     "message": "Manage what you sync"
   },
   "backupAndSyncManageWhatYouSyncDescription": {
-    "message": "Turn on what's synced between your devices."
+    "message": "Turn on what’s synced between your devices."
   },
   "backupAndSyncPrivacyLink": {
     "message": "Learn how we protect your privacy"
@@ -778,7 +778,7 @@
     "message": "notifications"
   },
   "basicConfigurationModalDisclaimerOn": {
-    "message": "To optimize your time on CryptoBridge, you'll need to turn on this feature. Basic functions (like token details, optimal gas settings, and others) are important to the web3 experience."
+    "message": "To optimize your time on CryptoBridge, you’ll need to turn on this feature. Basic functions (like token details, optimal gas settings, and others) are important to the web3 experience."
   },
   "basicConfigurationModalHeadingOff": {
     "message": "Turn off basic functionality"
@@ -834,22 +834,22 @@
     "message": "Blockaid"
   },
   "blockaidAlertDescriptionBlur": {
-    "message": "If you continue, all the assets you've listed on Blur could be at risk."
+    "message": "If you continue, all the assets you’ve listed on Blur could be at risk."
   },
   "blockaidAlertDescriptionMalicious": {
-    "message": "You're interacting with a malicious site. If you continue, you will lose your assets."
+    "message": "You’re interacting with a malicious site. If you continue, you will lose your assets."
   },
   "blockaidAlertDescriptionOpenSea": {
-    "message": "If you continue, all the assets you've listed on OpenSea could be at risk."
+    "message": "If you continue, all the assets you’ve listed on OpenSea could be at risk."
   },
   "blockaidAlertDescriptionOthers": {
     "message": "If you confirm this request, you could lose your assets. We recommend that you cancel this request."
   },
   "blockaidAlertDescriptionTokenTransfer": {
-    "message": "You're sending your assets to a scammer. If you continue, you'll lose those assets."
+    "message": "You’re sending your assets to a scammer. If you continue, you’ll lose those assets."
   },
   "blockaidAlertDescriptionWithdraw": {
-    "message": "If you confirm this request, you're allowing a scammer to withdraw and spend your assets. You won't get them back."
+    "message": "If you confirm this request, you’re allowing a scammer to withdraw and spend your assets. You won’t get them back."
   },
   "blockaidDescriptionApproveFarming": {
     "message": "If you approve this request, a third party known for scams might take all your assets."
@@ -1295,7 +1295,7 @@
     "message": "Not quite right"
   },
   "confirmSrpSuccessDescription": {
-    "message": "That's right! And remember: never share this phrase with anyone, ever."
+    "message": "That’s right! And remember: never share this phrase with anyone, ever."
   },
   "confirmSrpSuccessTitle": {
     "message": "Perfect"
@@ -1528,7 +1528,7 @@
     "message": "We've detected that this asset is an NFT. CryptoBridge now has full native support for NFTs. Would you like to remove it from your token list and add it as an NFT?"
   },
   "convertTokenToNFTExistDescription": {
-    "message": "We've detected that this asset has been added as an NFT. Would you like to remove it from your token list?"
+    "message": "We’ve detected that this asset has been added as an NFT. Would you like to remove it from your token list?"
   },
   "coolWallet": {
     "message": "CoolWallet"
@@ -1604,7 +1604,7 @@
     "message": "Currency symbol"
   },
   "currencySymbolDefinition": {
-    "message": "The ticker symbol displayed for this network's currency."
+    "message": "The ticker symbol displayed for this network’s currency."
   },
   "currentAccountNotConnected": {
     "message": "Your current account is not connected"
@@ -1641,7 +1641,7 @@
     "message": "Custom"
   },
   "customGasSettingToolTipMessage": {
-    "message": "Use $1 to customize the gas price. This can be confusing if you aren't familiar. Interact at your own risk.",
+    "message": "Use $1 to customize the gas price. This can be confusing if you aren’t familiar. Interact at your own risk.",
     "description": "$1 is key 'advanced' (text: 'Advanced') separated here so that it can be passed in with bold font-weight"
   },
   "customSlippage": {
@@ -1905,7 +1905,7 @@
     "message": "Developer Options"
   },
   "disabledGasOptionToolTipMessage": {
-    "message": "$1 is disabled because it does not meet the minimum of a 10% increase from the original gas fee.",
+    "message": "“$1” is disabled because it does not meet the minimum of a 10% increase from the original gas fee.",
     "description": "$1 is gas estimate type which can be market or aggressive"
   },
   "disconnect": {
@@ -1921,7 +1921,7 @@
     "message": "accounts"
   },
   "disconnectAllDescriptionText": {
-    "message": "If you disconnect from this site, you'll need to reconnect your accounts and networks to use this site again."
+    "message": "If you disconnect from this site, you’ll need to reconnect your accounts and networks to use this site again."
   },
   "disconnectAllSnapsText": {
     "message": "Snaps"
@@ -2077,7 +2077,7 @@
     "description": "$1 is the minimum limit for gas and $2 is the maximum limit"
   },
   "editGasLimitTooltip": {
-    "message": "Gas limit is the maximum units of gas you are willing to use. Units of gas are a multiplier to \"Max priority fee\" and \"Max fee\"."
+    "message": "Gas limit is the maximum units of gas you are willing to use. Units of gas are a multiplier to “Max priority fee” and “Max fee”."
   },
   "editGasMaxBaseFeeGWEIImbalance": {
     "message": "Max base fee cannot be lower than priority fee"
@@ -2119,7 +2119,7 @@
     "message": "Gas price must be greater than 0"
   },
   "editGasPriceTooltip": {
-    "message": "This network requires a \"Gas price\" field when submitting a transaction. Gas price is the amount you will pay pay per unit of gas."
+    "message": "This network requires a “Gas price” field when submitting a transaction. Gas price is the amount you will pay pay per unit of gas."
   },
   "editGasSubTextFeeLabel": {
     "message": "Max fee:"
@@ -2164,7 +2164,7 @@
     "message": "Enter the amount that you feel comfortable being spent on your behalf."
   },
   "editSpendingCapError": {
-    "message": "The spending cap can't exceed $1 decimal digits. Remove decimal digits to continue."
+    "message": "The spending cap can’t exceed $1 decimal digits. Remove decimal digits to continue."
   },
   "editSpendingCapSpecialCharError": {
     "message": "Enter numbers only"
@@ -2286,7 +2286,7 @@
     "description": "Button for submitting report to sentry"
   },
   "errorPageInfo": {
-    "message": "Your information can't be shown. Don't worry, your wallet and funds are safe.",
+    "message": "Your information can’t be shown. Don’t worry, your wallet and funds are safe.",
     "description": "Information banner shown in the error page"
   },
   "errorPageMessageTitle": {
@@ -2384,7 +2384,7 @@
     "message": "Proposed nicknames"
   },
   "externalNameSourcesSettingDescription": {
-    "message": "We'll fetch proposed nicknames for addresses you interact with from third-party sources like Etherscan, Infura, and Lens Protocol. These sources will be able to see those addresses and your IP address. Your account address won't be exposed to third parties."
+    "message": "We’ll fetch proposed nicknames for addresses you interact with from third-party sources like Etherscan, Infura, and Lens Protocol. These sources will be able to see those addresses and your IP address. Your account address won’t be exposed to third parties."
   },
   "failed": {
     "message": "Failed"
@@ -2463,7 +2463,7 @@
     "message": "Reset Password"
   },
   "forgotPasswordModalDescription1": {
-    "message": "CryptoBridge can't recover your password."
+    "message": "CryptoBridge can’t recover your password."
   },
   "forgotPasswordModalDescription2": {
     "message": "To reset your password, enter your Secret Recovery Phrase or Private Key."
@@ -2765,7 +2765,7 @@
     "message": "We apologize, and we will make it faster in the future."
   },
   "importAccountMsg": {
-    "message": "Imported accounts won't be associated with your CryptoBridge Secret Recovery Phrase."
+    "message": "Imported accounts won’t be associated with your CryptoBridge Secret Recovery Phrase."
   },
   "importNFT": {
     "message": "Import NFT"
@@ -2965,10 +2965,10 @@
     "message": "IPFS gateway"
   },
   "ipfsGatewayDescription": {
-    "message": "CryptoBridge uses third-party services to show images of your NFTs stored on IPFS, display information related to ENS addresses entered in your browser's address bar, and fetch icons for different tokens. Your IP address may be exposed to these services when you're using them."
+    "message": "CryptoBridge uses third-party services to show images of your NFTs stored on IPFS, display information related to ENS addresses entered in your browser's address bar, and fetch icons for different tokens. Your IP address may be exposed to these services when you’re using them."
   },
   "ipfsToggleModalDescriptionOne": {
-    "message": "We use third-party services to show images of your NFTs stored on IPFS, display information related to ENS addresses entered in your browser's address bar, and fetch icons for different tokens. Your IP address may be exposed to these services when you're using them."
+    "message": "We use third-party services to show images of your NFTs stored on IPFS, display information related to ENS addresses entered in your browser's address bar, and fetch icons for different tokens. Your IP address may be exposed to these services when you’re using them."
   },
   "ipfsToggleModalDescriptionTwo": {
     "message": "Selecting Confirm turns on IPFS resolution. You can turn it off in $1 at any time.",
@@ -3194,6 +3194,9 @@
   "low": {
     "message": "Slower"
   },
+  "lowEstimatedReturnTooltipMessage": {
+    "message": "You’ll pay more than $1% of your starting amount in fees. Check your receiving amount and network fees."
+  },
   "lowEstimatedReturnTooltipTitle": {
     "message": "High cost"
   },
@@ -3273,13 +3276,13 @@
     "message": "Click it to manage your connected accounts."
   },
   "metaMaskConnectStatusParagraphTwo": {
-    "message": "The connection status button shows if the website you're visiting is connected to your currently selected account."
+    "message": "The connection status button shows if the website you’re visiting is connected to your currently selected account."
   },
   "metaMetricsIdNotAvailableError": {
     "message": "Since you've never opted into MetaMetrics, there's no data to delete here."
   },
   "metadataModalSourceTooltip": {
-    "message": "$1 is hosted on npm and $2 is this Snap's unique identifier.",
+    "message": "$1 is hosted on npm and $2 is this Snap’s unique identifier.",
     "description": "$1 is the snap name and $2 is the snap NPM id."
   },
   "metamaskNotificationsAreOff": {
@@ -3585,7 +3588,7 @@
     "description": "$1 and $2 are bold text for Medium and Aggressive respectively."
   },
   "networkStatusPriorityFeeTooltip": {
-    "message": "Range of priority fees (aka \"miner tip\"). This goes to miners and incentivizes them to prioritize your transaction."
+    "message": "Range of priority fees (aka “miner tip”). This goes to miners and incentivizes them to prioritize your transaction."
   },
   "networkStatusStabilityFeeTooltip": {
     "message": "Gas fees are $1 relative to the past 72 hours.",
@@ -3644,10 +3647,10 @@
     "message": "NFT autodetection"
   },
   "newNetworkAdded": {
-    "message": "$1 was successfully added!"
+    "message": "“$1” was successfully added!"
   },
   "newNetworkEdited": {
-    "message": "$1 was successfully edited!"
+    "message": "“$1” was successfully edited!"
   },
   "newNftAddedMessage": {
     "message": "NFT was successfully added!"
@@ -3662,13 +3665,13 @@
     "message": "Read more"
   },
   "newPrivacyPolicyTitle": {
-    "message": "We've updated our privacy policy"
+    "message": "We’ve updated our privacy policy"
   },
   "newRpcUrl": {
     "message": "New RPC URL"
   },
   "newTokensImportedMessage": {
-    "message": "You've successfully imported $1.",
+    "message": "You’ve successfully imported $1.",
     "description": "$1 is the string of symbols of all the tokens imported"
   },
   "newTokensImportedTitle": {
@@ -3678,7 +3681,7 @@
     "message": "Next"
   },
   "nftAddFailedMessage": {
-    "message": "NFT can't be added as the ownership details do not match. Make sure you have entered correct information."
+    "message": "NFT can’t be added as the ownership details do not match. Make sure you have entered correct information."
   },
   "nftAddressError": {
     "message": "This token is an NFT. Add on the $1",
@@ -3726,7 +3729,7 @@
     "message": "No activity yet"
   },
   "noConnectedAccountTitle": {
-    "message": "CryptoBridge isn't connected to this site"
+    "message": "CryptoBridge isn’t connected to this site"
   },
   "noConnectionDescription": {
     "message": "To connect to a site, find and select the \"connect\" button. Remember CryptoBridge can only connect to sites on web3"
@@ -3988,10 +3991,17 @@
     "message": "Something went wrong. Please try again."
   },
   "notificationsSettingsPageAllowNotifications": {
-    "message": "Stay in the loop on what's happening in your wallet with notifications."
+    "message": "Stay in the loop on what’s happening in your wallet with notifications."
   },
   "notificationsSettingsPageAllowNotificationsLink": {
     "message": ""
+  },
+  "numberOfNewTokensDetectedPlural": {
+    "message": "$1 new tokens found in this account",
+    "description": "$1 is the number of new tokens detected"
+  },
+  "numberOfNewTokensDetectedSingular": {
+    "message": "1 new token found in this account"
   },
   "numberOfTokens": {
     "message": "Number of tokens"
@@ -4072,12 +4082,6 @@
   "onboardingImportWallet": {
     "message": "Import wallet"
   },
-  "chooseImportMethod": {
-    "message": "Choose Import Method"
-  },
-  "importWalletVia": {
-    "message": "Import Wallet via"
-  },
   "onboardingMetametricsAgree": {
     "message": "I agree"
   },
@@ -4085,7 +4089,7 @@
     "message": "We'd like to gather basic usage and diagnostics data to improve CryptoBridge. It will always be:"
   },
   "onboardingMetametricsInfuraTerms": {
-    "message": "We'll let you know if we plan to use this data for other purposes. You can review our $1 any time (we never sell the data you provide here).",
+    "message": "We’ll let you know if we plan to use this data for other purposes. You can review our $1 any time (we never sell the data you provide here).",
     "description": "$1 represents `onboardingMetametricsInfuraTermsPolicy`"
   },
   "onboardingMetametricsInfuraTermsPolicy": {
@@ -4116,7 +4120,7 @@
     "message": "Help us improve CryptoBridge"
   },
   "onboardingMetametricsUseDataCheckbox": {
-    "message": "We'll use this data to learn how you interact with our marketing communications. We may share relevant news (like product features)."
+    "message": "We’ll use this data to learn how you interact with our marketing communications. We may share relevant news (like product features)."
   },
   "onboardingPinExtensionAltLaunch": {
     "message": "Launch extension"
@@ -4125,7 +4129,7 @@
     "message": "Pin extension"
   },
   "onboardingPinExtensionDescription": {
-    "message": "Pin the CryptoBridge extension on your browser for easy access by clicking the puzzle piece icon to the right of your browser's search bar."
+    "message": "Pin the CryptoBridge extension on your browser for easy access by clicking the puzzle piece icon to the right of your browser’s search bar."
   },
   "onboardingPinExtensionDescription2": {
     "message": "Access your CryptoBridge wallet with 1 click by clicking on the extension."
@@ -4243,6 +4247,10 @@
   },
   "paste": {
     "message": "Paste"
+  },
+  "pastePrivateKey": {
+    "message": "Enter your private key string here:",
+    "description": "For importing an account from a private key"
   },
   "pending": {
     "message": "Pending"
@@ -4610,8 +4618,9 @@
   "privacyPolicy": {
     "message": "Privacy Policy"
   },
-  "privateAddress": {
-    "message": "Private address"
+  "privateKey": {
+    "message": "Private Key",
+    "description": "select this type of file to use to import an account"
   },
   "privateKeyCopyWarning": {
     "message": "Private key for $1",
@@ -4750,7 +4759,7 @@
     "message": "re-added"
   },
   "readdToken": {
-    "message": "You can add this token back in the future by going to \"Import token\" in your accounts options menu."
+    "message": "You can add this token back in the future by going to “Import token” in your accounts options menu."
   },
   "receive": {
     "message": "Receive"
@@ -4762,7 +4771,7 @@
     "message": "At the moment, CryptoBridge only supports ERC-20 transfers. If receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
   },
   "receiveModalDes2": {
-    "message": "Please double-check that the recipient's wallet address is an ERC-20 address."
+    "message": "Please double-check that the recipient’s wallet address is an ERC-20 address."
   },
   "receiveModalDes3": {
     "message": "Sending funds to the wrong network may result in permanent loss of funds."
@@ -4918,7 +4927,7 @@
     "message": "CryptoBridge does not store your password. If you forget your password, you will need to import your wallet using your Secret Recovery Phrase or Private Key"
   },
   "resetWalletUsingSRP": {
-    "message": "This action will delete your current wallet and Secret Recovery Phrase from this device, along with the list of accounts you've curated. After resetting with a Secret Recovery Phrase, you'll see a list of accounts based on the Secret Recovery Phrase you use to reset. This new list will automatically include accounts that have a balance. You'll also be able to $1 created previously. Custom accounts that you've imported will need to be $2, and any custom tokens you've added to an account will need to be $3 as well."
+    "message": "This action will delete your current wallet and Secret Recovery Phrase from this device, along with the list of accounts you’ve curated. After resetting with a Secret Recovery Phrase, you’ll see a list of accounts based on the Secret Recovery Phrase you use to reset. This new list will automatically include accounts that have a balance. You’ll also be able to $1 created previously. Custom accounts that you’ve imported will need to be $2, and any custom tokens you’ve added to an account will need to be $3 as well."
   },
   "resetWalletWarning": {
     "message": "Write down your password, Secret Recovery Phrase, and Private Key on a piece of paper and store it in a secure, offline location."
@@ -5083,7 +5092,7 @@
     "message": "Remind me later"
   },
   "secureWalletWalletRecover": {
-    "message": "It's the only way to recover your wallet if you get locked out of the app or get a new device."
+    "message": "It’s the only way to recover your wallet if you get locked out of the app or get a new device."
   },
   "secureWalletWalletSaveSrp": {
     "message": "The $1 gives you full access to your wallets and funds",
@@ -5099,7 +5108,7 @@
     "message": "Never share it with anyone or enter it into any online form."
   },
   "secureWalletWalletSaveSrp5": {
-    "message": "CryptoBridge will never ask for your Secret Recovery Phrase or Private Key. If anyone or any website asks for it, it's a scam."
+    "message": "CryptoBridge will never ask for your Secret Recovery Phrase or Private Key. If anyone or any website asks for it, it’s a scam."
   },
   "secureWalletWalletSaveSrp6": {
     "message": "Do not share this under any circumstances, even with the CryptoBridge team."
@@ -5137,7 +5146,7 @@
     "description": "The security provider that is providing data"
   },
   "securitySrpDescription": {
-    "message": "Back up your Secret Recovery Phrase so you never lose access to your wallet. Be sure to store it in a safe place that only you can access and won't forget."
+    "message": "Back up your Secret Recovery Phrase so you never lose access to your wallet. Be sure to store it in a safe place that only you can access and won’t forget."
   },
   "securitySrpLabel": {
     "message": "SECRET RECOVERY PHRASES"
@@ -5480,7 +5489,7 @@
     "message": "Skip account security?"
   },
   "skipAccountSecurityDetails": {
-    "message": "If you lose this Secret Recovery Phrase, you won't be able to access this wallet."
+    "message": "If you lose this Secret Recovery Phrase, you won’t be able to access this wallet."
   },
   "skipAccountSecuritySecureNow": {
     "message": "Secure now"
@@ -5573,7 +5582,10 @@
     "message": "Use the tokens you already have to cover network fees."
   },
   "smartAccountReject": {
-    "message": "Don't use smart account"
+    "message": "Don’t use smart account"
+  },
+  "smartAccountRequestFor": {
+    "message": "Request for"
   },
   "smartAccountSameAccount": {
     "message": "Same account, smarter features."
@@ -5716,7 +5728,7 @@
     "description": "Permission name used for the Permission Cell component displayed on warning popup when installing a Snap. $1 is list of account types."
   },
   "snapInstallationErrorDescription": {
-    "message": "$1 couldn't be installed.",
+    "message": "$1 couldn’t be installed.",
     "description": "Error description used when snap installation fails. $1 is the snap name."
   },
   "snapInstallationErrorTitle": {
@@ -5743,7 +5755,7 @@
     "message": "Update available"
   },
   "snapUpdateErrorDescription": {
-    "message": "$1 couldn't be updated.",
+    "message": "$1 couldn’t be updated.",
     "description": "Error description used when snap update fails. $1 is the snap name."
   },
   "snapUpdateErrorTitle": {
@@ -5872,7 +5884,7 @@
     "message": "Speed up this cancellation"
   },
   "speedUpExplanation": {
-    "message": "We've updated the gas fee based on current network conditions and have increased it by at least 10% (required by the network)."
+    "message": "We’ve updated the gas fee based on current network conditions and have increased it by at least 10% (required by the network)."
   },
   "speedUpPopoverTitle": {
     "message": "Speed up transaction"
@@ -5933,7 +5945,7 @@
     "message": "Anyone with your Secret Recovery Phrase can:"
   },
   "srpDetailsTitle": {
-    "message": "What's a Secret Recovery Phrase?"
+    "message": "What’s a Secret Recovery Phrase?"
   },
   "srpInputNumberOfWords": {
     "message": "I have a $1-word phrase",
@@ -5984,10 +5996,10 @@
     "message": "If you lose your Secret Recovery Phrase, CryptoBridge..."
   },
   "srpSecurityQuizQuestionOneRightAnswer": {
-    "message": "Can't help you"
+    "message": "Can’t help you"
   },
   "srpSecurityQuizQuestionOneRightAnswerDescription": {
-    "message": "Write it down, engrave it on metal, or keep it in multiple secret spots so you never lose it. If you lose it, it's gone forever."
+    "message": "Write it down, engrave it on metal, or keep it in multiple secret spots so you never lose it. If you lose it, it’s gone forever."
   },
   "srpSecurityQuizQuestionOneRightAnswerTitle": {
     "message": "Right! No one can help get your Secret Recovery Phrase back"
@@ -5996,7 +6008,7 @@
     "message": "Can get it back for you"
   },
   "srpSecurityQuizQuestionOneWrongAnswerDescription": {
-    "message": "If you lose your Secret Recovery Phrase, it's gone forever. No one can help you get it back, no matter what they might say."
+    "message": "If you lose your Secret Recovery Phrase, it’s gone forever. No one can help you get it back, no matter what they might say."
   },
   "srpSecurityQuizQuestionOneWrongAnswerTitle": {
     "message": "Wrong! No one can help get your Secret Recovery Phrase back"
@@ -6005,7 +6017,7 @@
     "message": "If anyone, even a support agent, asks for your Secret Recovery Phrase..."
   },
   "srpSecurityQuizQuestionTwoRightAnswer": {
-    "message": "You're being scammed"
+    "message": "You’re being scammed"
   },
   "srpSecurityQuizQuestionTwoRightAnswerDescription": {
     "message": "Anyone claiming to need your Secret Recovery Phrase is lying to you. If you share it with them, they will steal your assets."
@@ -6082,13 +6094,13 @@
     "message": "Reset CryptoBridge State"
   },
   "stateCorruptionResettingDatabase": {
-    "message": "Resetting database..."
+    "message": "Resetting database…"
   },
   "stateCorruptionRestoreAccountsFromBackup": {
     "message": "Restore Accounts"
   },
   "stateCorruptionRestoringDatabase": {
-    "message": "Restoring database..."
+    "message": "Restoring database…"
   },
   "stateCorruptionTheseInstructions": {
     "message": "these instructions",
@@ -6163,7 +6175,7 @@
     "message": "Your transaction would have failed and was cancelled to protect you from paying unnecessary gas fees."
   },
   "stxCancelledSubDescription": {
-    "message": "Try your swap again. We'll be here to protect you against similar risks next time."
+    "message": "Try your swap again. We’ll be here to protect you against similar risks next time."
   },
   "stxFailure": {
     "message": "Swap failed"
@@ -6199,7 +6211,7 @@
     "message": "Status unknown"
   },
   "stxUnknownDescription": {
-    "message": "A transaction has been successful but we're unsure what it is. This may be due to submitting another transaction while this swap was processing."
+    "message": "A transaction has been successful but we’re unsure what it is. This may be due to submitting another transaction while this swap was processing."
   },
   "stxUserCancelled": {
     "message": "Swap cancelled"
@@ -6281,7 +6293,7 @@
     "message": "Are you still there?"
   },
   "swapAreYouStillThereDescription": {
-    "message": "We're ready to show you the latest quotes when you want to continue"
+    "message": "We’re ready to show you the latest quotes when you want to continue"
   },
   "swapConfirmWithHwWallet": {
     "message": "Confirm with your hardware wallet"
@@ -6371,6 +6383,9 @@
   "swapGasFeesSummary": {
     "message": "Gas fees are paid to crypto miners who process transactions on the $1 network. CryptoBridge does not profit from gas fees.",
     "description": "$1 is the selected network, e.g. Ethereum or BSC"
+  },
+  "swapGasIncludedTooltipExplanation": {
+    "message": "This quote incorporates gas fees by adjusting the token amount sent or received. You may receive ETH in a separate transaction on your activity list."
   },
   "swapGasIncludedTooltipExplanationLinkText": {
     "message": "Learn more about gas fees"
@@ -6535,7 +6550,7 @@
     "description": "$1 is the amount of % for slippage"
   },
   "swapSlippageTooltip": {
-    "message": "If the price changes between the time your order is placed and confirmed it's called \"slippage\". Your swap will automatically cancel if slippage exceeds your \"slippage tolerance\" setting."
+    "message": "If the price changes between the time your order is placed and confirmed it’s called “slippage”. Your swap will automatically cancel if slippage exceeds your “slippage tolerance” setting."
   },
   "swapSlippageZeroDescription": {
     "message": "There are fewer zero-slippage quote providers which will result in a less competitive quote."
@@ -6733,13 +6748,13 @@
     "message": "Adding tokens unlocks more ways to use web3."
   },
   "tipsHome": {
-    "message": "Please make sure to securely save your Secret Recovery Phrase and Private Key. "
+    "message": "Please make sure to securely save your Secret Recovery Phrase and Private Key. If you need to re-install the wallet or change devices, you’ll need them to import your wallet. Without them, you will lose access to your funds permanently."
   },
   "tipsHome1": {
-    "message": "If you need to re-install the wallet or change devices, you'll need them to import your wallet."
+    "message": ""
   },
   "tipsHome2": {
-    "message": "Without them, you will lose access to your funds permanently."
+    "message": ""
   },
   "to": {
     "message": "To"
@@ -7130,7 +7145,7 @@
     "message": "Use smart account"
   },
   "useTokenDetectionPrivacyDesc": {
-    "message": "Automatically displaying tokens sent to your account involves communication with third party servers to fetch token's images. Those serves will have access to your IP address."
+    "message": "Automatically displaying tokens sent to your account involves communication with third party servers to fetch token’s images. Those serves will have access to your IP address."
   },
   "usedByClients": {
     "message": "Used by a variety of different clients"
@@ -7164,6 +7179,9 @@
   },
   "viewDetails": {
     "message": "View details"
+  },
+  "viewMore": {
+    "message": "View more"
   },
   "viewOnBlockExplorer": {
     "message": "View on block explorer"
@@ -7202,7 +7220,7 @@
     "message": "Do you want to share your CryptoBridge Identifier and app version with our Support Center? This can help us better solve your problem, but is optional."
   },
   "visitSupportDataConsentModalReject": {
-    "message": "Don't share"
+    "message": "Don’t share"
   },
   "visitSupportDataConsentModalTitle": {
     "message": "Share device details with support"
@@ -7233,7 +7251,7 @@
     "message": "This Secret Recovery Phrase can help you regain access if you ever forget your password or lose access to your login."
   },
   "walletReadyLoseSrpRemind": {
-    "message": "If you don't back up your Secret Recovery Phrase, you'll lose access to your funds if you get locked out of the app or get a new device."
+    "message": "If you don’t back up your Secret Recovery Phrase, you’ll lose access to your funds if you get locked out of the app or get a new device."
   },
   "wantToAddThisNetwork": {
     "message": "Want to add this network?"
@@ -7305,7 +7323,7 @@
     "message": "This will approve $1 for bridging."
   },
   "willApproveAmountForBridgingHardware": {
-    "message": "You'll need to confirm two transactions on your hardware wallet."
+    "message": "You’ll need to confirm two transactions on your hardware wallet."
   },
   "withdrawing": {
     "message": "Withdrawing"
@@ -7370,7 +7388,7 @@
     "message": "Keep your Secret Recovery Phrase safe!"
   },
   "yourWalletIsReadyRemind": {
-    "message": "We'll remind you later"
+    "message": "We’ll remind you later"
   },
   "privateKeyWarningPre": {
     "message": "Warning: Never share this private key with anyone. If someone gains access to your private key, the assets in your account may be stolen."
@@ -7402,8 +7420,5 @@
   },
   "assetsDetails": {
     "message": "Assets"
-  },
-  "onboardingImportPrivateKey": {
-    "message": "Import Private Key"
   }
 }
