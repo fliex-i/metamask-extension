@@ -10,7 +10,10 @@ import {
 } from '../../component-library';
 import QrCodeView from '../../ui/qr-code-view';
 import { useI18nContext } from '../../../hooks/useI18nContext';
-import { getInternalAccountByAddress, getSelectedAccount } from '../../../selectors';
+import {
+  getInternalAccountByAddress,
+  getSelectedAccount,
+} from '../../../selectors';
 import {
   AlignItems,
   Display,
@@ -25,7 +28,10 @@ export const ReceiveModal = ({ address, token, onClose, onBack }) => {
     getInternalAccountByAddress(state, address),
   );
   const accountName = internalAccount?.metadata?.name || 'Account';
-  const data = useMemo(() => ({ data: currentAccount }), [currentAccount]);
+  const data = useMemo(
+    () => ({ data: currentAccount.address }),
+    [currentAccount],
+  );
 
   useEffect(() => {
     endTrace({ name: TraceName.ReceiveModal });
