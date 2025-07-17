@@ -5119,7 +5119,7 @@
     "message": "バグの報告をお送りください。"
   },
   "sendNoContactsConversionText": {
-    "message": "ここをクリック"
+    "message": "こちらをクリック"
   },
   "sendNoContactsDescription": {
     "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。連絡先を追加するには、$1してください。",

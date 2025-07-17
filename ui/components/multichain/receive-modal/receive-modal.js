@@ -75,7 +75,9 @@ export const ReceiveModal = ({ address, token, onClose, onBack }) => {
                 <li>
                   <span>{t('receiveModalDes22')}</span>
                 </li>
+                <br />
                 <li>{t('receiveModalDes33')}</li>
+                <br />
                 <li>{t('receiveModalDes44')}</li>
               </ul>
             </div>
