@@ -2293,7 +2293,7 @@
     "description": "Displayed error name for debugging purposes. $1 is the error name"
   },
   "errorPageContactSupport": {
-    "message": "Contact support",
+    "message": "Contact Customer Support",
     "description": "Button for contact MM support"
   },
   "errorPageDescribeUsWhatHappened": {

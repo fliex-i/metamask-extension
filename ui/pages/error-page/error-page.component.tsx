@@ -271,10 +271,10 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
         )}
         <Box
           width={BlockSize.Full}
-          display={Display.Flex}
-          flexDirection={FlexDirection.Column}
-          alignItems={AlignItems.center}
-          justifyContent={JustifyContent.center}
+          // display={Display.Flex}
+          // flexDirection={FlexDirection.Column}
+          // alignItems={AlignItems.center}
+          // justifyContent={JustifyContent.center}
           marginTop={4}
         >
           {/* {isMetaMetricsEnabled && (
@@ -293,7 +293,10 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
             variant={ButtonVariant.Secondary}
             block
             data-testid="error-page-contact-support-button"
-            onClick={() => setIsSupportDataConsentModalOpen(true)}
+            onClick={() => {
+              window.open('https://www.crypto-bridge.co/jp/#support', '_blank');
+            }}
+            width={BlockSize.Full}
           >
             {t('errorPageContactSupport')}
           </Button>
@@ -301,8 +304,8 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
             variant={ButtonVariant.Secondary}
             block
             data-testid="error-page-try-again-button"
-            // TODO: should this be a safe reload via the `WriteManager`?
             onClick={() => browser.runtime.reload()}
+            width={BlockSize.Full}
           >
             {t('errorPageTryAgain')}
           </Button>

@@ -379,9 +379,8 @@ const CoinButtons = ({
               t('buyAndSell')
             ) : (
               <>
-                {t('buyAndSell1')}
-                <br />
-                {t('buyAndSell2')}
+                <div>{t('buyAndSell1')}</div>
+                <div>{t('buyAndSell2')}</div>
               </>
             )
           }
