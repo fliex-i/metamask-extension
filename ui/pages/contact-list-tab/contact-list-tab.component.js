@@ -18,6 +18,7 @@ import {
   IconSize,
   ButtonIcon,
   ButtonIconSize,
+  Box,
 } from '../../components/component-library';
 import { IconColor, Size } from '../../helpers/constants/design-system';
 import EditContact from './edit-contact';
@@ -118,7 +119,30 @@ export default class ContactListTab extends Component {
             {t('addFriendsAndAddresses')}
           </p>
           <p className="address-book__sub-title">
-            {t('addFriendsAndAddresses1')}
+            <span>{t('addFriendsAndAddresses1')}</span>
+            {/* <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                history.push(CONTACT_ADD_ROUTE);
+              }}
+            >
+              {t('addFriendsAndAddresses2')}
+            </a> */}
+            <Box
+              type="link"
+              as="a"
+              href="javascript:void(0)"
+              target="_blank"
+              className="welcome-login__footer__link"
+              onClick={() => {
+                history.push(CONTACT_ADD_ROUTE);
+              }}
+            >
+              {t('privacyPolicy')}
+            </Box>
+            <span>{t('addFriendsAndAddresses2')}</span>
           </p>
           <button
             className="address-book__link"

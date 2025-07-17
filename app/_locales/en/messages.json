@@ -242,6 +242,12 @@
   "addFriendsAndAddresses1": {
     "message": ""
   },
+  "addFriendsAndAddresses2": {
+    "message": ""
+  },
+  "addFriendsAndAddresses3": {
+    "message": ""
+  },
   "addHardwareWalletLabel": {
     "message": "Hardware wallet"
   },

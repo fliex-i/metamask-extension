@@ -197,6 +197,7 @@ export default function CreatePassword({
           alignItems={AlignItems.center}
           marginBottom={4}
           width={BlockSize.Full}
+          gap={2}
         >
           <ButtonIcon
             iconName={IconName.ArrowLeft}

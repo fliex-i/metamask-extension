@@ -33,6 +33,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               src="./images/cryptobridge/logo.svg"
               alt="Logo"
               className="layout__header--left--logo"
+              onClick={() => {
+                history.push(DEFAULT_ROUTE);
+              }}
             />
             <img
               src="./images/cryptobridge/Lucide-Icon.svg"

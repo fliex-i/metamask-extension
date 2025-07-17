@@ -220,7 +220,13 @@
     "message": "仮想通貨の送受信をスムーズに行うため、よく利用するウォレットアドレスを追加しましょう。"
   },
   "addFriendsAndAddresses1": {
-    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。ウォレットアドレスを追加するには、こちらをクリックしてください。"
+    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。ウォレットアドレスを追加するには、"
+  },
+  "addFriendsAndAddresses2": {
+    "message": "こちらをクリック"
+  },
+  "addFriendsAndAddresses3": {
+    "message": "してください。"
   },
   "addHardwareWalletLabel": {
     "message": "ハードウェアウォレット"

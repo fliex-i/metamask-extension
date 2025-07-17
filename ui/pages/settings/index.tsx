@@ -211,7 +211,9 @@ const SettingsPage: React.FC = () => {
           {
             name: t('customerSupport'),
             icon: './images/setting/customer.svg',
-            link: 'https://www.crypto-bridge.co/jp/#support',
+            link: currentLocale === 'ja'
+              ? 'https://www.crypto-bridge.co/jp/#support'
+              : 'https://www.crypto-bridge.co/#support',
           },
           // {
           //   name: t('submitFeedback'),
