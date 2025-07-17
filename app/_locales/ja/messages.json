@@ -596,10 +596,10 @@
     "message": "オートロックタイマー (分)"
   },
   "autoLockTimeLimitDescription": {
-    "message": "CryptoBridgeMetaMaskがロックされるまでのアイドル時間を分単位で設定します。"
+    "message": "CryptoBridgがロックされるまでのアイドル時間を分単位で設定します。"
   },
   "autoLockTimeLimitDescriptions": {
-    "message": "MetaMaskがロックされるまでのアイドル時間を分単位で設定します。"
+    "message": "CryptoBridgeがロックされるまでのアイドル時間を分単位で設定します。"
   },
   "autoLockDescription": {
     "message": "ウィンドウを閉じるか、バックグラウンドで開いたままにしておくと（フルスクリーンモードや未使用のタブなど）、プラグインは設定された期間後に自動的にロックされます。"
@@ -1059,6 +1059,12 @@
   },
   "buyAndSell": {
     "message": "法定通貨で仮想通貨を購入"
+  },
+  "buyAndSell1": {
+    "message": "法定通貨で "
+  },
+  "buyAndSell2": {
+    "message": "仮想通貨を購入"
   },
   "buyMoreAsset": {
     "message": "$1を追加購入",
@@ -3574,7 +3580,7 @@
     "message": "慎重に進めてください。"
   },
   "nfts": {
-    "message": "暗号資産間の履歴"
+    "message": "仮想通貨取引の履歴"
   },
   "nftsPreviouslyOwned": {
     "message": "以前保有"
@@ -4606,6 +4612,9 @@
   "receive": {
     "message": "仮想通貨の受取"
   },
+  "receiveBtn": {
+    "message": "受取"
+  },
   "receiveCrypto": {
     "message": "仮想通貨を受け取る"
   },
@@ -5002,7 +5011,7 @@
     "message": "シークレットリカバリーフレーズは、12、15、18、21、24語で構成されます"
   },
   "seedPhraseReviewDetails": {
-    "message": "シークレットリカバリーフレーズの管理について"
+    "message": "シークレットリカバリーフレーズの管理について:"
   },
   "seedPhraseReviewDetails1": {
     "message": "シークレットリカバリーフレーズは、絶対に第三者と共有しないでください。このフレーズにアクセスできる者は、あなたの資産を自由に操作することが可能です。"
@@ -5735,19 +5744,22 @@
     "message": "使用上限"
   },
   "srpDetailsDescription": {
-    "message": "シークレットリカバリーフレーズ（シードフレーズやニーモニックとも呼ばれます）とは、仮想通貨ウォレットにアクセス・管理するための一連の単語です。CryptoBridgeにウォレットを移行（インポート）するには、この12単語からなるフレーズが必要です。"
+    "message": "シークレットリカバリーフレーズは、あなたのウォレットそのものです。シードフレーズやニーモニックとも呼ばれるこの一連の単語の組み合わせは、仮想通貨ウォレットへの完全なアクセス権を持っています。CryptoBridgeに既存のウォレットをインポートするには、このフレーズが必要です。"
   },
   "srpDetailsOwnsAccessListItemOne": {
-    "message": "資金をすべて引き出す"
+    "message": "あなたの資産をすべて引き出す"
   },
   "srpDetailsOwnsAccessListItemThree": {
-    "message": "ログイン情報を変更する"
+    "message": "ウォレット設定やセキュリティ情報を変更する"
   },
   "srpDetailsOwnsAccessListItemTwo": {
-    "message": "トランザクション（取引）を承認する"
+    "message": "どんな取引でも承認・送信する"
+  },
+  "srpDetailsOwnsAccessListItemFour": {
+    "message": "このフレーズは絶対に他人と共有しないでください。"
   },
   "srpDetailsOwnsAccessListTitle": {
-    "message": "このフレーズを知っている人は、以下のことが可能になります："
+    "message": "⚠️ シークレットリカバリーフレーズを持っている人は以下のことが可能です："
   },
   "srpDetailsTitle": {
     "message": "シークレットリカバリーフレーズとは？"
@@ -6018,6 +6030,12 @@
   },
   "swap": {
     "message": "仮想通貨をカード残高へ売却"
+  },
+  "swap1": {
+    "message": "仮想通貨を"
+  },
+  "swap2": {
+    "message": "カード残高へ売却"
   },
   "swapAdjustSlippage": {
     "message": "スリッページの調整"
@@ -6493,7 +6511,10 @@
     "message": "トークンを追加すると、Web3の使用方法が増えます。"
   },
   "tipsHome": {
-    "message": "シークレットリカバリーフレーズとプライベートキーは、必ず安全な場所に保管してください。"
+    "message": "シークレットリカバリーフレーズとプライベート"
+  },
+  "tipsHomes": {
+    "message": "キーは、必ず安全な場所に保管してください。"
   },
   "tipsHome1": {
     "message": "ウォレットを再インストールする場合や、別の端末に移行する場合には、これらの情報が必要になります。"

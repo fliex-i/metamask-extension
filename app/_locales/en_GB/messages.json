@@ -5918,7 +5918,7 @@
     "message": "SRP vault image"
   },
   "srpDetailsDescription": {
-    "message": "A Secret Recovery Phrase, also called a seed phrase or mnemonic, is a set of words that lets you access and control your crypto wallet. To move your wallet to CryptoBridge, you need this phrase."
+    "message": "Your Secret Recovery Phrase is your wallet. Also called a seed phrase or mnemonic, this unique set of words gives you full access to your crypto wallet. To import your existing wallet into CryptoBridge, you must enter this phrase."
   },
   "srpDetailsOwnsAccessListItemOne": {
     "message": "Take all your money"

@@ -1093,6 +1093,12 @@
   "buyAndSell": {
     "message": "Buy Crypto with Fiat"
   },
+  "buyAndSell1": {
+    "message": "Buy Crypto with Fiat"
+  },
+  "buyAndSell2": {
+    "message": ""
+  },
   "buyMoreAsset": {
     "message": "Buy more $1",
     "description": "$1 is the ticker symbol of a an asset the user is being prompted to purchase"
@@ -4764,6 +4770,9 @@
   "receive": {
     "message": "Receive"
   },
+  "receiveBtn": {
+    "message": "Receive"
+  },
   "receiveCrypto": {
     "message": "Receive crypto"
   },
@@ -5933,16 +5942,19 @@
     "message": "A Secret Recovery Phrase, also called a seed phrase or mnemonic, is a set of words that lets you access and control your crypto wallet. To move your wallet to CryptoBridge, you need this phrase."
   },
   "srpDetailsOwnsAccessListItemOne": {
-    "message": "Take all your money"
+    "message": "Access and withdraw all your funds"
   },
   "srpDetailsOwnsAccessListItemThree": {
-    "message": "Change your login information"
+    "message": "Change your wallet settings and security details"
   },
   "srpDetailsOwnsAccessListItemTwo": {
-    "message": "Confirm transactions"
+    "message": "Approve and send any transactions"
+  },
+  "srpDetailsOwnsAccessListItemFour": {
+    "message": "Keep it private. Never share it with anyone."
   },
   "srpDetailsOwnsAccessListTitle": {
-    "message": "Anyone with your Secret Recovery Phrase can:"
+    "message": "⚠️ Anyone who has your Secret Recovery Phrase can:"
   },
   "srpDetailsTitle": {
     "message": "What’s a Secret Recovery Phrase?"
@@ -6258,6 +6270,12 @@
   },
   "swap": {
     "message": "Sell Crypto to Card Balance"
+  },
+  "swap1": {
+    "message": "Sell Crypto to Card Balance"
+  },
+  "swap2": {
+    "message": ""
   },
   "swapAdjustSlippage": {
     "message": "Adjust slippage"
@@ -6749,6 +6767,9 @@
   },
   "tipsHome": {
     "message": "Please make sure to securely save your Secret Recovery Phrase and Private Key. "
+  },
+  "tipsHomes": {
+    "message": ""
   },
   "tipsHome1": {
     "message": "If you need to re-install the wallet or change devices, you’ll need them to import your wallet."

@@ -53,7 +53,7 @@ export default function CurrencyDisplay({
 
   const displaySuffix = React.useMemo(() => {
     if (currentLocale === 'ja' && parts.suffix === 'JPY') {
-      return '日本円';
+      return '円';
     }
     return parts.suffix;
   }, [currentLocale, parts.suffix]);

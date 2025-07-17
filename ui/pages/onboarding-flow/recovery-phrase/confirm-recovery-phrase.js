@@ -145,6 +145,8 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
     >
       <Box>
         <Box
+          display={Display.Flex}
+          alignItems={AlignItems.center}
           justifyContent={JustifyContent.flexStart}
           marginBottom={4}
           width={BlockSize.Full}
@@ -156,9 +158,13 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
             data-testid="confirm-recovery-phrase-back-button"
             onClick={() => history.goBack()}
             ariaLabel={t('back')}
+            style={{ background: '#EDEDED', borderRadius: '99px' }}
           />
+          <Text variant={TextVariant.headingLg} as="h2" marginLeft={2}>
+            {t('confirmRecoveryPhraseTitle')}
+          </Text>
         </Box>
-        <Box
+        {/* <Box
           justifyContent={JustifyContent.flexStart}
           marginBottom={4}
           width={BlockSize.Full}
@@ -166,7 +172,7 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
           <Text variant={TextVariant.headingLg} as="h2">
             {t('confirmRecoveryPhraseTitle')}
           </Text>
-        </Box>
+        </Box> */}
         {splitSecretRecoveryPhrase.length > 0 && (
           <>
             <RecoveryPhraseChips
@@ -176,43 +182,66 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
               setInputValue={handleQuizInput}
             />
             <Box marginTop={4}>
-              {[
-                'seedPhraseReviewDetails',
-                'seedPhraseReviewDetails1',
-                'seedPhraseReviewDetails2',
-                'seedPhraseReviewDetails3',
-                'seedPhraseReviewDetails4',
-                'seedPhraseReviewDetails5',
-              ].map((key) => {
-                const text = t(key);
-                if (!text || text === key) {
-                  return null;
-                }
-                return (
-                  <Box
-                    key={key}
-                    display={Display.Flex}
-                    alignItems={AlignItems.flexStart}
-                  >
-                    <Text
-                      style={{
-                        color: '#D92D20',
-                        marginRight: 8,
-                        fontSize: 18,
-                        lineHeight: '22px',
-                      }}
-                    >
-                      •
-                    </Text>
-                    <Text
-                      variant={TextVariant.bodyMd}
-                      style={{ color: '#D92D20' }}
-                    >
-                      {text}
-                    </Text>
-                  </Box>
-                );
-              })}
+              <Box
+                display={Display.Flex}
+                alignItems={AlignItems.flexStart}
+                gap={3}
+              >
+                <Box
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '24px',
+                    background: '#FFCCC7',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <img src="/images/home/waring.svg" alt="warning" />
+                </Box>
+                <Box style={{ flex: '1' }}>
+                  {[
+                    'seedPhraseReviewDetails',
+                    'seedPhraseReviewDetails1',
+                    'seedPhraseReviewDetails2',
+                    'seedPhraseReviewDetails3',
+                    'seedPhraseReviewDetails4',
+                    'seedPhraseReviewDetails5',
+                  ].map((key, index) => {
+                    const text = t(key);
+                    if (!text || text === key) {
+                      return null;
+                    }
+                    return (
+                      <Box
+                        key={key}
+                        display={Display.Flex}
+                        alignItems={AlignItems.flexStart}
+                      >
+                        {index !== 0 && (
+                          <Text
+                            style={{
+                              color: '#D92D20',
+                              marginRight: 8,
+                              fontSize: 18,
+                              lineHeight: '22px',
+                            }}
+                          >
+                            •
+                          </Text>
+                        )}
+                        <Text
+                          variant={TextVariant.bodyMd}
+                          style={{ color: '#D92D20' }}
+                        >
+                          {text}
+                        </Text>
+                      </Box>
+                    );
+                  })}
+                </Box>
+              </Box>
             </Box>
           </>
         )}

@@ -16,7 +16,11 @@ const TipsHome = () => {
         <img src="./images/home/alert.svg" width={20} height={20} />
       </div>
       <div className="tips-home-des" style={{ position: 'relative', flex: 1 }}>
-        <div style={{ marginBottom: '4px' }}>{t('tipsHome')}</div>
+        <div style={{ marginBottom: '4px' }}>
+          {t('tipsHome')}
+          <br />
+          {t('tipsHomes')}
+        </div>
         {isExpanded && (
           <>
             <div style={{ marginBottom: '4px' }}>{t('tipsHome1')}</div>

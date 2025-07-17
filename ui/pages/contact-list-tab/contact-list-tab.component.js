@@ -177,11 +177,12 @@ export default class ContactListTab extends Component {
     const { hasLayerHeader } = this.state;
     return (
       <div
-        style={
-          hasLayerHeader
-            ? { padding: '20px 0', display: 'flex', alignItems: 'center' }
-            : { position: 'absolute', top: 16, left: 16, zIndex: 10 }
-        }
+        // style={
+        //   hasLayerHeader
+        //     ? { padding: '20px 0', display: 'flex', alignItems: 'center' }
+        //     : { position: 'absolute', top: 16, left: 16, zIndex: 10 }
+        // }
+        style={{ padding: '20px 0', display: 'flex', alignItems: 'center' }}
       >
         <ButtonIcon
           iconName={IconName.ArrowLeft}

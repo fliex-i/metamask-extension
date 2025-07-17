@@ -134,7 +134,7 @@ export default function WelcomeLogin({
             target="_blank"
             className="welcome-login__footer__link"
           >
-            {`${t('termsConditions')}`}
+            {`${t('termsConditions')} `}
           </Box>
           <Box as="span" className="welcome-login__footer__text">
             {t('footerAgreementDesc1')}

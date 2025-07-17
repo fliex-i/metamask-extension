@@ -3,6 +3,7 @@ import React from 'react';
 import {
   AlignItems,
   Display,
+  FontWeight,
   TextAlign,
   TextVariant,
 } from '../../../helpers/constants/design-system';
@@ -35,7 +36,7 @@ export default function SRPDetailsModal({ onClose }: { onClose: () => void }) {
             {t('srpDetailsTitle')}
           </Text>
         </ModalHeader>
-        <Box paddingLeft={4} paddingRight={4}>
+        <Box paddingLeft={4} paddingRight={4} paddingTop={4}>
           <Text variant={TextVariant.bodyMd}>{t('srpDetailsDescription')}</Text>
           <Text variant={TextVariant.bodyMd} marginTop={4}>
             {t('srpDetailsOwnsAccessListTitle')}
@@ -56,6 +57,13 @@ export default function SRPDetailsModal({ onClose }: { onClose: () => void }) {
               {t('srpDetailsOwnsAccessListItemThree')}
             </Text>
           </Box>
+          <Text
+            variant={TextVariant.bodyMd}
+            marginTop={4}
+            fontWeight={FontWeight.Bold}
+          >
+            {t('srpDetailsOwnsAccessListItemFour')}
+          </Text>
           <Box display={Display.Flex} marginTop={6} gap={2}>
             <ButtonPrimary size={ButtonPrimarySize.Lg} onClick={onClose} block>
               {t('gotIt')}

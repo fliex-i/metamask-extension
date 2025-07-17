@@ -158,6 +158,7 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
               data-testid="import-srp-back-button"
               onClick={() => history.push(ONBOARDING_WELCOME_ROUTE)}
               ariaLabel={t('back')}
+              style={{ background: '#EDEDED', borderRadius: '99px' }}
             />
           </Box>
           <Box textAlign={TextAlign.Left} marginBottom={2}>

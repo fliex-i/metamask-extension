@@ -26,6 +26,7 @@
   text-align: center;
   width: 64px;
   padding: 0;
+  gap: 5px;
 
   @include design-system.H7;
 
@@ -42,7 +43,6 @@
     background: var(--brand-colors-purple);
     border-radius: 99px;
     margin-top: 6px;
-    margin-bottom: 4px;
     margin-inline: auto;
 
     &:hover {

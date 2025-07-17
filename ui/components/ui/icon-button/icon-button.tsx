@@ -16,7 +16,7 @@ import IconButtonRound from './icon-button-round';
 export type IconButtonProps = ButtonBaseProps<'button'> & {
   onClick: () => void;
   Icon: React.ReactNode;
-  label: string;
+  label: React.ReactNode;
   className?: string;
   tooltipRender?: (content: React.ReactElement) => React.ReactElement;
   round?: boolean;
@@ -42,7 +42,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
           onClick={onClick}
           Icon={Icon as object}
           disabled={disabled}
-          label={label}
+          label={typeof label === 'string' ? label : label !== undefined ? String(label) : ''}
           tooltipRender={tooltipRender}
           ref={ref}
           {...props}
@@ -72,7 +72,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         {...props}
       >
         {Icon}
-        {label.length > 10 ? (
+        {typeof label === 'string' && label.length > 10 ? (
           <Tooltip title={label} position="bottom">
             <Text
               as="span"
@@ -88,7 +88,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             as="span"
             display={Display.Block}
             variant={TextVariant.bodySmMedium}
-            ellipsis
+            ellipsis={typeof label === 'string'}
             style={{ marginTop: '-4px' }}
           >
             {label}

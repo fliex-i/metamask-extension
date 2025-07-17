@@ -206,6 +206,7 @@ export default function CreatePassword({
             type="button"
             onClick={() => history.goBack()}
             ariaLabel={t('back')}
+            style={{ background: '#EDEDED', borderRadius: '99px' }}
           />
           <Text variant={TextVariant.headingLg} as="h2">
             {t('setPassword')}

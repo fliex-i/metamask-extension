@@ -39,6 +39,7 @@ export const PopoverHeader: React.FC<PopoverHeaderProps> = ({
             ariaLabel={t('back')}
             size={ButtonIconSize.Sm}
             onClick={onBack}
+            style={{ background: '#EDEDED', borderRadius: '99px' }}
             {...backButtonProps}
           />
         ))

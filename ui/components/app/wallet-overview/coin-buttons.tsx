@@ -351,7 +351,7 @@ const CoinButtons = ({
       display={Display.Flex}
       justifyContent={JustifyContent.spaceBetween}
       width={BlockSize.Full}
-      gap={3}
+      gap={1}
       className={`${classPrefix}-overviewBtns`}
     >
       {
@@ -374,7 +374,17 @@ const CoinButtons = ({
           }
           disabled={!isBuyableChain}
           data-testid={`${classPrefix}-overview-buy`}
-          label={t('buyAndSell')}
+          label={
+            !displayNewIconButtons ? (
+              t('buyAndSell')
+            ) : (
+              <>
+                {t('buyAndSell1')}
+                <br />
+                {t('buyAndSell2')}
+              </>
+            )
+          }
           onClick={handleBuyAndSellOnClick}
           width={BlockSize.Full}
           tooltipRender={(contents: React.ReactElement) =>
@@ -522,7 +532,7 @@ const CoinButtons = ({
                 />
               )
             }
-            label={t('receive')}
+            label={t('receiveBtn')}
             width={BlockSize.Full}
             onClick={() => {
               trace({ name: TraceName.ReceiveModal });

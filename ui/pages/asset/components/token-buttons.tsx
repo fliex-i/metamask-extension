@@ -299,7 +299,17 @@ const TokenButtons = ({
             />
           )
         }
-        label={t('buyAndSell')}
+        label={
+          !displayNewIconButtons ? (
+            t('buyAndSell')
+          ) : (
+            <>
+              {t('buyAndSell1')}
+              <br />
+              {t('buyAndSell2')}
+            </>
+          )
+        }
         data-testid="token-overview-buy"
         onClick={handleBuyAndSellOnClick}
         // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
@@ -356,7 +366,17 @@ const TokenButtons = ({
           )
         }
         onClick={handleSwapOnClick}
-        label={t('swap')}
+        label={
+          !displayNewIconButtons ? (
+            t('swap')
+          ) : (
+            <>
+              {t('swap1')}
+              <br />
+              {t('swap2')}
+            </>
+          )
+        }
         disabled={!isSwapsChain}
         round={!displayNewIconButtons}
         textProps={{

@@ -78,8 +78,6 @@ const SettingsPage: React.FC = () => {
 
   const currencyOptions = useMemo(() => {
     return sortedCurrencies.map(({ code, name }) => {
-      console.log('sortedCurrencies', currentLocale, code);
-
       if (currentLocale === 'ja' && code === 'jpy') {
         return {
           name: '日本円',
@@ -138,7 +136,7 @@ const SettingsPage: React.FC = () => {
             name: t('back'),
             icon: './images/back.png',
             onClick: () => {
-              history.go(-1);
+              history.push(DEFAULT_ROUTE);
             },
             dontNeedRightIcon: true,
           },
