@@ -186,7 +186,7 @@
     "message": "ブロックエクスプローラーURLを追加"
   },
   "addContact": {
-    "message": "連絡先を追加"
+    "message": "ウォレットアドレスを追加"
   },
   "addCustomNetwork": {
     "message": "カスタムネットワークを追加"
@@ -217,7 +217,10 @@
     "message": "イーサリアムアカウントの監視 (ベータ)"
   },
   "addFriendsAndAddresses": {
-    "message": "仮想通貨の送受信をスムーズに行うために、信頼できる友達（ERC-20）のウォレットアドレスを追加する"
+    "message": "仮想通貨の送受信をスムーズに行うため、よく利用するウォレットアドレスを追加しましょう。"
+  },
+  "addFriendsAndAddresses1": {
+    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。ウォレットアドレスを追加するには、こちらをクリックしてください。"
   },
   "addHardwareWalletLabel": {
     "message": "ハードウェアウォレット"
@@ -590,7 +593,7 @@
     "description": "$1 is a link to a support article"
   },
   "autoLock": {
-    "message": "自動ロック"
+    "message": "自動ロックタイマー"
   },
   "autoLockTimeLimit": {
     "message": "オートロックタイマー (分)"
@@ -599,7 +602,7 @@
     "message": "CryptoBridgがロックされるまでのアイドル時間を分単位で設定します。"
   },
   "autoLockTimeLimitDescriptions": {
-    "message": "CryptoBridgeがロックされるまでのアイドル時間を分単位で設定します。"
+    "message": "自動ロックされるまでのアイドリング時間を分単位で設定できます。"
   },
   "autoLockDescription": {
     "message": "ウィンドウを閉じるか、バックグラウンドで開いたままにしておくと（フルスクリーンモードや未使用のタブなど）、プラグインは設定された期間後に自動的にロックされます。"
@@ -2141,7 +2144,7 @@
     "message": "パスワードを入力してログイン"
   },
   "enterPasswordContinue": {
-    "message": "続行するには、パスワードを入力してください"
+    "message": "パスワードを入力"
   },
   "enterRpcUrl": {
     "message": "RPC URLを入力してください"
@@ -2171,7 +2174,7 @@
     "description": "Displayed error name for debugging purposes. $1 is the error name"
   },
   "errorPageContactSupport": {
-    "message": "サポートへのお問い合わせ",
+    "message": "カスタマーサポートに問い合わせる",
     "description": "Button for contact MM support"
   },
   "errorPageDescribeUsWhatHappened": {
@@ -2179,7 +2182,7 @@
     "description": "Button for submitting report to sentry"
   },
   "errorPageInfo": {
-    "message": "情報は表示できませんが、ご心配なく。ウォレットと資金は安全です。",
+    "message": "ウォレットと資産は安全に保護されていますので、もう一度お試しください。",
     "description": "Information banner shown in the error page"
   },
   "errorPageMessageTitle": {
@@ -2199,11 +2202,11 @@
     "description": "In sentry feedback form, The message displayed after a successful feedback submission."
   },
   "errorPageTitle": {
-    "message": "CryptoBridgeにエラーが発生しました",
+    "message": "操作に失敗しました",
     "description": "Title of generic error page"
   },
   "errorPageTryAgain": {
-    "message": "質問に戻る",
+    "message": "戻る",
     "description": "Button for try again"
   },
   "errorStack": {
@@ -2356,10 +2359,16 @@
     "message": "パスワードをリセット"
   },
   "forgotPasswordModalDescription1": {
-    "message": "CryptoBridgeは、お客様のパスワードを復元できません。"
+    "message": "CryptoBridgeではパスワードの復元はできません。"
   },
   "forgotPasswordModalDescription2": {
-    "message": "パスワードをライベートキーをリセットするには、シークレットリカバリーフレーズまたはプライベートキーを入力してください。"
+    "message": "CryptoBridgeは自己管理型ウォレットのため、パスワードやシークレットリカバリーフレーズ、プライベートキーを一切保存していません。"
+  },
+  "forgotPasswordModalDescription3": {
+    "message": "パスワードをリセットするには、シークレットリカバリーフレーズの入力が必要です。"
+  },
+  "forgotPasswordModalDescription4": {
+    "message": "パスワードとシークレットリカバリーフレーズを紛失した場合、ウォレットと資金へのアクセスを永久に失いますのでご注意ください。"
   },
   "forgotPasswordModalTitle": {
     "message": "パスワードをお忘れですか？"
@@ -2548,7 +2557,7 @@
     "message": "履歴"
   },
   "holdToRevealContent1": {
-    "message": "シークレットリカバリーフレーズは、ウォレットおよび資産への完全なアクセス権を提供します。",
+    "message": "シークレットリカバリーフレーズは、ウォレットと資産への完全なアクセス権を提供します。",
     "description": "$1 is a bolded text with the message from 'holdToRevealContent2'"
   },
   "holdToRevealContent2": {
@@ -2662,7 +2671,7 @@
     "message": "申し訳ございません。今後高速化できるよう取り組みます。"
   },
   "importAccountMsg": {
-    "message": "インポートされたアカウントは、MetaMaskアカウントのシークレットリカバリーフレーズと関連付けられません。インポートされたアカウントの詳細を表示"
+    "message": "インポートされたアカウントは、シークレットリカバリーフレーズでは復元できません。各アカウントのプライベートキーを個別にバックアップしてください。"
   },
   "importNFT": {
     "message": "NFTをインポート"
@@ -2681,7 +2690,7 @@
     "description": "$1 is the number of words in the recovery phrase"
   },
   "importPrivateKey": {
-    "message": "プライベートキー"
+    "message": "プライベートキーでウォレットをインポート"
   },
   "importSRPDescription": {
     "message": "12単語または24単語のシークレットリカバリーフレーズを使用して、既存のウォレットをインポートします。"
@@ -3667,7 +3676,7 @@
     "message": "また後で"
   },
   "noticeModal1mAgo": {
-    "message": "1分前です"
+    "message": "1分前"
   },
   "noticeModalBtn": {
     "message": "通知をオンにする"
@@ -3839,7 +3848,7 @@
     "message": "すべて既読にする"
   },
   "notificationsPageEmptyTitle": {
-    "message": "現在、利用可能なコンテンツはありません"
+    "message": "まだ通知がありません"
   },
   "notificationsPageErrorContent": {
     "message": "このページにもう一度アクセスしてみてください"
@@ -4094,7 +4103,7 @@
     "message": "貼り付け"
   },
   "pastePrivateKey": {
-    "message": "秘密鍵の文字列をここに貼り付けます:",
+    "message": "プライベートキーをこちらに貼り付け:",
     "description": "For importing an account from a private key"
   },
   "pending": {
@@ -4486,6 +4495,9 @@
   "privateKeyWarning": {
     "message": "注意: プライベートキーは絶対に他人に教えないでください。プライベートキーを知られると、アカウント内の資産が盗まれる可能性があります。"
   },
+  "privateKeyDone": {
+    "message": "閉じる"
+  },
   "privateKeyWarningPre": {
     "message": "注意: このプライベートキーは絶対に他人に教えないでください。プライベートキーを知られると、アカウント内の資産が盗まれる可能性があります。"
   },
@@ -4628,6 +4640,18 @@
     "message": "誤ったネットワークへの送金は、永久的に資産を失う原因となります。"
   },
   "receiveModalDes4": {
+    "message": "ネットワークの不一致はシステム側で自動的に検出できないため、互換性のないネットワークへの送金によって発生した資金の損失について、CryptoBridgeは一切の責任を負いかねます。"
+  },
+  "receiveModalDes11": {
+    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。第三者から資金を受け取る場合は、必ずERC-20トークンのみをウォレットアドレスに送金するよう依頼してください。"
+  },
+  "receiveModalDes22": {
+    "message": "第三者から資金を受け取る場合は、必ずERC-20トークンのみをウォレットアドレスに送金するよう依頼してください。"
+  },
+  "receiveModalDes33": {
+    "message": "誤ったネットワークへの送金は、永久的に資産を失う原因となります。"
+  },
+  "receiveModalDes44": {
     "message": "ネットワークの不一致はシステム側で自動的に検出できないため、互換性のないネットワークへの送金によって発生した資金の損失について、CryptoBridgeは一切の責任を負いかねます。"
   },
   "receiveModalTips": {
@@ -4775,13 +4799,13 @@
     "message": "パスワードを変更"
   },
   "resetWalletSubHeader": {
-    "message": "CryptoBridgeはあなたのパスワードを保管することはありません。パスワードを忘れた場合、シークレットリカバリーフレーズまたはプライベートキーを使ってウォレットをインポートする必要があります。"
+    "message": "CyptoBridgeはあなたのパスワードを保管することはありません。パスワードを忘れた場合、シークレットリカバリーフレーズを使ってウォレットをインポートする必要があります。"
   },
   "resetWalletUsingSRP": {
     "message": "この操作により、このデバイスから現在のウォレットとシークレットリカバリーフレーズ、および作成されたアカウントのリストが削除されます。シークレットリカバリーフレーズでリセットすると、リセットに使用されたシークレットリカバリーフレーズに基づくアカウントのリストが表示されます。この新しいリストには、残高のあるアカウントが自動的に含まれます。また、以前作成された$1することもできます。インポートしたカスタムアカウントは$2である必要があり、アカウントに追加されたカスタムトークンも$3である必要があります。"
   },
   "resetWalletWarning": {
-    "message": "パスワード、シークレットリカバリーフレーズ、プライベートキーは紙に書き留め、安全なオフライン環境に保管してください。"
+    "message": "パスワード、シークレットリカバリーフレーズは紙に書き留め、安全なオフライン環境に保管してください。"
   },
   "resources": {
     "message": "リソース"
@@ -4824,8 +4848,11 @@
     "description": "This is a sentence consisting of link using 'revealSeedWordsSRPName' as $1 and bolded text using 'revealSeedWordsDescription3' as $2."
   },
   "revealSeedWordsDescription2": {
-    "message": "CryptoBridgeは、ノンカストディアル型 (自己管理型) のウォレットであり、SRPの管理·保管はユーザー自身で行う必要があります。",
+    "message": "CryptoBridgeは、ノンカストディアル型 (自己管理型) のウォレットであり、SRPの管理・保管はユーザーご自身で行う必要があります。",
     "description": "$1 is text link with the message from 'revealSeedWordsNonCustodialWallet1'"
+  },
+  "revealSeedWordsDescription21":{
+    "message": "必ず安全な場所で保管してください。パスワードを忘れた場合や、新しいデバイスにウォレットをインポートしたい場合、シークレットリカバリーフレーズまたはプライベートキーでウォレットを復元することができます。"
   },
   "revealSeedWordsDescription3": {
     "message": "ウォレットと資金への完全アクセス"
@@ -4897,7 +4924,7 @@
     "message": "安全な送金元:"
   },
   "save": {
-    "message": "アドレス帳に追加"
+    "message": "設定"
   },
   "scanInstructions": {
     "message": "カメラにQRコードをかざしてください"
@@ -4930,7 +4957,7 @@
     "message": "シークレットリカバリーフレーズ(SRP)"
   },
   "secretRecoveryPhraseDescription1": {
-    "message": "シークレットリカバリーフレーズ: 安全な場所で保管してください。パスワードを忘れた場合や、新しいデバイスにウォレットをインポートしたい場合、シークレットリカバリーフレーズまたはプライベートキーでウォレットを復元することができます。"
+    "message": "シークレットリカバリーフレーズ"
   },
   "secretRecoveryPhrasePlusNumber": {
     "message": "シークレットリカバリーフレーズ$1",
@@ -6734,7 +6761,7 @@
     "message": "MetaMaskがうまく起動しませんでした。このエラーは断続的に発生する可能性があるため、拡張機能を再起動してみてください。"
   },
   "tryAgain": {
-    "message": "質問に戻る"
+    "message": "再試行"
   },
   "turnOff": {
     "message": "オフにする"
@@ -7152,5 +7179,11 @@
   },
   "onboardingImportPrivateKey": {
     "message": "プライベートキーをインポート"
+  },
+  "qrTips": {
+    "message": "セキュリティおよび互換性のため、"
+  },
+  "qrTips1": {
+    "message": "QRコードをスキャンすると拡張機能内でも新しいタブが開きます。"
   }
 }

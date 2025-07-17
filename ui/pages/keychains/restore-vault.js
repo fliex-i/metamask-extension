@@ -68,7 +68,7 @@ class RestoreVaultPage extends Component {
                 {`< ${t('back')}`}
               </a>
               <Text
-                variant={TextVariant.displayMd}
+                variant={TextVariant.headingMd}
                 color={TextColor.textDefault}
                 className="import-account__title__center"
               >

@@ -431,6 +431,11 @@ export const SendPage = () => {
         )}
         <Box marginTop={6}>
           <SendPageRecipientInput />
+          <div style={{ color: '#DC3D43', fontSize: '14px' }}>
+            {t('qrTips')}
+            <br />
+            {t('qrTips1')}
+          </div>
           {isSendFormShown ? (
             <SendPageRecipientContent
               requireContractAddressAcknowledgement={
@@ -453,7 +458,7 @@ export const SendPage = () => {
           }}
         >
           <div className="attention-ico">
-            <img src="../images/icons/attention.svg" />
+            <img src="/images/icons/attention.svg" />
           </div>
           <div className="attention-des">
             <ul>
@@ -461,7 +466,9 @@ export const SendPage = () => {
                 {t('receiveModalDes1')}
                 <span>{t('receiveModalDes2')}</span>
               </li>
+              <br />
               <li>{t('receiveModalDes3')}</li>
+              <br />
               <li>{t('receiveModalDes4')}</li>
             </ul>
           </div>

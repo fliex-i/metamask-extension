@@ -239,6 +239,9 @@
   "addFriendsAndAddresses": {
     "message": "Add trusted ERC-20 wallet addresses for easy access when sending or receiving crypto."
   },
+  "addFriendsAndAddresses1": {
+    "message": ""
+  },
   "addHardwareWalletLabel": {
     "message": "Hardware wallet"
   },
@@ -606,7 +609,7 @@
     "message": "Attributions"
   },
   "autoLock": {
-    "message": "Auto-lock"
+    "message": "Auto-lock Timer"
   },
   "autoLockTimeLimitDescription": {
     "message": "The plugin will automatically lock after a set period if you close the window or leave it open in the background (such as in full-screen mode or unused tabs)."
@@ -2469,10 +2472,16 @@
     "message": "Reset Password"
   },
   "forgotPasswordModalDescription1": {
-    "message": "CryptoBridge can’t recover your password."
+    "message": "CryptoBridge cannot recover your password."
   },
   "forgotPasswordModalDescription2": {
-    "message": "To reset your password, enter your Secret Recovery Phrase or Private Key."
+    "message": "As a self-custodial wallet, we never store your password, Secret Recovery Phrase, or Private Key."
+  },
+  "forgotPasswordModalDescription3": {
+    "message": "To reset your password, you must enter your Secret Recovery Phrase."
+  },
+  "forgotPasswordModalDescription4": {
+    "message": "If you lose your password and Secret Recovery Phrase, you will permanently lose access to your wallet and funds."
   },
   "forgotPasswordModalTitle": {
     "message": "Forgot your password?"
@@ -2771,7 +2780,7 @@
     "message": "We apologize, and we will make it faster in the future."
   },
   "importAccountMsg": {
-    "message": "Imported accounts won’t be associated with your CryptoBridge Secret Recovery Phrase."
+    "message": "Imported accounts are not recoverable by your Secret Recovery Phrase. Please backup each account’s private key separately"
   },
   "importNFT": {
     "message": "Import NFT"
@@ -2790,7 +2799,7 @@
     "description": "$1 is the number of words in the recovery phrase"
   },
   "importPrivateKey": {
-    "message": "Private Key"
+    "message": "Import Wallet via Private Key"
   },
   "importSRPDescription": {
     "message": "Import an existing wallet with your 12 or 24-word secret recovery phrase."
@@ -4647,6 +4656,9 @@
   "privateKeyWarning": {
     "message": "Warning: Never disclose this key. Anyone with your private keys can steal any assets held in your account."
   },
+  "privateKeyDone": {
+    "message": "Done"
+  },
   "privateNetwork": {
     "message": "Private network"
   },
@@ -4786,6 +4798,18 @@
     "message": "Sending funds to the wrong network may result in permanent loss of funds."
   },
   "receiveModalDes4": {
+    "message": "The system cannot detect network mismatches, and CryptoBridge is not responsible for loss of funds due to sending funds to an incompatible blockchain network."
+  },
+  "receiveModalDes11": {
+    "message": "At the moment, CryptoBridge only supports ERC-20 transfers.When receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
+  },
+  "receiveModalDes22": {
+    "message": "When receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
+  },
+  "receiveModalDes33": {
+    "message": "Sending funds to the wrong network may result in permanent loss of funds. "
+  },
+  "receiveModalDes44": {
     "message": "The system cannot detect network mismatches, and CryptoBridge is not responsible for loss of funds due to sending funds to an incompatible blockchain network."
   },
   "receiveModalTips": {
@@ -4933,13 +4957,13 @@
     "message": "Change Password"
   },
   "resetWalletSubHeader": {
-    "message": "CryptoBridge does not store your password. If you forget your password, you will need to import your wallet using your Secret Recovery Phrase or Private Key"
+    "message": "CryptoBridge does not store your password. If you forget your password, you will need to import your wallet using your Secret Recovery Phrase."
   },
   "resetWalletUsingSRP": {
     "message": "This action will delete your current wallet and Secret Recovery Phrase from this device, along with the list of accounts you’ve curated. After resetting with a Secret Recovery Phrase, you’ll see a list of accounts based on the Secret Recovery Phrase you use to reset. This new list will automatically include accounts that have a balance. You’ll also be able to $1 created previously. Custom accounts that you’ve imported will need to be $2, and any custom tokens you’ve added to an account will need to be $3 as well."
   },
   "resetWalletWarning": {
-    "message": "Write down your password, Secret Recovery Phrase, and Private Key on a piece of paper and store it in a secure, offline location."
+    "message": "Write down your password, Secret Recovery Phrase on a piece of paper and store it in a secure, offline location."
   },
   "resources": {
     "message": "Resources"
@@ -4984,6 +5008,9 @@
   "revealSeedWordsDescription2": {
     "message": "CryptoBridge is a $1. That means you're the owner of your SRP.",
     "description": "$1 is text link with the message from 'revealSeedWordsNonCustodialWallet'"
+  },
+  "revealSeedWordsDescription21":{
+    "message": ""
   },
   "revealSeedWordsDescription3": {
     "message": "full access to your wallet and funds.\n"
@@ -5085,7 +5112,7 @@
     "message": "Secret Recovery Phrase"
   },
   "secretRecoveryPhraseDescription1": {
-    "message": "Keep it safe. If you forget your password or want to import your wallet to a new device, you can recover your wallet using your Secret Recovery Phrase or Private Key."
+    "message": "Secret Recovery Phrase"
   },
   "secretRecoveryPhrasePlusNumber": {
     "message": "Secret Recovery Phrase $1",
@@ -7441,5 +7468,11 @@
   },
   "assetsDetails": {
     "message": "Assets"
+  },
+  "qrTips": {
+    "message": "Scanning a QR code will open a new browser tab for security and compatibility reasons — even inside the extension."
+  },
+  "qrTips1": {
+    "message": ""
   }
 }

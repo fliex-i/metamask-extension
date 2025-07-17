@@ -41,7 +41,7 @@ import { useI18nContext } from '../../hooks/useI18nContext';
 import { requestRevealSeedWords } from '../../store/actions';
 import { getHDEntropyIndex } from '../../selectors/selectors';
 import { endTrace, trace, TraceName } from '../../../shared/lib/trace';
-import { SECURITY_ROUTE } from '../../helpers/constants/routes';
+import { SECURITY_ROUTE, DEFAULT_ROUTE } from '../../helpers/constants/routes';
 
 const PASSWORD_PROMPT_SCREEN = 'PASSWORD_PROMPT_SCREEN';
 const REVEAL_SEED_SCREEN = 'REVEAL_SEED_SCREEN';
@@ -226,7 +226,7 @@ export default function RevealSeedPage() {
             <Label marginTop={4}>{t('yourPrivateSeedPhrase')}</Label>
             <ExportTextContainer text={seedWords} onClickCopy={onClickCopy} />
           </Tab>
-          <Tab
+          {/* <Tab
             name={t('revealSeedWordsQR')}
             className="reveal-seed__tab"
             activeClassName="reveal-seed__active-tab"
@@ -248,7 +248,7 @@ export default function RevealSeedPage() {
                 }}
               />
             </Box>
-          </Tab>
+          </Tab> */}
         </Tabs>
       </div>
     );
@@ -278,7 +278,7 @@ export default function RevealSeedPage() {
                 hd_entropy_index: hdEntropyIndex,
               },
             });
-            history.push(SECURITY_ROUTE);
+            history.push(DEFAULT_ROUTE);
           }}
         >
           {t('cancel')}
@@ -391,13 +391,14 @@ export default function RevealSeedPage() {
             variant={BUTTON_VARIANT.LINK}
             size={BUTTON_SIZES.INHERIT}
             as="a"
-            // href={ZENDESK_URLS.NON_CUSTODIAL_WALLET}
-            // target="_blank"
             rel="noopener noreferrer"
           >
             {t('revealSeedWordsNonCustodialWallet')}
           </Button>,
         ])}
+      </Text>
+      <Text variant={TextVariant.bodyMd}>
+        {t('revealSeedWordsDescription21')}
       </Text>
       {renderWarning()}
       {renderContent()}

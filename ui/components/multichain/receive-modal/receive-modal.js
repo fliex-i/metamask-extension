@@ -64,11 +64,11 @@ export const ReceiveModal = ({ address, token, onClose, onBack }) => {
             <div className="attention-des">
               <ul>
                 <li>
-                  {t('receiveModalDes1')}
-                  <span>{t('receiveModalDes2')}</span>
+                  {t('receiveModalDes11')}
+                  <span>{t('receiveModalDes22')}</span>
                 </li>
-                <li>{t('receiveModalDes3')}</li>
-                <li>{t('receiveModalDes4')}</li>
+                <li>{t('receiveModalDes33')}</li>
+                <li>{t('receiveModalDes44')}</li>
               </ul>
             </div>
           </div>

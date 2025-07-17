@@ -277,7 +277,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
           justifyContent={JustifyContent.center}
           marginTop={4}
         >
-          {isMetaMetricsEnabled && (
+          {/* {isMetaMetricsEnabled && (
             <Button
               className="error-page__report-to-sentry-button"
               marginBottom={2}
@@ -287,7 +287,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
             >
               {t('errorPageDescribeUsWhatHappened')}
             </Button>
-          )}
+          )} */}
           <Button
             marginBottom={2}
             variant={ButtonVariant.Secondary}

@@ -117,6 +117,9 @@ export default class ContactListTab extends Component {
           <p className="address-book__sub-title">
             {t('addFriendsAndAddresses')}
           </p>
+          <p className="address-book__sub-title">
+            {t('addFriendsAndAddresses1')}
+          </p>
           <button
             className="address-book__link"
             onClick={() => {

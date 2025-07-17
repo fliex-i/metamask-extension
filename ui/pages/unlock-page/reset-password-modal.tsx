@@ -58,11 +58,17 @@ export default function ResetPasswordModal({
               }}
             />
           </Box>
-          <Text variant={TextVariant.bodyMd} marginBottom={4}>
+          <Text variant={TextVariant.bodyMd} marginBottom={2}>
             {t('forgotPasswordModalDescription1')}
           </Text>
-          <Text variant={TextVariant.bodyMd} marginBottom={6}>
+          <Text variant={TextVariant.bodyMd} marginBottom={2}>
             {t('forgotPasswordModalDescription2')}
+          </Text>
+          <Text variant={TextVariant.bodyMd} marginBottom={2}>
+            {t('forgotPasswordModalDescription3')}
+          </Text>
+          <Text variant={TextVariant.bodyMd} marginBottom={4}>
+            {t('forgotPasswordModalDescription4')}
           </Text>
           <Button
             data-testid="reset-password-modal-button"

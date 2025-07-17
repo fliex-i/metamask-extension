@@ -139,9 +139,6 @@ export default function CreateNewVault({
   return (
     <form className="create-new-vault__form" onSubmit={onImport}>
       <SrpInput onChange={setSeedPhrase} srpText={t('secretRecoveryPhrase')} />
-      <div className="create-new-vault__change-new-password">
-        {t('changeNewPassword')}
-      </div>
       <div className="create-new-vault__create-password">
         <div className="create-new-vault__create-password-input">
           <TextField

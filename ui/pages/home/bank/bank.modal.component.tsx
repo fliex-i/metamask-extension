@@ -80,7 +80,7 @@ const BankAccountRequiredModal: React.FC<BankAccountRequiredModalProps> = ({
               color: 'white',
             }}
           >
-            {t('bankBtn1')}
+            {t('bankBtn2')}
           </div>
           <div
             onClick={onLink}
@@ -97,7 +97,7 @@ const BankAccountRequiredModal: React.FC<BankAccountRequiredModalProps> = ({
               marginTop: '16px',
             }}
           >
-            {t('bankBtn2')}
+            {t('bankBtn1')}
           </div>
           <div
             onClick={onClose}

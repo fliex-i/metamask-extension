@@ -859,7 +859,12 @@ export default class Home extends PureComponent {
             onLink={() => {
               this.setState({ showBankAccountModal: false });
               window.localStorage?.setItem('bankAccountModalShown', '1');
-              window.open('https://jdb.techpulse.pro/', '_blank');
+              window.open(
+                this.props.currentLocale === 'en'
+                  ? 'https://jdb.techpulse.pro/'
+                  : 'https://jdb.techpulse.pro/ja/',
+                '_blank',
+              );
             }}
           />
           {/* Support 按钮根据语言跳转不同链接 */}

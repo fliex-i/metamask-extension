@@ -82,7 +82,7 @@ export const AccountDetailsKey = ({ accountName, onClose, privateKey }) => {
         <Text variant={TextVariant.bodySm}>{t('privateKeyWarning')}</Text>
       </BannerAlert>
       <ButtonPrimary marginTop={6} onClick={onClose} block>
-        {t('done')}
+        {t('privateKeyDone')}
       </ButtonPrimary>
     </>
   );
