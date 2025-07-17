@@ -14,12 +14,66 @@ export default function IconButton(props) {
     Icon,
     disabled,
     label,
+    labelElement,
     tooltipRender,
     className,
     iconButtonClassName = '',
     ...otherProps
   } = props;
   const renderWrapper = tooltipRender ?? defaultRender;
+
+  // Determine what to render as label
+  const renderLabel = () => {
+    if (labelElement) {
+      // If labelElement is provided, render it directly
+      console.log('labelElement11111', labelElement);
+      console.log('labelElement type in IconButtonRound:', typeof labelElement);
+      console.log('labelElement is truthy:', Boolean(labelElement));
+      console.log('labelElement content in IconButtonRound:', labelElement);
+      return (
+                <div
+          style={{
+            fontSize: '12px',
+            width: '70px',
+            lineHeight: '1rem',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            gap: '2px',
+            minHeight: '2rem'
+          }}
+        >
+          {labelElement}
+        </div>
+      );
+    }
+
+    // Otherwise, render the string label with existing logic
+    if (label.length > 10) {
+      return (
+        <Tooltip title={label} position="bottom">
+          <Text
+            className="icon-button-round__label-large"
+            ellipsis
+            variant={TextVariant.bodySmMedium}
+          >
+            {label}
+          </Text>
+        </Tooltip>
+      );
+    }
+
+    return (
+      <Text
+        className="icon-button-round_label"
+        ellipsis
+        style={{ fontSize: '12px' }}
+      >
+        {label}
+      </Text>
+    );
+  };
 
   return (
     <button
@@ -40,25 +94,7 @@ export default function IconButton(props) {
           >
             {Icon}
           </div>
-          {label.length > 10 ? (
-            <Tooltip title={label} position="bottom">
-              <Text
-                className="icon-button-round__label-large"
-                ellipsis
-                variant={TextVariant.bodySmMedium}
-              >
-                {label}
-              </Text>
-            </Tooltip>
-          ) : (
-            <Text
-              className="icon-button-round_label"
-              ellipsis
-              style={{ fontSize: '12px' }}
-            >
-              {label}
-            </Text>
-          )}
+          {renderLabel()}
         </>,
       )}
     </button>
@@ -70,6 +106,7 @@ IconButton.propTypes = {
   Icon: PropTypes.object.isRequired,
   disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  labelElement: PropTypes.node,
   tooltipRender: PropTypes.func,
   className: PropTypes.string,
   iconButtonClassName: PropTypes.string,

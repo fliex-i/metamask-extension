@@ -74,4 +74,42 @@ describe('IconButton', () => {
 
     expect(container.querySelector('.custom-icon')).toBeInTheDocument();
   });
+
+  it('renders React element as label correctly', () => {
+    const customLabel = (
+      <div className="custom-label">
+        <span>Custom</span>
+        <span>Label</span>
+      </div>
+    );
+
+    const { container } = render(
+      <IconButton
+        {...defaultProps}
+        label={customLabel}
+        round={false}
+      />,
+    );
+
+    expect(container.querySelector('.custom-label')).toBeInTheDocument();
+    expect(container.querySelector('.custom-label span')).toBeInTheDocument();
+  });
+
+  it('renders React element as label in round mode correctly', () => {
+    const customLabel = (
+      <div className="custom-round-label">
+        <span>Custom Round</span>
+      </div>
+    );
+
+    const { container } = render(
+      <IconButton
+        {...defaultProps}
+        label={customLabel}
+        round={true}
+      />,
+    );
+
+    expect(container.querySelector('.custom-round-label')).toBeInTheDocument();
+  });
 });

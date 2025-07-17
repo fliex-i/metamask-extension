@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 ///: BEGIN:ONLY_INCLUDE_IF(multichain)
@@ -93,7 +93,7 @@ const TokenButtons = ({
   const isSwapsChain = useSelector((state) =>
     getIsSwapsChain(state, isEvm ? currentChainId : multichainChainId),
   );
-
+  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 1280);
   const displayNewIconButtons = process.env.REMOVE_GNS;
 
   const isBridgeChain = useSelector((state) =>
@@ -106,6 +106,15 @@ const TokenButtons = ({
   ///: BEGIN:ONLY_INCLUDE_IF(multichain)
   const handleSendNonEvm = useHandleSendNonEvm(token.address as CaipAssetType);
   ///: END:ONLY_INCLUDE_IF
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth > 1280);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (token.isERC721) {
@@ -276,6 +285,8 @@ const TokenButtons = ({
     multichainChainId,
   ]);
 
+  console.log('displayNewIconButtons:', displayNewIconButtons);
+  console.log('process.env.REMOVE_GNS:', process.env.REMOVE_GNS);
   return (
     <Box
       display={Display.Flex}
@@ -300,14 +311,9 @@ const TokenButtons = ({
           )
         }
         label={
-          !displayNewIconButtons ? (
-            t('buyAndSell')
-          ) : (
-            <>
-              <div>{t('buyAndSell1')}</div>
-              <div>{t('buyAndSell2')}</div>
-            </>
-          )
+          isWideScreen
+            ? t('buyAndSell')
+            : `${t('buyAndSell1')}\n${t('buyAndSell2')}`
         }
         data-testid="token-overview-buy"
         onClick={handleBuyAndSellOnClick}
@@ -338,17 +344,7 @@ const TokenButtons = ({
           )
         }
         onClick={handleSwapOnClick}
-        label={
-          !displayNewIconButtons ? (
-            t('swap')
-          ) : (
-            <>
-              {t('swap1')}
-              <br />
-              {t('swap2')}
-            </>
-          )
-        }
+        label={isWideScreen ? t('swap') : `${t('swap1')}\n${t('swap2')}`}
         disabled={!isSwapsChain}
         round={!displayNewIconButtons}
         textProps={{

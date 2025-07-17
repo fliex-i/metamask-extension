@@ -36,13 +36,31 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     },
     ref,
   ) => {
-    if (round) {
+    // If label is JSX element, always use round button to avoid Text component wrapping
+    const isJSXLabel = typeof label !== 'string';
+    const shouldUseRound = round || isJSXLabel;
+
+    if (shouldUseRound) {
+      // For round buttons, we need to handle both string and React element labels
+      const labelString = typeof label === 'string' ? label : '';
+      const labelElement = typeof label === 'string' ? undefined : label;
+      console.log('labelElement', labelElement, labelString);
+      console.log('label type:', typeof label);
+      console.log('labelElement type:', typeof labelElement);
+      console.log('isJSXLabel:', isJSXLabel);
+      console.log('shouldUseRound:', shouldUseRound);
+      console.log('label content:', label);
+      if (labelElement) {
+        console.log('labelElement is truthy, will render JSX');
+        console.log('labelElement content:', labelElement);
+      }
       return (
         <IconButtonRound
           onClick={onClick}
           Icon={Icon as object}
           disabled={disabled}
-          label={typeof label === 'string' ? label : label !== undefined ? String(label) : ''}
+          label={labelString}
+          labelElement={labelElement}
           tooltipRender={tooltipRender}
           ref={ref}
           {...props}
@@ -66,33 +84,48 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         paddingLeft={2}
         paddingRight={2}
         textProps={{
-          ellipsis: true,
+          ellipsis: false,
           className: 'icon-button__label',
         }}
         {...props}
       >
         {Icon}
-        {typeof label === 'string' && label.length > 10 ? (
-          <Tooltip title={label} position="bottom">
+        {typeof label === 'string' ? (
+          label.length > 10 ? (
+            <Tooltip title={label} position="bottom">
+              <Text
+                as="span"
+                display={Display.Block}
+                variant={TextVariant.bodySmMedium}
+                ellipsis
+              >
+                {label}
+              </Text>
+            </Tooltip>
+          ) : (
             <Text
               as="span"
               display={Display.Block}
               variant={TextVariant.bodySmMedium}
               ellipsis
+              style={{ marginTop: '-4px' }}
             >
               {label}
             </Text>
-          </Tooltip>
+          )
         ) : (
-          <Text
-            as="span"
-            display={Display.Block}
-            variant={TextVariant.bodySmMedium}
-            ellipsis={typeof label === 'string'}
-            style={{ marginTop: '-4px' }}
+          <div
+            style={{
+              marginTop: '-4px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              gap: '2px',
+            }}
           >
             {label}
-          </Text>
+          </div>
         )}
       </ButtonBase>
     );

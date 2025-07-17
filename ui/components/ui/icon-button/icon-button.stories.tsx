@@ -10,30 +10,85 @@ import { Icon, IconName } from '../../component-library';
 const meta: Meta<typeof IconButton> = {
   title: 'Components/UI/IconButton',
   component: IconButton,
+  parameters: {
+    docs: {
+      description: {
+        component: 'IconButton component that supports both string and React element labels',
+      },
+    },
+  },
   argTypes: {
     onClick: { action: 'clicked' },
-    Icon: { control: 'object' },
-    disabled: { control: 'boolean' },
-    label: { control: 'text' },
-    className: { control: 'text' },
-  },
-  args: {
-    onClick: () => {},
-    Icon: <Icon name={IconName.Send} />,
-    disabled: false,
-    label: 'Send',
-    className: '',
+    disabled: {
+      control: 'boolean',
+    },
+    round: {
+      control: 'boolean',
+    },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof IconButton>;
 
-export const Default: Story = {};
-
-export const WithLongLabel: Story = {
+export const Default: Story = {
   args: {
-    label: 'This is a very long button label that should be truncated',
+    Icon: <Icon name={IconName.Add} color={IconColor.iconDefault} />,
+    label: 'Default Button',
+    onClick: () => console.log('Button clicked'),
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    Icon: <Icon name={IconName.Add} color={IconColor.iconDefault} />,
+    label: 'Disabled Button',
+    disabled: true,
+    onClick: () => console.log('Button clicked'),
+  },
+};
+
+export const LongLabel: Story = {
+  args: {
+    Icon: <Icon name={IconName.Add} color={IconColor.iconDefault} />,
+    label: 'This is a very long button label that should trigger tooltip',
+    onClick: () => console.log('Button clicked'),
+  },
+};
+
+export const RoundButton: Story = {
+  args: {
+    Icon: <Icon name={IconName.Add} color={IconColor.iconDefault} />,
+    label: 'Round Button',
+    round: true,
+    onClick: () => console.log('Button clicked'),
+  },
+};
+
+export const WithReactElementLabel: Story = {
+  args: {
+    Icon: <Icon name={IconName.Add} color={IconColor.iconDefault} />,
+    label: (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <span style={{ fontWeight: 'bold' }}>Custom</span>
+        <span style={{ fontSize: '10px', color: '#666' }}>Element Label</span>
+      </div>
+    ),
+    onClick: () => console.log('Button clicked'),
+  },
+};
+
+export const RoundButtonWithReactElementLabel: Story = {
+  args: {
+    Icon: <Icon name={IconName.Add} color={IconColor.iconDefault} />,
+    label: (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <span style={{ fontWeight: 'bold' }}>Round</span>
+        <span style={{ fontSize: '10px', color: '#666' }}>Element</span>
+      </div>
+    ),
+    round: true,
+    onClick: () => console.log('Button clicked'),
   },
 };
 

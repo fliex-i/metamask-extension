@@ -4,6 +4,7 @@ import * as Sentry from '@sentry/browser';
 import browser from 'webextension-polyfill';
 
 import { getParticipateInMetaMetrics } from '../../selectors';
+import { getCurrentLocale } from '../../ducks/locale/locale';
 import { useI18nContext } from '../../hooks/useI18nContext';
 import {
   BannerAlert,
@@ -51,6 +52,7 @@ type ErrorPageProps = {
 const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
   const t = useI18nContext();
   const isMetaMetricsEnabled = useSelector(getParticipateInMetaMetrics);
+  const currentLocale = useSelector(getCurrentLocale);
 
   const [feedbackMessage, setFeedbackMessage] = useState('');
   const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
@@ -294,7 +296,8 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
             block
             data-testid="error-page-contact-support-button"
             onClick={() => {
-              window.open('https://www.crypto-bridge.co/jp/#support', '_blank');
+              const supportUrl = currentLocale === 'ja' ? 'https://www.crypto-bridge.co/jp/#support' : 'https://www.crypto-bridge.co/#support';
+              window.open(supportUrl, '_blank');
             }}
             width={BlockSize.Full}
           >

@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { toHex } from '@metamask/controller-utils';
@@ -112,6 +112,17 @@ const CoinButtons = ({
   >;
   const currentChainId = useSelector(getCurrentChainId);
   const displayNewIconButtons = process.env.REMOVE_GNS;
+  const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 1280);
+
+  // Add resize listener to update screen width state
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth > 1280);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   ///: BEGIN:ONLY_INCLUDE_IF(multichain)
   const handleSendNonEvm = useHandleSendNonEvm();
@@ -375,14 +386,9 @@ const CoinButtons = ({
           disabled={!isBuyableChain}
           data-testid={`${classPrefix}-overview-buy`}
           label={
-            !displayNewIconButtons ? (
-              t('buyAndSell')
-            ) : (
-              <>
-                <div>{t('buyAndSell1')}</div>
-                <div>{t('buyAndSell2')}</div>
-              </>
-            )
+            isWideScreen
+              ? t('buyAndSell')
+              : `${t('buyAndSell1')}\n${t('buyAndSell2')}`
           }
           onClick={handleBuyAndSellOnClick}
           width={BlockSize.Full}
@@ -415,17 +421,7 @@ const CoinButtons = ({
           )
         }
         onClick={handleSwapOnClick}
-        label={
-          !displayNewIconButtons ? (
-            t('swap')
-          ) : (
-            <>
-              {t('swap1')}
-              <br />
-              {t('swap2')}
-            </>
-          )
-        }
+        label={isWideScreen ? t('swap') : `${t('swap1')}\n${t('swap2')}`}
         data-testid="token-overview-button-swap"
         width={BlockSize.Full}
         tooltipRender={(contents: React.ReactElement) =>
