@@ -167,7 +167,10 @@ const AddContact = ({
         </div>
 
         <div className="address-book__view-contact__group">
-          <div className="address-book__view-contact__group__label">
+          <div
+            className="address-book__view-contact__group__label"
+            style={{ marginBottom: '8px' }}
+          >
             {t('ethereumPublicAddress')}
           </div>
           {renderInput()}

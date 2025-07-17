@@ -94,7 +94,11 @@ const EditContact = ({
           style={{ overflow: 'hidden' }}
           paddingRight={2}
         >
-          <AvatarAccount size={AvatarAccountSize.Lg} address={address} />
+          <AvatarAccount
+            size={AvatarAccountSize.Lg}
+            address={address}
+            style={{ marginBottom: '8px' }}
+          />
           <Text
             className="address-book__header__name"
             variant={TextVariant.bodyLgMedium}

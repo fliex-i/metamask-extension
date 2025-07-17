@@ -416,7 +416,17 @@ const CoinButtons = ({
           )
         }
         onClick={handleSwapOnClick}
-        label={t('swap')}
+        label={
+          !displayNewIconButtons ? (
+            t('swap')
+          ) : (
+            <>
+              {t('swap1')}
+              <br />
+              {t('swap2')}
+            </>
+          )
+        }
         data-testid="token-overview-button-swap"
         width={BlockSize.Full}
         tooltipRender={(contents: React.ReactElement) =>
@@ -502,7 +512,6 @@ const CoinButtons = ({
           {showReceiveModal && selectedReceiveAddress && (
             <ReceiveModal
               address={selectedReceiveAddress}
-              token={selectedToken}
               onClose={() => {
                 setShowReceiveModal(false);
                 setSelectedReceiveAddress(null);

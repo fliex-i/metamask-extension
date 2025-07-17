@@ -120,16 +120,6 @@ export default class ContactListTab extends Component {
           </p>
           <p className="address-book__sub-title">
             <span>{t('addFriendsAndAddresses1')}</span>
-            {/* <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => {
-                history.push(CONTACT_ADD_ROUTE);
-              }}
-            >
-              {t('addFriendsAndAddresses2')}
-            </a> */}
             <Box
               type="link"
               as="a"
@@ -140,9 +130,9 @@ export default class ContactListTab extends Component {
                 history.push(CONTACT_ADD_ROUTE);
               }}
             >
-              {t('privacyPolicy')}
+              {t('addFriendsAndAddresses2')}
             </Box>
-            <span>{t('addFriendsAndAddresses2')}</span>
+            <span>{t('addFriendsAndAddresses3')}</span>
           </p>
           <button
             className="address-book__link"

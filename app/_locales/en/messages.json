@@ -5207,7 +5207,7 @@
     "message": "Secret Recovery Phrases contain 12, 15, 18, 21, or 24 words"
   },
   "seedPhraseReviewDetails": {
-    "message": "Never share your Secret Recovery Phrase with anyone. Anyone with access to this phrase can control your funds.",
+    "message": "Never share your Secret Recovery Phrase with anyone. Anyone with access to this phrase can control your funds:",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
   },
   "seedPhraseReviewDetails1": {

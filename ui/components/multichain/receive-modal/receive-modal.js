@@ -10,7 +10,7 @@ import {
 } from '../../component-library';
 import QrCodeView from '../../ui/qr-code-view';
 import { useI18nContext } from '../../../hooks/useI18nContext';
-import { getInternalAccountByAddress } from '../../../selectors';
+import { getInternalAccountByAddress, getSelectedAccount } from '../../../selectors';
 import {
   AlignItems,
   Display,
@@ -20,14 +20,15 @@ import { endTrace, TraceName } from '../../../../shared/lib/trace';
 
 export const ReceiveModal = ({ address, token, onClose, onBack }) => {
   const t = useI18nContext();
-  const {
-    metadata: { name },
-  } = useSelector((state) => getInternalAccountByAddress(state, address));
-  const data = useMemo(() => ({ data: address, token }), [address, token]);
+  const currentAccount = useSelector(getSelectedAccount);
+  const internalAccount = useSelector((state) =>
+    getInternalAccountByAddress(state, address),
+  );
+  const accountName = internalAccount?.metadata?.name || 'Account';
+  const data = useMemo(() => ({ data: currentAccount }), [currentAccount]);
 
   useEffect(() => {
     endTrace({ name: TraceName.ReceiveModal });
-    console.log('token', token);
   }, []);
 
   return (
@@ -63,8 +64,9 @@ export const ReceiveModal = ({ address, token, onClose, onBack }) => {
             </div>
             <div className="attention-des">
               <ul>
+                <li>{t('receiveModalDes11')}</li>
+                <br />
                 <li>
-                  {t('receiveModalDes11')}
                   <span>{t('receiveModalDes22')}</span>
                 </li>
                 <li>{t('receiveModalDes33')}</li>
@@ -73,7 +75,7 @@ export const ReceiveModal = ({ address, token, onClose, onBack }) => {
             </div>
           </div>
           <div className="attention-tips">{t('receiveModalTips')}</div>
-          <QrCodeView Qr={data} accountName={name} />
+          <QrCodeView Qr={data} />
         </Box>
       </ModalContent>
     </Modal>
@@ -84,5 +86,5 @@ ReceiveModal.propTypes = {
   address: PropTypes.string.isRequired,
   token: PropTypes.object,
   onClose: PropTypes.func.isRequired,
-  onBack: PropTypes.func, // 新增onBack为可选函数
+  onBack: PropTypes.func,
 };

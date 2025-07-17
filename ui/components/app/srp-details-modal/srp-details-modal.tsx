@@ -61,6 +61,7 @@ export default function SRPDetailsModal({ onClose }: { onClose: () => void }) {
             variant={TextVariant.bodyMd}
             marginTop={4}
             fontWeight={FontWeight.Bold}
+            style={{ color: 'var(--color-primary-alternative)' }}
           >
             {t('srpDetailsOwnsAccessListItemFour')}
           </Text>

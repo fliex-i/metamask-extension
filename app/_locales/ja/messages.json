@@ -4637,7 +4637,7 @@
     "message": "仮想通貨を受け取る"
   },
   "receiveModalDes1": {
-    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。第三者から資金を受け取る場合は、必ずERC-20トークンのみをウォレットアドレスに送金するよう依頼してください。"
+    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。"
   },
   "receiveModalDes2": {
     "message": "受取人のウォレットアドレスがerc-20アドレスであることを再確認してください。"
@@ -4649,7 +4649,7 @@
     "message": "ネットワークの不一致はシステム側で自動的に検出できないため、互換性のないネットワークへの送金によって発生した資金の損失について、CryptoBridgeは一切の責任を負いかねます。"
   },
   "receiveModalDes11": {
-    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。第三者から資金を受け取る場合は、必ずERC-20トークンのみをウォレットアドレスに送金するよう依頼してください。"
+    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。"
   },
   "receiveModalDes22": {
     "message": "第三者から資金を受け取る場合は、必ずERC-20トークンのみをウォレットアドレスに送金するよう依頼してください。"
@@ -5122,7 +5122,7 @@
     "message": "ここをクリック"
   },
   "sendNoContactsDescription": {
-    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。連絡先を追加するには、こちらをクリックしてください。$1",
+    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。連絡先を追加するには、$1してください。",
     "description": "$1 represents the action text 'click here'"
   },
   "sendNoContactsTitle": {
