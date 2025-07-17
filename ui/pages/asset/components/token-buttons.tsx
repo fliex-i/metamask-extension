@@ -323,33 +323,6 @@ const TokenButtons = ({
 
       <IconButton
         className="token-overview__button"
-        onClick={handleSendOnClick}
-        Icon={
-          displayNewIconButtons ? (
-            <Icon
-              name={IconName.Send}
-              color={IconColor.iconAlternative}
-              size={IconSize.Md}
-            />
-          ) : (
-            <Icon
-              name={IconName.Arrow2UpRight}
-              color={IconColor.iconDefault}
-              size={IconSize.Sm}
-            />
-          )
-        }
-        label={t('send')}
-        data-testid="eth-overview-send"
-        disabled={token.isERC721}
-        round={!displayNewIconButtons}
-        textProps={{
-          ellipsis: false,
-        }}
-      />
-
-      <IconButton
-        className="token-overview__button"
         Icon={
           displayNewIconButtons ? (
             <Icon
@@ -383,7 +356,35 @@ const TokenButtons = ({
           ellipsis: false,
         }}
       />
-      {displayNewIconButtons ? null : (
+
+      <IconButton
+        className="token-overview__button"
+        onClick={handleSendOnClick}
+        Icon={
+          displayNewIconButtons ? (
+            <Icon
+              name={IconName.Send}
+              color={IconColor.iconAlternative}
+              size={IconSize.Md}
+            />
+          ) : (
+            <Icon
+              name={IconName.Arrow2UpRight}
+              color={IconColor.iconDefault}
+              size={IconSize.Sm}
+            />
+          )
+        }
+        label={t('send')}
+        data-testid="eth-overview-send"
+        disabled={token.isERC721}
+        round={!displayNewIconButtons}
+        textProps={{
+          ellipsis: false,
+        }}
+      />
+
+      {/* {displayNewIconButtons ? null : (
         <IconButton
           className="token-overview__button"
           data-testid="token-overview-bridge"
@@ -410,7 +411,7 @@ const TokenButtons = ({
             ellipsis: false,
           }}
         />
-      )}
+      )} */}
     </Box>
   );
 };
