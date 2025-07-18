@@ -127,7 +127,7 @@ export const ImportAccount = ({ onActionComplete }) => {
       <Text variant={TextVariant.bodySm} marginTop={2}>
         {t('importAccountMsg')}
       </Text>
-      <Box paddingTop={4} paddingBottom={8}>
+      <Box paddingTop={4}>
         {/* <Label
           width={BlockSize.Full}
           marginBottom={4}
