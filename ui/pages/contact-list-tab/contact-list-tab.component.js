@@ -118,8 +118,10 @@ export default class ContactListTab extends Component {
           <p className="address-book__sub-title">
             {t('addFriendsAndAddresses')}
           </p>
+          <br/>
           <p className="address-book__sub-title">
-            <span>{t('addFriendsAndAddresses1')}</span>
+            <span>{t('addFriendsAndAddresses1')}</span><br/>
+            <span>{t('addFriendsAndAddresses4')}</span>
             <Box
               type="link"
               as="a"

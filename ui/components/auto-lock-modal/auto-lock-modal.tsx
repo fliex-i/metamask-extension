@@ -43,6 +43,7 @@ const AutoLockModal: React.FC<AutoLockModalProps> = ({ isOpen, onClose }) => {
 
   const [selectedTimeLimit, setSelectedTimeLimit] = useState(autoLockTimeLimit);
   const [systemIdleLock, setSystemIdleLock] = useState(systemIdleLockEnabled);
+  const [hoveredOption, setHoveredOption] = useState<number | null>(null);
 
   // Auto-lock time options
   const timeOptions = [
@@ -115,8 +116,19 @@ const AutoLockModal: React.FC<AutoLockModalProps> = ({ isOpen, onClose }) => {
                     backgroundColor:
                       selectedTimeLimit === option.value
                         ? '#f0f0f0'
+                        : hoveredOption === option.value
+                        ? '#f8f0ff'
                         : 'transparent',
                     borderRadius: '8px',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={() => {
+                    if (selectedTimeLimit !== option.value) {
+                      setHoveredOption(option.value);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    setHoveredOption(null);
                   }}
                   data-testid={`time-option-${option.value}`}
                 >
@@ -125,8 +137,13 @@ const AutoLockModal: React.FC<AutoLockModalProps> = ({ isOpen, onClose }) => {
                     color={
                       selectedTimeLimit === option.value
                         ? TextColor.primaryDefault
+                        : hoveredOption === option.value
+                        ? TextColor.primaryDefault
                         : TextColor.textDefault
                     }
+                    style={{
+                      transition: 'color 0.2s ease',
+                    }}
                   >
                     {option.label}
                   </Text>

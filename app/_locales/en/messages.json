@@ -248,6 +248,9 @@
   "addFriendsAndAddresses3": {
     "message": ""
   },
+  "addFriendsAndAddresses4": {
+    "message": ""
+  },
   "addHardwareWalletLabel": {
     "message": "Hardware wallet"
   },
@@ -2807,8 +2810,23 @@
   "importPrivateKey": {
     "message": "Import Wallet via Private Key"
   },
+  "importSrpBtn": {
+    "message": "Import"
+  },
+  "importSrp": {
+    "message": "Import Wallet via Secret Recovery Phrase"
+  },
+  "importPrivateKeys": {
+    "message": "Please note that every wallet’s Secret Recovery Phrase is unique. "
+  },
+  "importPrivateKeys1": {
+    "message": "Any wallets you import will never share a Secret Recovery Phrase with your original CryptoBridge wallet’s Secret Recovery Phrase."
+  },
+  "importPrivateKeyDes": {
+    "message": "Enter your private key to import your wallet."
+  },
   "importSRPDescription": {
-    "message": "Import an existing wallet with your 12 or 24-word secret recovery phrase."
+    "message": "Import an existing wallet with your 12 secret recovery phrase."
   },
   "importSRPNumberOfWordsError": {
     "message": "Secret Recovery Phrases contain 12, or 24 words"

@@ -220,7 +220,10 @@
     "message": "仮想通貨の送受信をスムーズに行うため、よく利用するウォレットアドレスを追加しましょう。"
   },
   "addFriendsAndAddresses1": {
-    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。ウォレットアドレスを追加するには、"
+    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。"
+  },
+  "addFriendsAndAddresses4": {
+    "message": "ウォレットアドレスを追加するには、"
   },
   "addFriendsAndAddresses2": {
     "message": "こちらをクリック"
@@ -2698,6 +2701,21 @@
   "importPrivateKey": {
     "message": "プライベートキーでウォレットをインポート"
   },
+  "importSrpBtn": {
+    "message": "インポート"
+  },
+  "importSrp": {
+    "message": "シークレットリカバリーフレーズでウォレットをインポート"
+  },
+  "importPrivateKeys": {
+    "message": "各ウォレットのシークレットリカバリーフレーズ（SRP）は固有のものです。"
+  },
+  "importPrivateKeys1": {
+    "message": "今からインポートするウォレットは、元のCryptoBridgeウォレットのSRPとは異なります。"
+  },
+  "importPrivateKeyDes": {
+    "message": "プライベートキーを入力してウォレットをインポートします。"
+  },
   "importSRPDescription": {
     "message": "12単語または24単語のシークレットリカバリーフレーズを使用して、既存のウォレットをインポートします。"
   },
@@ -4649,7 +4667,7 @@
     "message": "ネットワークの不一致はシステム側で自動的に検出できないため、互換性のないネットワークへの送金によって発生した資金の損失について、CryptoBridgeは一切の責任を負いかねます。"
   },
   "receiveModalDes11": {
-    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。"
+    "message": "現在、CryptoBridgeはERC-20の取引のみ使用可能です。"
   },
   "receiveModalDes22": {
     "message": "第三者から資金を受け取る場合は、必ずERC-20トークンのみをウォレットアドレスに送金するよう依頼してください。"
@@ -5122,7 +5140,7 @@
     "message": "こちらをクリック"
   },
   "sendNoContactsDescription": {
-    "message": "あらかじめアドレス帳に連絡先を追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。連絡先を追加するには、$1してください。",
+    "message": "あらかじめアドレス帳にウォレットアドレスを追加しておくことで、他のアカウントへ安全かつ簡単に送金できます。ウォレットアドレスを追加するには、$1してください。",
     "description": "$1 represents the action text 'click here'"
   },
   "sendNoContactsTitle": {
@@ -6544,10 +6562,10 @@
     "message": "トークンを追加すると、Web3の使用方法が増えます。"
   },
   "tipsHome": {
-    "message": "シークレットリカバリーフレーズとプライベート"
+    "message": "シークレットリカバリーフレーズとプライベートキーは"
   },
   "tipsHomes": {
-    "message": "キーは、必ず安全な場所に保管してください。"
+    "message": "必ず安全な場所に保管してください。"
   },
   "tipsHome1": {
     "message": "ウォレットを再インストールする場合や、別の端末に移行する場合には、これらの情報が必要になります。"

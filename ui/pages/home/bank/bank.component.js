@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useI18nContext } from '../../../hooks/useI18nContext';
+import { useSelector } from 'react-redux';
+import { getCurrentLocale } from '../../../ducks/locale/locale';
 
 const TipsBank = () => {
   const t = useI18nContext();
   const [visible, setVisible] = useState(true);
-
+  const currentLocale = useSelector(getCurrentLocale);
   useEffect(() => {
     const closed = window.localStorage?.getItem('tipsBankClosed');
     if (closed === 'true') {
@@ -28,16 +30,20 @@ const TipsBank = () => {
     >
       <div className="tips-bank-ico">
         <img src="./images/home/tips.svg" width={20} height={20} />
-        <div>{t('tipsBank')}</div>
-      </div>
-      <div className="tips-bank-des">
-        <div
-          onClick={() => {
-            window.open('https://jdb.techpulse.pro/', '_blank');
-          }}
-          className="tips-bank-start"
-        >
-          {t('startNow')}
+        <div className="tips-bank-text">
+          {t('tipsBank')}
+          <span
+            onClick={() => {
+              const url =
+                currentLocale === 'ja'
+                  ? 'https://jdb.techpulse.pro/ja'
+                  : 'https://jdb.techpulse.pro/';
+              window.open(url, '_blank');
+            }}
+            className="tips-bank-start"
+          >
+            {t('startNow')}
+          </span>
         </div>
       </div>
 

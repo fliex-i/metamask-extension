@@ -29,6 +29,8 @@ import {
   DEFAULT_ROUTE,
   RESTORE_VAULT_ROUTE,
   CONTACT_LIST_ROUTE,
+  IMPORT_SRP_ROUTE,
+  IMPORT_SRP_SETTINGS_ROUTE,
 } from '../../helpers/constants/routes';
 import { getCurrentLocale } from '../../ducks/locale/locale';
 // eslint-disable-next-line import/no-restricted-paths
@@ -203,6 +205,13 @@ const SettingsPage: React.FC = () => {
             icon: './images/setting/protection.svg',
             onClick: () => setIsOpen(true),
           },
+          {
+            name: t('importSrp'),
+            icon: './images/setting/protection.svg',
+            onClick: () => {
+              history.push(IMPORT_SRP_SETTINGS_ROUTE);
+            },
+          },
         ],
       },
       {
@@ -211,9 +220,10 @@ const SettingsPage: React.FC = () => {
           {
             name: t('customerSupport'),
             icon: './images/setting/customer.svg',
-            link: currentLocale === 'ja'
-              ? 'https://www.crypto-bridge.co/jp/#support'
-              : 'https://www.crypto-bridge.co/#support',
+            link:
+              currentLocale === 'ja'
+                ? 'https://www.crypto-bridge.co/jp/#support'
+                : 'https://www.crypto-bridge.co/#support',
           },
           // {
           //   name: t('submitFeedback'),
@@ -223,7 +233,7 @@ const SettingsPage: React.FC = () => {
           {
             name: t('termC'),
             icon: './images/setting/terms.svg',
-            link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/EN_JP-CryptoBridge-Privacy-Policy-2025-06-12-1.pdf',
+            link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/ENJP-CryptoBridge-Terms-Conditions-2025-06-12.pdf',
           },
           {
             name: t('privacyPolicy'),

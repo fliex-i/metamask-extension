@@ -22,6 +22,7 @@ import {
   getNetworkConfigurationIdByChainId,
   isNonEvmAccount,
 } from '../../../selectors';
+import { getCurrentLocale } from '../../../ducks/locale/locale';
 import Tooltip from '../../ui/tooltip';
 import { setSwapsFromToken } from '../../../ducks/swaps/swaps';
 import { isHardwareKeyring } from '../../../helpers/utils/hardware';
@@ -111,6 +112,7 @@ const CoinButtons = ({
     string
   >;
   const currentChainId = useSelector(getCurrentChainId);
+  const currentLocale = useSelector(getCurrentLocale);
   const displayNewIconButtons = process.env.REMOVE_GNS;
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 1280);
 
@@ -277,7 +279,11 @@ const CoinButtons = ({
 
   const handleBuyAndSellOnClick = useCallback(() => {
     // openBuyCryptoInPdapp(getChainId());
-    window.open('https://jdb.techpulse.pro/', '_blank');
+    const url =
+      currentLocale === 'ja'
+        ? 'https://jdb.techpulse.pro/ja'
+        : 'https://jdb.techpulse.pro/';
+    window.open(url, '_blank');
     trackEvent({
       event: MetaMetricsEventName.NavBuyButtonClicked,
       category: MetaMetricsEventCategory.Navigation,
@@ -290,7 +296,7 @@ const CoinButtons = ({
         ...getSnapAccountMetaMetricsPropertiesIfAny(account),
       },
     });
-  }, [chainId, defaultSwapsToken]);
+  }, [chainId, defaultSwapsToken, currentLocale]);
 
   const handleBridgeOnClick = useCallback(
     async (isSwap: boolean) => {
@@ -310,8 +316,11 @@ const CoinButtons = ({
 
   const handleSwapOnClick = useCallback(
     async () => {
-      console.log(' is come here');
-      window.open('https://jdb.techpulse.pro/', '_blank');
+      const url =
+        currentLocale === 'ja'
+          ? 'https://jdb.techpulse.pro/ja'
+          : 'https://jdb.techpulse.pro/';
+      window.open(url, '_blank');
       // return;
       // if (isUnifiedUIEnabled) {
       //   handleBridgeOnClick(true);

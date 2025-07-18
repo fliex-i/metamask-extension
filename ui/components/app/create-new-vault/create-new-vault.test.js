@@ -176,6 +176,38 @@ describe('CreateNewVault', () => {
     });
   });
 
+  it('should toggle password visibility when eye icon is clicked', () => {
+    const props = {
+      onSubmit: jest.fn(),
+      submitText: 'Submit',
+    };
+
+    const { queryByTestId } = renderWithProvider(
+      <CreateNewVault {...props} />,
+      store,
+    );
+
+    const passwordInput = queryByTestId('create-vault-password');
+    const confirmPasswordInput = queryByTestId('create-vault-confirm-password');
+    const passwordToggle = queryByTestId('toggle-password-visibility');
+    const confirmPasswordToggle = queryByTestId('toggle-confirm-password-visibility');
+
+    expect(passwordInput).toHaveAttribute('type', 'password');
+    expect(confirmPasswordInput).toHaveAttribute('type', 'password');
+
+    fireEvent.click(passwordToggle);
+    expect(passwordInput).toHaveAttribute('type', 'text');
+
+    fireEvent.click(passwordToggle);
+    expect(passwordInput).toHaveAttribute('type', 'password');
+
+    fireEvent.click(confirmPasswordToggle);
+    expect(confirmPasswordInput).toHaveAttribute('type', 'text');
+
+    fireEvent.click(confirmPasswordToggle);
+    expect(confirmPasswordInput).toHaveAttribute('type', 'password');
+  });
+
   it('should sign out the user and submit successfully when password and confirm password match', () => {
     const props = {
       onSubmit: jest.fn(),

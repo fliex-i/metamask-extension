@@ -36,7 +36,10 @@ import {
 import { setShowNewSrpAddedToast } from '../../../components/app/toast-master/utils';
 import { parseSecretRecoveryPhrase } from '../../../components/app/srp-input/parse-secret-recovery-phrase';
 import { clearClipboard } from '../../../helpers/utils/util';
-import { DEFAULT_ROUTE } from '../../../helpers/constants/routes';
+import {
+  DEFAULT_ROUTE,
+  SETTINGS_ROUTE,
+} from '../../../helpers/constants/routes';
 import { Header, Page } from '../../../components/multichain/pages/page';
 import ShowHideToggle from '../../../components/ui/show-hide-toggle';
 import { MetaMetricsContext } from '../../../contexts/metametrics';
@@ -268,7 +271,7 @@ export const ImportSrp = () => {
             ariaLabel="back"
             iconName={IconName.ArrowLeft}
             onClick={() => {
-              history.push(DEFAULT_ROUTE);
+              history.push(SETTINGS_ROUTE);
             }}
           />
         }
@@ -277,7 +280,7 @@ export const ImportSrp = () => {
             ariaLabel="close"
             iconName={IconName.Close}
             onClick={() => {
-              history.push(DEFAULT_ROUTE);
+              history.push(SETTINGS_ROUTE);
             }}
           />
         }
@@ -379,7 +382,7 @@ export const ImportSrp = () => {
             />
           ) : null}
 
-          {
+          {/* {
             <Box width={BlockSize.Full} marginTop={4}>
               <ButtonLink
                 width={BlockSize.Full}
@@ -398,7 +401,7 @@ export const ImportSrp = () => {
                 {t('importNWordSRP', [numberOfWords === 12 ? '24' : '12'])}
               </ButtonLink>
             </Box>
-          }
+          } */}
         </Box>
         <Box
           className="import-srp__multi-srp__import-button"

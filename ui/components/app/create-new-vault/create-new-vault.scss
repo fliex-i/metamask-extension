@@ -28,6 +28,35 @@
     }
   }
 
+  &__password-field {
+    position: relative;
+
+    .mm-button-icon {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      cursor: pointer;
+      color: var(--color-icon-default) !important;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--color-icon-alternative) !important;
+      }
+
+      &:focus {
+        outline: 2px solid var(--color-primary-default);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+
+      .mm-icon {
+        color: inherit !important;
+      }
+    }
+  }
+
   &__create-password-rules {
     flex: 2;
     margin-top: 10px;

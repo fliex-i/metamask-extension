@@ -45,7 +45,7 @@
     .tips-home-content {
       display: flex;
       align-items: flex-start;
-      padding: 8px 24px 8px 16px;
+      padding: 8px 30px 8px 16px;
       gap: 5px;
       background: var(--color-primary-attention-bank);
       box-sizing: border-box;
@@ -122,6 +122,10 @@
       gap: 5px;
       font-size: 14px;
     }
+        .tips-bank-text {
+      display: inline;
+      line-height: 20px;
+    }
     .tips-bank-des {
       display: flex;
       align-items: center;
@@ -135,16 +139,19 @@
       }
     }
     .tips-bank-start {
+      display: inline-block;
       width: 76px;
       height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      line-height: 28px;
+      text-align: center;
       background: var(--brand-colors-purple);
       color: var(--color-text-white);
       font-size: 14px;
       border-radius: 5px;
       cursor: pointer;
+      white-space: nowrap;
+      margin-left: 10px;
+      text-decoration: none;
     }
   }
 

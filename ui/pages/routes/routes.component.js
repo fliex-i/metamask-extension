@@ -52,6 +52,7 @@ import {
   REMOTE_ROUTE_SETUP_SWAPS,
   REMOTE_ROUTE_SETUP_DAILY_ALLOWANCE,
   IMPORT_SRP_ROUTE,
+  IMPORT_SRP_SETTINGS_ROUTE,
   DEFI_ROUTE,
   DEEP_LINK_ROUTE,
   CONTACT_LIST_ROUTE,
@@ -104,6 +105,7 @@ const Lock = mmLazy(() => import('../lock'));
 const UnlockPage = mmLazy(() => import('../unlock-page'));
 const RestoreVaultPage = mmLazy(() => import('../keychains/restore-vault'));
 const ImportSrpPage = mmLazy(() => import('../multi-srp/import-srp'));
+const ImportSrpSettingsPage = mmLazy(() => import('../settings/import-srp-settings'));
 const RevealSeedConfirmation = mmLazy(() => import('../keychains/reveal-seed'));
 const Settings = mmLazy(() => import('../settings'));
 
@@ -340,6 +342,7 @@ export default class Routes extends Component {
             component={RevealSeedConfirmation}
           />
           <Authenticated path={IMPORT_SRP_ROUTE} component={ImportSrpPage} />
+          <Authenticated path={IMPORT_SRP_SETTINGS_ROUTE} component={ImportSrpSettingsPage} />
           <Authenticated path={SETTINGS_ROUTE} component={Settings} />
           <Authenticated path={CONTACT_LIST_ROUTE} component={ContactList} />
           <Authenticated

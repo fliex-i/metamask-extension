@@ -128,7 +128,7 @@ export const ImportAccount = ({ onActionComplete }) => {
         {t('importAccountMsg')}
       </Text>
       <Box paddingTop={4} paddingBottom={8}>
-        <Label
+        {/* <Label
           width={BlockSize.Full}
           marginBottom={4}
           justifyContent={JustifyContent.spaceBetween}
@@ -142,7 +142,7 @@ export const ImportAccount = ({ onActionComplete }) => {
               setType(value);
             }}
           />
-        </Label>
+        </Label> */}
 
         {type === menuItems[0] ? (
           <PrivateKeyImportView

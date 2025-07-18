@@ -32,14 +32,13 @@ const TipsHome = () => {
           type="button"
           style={{
             position: 'absolute',
-            right: '0',
-            top: '0',
+            right: '-10px',
+            top: '-3px',
             background: 'none',
             border: 'none',
             cursor: 'pointer',
             width: '24px',
             height: '24px',
-            marginRight: '4px',
           }}
         >
           <svg

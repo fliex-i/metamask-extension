@@ -3,10 +3,15 @@ import PropTypes from 'prop-types';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import TextField from '../../ui/text-field';
 import { ButtonVariant, Button, Text } from '../../component-library';
+import { ButtonIcon, IconName } from '../../component-library';
+import { IconColor } from '../../../helpers/constants/design-system';
 import SrpInput from '../srp-input';
 import { PASSWORD_MIN_LENGTH } from '../../../helpers/constants/common';
 import { useSignOut } from '../../../hooks/identity/useAuthentication';
-import { TextColor, TextVariant } from '../../../helpers/constants/design-system';
+import {
+  TextColor,
+  TextVariant,
+} from '../../../helpers/constants/design-system';
 
 export default function CreateNewVault({
   disabled = false,
@@ -21,42 +26,48 @@ export default function CreateNewVault({
   const [seedPhrase, setSeedPhrase] = useState('');
   const [termsChecked, setTermsChecked] = useState(false);
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const { signOut } = useSignOut();
 
   const t = useI18nContext();
 
-  const getPasswordRules = useCallback(() => [
-    {
-      id: 'length',
-      label: t('setPasswordTips1'),
-      isValid: false,
-      test: (pwd) => pwd.length >= PASSWORD_MIN_LENGTH,
-    },
-    {
-      id: 'upper',
-      label: t('setPasswordTips2'),
-      isValid: false,
-      test: (pwd) => /[A-Z]/.test(pwd),
-    },
-    {
-      id: 'lower',
-      label: t('setPasswordTips3'),
-      isValid: false,
-      test: (pwd) => /[a-z]/.test(pwd),
-    },
-    {
-      id: 'number',
-      label: t('setPasswordTips4'),
-      isValid: false,
-      test: (pwd) => /[0-9]/.test(pwd),
-    },
-    {
-      id: 'special',
-      label: t('setPasswordTips5'),
-      isValid: false,
-      test: (pwd) => /[@#$!]/.test(pwd),
-    },
-  ], [t]);
+  const getPasswordRules = useCallback(
+    () => [
+      {
+        id: 'length',
+        label: t('setPasswordTips1'),
+        isValid: false,
+        test: (pwd) => pwd.length >= PASSWORD_MIN_LENGTH,
+      },
+      {
+        id: 'upper',
+        label: t('setPasswordTips2'),
+        isValid: false,
+        test: (pwd) => /[A-Z]/.test(pwd),
+      },
+      {
+        id: 'lower',
+        label: t('setPasswordTips3'),
+        isValid: false,
+        test: (pwd) => /[a-z]/.test(pwd),
+      },
+      {
+        id: 'number',
+        label: t('setPasswordTips4'),
+        isValid: false,
+        test: (pwd) => /[0-9]/.test(pwd),
+      },
+      {
+        id: 'special',
+        label: t('setPasswordTips5'),
+        isValid: false,
+        test: (pwd) => /[@#$!]/.test(pwd),
+      },
+    ],
+    [t],
+  );
 
   const [rules, setRules] = useState(getPasswordRules());
 
@@ -71,10 +82,12 @@ export default function CreateNewVault({
   );
 
   useEffect(() => {
-    setRules(getPasswordRules().map((rule) => ({
-      ...rule,
-      isValid: rule.test(password),
-    })));
+    setRules(
+      getPasswordRules().map((rule) => ({
+        ...rule,
+        isValid: rule.test(password),
+      })),
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [t]);
 
@@ -141,26 +154,70 @@ export default function CreateNewVault({
       <SrpInput onChange={setSeedPhrase} srpText={t('secretRecoveryPhrase')} />
       <div className="create-new-vault__create-password">
         <div className="create-new-vault__create-password-input">
-          <TextField
-            data-testid="create-vault-password"
-            id="password"
-            label={t('newPassword')}
-            type="password"
-            value={password}
-            onChange={(event) => onPasswordChange(event.target.value)}
-            autoComplete="new-password"
-            largeLabel
-          />
-          <TextField
-            data-testid="create-vault-confirm-password"
-            id="confirm-password"
-            label={t('confirmPassword')}
-            type="password"
-            value={confirmPassword}
-            onChange={(event) => onConfirmPasswordChange(event.target.value)}
-            autoComplete="new-password"
-            largeLabel
-          />
+          <div className="create-new-vault__password-field">
+            <TextField
+              data-testid="create-vault-password"
+              id="password"
+              label={t('newPassword')}
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(event) => onPasswordChange(event.target.value)}
+              autoComplete="new-password"
+              largeLabel
+              endAdornment={
+                <ButtonIcon
+                  iconName={showPassword ? IconName.Eye : IconName.EyeSlash}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowPassword(!showPassword);
+                  }}
+                  ariaLabel={
+                    showPassword
+                      ? t('passwordToggleHide')
+                      : t('passwordToggleShow')
+                  }
+                  data-testid="toggle-password-visibility"
+                  color={IconColor.iconDefault}
+                />
+              }
+              style={{
+                width: '100%',
+              }}
+            />
+          </div>
+          <div className="create-new-vault__password-field">
+            <TextField
+              data-testid="create-vault-confirm-password"
+              id="confirm-password"
+              label={t('confirmPassword')}
+              type={showConfirmPassword ? 'text' : 'password'}
+              value={confirmPassword}
+              onChange={(event) => onConfirmPasswordChange(event.target.value)}
+              autoComplete="new-password"
+              largeLabel
+              endAdornment={
+                <ButtonIcon
+                  iconName={
+                    showConfirmPassword ? IconName.Eye : IconName.EyeSlash
+                  }
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowConfirmPassword(!showConfirmPassword);
+                  }}
+                  ariaLabel={
+                    showConfirmPassword
+                      ? t('passwordToggleHide')
+                      : t('passwordToggleShow')
+                  }
+                  data-testid="toggle-confirm-password-visibility"
+                  color={IconColor.iconDefault}
+                />
+              }
+              style={{
+                width: '100%',
+              }}
+            />
+          </div>
         </div>
         <div className="create-new-vault__create-password-rules">
           <Text variant={TextVariant.bodyMd} as="div" marginBottom={2}>
@@ -178,7 +235,7 @@ export default function CreateNewVault({
                       : 'create-new-vault__rule-icon--invalid'
                   }`}
                 >
-                  {rule.isValid ? "•" : "✖"}
+                  {rule.isValid ? '•' : '✖'}
                 </Text>
                 <Text
                   variant={TextVariant.inherit}

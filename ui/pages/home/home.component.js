@@ -867,7 +867,6 @@ export default class Home extends PureComponent {
               );
             }}
           />
-          {/* Support 按钮根据语言跳转不同链接 */}
           {getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN ? (
             <a
               href={

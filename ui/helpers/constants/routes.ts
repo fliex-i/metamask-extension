@@ -102,6 +102,9 @@ PATH_NAME_MAP.set(
 export const IMPORT_SRP_ROUTE = '/import-srp';
 PATH_NAME_MAP.set(IMPORT_SRP_ROUTE, 'Import Secret Recovery Phrase Page');
 
+export const IMPORT_SRP_SETTINGS_ROUTE = '/import-srp-settings';
+PATH_NAME_MAP.set(IMPORT_SRP_SETTINGS_ROUTE, 'Import Secret Recovery Phrase Settings Page');
+
 export const RESTORE_VAULT_ROUTE = '/restore-vault';
 PATH_NAME_MAP.set(RESTORE_VAULT_ROUTE, 'Restore Vault Page');
 
