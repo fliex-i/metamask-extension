@@ -150,7 +150,11 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
           <SRPDetailsModal onClose={() => setShowSrpDetailsModal(false)} />
         )}
         <Box>
-          <Box marginBottom={4}>
+          <Box
+            display={Display.Flex}
+            alignItems={AlignItems.center}
+            marginBottom={4}
+          >
             <ButtonIcon
               iconName={IconName.ArrowLeft}
               color={IconColor.iconDefault}
@@ -160,9 +164,9 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
               ariaLabel={t('back')}
               style={{ background: '#EDEDED', borderRadius: '99px' }}
             />
-          </Box>
-          <Box textAlign={TextAlign.Left} marginBottom={2}>
-            <Text variant={TextVariant.headingLg}>{t('importAWallet')}</Text>
+            <Text variant={TextVariant.headingLg} marginLeft={4}>
+              {t('importAWallet')}
+            </Text>
           </Box>
           <Box
             display={Display.Flex}

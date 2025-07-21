@@ -68,7 +68,7 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
       {...props}
     >
       {typeof children === 'string' ? (
-        <Text variant={TextVariant.headingSm} textAlign={TextAlign.Left} marginLeft={1}>
+        <Text variant={TextVariant.headingSm} textAlign={TextAlign.Left} marginLeft={3}>
           {children}
         </Text>
       ) : (

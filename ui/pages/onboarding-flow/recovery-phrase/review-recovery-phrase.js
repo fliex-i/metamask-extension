@@ -9,8 +9,6 @@ import {
   Box,
   Button,
   ButtonVariant,
-  ButtonLink,
-  ButtonLinkSize,
   ButtonSize,
   ButtonIcon,
   IconName,
@@ -96,19 +94,10 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
             ariaLabel={t('back')}
             style={{ background: '#EDEDED', borderRadius: '99px' }}
           />
-          <Text variant={TextVariant.headingLg} as="h2" marginLeft={2}>
+          <Text variant={TextVariant.headingLg} as="h2" marginLeft={4}>
             {t('seedPhraseReviewTitle')}
           </Text>
         </Box>
-        {/* <Box
-          justifyContent={JustifyContent.flexStart}
-          marginBottom={4}
-          width={BlockSize.Full}
-        >
-          <Text variant={TextVariant.headingLg} as="h2">
-            {t('seedPhraseReviewTitle')}
-          </Text>
-        </Box> */}
         <RecoveryPhraseChips
           secretRecoveryPhrase={secretRecoveryPhrase.split(' ')}
           setInputValue={handleInputValue}

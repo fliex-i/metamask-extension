@@ -111,7 +111,7 @@ export default function SecureYourWallet() {
           marginBottom={4}
           width={BlockSize.Full}
         >
-          <Text variant={TextVariant.headingLg} as="h2">
+          <Text variant={TextVariant.headingLg} as="h2" marginLeft={4}>
             {t('seedPhraseIntroTitle')}
           </Text>
         </Box>

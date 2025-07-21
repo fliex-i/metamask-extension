@@ -50,7 +50,7 @@ export const ReceiveModal = ({ address, token, onClose, onBack }) => {
           flexDirection={FlexDirection.Column}
           paddingInlineEnd={4}
           paddingInlineStart={4}
-          gap={2}
+          gap={4}
           style={{ overflowY: 'auto' }}
         >
           <div style={{ textAlign: 'center', fontSize: '20px' }}>

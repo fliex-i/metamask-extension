@@ -135,7 +135,7 @@ export const SendPageAddressBook = () => {
           />
         </>
       ) : (
-        <Box padding={6} textAlign={TextAlign.Center}>
+        <Box padding={6} textAlign={TextAlign.Left}>
           <Text marginBottom={4} fontWeight={FontWeight.Bold}>
             {t('sendNoContactsTitle')}
           </Text>

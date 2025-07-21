@@ -353,6 +353,9 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
           <Button
             variant={ButtonVariant.Link}
             onClick={() => setShowAll(!showAll)}
+            style={{
+              borderRight: '1px solid white',
+            }}
           >
             {showAll
               ? t('onboardingSrpInputHideAll')

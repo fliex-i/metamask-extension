@@ -52,7 +52,7 @@ export const AccountDetailsSection = ({
           block
           size={ButtonSecondarySize.Lg}
           variant={TextVariant.bodyMd}
-          marginBottom={1}
+          marginBottom={3}
           onClick={() => {
             trackEvent({
               category: MetaMetricsEventCategory.Accounts,

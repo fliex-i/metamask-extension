@@ -37,38 +37,41 @@ export default function PasswordForm({ onChange }: PasswordFormProps) {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
-  const getPasswordRules = useCallback((): PasswordRule[] => [
-    {
-      id: 'length',
-      label: t('setPasswordTips1'),
-      isValid: false,
-      test: (pwd: string) => pwd.length >= PASSWORD_MIN_LENGTH,
-    },
-    {
-      id: 'upper',
-      label: t('setPasswordTips2'),
-      isValid: false,
-      test: (pwd: string) => /[A-Z]/.test(pwd),
-    },
-    {
-      id: 'lower',
-      label: t('setPasswordTips3'),
-      isValid: false,
-      test: (pwd: string) => /[a-z]/.test(pwd),
-    },
-    {
-      id: 'number',
-      label: t('setPasswordTips4'),
-      isValid: false,
-      test: (pwd: string) => /[0-9]/.test(pwd),
-    },
-    {
-      id: 'special',
-      label: t('setPasswordTips5'),
-      isValid: false,
-      test: (pwd: string) => /[@#$!]/.test(pwd),
-    },
-  ], [t]);
+  const getPasswordRules = useCallback(
+    (): PasswordRule[] => [
+      {
+        id: 'length',
+        label: t('setPasswordTips1'),
+        isValid: false,
+        test: (pwd: string) => pwd.length >= PASSWORD_MIN_LENGTH,
+      },
+      {
+        id: 'upper',
+        label: t('setPasswordTips2'),
+        isValid: false,
+        test: (pwd: string) => /[A-Z]/.test(pwd),
+      },
+      {
+        id: 'lower',
+        label: t('setPasswordTips3'),
+        isValid: false,
+        test: (pwd: string) => /[a-z]/.test(pwd),
+      },
+      {
+        id: 'number',
+        label: t('setPasswordTips4'),
+        isValid: false,
+        test: (pwd: string) => /[0-9]/.test(pwd),
+      },
+      {
+        id: 'special',
+        label: t('setPasswordTips5'),
+        isValid: false,
+        test: (pwd: string) => /[@#$!]/.test(pwd),
+      },
+    ],
+    [t],
+  );
 
   const [rules, setRules] = useState<PasswordRule[]>(getPasswordRules());
 
@@ -178,10 +181,12 @@ export default function PasswordForm({ onChange }: PasswordFormProps) {
   );
 
   useEffect(() => {
-    setRules(getPasswordRules().map((rule) => ({
-      ...rule,
-      isValid: rule.test(password),
-    })));
+    setRules(
+      getPasswordRules().map((rule) => ({
+        ...rule,
+        isValid: rule.test(password),
+      })),
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [t]);
 
@@ -215,7 +220,11 @@ export default function PasswordForm({ onChange }: PasswordFormProps) {
                     : 'create-password__rule-icon--invalid'
                 }`}
               >
-                 {rule.isValid ? "•":"✖"}
+                {rule.isValid ? (
+                  '•'
+                ) : (
+                  <img src="/images/home/error.svg" alt="error" />
+                )}
               </Text>
               <Text
                 variant={TextVariant.inherit}

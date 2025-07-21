@@ -209,7 +209,7 @@ export default function CreatePassword({
             ariaLabel={t('back')}
             style={{ background: '#EDEDED', borderRadius: '99px' }}
           />
-          <Text variant={TextVariant.headingLg} as="h2">
+          <Text variant={TextVariant.headingLg} as="h2" marginLeft={4}>
             {t('setPassword')}
           </Text>
         </Box>

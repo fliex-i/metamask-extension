@@ -128,7 +128,16 @@ export default function OnboardingFlow() {
         history.push(ONBOARDING_UNLOCK_ROUTE);
       }
     }
-    if (pathname === ONBOARDING_WELCOME_ROUTE) {
+    if (
+      pathname === ONBOARDING_WELCOME_ROUTE ||
+      pathname === ONBOARDING_CREATE_PASSWORD_ROUTE ||
+      pathname === ONBOARDING_SECURE_YOUR_WALLET_ROUTE ||
+      pathname === ONBOARDING_REVIEW_SRP_ROUTE ||
+      pathname === ONBOARDING_CONFIRM_SRP_ROUTE ||
+      pathname === ONBOARDING_IMPORT_WITH_SRP_ROUTE ||
+      pathname === ONBOARDING_METAMETRICS ||
+      pathname === ONBOARDING_COMPLETION_ROUTE
+    ) {
       setWelcomePageState(WelcomePageState.Login);
       // showTermsOfUse ? WelcomePageState.Banner :
     } else {
@@ -231,6 +240,16 @@ export default function OnboardingFlow() {
           minHeight: isWelcomeAndUnlockPage ? 'auto' : '627px',
           height:
             pathname === ONBOARDING_WELCOME_ROUTE || isPopup ? '100%' : 'auto',
+          backgroundColor:
+            pathname === ONBOARDING_CREATE_PASSWORD_ROUTE ||
+            pathname === ONBOARDING_SECURE_YOUR_WALLET_ROUTE ||
+            pathname === ONBOARDING_REVIEW_SRP_ROUTE ||
+            pathname === ONBOARDING_CONFIRM_SRP_ROUTE ||
+            pathname === ONBOARDING_IMPORT_WITH_SRP_ROUTE ||
+            pathname === ONBOARDING_METAMETRICS ||
+            pathname === ONBOARDING_COMPLETION_ROUTE
+              ? 'white'
+              : 'transparent',
         }}
       >
         <Switch>

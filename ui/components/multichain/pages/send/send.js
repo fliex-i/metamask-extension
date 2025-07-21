@@ -431,7 +431,9 @@ export const SendPage = () => {
         )}
         <Box marginTop={6}>
           <SendPageRecipientInput />
-          <div style={{ color: '#DC3D43', fontSize: '14px' }}>
+          <div
+            style={{ color: '#DC3D43', fontSize: '14px', marginBottom: '10px' }}
+          >
             {t('qrTips')}
             <br />
             {t('qrTips1')}

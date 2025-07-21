@@ -235,7 +235,11 @@ export default function CreateNewVault({
                       : 'create-new-vault__rule-icon--invalid'
                   }`}
                 >
-                  {rule.isValid ? '•' : '✖'}
+                  {rule.isValid ? (
+                    '•'
+                  ) : (
+                    <img src="/images/home/error.svg" alt="error" />
+                  )}
                 </Text>
                 <Text
                   variant={TextVariant.inherit}
