@@ -41,7 +41,7 @@ export const FUND_SLIDE = {
   title: 'slideFundWalletTitle',
   description: 'slideFundWalletDescription',
   image: './images/slide-fund-icon.svg',
-  href: 'https://jdb.techpulse.pro/',
+  href: 'https://test.crypto-bridge.co/',
 };
 
 export const BRIDGE_SLIDE = {

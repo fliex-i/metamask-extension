@@ -63,10 +63,11 @@
     flex-wrap: nowrap;
     margin-bottom: 18px;
     gap: 15px;
+    position: relative;
 
     &__back-button {
     @include design-system.Paragraph;
-
+    position: absolute;
     color: var(--color-text-default);
     // position: absolute;
     // top: -25px;

@@ -224,7 +224,7 @@ export default function RevealSeedPage() {
             activeClassName="reveal-seed__active-tab"
             tabKey="text-seed"
           >
-            <Label marginTop={4}>{t('yourPrivateSeedPhrase')}</Label>
+            <Label marginTop={4} marginBottom={3}>{t('yourPrivateSeedPhrase')}</Label>
             <ExportTextContainer text={seedWords} onClickCopy={onClickCopy} />
           </Tab>
           {/* <Tab

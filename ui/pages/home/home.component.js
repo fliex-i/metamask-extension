@@ -861,8 +861,8 @@ export default class Home extends PureComponent {
               window.localStorage?.setItem('bankAccountModalShown', '1');
               window.open(
                 this.props.currentLocale === 'en'
-                  ? 'https://jdb.techpulse.pro/'
-                  : 'https://jdb.techpulse.pro/ja/',
+                  ? 'https://test.crypto-bridge.co/'
+                  : 'https://test.crypto-bridge.co/ja/',
                 '_blank',
               );
             }}

@@ -158,7 +158,7 @@ const SettingsPage: React.FC = () => {
           // {
           //   name: t('blankAccount'),
           //   icon: './images/setting/bankAccount.svg',
-          //   link: 'https://jdb.techpulse.pro/login/',
+          //   link: 'https://test.crypto-bridge.co/login/',
           // },
           {
             name: t('addressBook'),

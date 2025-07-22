@@ -38,7 +38,7 @@ function ExportTextContainer({ text = '', onClickCopy = null }) {
       >
         {text}
       </Text>
-      <ButtonSecondary
+      {/* <ButtonSecondary
         className="export-text-container__button"
         block
         onClick={() => {
@@ -49,7 +49,7 @@ function ExportTextContainer({ text = '', onClickCopy = null }) {
         }}
       >
         {copied ? t('copiedExclamation') : t('copyToClipboard')}
-      </ButtonSecondary>
+      </ButtonSecondary> */}
     </Box>
   );
 }

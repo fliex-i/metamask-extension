@@ -55,9 +55,9 @@ const useRamps = (
         // url.pathname = 'buy';
         // url.search = params.toString();
         // return url.toString();
-        return 'https://jdb.techpulse.pro/';
+        return 'https://test.crypto-bridge.co/';
       } catch {
-        return 'https://jdb.techpulse.pro/';
+        return 'https://test.crypto-bridge.co/';
       }
     },
     [isMarketingEnabled, isMetaMetricsEnabled, metaMetricsId, metamaskEntry],

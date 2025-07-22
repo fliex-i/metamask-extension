@@ -52,6 +52,7 @@ function ViewContact({
           className="settings-page__header address-book__header"
           paddingLeft={6}
           paddingRight={6}
+          marginBottom={4}
         >
           <AvatarAccount size={AvatarAccountSize.Lg} address={address} />
           <Text

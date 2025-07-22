@@ -36,8 +36,8 @@ const TipsBank = () => {
             onClick={() => {
               const url =
                 currentLocale === 'ja'
-                  ? 'https://jdb.techpulse.pro/ja'
-                  : 'https://jdb.techpulse.pro/';
+                  ? 'https://test.crypto-bridge.co/ja'
+                  : 'https://test.crypto-bridge.co/';
               window.open(url, '_blank');
             }}
             className="tips-bank-start"
