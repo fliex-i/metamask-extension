@@ -47,8 +47,9 @@
       align-items: flex-start;
       padding: 8px 30px 8px 16px;
       gap: 5px;
-      background: var(--color-primary-attention-bank);
       box-sizing: border-box;
+      background:#f5ebfd;
+      color: #ae66e1;
     }
     .tips-home-des{
       font-size: 14px;
@@ -109,6 +110,7 @@
       flex-flow: row wrap;
       flex-direction: row;
       justify-content: space-between;
+      color: #ea580b;
 
       @include design-system.screen-sm-max {
         align-items: center;
@@ -118,7 +120,7 @@
     }
     .tips-bank-ico {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 5px;
       font-size: 14px;
     }
@@ -144,14 +146,14 @@
       height: 28px;
       line-height: 28px;
       text-align: center;
-      background: var(--brand-colors-purple);
-      color: var(--color-text-white);
+      color: #ea580b;;
       font-size: 14px;
       border-radius: 5px;
       cursor: pointer;
       white-space: nowrap;
       margin-left: 10px;
       text-decoration: none;
+      border: 1px solid #ea580b;
     }
   }
 

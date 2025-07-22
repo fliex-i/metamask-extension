@@ -4813,16 +4813,16 @@
     "message": "Receive crypto"
   },
   "receiveModalDes1": {
-    "message": "At the moment, CryptoBridge only supports ERC-20 transfers. If receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
+    "message": "• At the moment, CryptoBridge only supports ERC-20 transfers. If receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
   },
   "receiveModalDes2": {
-    "message": "Please double-check that the recipient’s wallet address is an ERC-20 address."
+    "message": "• Please double-check that the recipient’s wallet address is an ERC-20 address."
   },
   "receiveModalDes3": {
-    "message": "Sending funds to the wrong network may result in permanent loss of funds."
+    "message": "• Sending funds to the wrong network may result in permanent loss of funds."
   },
   "receiveModalDes4": {
-    "message": "The system cannot detect network mismatches, and CryptoBridge is not responsible for loss of funds due to sending funds to an incompatible blockchain network."
+    "message": "• The system cannot detect network mismatches, and CryptoBridge is not responsible for loss of funds due to sending funds to an incompatible blockchain network."
   },
   "receiveModalDes11": {
     "message": "At the moment, CryptoBridge only supports ERC-20 transfers.When receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."

@@ -272,6 +272,11 @@ export default function PasswordForm({ onChange }: PasswordFormProps) {
             ariaLabel={
               showPassword ? t('passwordToggleHide') : t('passwordToggleShow')
             }
+            iconProps={{
+              style: {
+                fontSize: '20px !important',
+              },
+            }}
           />
         }
       />
@@ -310,6 +315,11 @@ export default function PasswordForm({ onChange }: PasswordFormProps) {
                 ? t('passwordToggleHide')
                 : t('passwordToggleShow')
             }
+            iconProps={{
+              style: {
+                fontSize: '20px !important',
+              },
+            }}
           />
         }
       />

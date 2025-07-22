@@ -178,6 +178,11 @@ export default function CreateNewVault({
                   }
                   data-testid="toggle-password-visibility"
                   color={IconColor.iconDefault}
+                  iconProps={{
+                    style: {
+                      fontSize: '20px !important',
+                    },
+                  }}
                 />
               }
               style={{
@@ -211,6 +216,11 @@ export default function CreateNewVault({
                   }
                   data-testid="toggle-confirm-password-visibility"
                   color={IconColor.iconDefault}
+                  iconProps={{
+                    style: {
+                      fontSize: '20px !important',
+                    },
+                  }}
                 />
               }
               style={{

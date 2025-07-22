@@ -4655,16 +4655,16 @@
     "message": "仮想通貨を受け取る"
   },
   "receiveModalDes1": {
-    "message": "現在、CryptoBridgeはERC-20の送金のみ使用可能です。"
+    "message": "• 現在、CryptoBridgeはERC-20の送金のみ使用可能です。"
   },
   "receiveModalDes2": {
-    "message": "受取人のウォレットアドレスがerc-20アドレスであることを再確認してください。"
+    "message": "• 受取人のウォレットアドレスがerc-20アドレスであることを再確認してください。"
   },
   "receiveModalDes3": {
-    "message": "誤ったネットワークへの送金は、永久的に資産を失う原因となります。"
+    "message": "• 誤ったネットワークへの送金は、永久的に資産を失う原因となります。"
   },
   "receiveModalDes4": {
-    "message": "ネットワークの不一致はシステム側で自動的に検出できないため、互換性のないネットワークへの送金によって発生した資金の損失について、CryptoBridgeは一切の責任を負いかねます。"
+    "message": "• ネットワークの不一致はシステム側で自動的に検出できないため、互換性のないネットワークへの送金によって発生した資金の損失について、CryptoBridgeは一切の責任を負いかねます。"
   },
   "receiveModalDes11": {
     "message": "現在、CryptoBridgeはERC-20の取引のみ使用可能です。"
