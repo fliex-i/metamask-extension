@@ -91,11 +91,18 @@ export default function ImportSrpSettings() {
         },
       });
     } catch (error) {
-      setSrpError(
-        error instanceof Error
-          ? error.message
-          : t('importSecretRecoveryPhraseUnknownError'),
-      );
+      if (
+        error instanceof Error &&
+        error.message === 'This Secret Recovery Phrase has already been imported.'
+      ) {
+        setSrpError(t('duplicateAccountError1'));
+      } else {
+        setSrpError(
+          error instanceof Error
+            ? error.message
+            : t('importSecretRecoveryPhraseUnknownError'),
+        );
+      }
     }
   }, [secretRecoveryPhrase, t, hdEntropyIndex, trackEvent, history, dispatch]);
 

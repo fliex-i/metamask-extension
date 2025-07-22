@@ -44,7 +44,6 @@ export const ImportAccount = ({ onActionComplete }) => {
       const { selectedAddress } = await dispatch(
         actions.importNewAccount(strategy, importArgs, loadingMessage),
       );
-      console.log(selectedAddress, '/selectedAddress');
       if (selectedAddress) {
         trackImportEvent(strategy, true);
         dispatch(actions.hideWarning());
@@ -54,7 +53,15 @@ export const ImportAccount = ({ onActionComplete }) => {
         return false;
       }
     } catch (error) {
-      const message = getErrorMessage(error);
+      let message = getErrorMessage(error);
+      if (
+        message &&
+        message.includes(
+          'KeyringController - The account you are trying to import is a duplicate',
+        )
+      ) {
+        message = t('duplicateAccountError');
+      }
       trackImportEvent(strategy, message);
       translateWarning(message);
       return false;

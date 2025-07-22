@@ -4825,16 +4825,16 @@
     "message": "• The system cannot detect network mismatches, and CryptoBridge is not responsible for loss of funds due to sending funds to an incompatible blockchain network."
   },
   "receiveModalDes11": {
-    "message": "At the moment, CryptoBridge only supports ERC-20 transfers.When receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
+    "message": "• At the moment, CryptoBridge only supports ERC-20 transfers.When receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
   },
   "receiveModalDes22": {
-    "message": "When receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
+    "message": "• When receiving funds from a third party, please make sure they only send ERC-20 tokens to your wallet address."
   },
   "receiveModalDes33": {
-    "message": "Sending funds to the wrong network may result in permanent loss of funds. "
+    "message": "• Sending funds to the wrong network may result in permanent loss of funds. "
   },
   "receiveModalDes44": {
-    "message": "The system cannot detect network mismatches, and CryptoBridge is not responsible for loss of funds due to sending funds to an incompatible blockchain network."
+    "message": "• The system cannot detect network mismatches, and CryptoBridge is not responsible for loss of funds due to sending funds to an incompatible blockchain network."
   },
   "receiveModalTips": {
     "message": "Send only Ethereum network assets to this address"
@@ -7498,5 +7498,11 @@
   },
   "qrTips1": {
     "message": ""
+  },
+  "duplicateAccountError" :{
+    "message": "The private key for this wallet is already imported on your device. Please enter the private key for a different wallet."
+  },
+  "duplicateAccountError1" :{
+    "message": "The Secret Recovery Phrase for this wallet is already imported on your device. Please enter the private key for a different wallet."
   }
 }
