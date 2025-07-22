@@ -465,13 +465,10 @@ export const SendPage = () => {
           <div className="attention-des">
             <ul>
               <li>{t('receiveModalDes1')}</li>
-              <br />
               <li>
                 <span>{t('receiveModalDes2')}</span>
               </li>
-              <br />
               <li>{t('receiveModalDes3')}</li>
-              <br />
               <li>{t('receiveModalDes4')}</li>
             </ul>
           </div>
