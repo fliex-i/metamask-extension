@@ -281,8 +281,8 @@ const CoinButtons = ({
     // openBuyCryptoInPdapp(getChainId());
     const url =
       currentLocale === 'ja'
-        ? 'https://test.crypto-bridge.co/ja'
-        : 'https://test.crypto-bridge.co/';
+        ? 'https://test.crypto-bridge.co/ja/login'
+        : 'https://test.crypto-bridge.co/login';
     window.open(url, '_blank');
     trackEvent({
       event: MetaMetricsEventName.NavBuyButtonClicked,
@@ -318,8 +318,8 @@ const CoinButtons = ({
     async () => {
       const url =
         currentLocale === 'ja'
-          ? 'https://test.crypto-bridge.co/ja'
-          : 'https://test.crypto-bridge.co/';
+          ? 'https://test.crypto-bridge.co/ja/login'
+          : 'https://test.crypto-bridge.co/login';
       window.open(url, '_blank');
       // return;
       // if (isUnifiedUIEnabled) {
