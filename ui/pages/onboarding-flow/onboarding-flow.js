@@ -100,6 +100,16 @@ export default function OnboardingFlow() {
   const envType = getEnvironmentType();
   const isPopup = envType === ENVIRONMENT_TYPE_POPUP;
 
+  // 判断需要垂直居中的页面
+  const isCenterPage =
+    pathname === ONBOARDING_CREATE_PASSWORD_ROUTE ||
+    pathname === ONBOARDING_SECURE_YOUR_WALLET_ROUTE ||
+    pathname === ONBOARDING_REVIEW_SRP_ROUTE ||
+    pathname === ONBOARDING_CONFIRM_SRP_ROUTE ||
+    pathname === ONBOARDING_IMPORT_WITH_SRP_ROUTE ||
+    pathname === ONBOARDING_METAMETRICS ||
+    pathname === ONBOARDING_COMPLETION_ROUTE;
+
   // If the user has not agreed to the terms of use, we show the banner
   // Otherwise, we show the login page
   const [welcomePageState, setWelcomePageState] = useState(
@@ -221,133 +231,274 @@ export default function OnboardingFlow() {
         onClose={() => history.goBack()}
         isOpen={showPasswordModalToAllowSRPReveal}
       />
-      <Box
-        paddingInline={isWelcomeAndUnlockPage ? 0 : 6}
-        paddingTop={isWelcomeAndUnlockPage ? 0 : 8}
-        paddingBottom={isWelcomeAndUnlockPage ? 0 : 8}
-        width={BlockSize.Full}
-        borderStyle={
-          isWelcomeAndUnlockPage || isPopup
-            ? BorderStyle.none
-            : BorderStyle.solid
-        }
-        borderRadius={BorderRadius.LG}
-        marginTop={pathname === ONBOARDING_WELCOME_ROUTE || isPopup ? 0 : 3}
-        marginInline="auto"
-        borderColor={BorderColor.borderMuted}
-        style={{
-          maxWidth: isWelcomeAndUnlockPage ? 'none' : '584px',
-          minHeight: isWelcomeAndUnlockPage ? 'auto' : '627px',
-          height:
-            pathname === ONBOARDING_WELCOME_ROUTE || isPopup ? '100%' : 'auto',
-          backgroundColor:
-            pathname === ONBOARDING_CREATE_PASSWORD_ROUTE ||
-            pathname === ONBOARDING_SECURE_YOUR_WALLET_ROUTE ||
-            pathname === ONBOARDING_REVIEW_SRP_ROUTE ||
-            pathname === ONBOARDING_CONFIRM_SRP_ROUTE ||
-            pathname === ONBOARDING_IMPORT_WITH_SRP_ROUTE ||
-            pathname === ONBOARDING_METAMETRICS ||
-            pathname === ONBOARDING_COMPLETION_ROUTE
-              ? 'white'
-              : 'transparent',
-        }}
-      >
-        <Switch>
-          <Route path={ONBOARDING_ACCOUNT_EXIST} component={AccountExist} />
-          <Route
-            path={ONBOARDING_ACCOUNT_NOT_FOUND}
-            component={AccountNotFound}
-          />
-          <Route
-            path={ONBOARDING_CREATE_PASSWORD_ROUTE}
-            render={(routeProps) => (
-              <CreatePassword
-                {...routeProps}
-                createNewAccount={handleCreateNewAccount}
-                importWithRecoveryPhrase={handleImportWithRecoveryPhrase}
-                secretRecoveryPhrase={secretRecoveryPhrase}
+      {isCenterPage ? (
+        <Box
+          display={Display.Flex}
+          justifyContent={JustifyContent.center}
+          alignItems={AlignItems.center}
+          style={{ height: '100%' }}
+        >
+          <Box
+            paddingInline={isWelcomeAndUnlockPage ? 0 : 6}
+            paddingTop={isWelcomeAndUnlockPage ? 0 : 8}
+            paddingBottom={isWelcomeAndUnlockPage ? 0 : 8}
+            // width={BlockSize.Full}
+            borderStyle={
+              isWelcomeAndUnlockPage || isPopup
+                ? BorderStyle.none
+                : BorderStyle.solid
+            }
+            borderRadius={BorderRadius.LG}
+            marginInline="auto"
+            borderColor={BorderColor.borderMuted}
+            style={{
+              maxWidth: isWelcomeAndUnlockPage ? 'none' : '584px',
+              width: isWelcomeAndUnlockPage ? '100%' : '584px',
+              minHeight: isWelcomeAndUnlockPage ? 'auto' : '627px',
+              height:
+                pathname === ONBOARDING_WELCOME_ROUTE || isPopup
+                  ? '100%'
+                  : 'auto',
+              backgroundColor:
+                pathname === ONBOARDING_CREATE_PASSWORD_ROUTE ||
+                pathname === ONBOARDING_SECURE_YOUR_WALLET_ROUTE ||
+                pathname === ONBOARDING_REVIEW_SRP_ROUTE ||
+                pathname === ONBOARDING_CONFIRM_SRP_ROUTE ||
+                pathname === ONBOARDING_IMPORT_WITH_SRP_ROUTE ||
+                pathname === ONBOARDING_METAMETRICS ||
+                pathname === ONBOARDING_COMPLETION_ROUTE
+                  ? 'white'
+                  : 'transparent',
+            }}
+          >
+            <Switch>
+              <Route path={ONBOARDING_ACCOUNT_EXIST} component={AccountExist} />
+              <Route
+                path={ONBOARDING_ACCOUNT_NOT_FOUND}
+                component={AccountNotFound}
               />
-            )}
-          />
-          <Route
-            path={ONBOARDING_SECURE_YOUR_WALLET_ROUTE}
-            component={SecureYourWallet}
-          />
-          <Route
-            path={ONBOARDING_REVIEW_SRP_ROUTE}
-            render={() => (
-              <ReviewRecoveryPhrase
-                secretRecoveryPhrase={secretRecoveryPhrase}
+              <Route
+                path={ONBOARDING_CREATE_PASSWORD_ROUTE}
+                render={(routeProps) => (
+                  <CreatePassword
+                    {...routeProps}
+                    createNewAccount={handleCreateNewAccount}
+                    importWithRecoveryPhrase={handleImportWithRecoveryPhrase}
+                    secretRecoveryPhrase={secretRecoveryPhrase}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path={ONBOARDING_CONFIRM_SRP_ROUTE}
-            render={() => (
-              <ConfirmRecoveryPhrase
-                secretRecoveryPhrase={secretRecoveryPhrase}
+              <Route
+                path={ONBOARDING_SECURE_YOUR_WALLET_ROUTE}
+                component={SecureYourWallet}
               />
-            )}
-          />
-          <Route
-            path={ONBOARDING_IMPORT_WITH_SRP_ROUTE}
-            render={(routeProps) => (
-              <ImportSRP
-                {...routeProps}
-                submitSecretRecoveryPhrase={setSecretRecoveryPhrase}
+              <Route
+                path={ONBOARDING_REVIEW_SRP_ROUTE}
+                render={() => (
+                  <ReviewRecoveryPhrase
+                    secretRecoveryPhrase={secretRecoveryPhrase}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path={ONBOARDING_UNLOCK_ROUTE}
-            render={(routeProps) => (
-              <Unlock {...routeProps} onSubmit={handleUnlock} />
-            )}
-          />
-          <Route
-            path={ONBOARDING_PRIVACY_SETTINGS_ROUTE}
-            component={PrivacySettings}
-          />
-          <Route
-            path={ONBOARDING_COMPLETION_ROUTE}
-            component={CreationSuccessful}
-          />
-          <Route
-            path={ONBOARDING_WELCOME_ROUTE}
-            render={(routeProps) => (
-              <OnboardingWelcome
-                {...routeProps}
-                pageState={welcomePageState}
-                setPageState={setWelcomePageState}
+              <Route
+                path={ONBOARDING_CONFIRM_SRP_ROUTE}
+                render={() => (
+                  <ConfirmRecoveryPhrase
+                    secretRecoveryPhrase={secretRecoveryPhrase}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path={ONBOARDING_PIN_EXTENSION_ROUTE}
-            component={OnboardingPinExtension}
-          />
-          <Route
-            path={ONBOARDING_METAMETRICS}
-            component={MetaMetricsComponent}
-          />
-          {
-            ///: BEGIN:ONLY_INCLUDE_IF(build-flask)
+              <Route
+                path={ONBOARDING_IMPORT_WITH_SRP_ROUTE}
+                render={(routeProps) => (
+                  <ImportSRP
+                    {...routeProps}
+                    submitSecretRecoveryPhrase={setSecretRecoveryPhrase}
+                  />
+                )}
+              />
+              <Route
+                path={ONBOARDING_UNLOCK_ROUTE}
+                render={(routeProps) => (
+                  <Unlock {...routeProps} onSubmit={handleUnlock} />
+                )}
+              />
+              <Route
+                path={ONBOARDING_PRIVACY_SETTINGS_ROUTE}
+                component={PrivacySettings}
+              />
+              <Route
+                path={ONBOARDING_COMPLETION_ROUTE}
+                component={CreationSuccessful}
+              />
+              <Route
+                path={ONBOARDING_WELCOME_ROUTE}
+                render={(routeProps) => (
+                  <OnboardingWelcome
+                    {...routeProps}
+                    pageState={welcomePageState}
+                    setPageState={setWelcomePageState}
+                  />
+                )}
+              />
+              <Route
+                path={ONBOARDING_PIN_EXTENSION_ROUTE}
+                component={OnboardingPinExtension}
+              />
+              <Route
+                path={ONBOARDING_METAMETRICS}
+                component={MetaMetricsComponent}
+              />
+              {
+                ///: BEGIN:ONLY_INCLUDE_IF(build-flask)
+              }
+              <Route
+                path={ONBOARDING_EXPERIMENTAL_AREA}
+                render={(routeProps) => (
+                  <ExperimentalArea
+                    {...routeProps}
+                    redirectTo={ONBOARDING_WELCOME_ROUTE}
+                  />
+                )}
+              />
+              {
+                ///: END:ONLY_INCLUDE_IF
+              }
+              <Route exact path="*" component={OnboardingFlowSwitch} />
+            </Switch>
+          </Box>
+        </Box>
+      ) : (
+        <Box
+          paddingInline={isWelcomeAndUnlockPage ? 0 : 6}
+          paddingTop={isWelcomeAndUnlockPage ? 0 : 8}
+          paddingBottom={isWelcomeAndUnlockPage ? 0 : 8}
+          width={BlockSize.Full}
+          borderStyle={
+            isWelcomeAndUnlockPage || isPopup
+              ? BorderStyle.none
+              : BorderStyle.solid
           }
-          <Route
-            path={ONBOARDING_EXPERIMENTAL_AREA}
-            render={(routeProps) => (
-              <ExperimentalArea
-                {...routeProps}
-                redirectTo={ONBOARDING_WELCOME_ROUTE}
-              />
-            )}
-          />
-          {
-            ///: END:ONLY_INCLUDE_IF
-          }
-          <Route exact path="*" component={OnboardingFlowSwitch} />
-        </Switch>
-      </Box>
+          borderRadius={BorderRadius.LG}
+          marginTop={pathname === ONBOARDING_WELCOME_ROUTE || isPopup ? 0 : 3}
+          marginInline="auto"
+          borderColor={BorderColor.borderMuted}
+          style={{
+            maxWidth: isWelcomeAndUnlockPage ? 'none' : '584px',
+            minHeight: isWelcomeAndUnlockPage ? 'auto' : '627px',
+            height:
+              pathname === ONBOARDING_WELCOME_ROUTE || isPopup
+                ? '100%'
+                : 'auto',
+            backgroundColor:
+              pathname === ONBOARDING_CREATE_PASSWORD_ROUTE ||
+              pathname === ONBOARDING_SECURE_YOUR_WALLET_ROUTE ||
+              pathname === ONBOARDING_REVIEW_SRP_ROUTE ||
+              pathname === ONBOARDING_CONFIRM_SRP_ROUTE ||
+              pathname === ONBOARDING_IMPORT_WITH_SRP_ROUTE ||
+              pathname === ONBOARDING_METAMETRICS ||
+              pathname === ONBOARDING_COMPLETION_ROUTE
+                ? 'white'
+                : 'transparent',
+          }}
+        >
+          <Switch>
+            <Route path={ONBOARDING_ACCOUNT_EXIST} component={AccountExist} />
+            <Route
+              path={ONBOARDING_ACCOUNT_NOT_FOUND}
+              component={AccountNotFound}
+            />
+            <Route
+              path={ONBOARDING_CREATE_PASSWORD_ROUTE}
+              render={(routeProps) => (
+                <CreatePassword
+                  {...routeProps}
+                  createNewAccount={handleCreateNewAccount}
+                  importWithRecoveryPhrase={handleImportWithRecoveryPhrase}
+                  secretRecoveryPhrase={secretRecoveryPhrase}
+                />
+              )}
+            />
+            <Route
+              path={ONBOARDING_SECURE_YOUR_WALLET_ROUTE}
+              component={SecureYourWallet}
+            />
+            <Route
+              path={ONBOARDING_REVIEW_SRP_ROUTE}
+              render={() => (
+                <ReviewRecoveryPhrase
+                  secretRecoveryPhrase={secretRecoveryPhrase}
+                />
+              )}
+            />
+            <Route
+              path={ONBOARDING_CONFIRM_SRP_ROUTE}
+              render={() => (
+                <ConfirmRecoveryPhrase
+                  secretRecoveryPhrase={secretRecoveryPhrase}
+                />
+              )}
+            />
+            <Route
+              path={ONBOARDING_IMPORT_WITH_SRP_ROUTE}
+              render={(routeProps) => (
+                <ImportSRP
+                  {...routeProps}
+                  submitSecretRecoveryPhrase={setSecretRecoveryPhrase}
+                />
+              )}
+            />
+            <Route
+              path={ONBOARDING_UNLOCK_ROUTE}
+              render={(routeProps) => (
+                <Unlock {...routeProps} onSubmit={handleUnlock} />
+              )}
+            />
+            <Route
+              path={ONBOARDING_PRIVACY_SETTINGS_ROUTE}
+              component={PrivacySettings}
+            />
+            <Route
+              path={ONBOARDING_COMPLETION_ROUTE}
+              component={CreationSuccessful}
+            />
+            <Route
+              path={ONBOARDING_WELCOME_ROUTE}
+              render={(routeProps) => (
+                <OnboardingWelcome
+                  {...routeProps}
+                  pageState={welcomePageState}
+                  setPageState={setWelcomePageState}
+                />
+              )}
+            />
+            <Route
+              path={ONBOARDING_PIN_EXTENSION_ROUTE}
+              component={OnboardingPinExtension}
+            />
+            <Route
+              path={ONBOARDING_METAMETRICS}
+              component={MetaMetricsComponent}
+            />
+            {
+              ///: BEGIN:ONLY_INCLUDE_IF(build-flask)
+            }
+            <Route
+              path={ONBOARDING_EXPERIMENTAL_AREA}
+              render={(routeProps) => (
+                <ExperimentalArea
+                  {...routeProps}
+                  redirectTo={ONBOARDING_WELCOME_ROUTE}
+                />
+              )}
+            />
+            {
+              ///: END:ONLY_INCLUDE_IF
+            }
+            <Route exact path="*" component={OnboardingFlowSwitch} />
+          </Switch>
+        </Box>
+      )}
     </Box>
   );
 }

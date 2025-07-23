@@ -259,6 +259,7 @@ export default class UnlockPage extends Component {
         display={Display.Flex}
         flexDirection={FlexDirection.Column}
         justifyContent={JustifyContent.center}
+        alignItems={AlignItems.center}
         backgroundColor={BackgroundColor.backgroundDefault}
         width={BlockSize.Full}
         height={BlockSize.Full}
@@ -279,7 +280,7 @@ export default class UnlockPage extends Component {
           flexDirection={FlexDirection.Column}
           justifyContent={JustifyContent.spaceBetween}
           alignItems={AlignItems.center}
-          margin="auto"
+          // margin="auto"
           padding={6}
           width={BlockSize.Full}
           height={BlockSize.Full}

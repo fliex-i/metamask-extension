@@ -65,9 +65,7 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
     const parsedSrp = parseSecretRecoveryPhrase(rawSrp);
     const splittedSrp = parsedSrp.split(' ');
     const finalSplittedSrp =
-      splittedSrp.length > MAX_SRP_LENGTH
-        ? splittedSrp.slice(0, MAX_SRP_LENGTH)
-        : splittedSrp;
+      splittedSrp.length > 12 ? splittedSrp.slice(0, 12) : splittedSrp;
 
     const newDraftSrp: DraftSrp[] = finalSplittedSrp.map((word: string) => ({
       word,
@@ -76,6 +74,7 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
     }));
 
     setDraftSrp(newDraftSrp);
+    setShowAll(false);
   };
 
   const setWordActive = (srp: DraftSrp[], wordId: string) => {
@@ -282,9 +281,7 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
                   error={misSpelledWords.includes(word.word)}
                   value={word.word}
                   type={
-                    word.active ||
-                    showAll ||
-                    misSpelledWords.includes(word.word)
+                    word.active || showAll
                       ? TextFieldType.Text
                       : TextFieldType.Password
                   }
@@ -348,14 +345,15 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
         <Box
           display={Display.Grid}
           gap={0}
-          className="srp-input-import__actions"
+          className={`${
+            draftSrp.length > 0
+              ? 'srp-input-import__actions'
+              : 'srp-input-import__actions-full'
+          }`}
         >
           <Button
             variant={ButtonVariant.Link}
             onClick={() => setShowAll(!showAll)}
-            style={{
-              borderRight: '1px solid white',
-            }}
           >
             {showAll
               ? t('onboardingSrpInputHideAll')
@@ -368,18 +366,34 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
                 setShowAll(false);
                 setDraftSrp([]);
               }}
+              style={{
+                borderLeft: '1px solid white',
+              }}
             >
               {t('onboardingSrpInputClearAll')}
             </Button>
           ) : (
-            <Button
-              data-testid="srp-input-import__paste-button"
-              variant={ButtonVariant.Link}
-              onClick={onTriggerPaste}
-            >
-              {t('paste')}
-            </Button>
+            ''
           )}
+          {/* {draftSrp.length > 0 ? (
+            <Button
+              variant={ButtonVariant.Link}
+              onClick={async () => {
+                setShowAll(false);
+                setDraftSrp([]);
+              }}
+            >
+              {t('onboardingSrpInputClearAll')}
+            </Button>
+          ) : (
+               <Button
+                 data-testid="srp-input-import__paste-button"
+                 variant={ButtonVariant.Link}
+                 onClick={onTriggerPaste}
+               >
+                 {t('paste')}
+               </Button>
+          )} */}
         </Box>
       </Box>
       {misSpelledWords.length > 0 && (

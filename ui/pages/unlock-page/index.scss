@@ -4,7 +4,7 @@
   max-width: 584px;
 
   @include design-system.screen-sm-min {
-    margin: 12px auto auto;
+    // margin: 12px auto auto;
     padding: 24px;
     border: 1px solid var(--color-border-muted);
     min-height: 627px;

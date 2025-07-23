@@ -53,5 +53,10 @@
     grid-template-columns: 1fr 1fr;
     border-top: 1px solid var(--color-primary-inverse);
   }
+  &__actions-full{
+    grid-template-columns: 1fr;
+    height: 3rem;
+    border-top: 1px solid var(--color-primary-inverse);
+  }
 }
 

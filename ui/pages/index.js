@@ -19,7 +19,6 @@ import { useSelector } from 'react-redux';
 import { getIntlLocale } from '../ducks/locale/locale';
 import { useEffect } from 'react';
 
-// 新增：字体切换管理组件
 function LocaleFontClassManager() {
   const locale = useSelector(getIntlLocale);
   useEffect(() => {
