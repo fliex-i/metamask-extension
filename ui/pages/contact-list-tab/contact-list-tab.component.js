@@ -118,9 +118,10 @@ export default class ContactListTab extends Component {
           <p className="address-book__sub-title">
             {t('addFriendsAndAddresses')}
           </p>
-          <br/>
+          <br />
           <p className="address-book__sub-title">
-            <span>{t('addFriendsAndAddresses1')}</span><br/>
+            <span>{t('addFriendsAndAddresses1')}</span>
+            <br />
             <span>{t('addFriendsAndAddresses4')}</span>
             <Box
               type="link"
@@ -136,6 +137,8 @@ export default class ContactListTab extends Component {
             </Box>
             <span>{t('addFriendsAndAddresses3')}</span>
           </p>
+          <p className="address-book__sub-title">{t('maxAdd')}</p>
+          <p className="address-book__sub-title">{t('maxAdd1')}</p>
           <button
             className="address-book__link"
             onClick={() => {
@@ -150,22 +153,65 @@ export default class ContactListTab extends Component {
   }
 
   renderAddButton() {
-    const { history, viewingContact, editingContact } = this.props;
+    const {
+      history,
+      viewingContact,
+      editingContact,
+      completeAddressBook,
+      addressBook,
+    } = this.props;
+    const addressData = process.env.REMOVE_GNS
+      ? completeAddressBook
+      : addressBook;
+    const isContactLimitReached = addressData && addressData.length >= 100;
 
     return (
-      <ButtonPrimary
-        className={classnames('address-book-add-button__button', {
-          'address-book-add-button__button--hidden':
-            viewingContact || editingContact,
-        })}
-        onClick={() => {
-          history.push(CONTACT_ADD_ROUTE);
-        }}
-        margin={4}
-        size={Size.LG}
-      >
-        {this.context.t('addContact')}
-      </ButtonPrimary>
+      <div>
+        {isContactLimitReached && (
+          <div
+            style={{
+              textAlign: 'center',
+              marginBottom: '12px',
+              padding: '8px 12px',
+              backgroundColor: '#f8f9fa',
+              borderRadius: '6px',
+              border: '1px solid #e9ecef',
+              fontSize: '12px',
+              lineHeight: '1.4',
+              color: '#6c757d',
+            }}
+          >
+            {this.context
+              .t('contactLimitReached')
+              .split('\n')
+              .map((line, index) => (
+                <div
+                  key={index}
+                  style={{ marginBottom: index === 1 ? '0px' : '8px' }}
+                >
+                  {line}
+                </div>
+              ))}
+          </div>
+        )}
+        <ButtonPrimary
+          className={classnames('address-book-add-button__button', {
+            'address-book-add-button__button--hidden':
+              viewingContact || editingContact,
+          })}
+          onClick={() => {
+            if (!isContactLimitReached) {
+              history.push(CONTACT_ADD_ROUTE);
+            }
+          }}
+          margin={4}
+          size={Size.LG}
+          disabled={isContactLimitReached}
+          style={{ width: '100%' }}
+        >
+          {this.context.t('addContact')}
+        </ButtonPrimary>
+      </div>
     );
   }
 

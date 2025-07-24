@@ -116,12 +116,12 @@ export default function WelcomeLogin({
           </ButtonBase>
         </Box>
 
-        <ExpandableInputButton
+        {/* <ExpandableInputButton
           buttonText={t('referralCode')}
           inputPlaceholder={t('referralCodeInputPlace')}
           onInputChange={(value: string) => console.log(value)}
           onButtonClick={() => console.log('Button clicked')}
-        />
+        /> */}
 
         <Box className="welcome-login__footer">
           <Box className="welcome-login__footer__text" as="span">

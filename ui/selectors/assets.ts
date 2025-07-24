@@ -191,7 +191,6 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
             ...token,
             chainId: chainId as Hex, // Ensure chainId is of type `0x${string}`
           };
-          console.log(asset, '/asset');
           // const { currentPrice } = useCurrentPrice(asset);
 
           // Respect the "hide zero balance" setting (when true):
@@ -233,7 +232,6 @@ export const getTokenBalancesEvm = createDeepEqualSelector(
         });
       },
     );
-    console.log(tokensWithBalance, '/tokensWithBalance');
     return tokensWithBalance;
   },
 );

@@ -494,7 +494,6 @@ export default class Routes extends Component {
     } = this.props;
 
     const { hasLayerHeader } = this.state;
-    console.log(hasLayerHeader, '/hasLayerHeader');
     const loadMessage =
       loadingMessage || isNetworkLoading
         ? getConnectingLabel(loadingMessage, this.props, this.context)

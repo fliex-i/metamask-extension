@@ -6819,9 +6819,6 @@
   "tipsHome": {
     "message": "Please make sure to securely save your Secret Recovery Phrase and Private Key. "
   },
-  "tipsHomes": {
-    "message": ""
-  },
   "tipsHome1": {
     "message": "If you need to re-install the wallet or change devices, you’ll need them to import your wallet."
   },
@@ -7504,5 +7501,14 @@
   },
   "duplicateAccountError1" :{
     "message": "The Secret Recovery Phrase for this wallet is already imported on your device. Please enter the private key for a different wallet."
+  },
+  "contactLimitReached": {
+    "message": "You cannot add more addresses.\nYou have reached the maximum address book limit of 100."
+  },
+  "maxAdd": {
+    "message": "The maximum number of wallet addresses you can add to your address book is [100]."
+  },
+  "maxAdd1": {
+    "message": "Once you reach the limit, you will need to remove an address from your address book before you can add another."
   }
 }

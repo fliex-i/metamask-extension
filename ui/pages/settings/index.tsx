@@ -233,12 +233,18 @@ const SettingsPage: React.FC = () => {
           {
             name: t('termC'),
             icon: './images/setting/terms.svg',
-            link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/ENJP-CryptoBridge-Terms-Conditions-2025-06-12.pdf',
+            link:
+              currentLocale === 'ja'
+                ? 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84_JP.pdf'
+                : 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_Terms_and_Conditions_EN.pdf',
           },
           {
             name: t('privacyPolicy'),
             icon: './images/setting/list.svg',
-            link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/privacy.pdf',
+            link:
+              currentLocale === 'ja'
+                ? 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_%E3%83%95%E3%82%9A%E3%83%A9%E3%82%A4%E3%83%8F%E3%82%99%E3%82%B7%E3%83%BC%E3%83%9B%E3%82%9A%E3%83%AA%E3%82%B7%E3%83%BC_JP.pdf'
+                : 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_Privacy_Policy_EN.pdf',
           },
           {
             name: t('userManual'),

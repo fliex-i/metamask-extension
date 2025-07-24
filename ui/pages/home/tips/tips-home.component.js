@@ -18,8 +18,6 @@ const TipsHome = () => {
       <div className="tips-home-des" style={{ position: 'relative', flex: 1 }}>
         <div style={{ marginBottom: '4px' }}>
           {t('tipsHome')}
-          <br />
-          {t('tipsHomes')}
         </div>
         {isExpanded && (
           <>
