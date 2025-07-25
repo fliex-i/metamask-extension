@@ -33,7 +33,7 @@ const TipsHome = () => {
       </div>
       <div className="tips-home-des" style={{ position: 'relative', flex: 1 }}>
         <div
-          style={{ marginBottom: '4px', fontSize: isDesktop ? '16px' : '14px' }}
+          style={{ marginBottom: '4px'}}
         >
           {isDesktop ? (
             t('tipsHome')
