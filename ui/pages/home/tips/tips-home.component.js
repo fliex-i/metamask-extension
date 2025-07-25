@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useI18nContext } from '../../../hooks/useI18nContext';
 
 const TipsHome = () => {
   const t = useI18nContext();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth > 768);
+    };
+
+    // Check on mount
+    checkScreenSize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkScreenSize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -16,8 +32,18 @@ const TipsHome = () => {
         <img src="./images/home/alert.svg" width={20} height={20} />
       </div>
       <div className="tips-home-des" style={{ position: 'relative', flex: 1 }}>
-        <div style={{ marginBottom: '4px' }}>
-          {t('tipsHome')}
+        <div
+          style={{ marginBottom: '4px', fontSize: isDesktop ? '16px' : '14px' }}
+        >
+          {isDesktop ? (
+            t('tipsHome')
+          ) : (
+            <>
+              {t('tipsHomes')}
+              <br />
+              {t('tipsHomes1')}
+            </>
+          )}
         </div>
         {isExpanded && (
           <>
