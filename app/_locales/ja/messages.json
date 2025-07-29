@@ -704,7 +704,7 @@
     "message": "今すぐバックアップ"
   },
   "balance": {
-    "message": "ETH残高"
+    "message": "残高"
   },
   "balanceOutdated": {
     "message": "残高が期限切れの可能性があります"
@@ -1445,7 +1445,7 @@
     "message": "Linea Sepoliaテストネットワークに接続中"
   },
   "connectingToMainnet": {
-    "message": "イーサリアムメインネットに接続中"
+    "message": "CryptoBridgeに接続中"
   },
   "connectingToSepolia": {
     "message": "Sepoliaテストネットワークに接続中"
@@ -7220,10 +7220,10 @@
     "message": "該当するウォレットのシークレットリカバリーフレーズは、すでにこのデバイスに追加されています。別のウォレットのプライベートキーを入力してください。"
   },
   "contactLimitReached": {
-    "message": "これ以上アドレスを追加できません。\nアドレス帳の上限（100件）に達しています。"
+    "message": "これ以上アドレスを追加できません。\nアドレス帳の上限100件に達しています。"
   },
   "maxAdd": {
-    "message": "アドレス帳に追加できるウォレットアドレスの上限は （100件）件です。"
+    "message": "アドレス帳に追加できるウォレットアドレスの上限は100件です。"
   },
   "maxAdd1": {
     "message": "上限に達した場合は、新しいアドレスを追加する前に、既存のアドレスを削除する必要があります。"

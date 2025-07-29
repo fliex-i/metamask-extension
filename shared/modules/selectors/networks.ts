@@ -233,11 +233,6 @@ export const getProviderConfig = createSelector(
   (state: ProviderConfigState) => getNetworkConfigurationsByChainId(state),
   getSelectedNetworkClientId,
   (networkConfigurationsByChainId, selectedNetworkClientId) => {
-    console.log(
-      networkConfigurationsByChainId,
-      selectedNetworkClientId,
-      '/networkConfigurationsByChainId',
-    );
     for (const network of Object.values(networkConfigurationsByChainId)) {
       for (const rpcEndpoint of network.rpcEndpoints) {
         if (rpcEndpoint.networkClientId === selectedNetworkClientId) {

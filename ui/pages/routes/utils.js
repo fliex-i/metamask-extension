@@ -69,20 +69,22 @@ export function getConnectingLabel(loadingMessage, props, context) {
   const { t } = context;
 
   switch (providerType) {
-    case NETWORK_TYPES.MAINNET:
-      return t('connectingToMainnet');
-    case NETWORK_TYPES.GOERLI:
-      return t('connectingToGoerli');
-    case NETWORK_TYPES.SEPOLIA:
-      return t('connectingToSepolia');
-    case NETWORK_TYPES.LINEA_GOERLI:
-      return t('connectingToLineaGoerli');
-    case NETWORK_TYPES.LINEA_SEPOLIA:
-      return t('connectingToLineaSepolia');
-    case NETWORK_TYPES.LINEA_MAINNET:
-      return t('connectingToLineaMainnet');
+    // case NETWORK_TYPES.MAINNET:
+    //   return t('connectingToMainnet');
+    // case NETWORK_TYPES.GOERLI:
+    //   return t('connectingToGoerli');
+    // case NETWORK_TYPES.SEPOLIA:
+    //   return t('connectingToSepolia');
+    // case NETWORK_TYPES.LINEA_GOERLI:
+    //   return t('connectingToLineaGoerli');
+    // case NETWORK_TYPES.LINEA_SEPOLIA:
+    //   return t('connectingToLineaSepolia');
+    // case NETWORK_TYPES.LINEA_MAINNET:
+    //   return t('connectingToLineaMainnet');
+    // default:
+    //   return t('connectingTo', [providerId]);
     default:
-      return t('connectingTo', [providerId]);
+      return t('connectingToMainnet');
   }
 }
 

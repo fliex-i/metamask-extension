@@ -44,16 +44,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       // For round buttons, we need to handle both string and React element labels
       const labelString = typeof label === 'string' ? label : '';
       const labelElement = typeof label === 'string' ? undefined : label;
-      console.log('labelElement', labelElement, labelString);
-      console.log('label type:', typeof label);
-      console.log('labelElement type:', typeof labelElement);
-      console.log('isJSXLabel:', isJSXLabel);
-      console.log('shouldUseRound:', shouldUseRound);
-      console.log('label content:', label);
-      if (labelElement) {
-        console.log('labelElement is truthy, will render JSX');
-        console.log('labelElement content:', labelElement);
-      }
+      
       return (
         <IconButtonRound
           onClick={onClick}

@@ -25,11 +25,6 @@ export default function IconButton(props) {
   // Determine what to render as label
   const renderLabel = () => {
     if (labelElement) {
-      // If labelElement is provided, render it directly
-      console.log('labelElement11111', labelElement);
-      console.log('labelElement type in IconButtonRound:', typeof labelElement);
-      console.log('labelElement is truthy:', Boolean(labelElement));
-      console.log('labelElement content in IconButtonRound:', labelElement);
       return (
                 <div
           style={{

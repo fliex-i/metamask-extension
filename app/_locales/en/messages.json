@@ -1493,7 +1493,7 @@
     "message": "Connecting to Linea Sepolia test network"
   },
   "connectingToMainnet": {
-    "message": "Connecting to Ethereum Mainnet"
+    "message": "Connecting to CryptoBridge"
   },
   "connectingToSepolia": {
     "message": "Connecting to Sepolia test network"
@@ -2829,7 +2829,7 @@
     "message": "Import an existing wallet with your 12 secret recovery phrase."
   },
   "importSRPNumberOfWordsError": {
-    "message": "Secret Recovery Phrases contain 12, or 24 words"
+    "message": "Secret Recovery Phrases contain 12 or 24 words"
   },
   "importSRPWordError": {
     "message": "Word $1 is incorrect or misspelled.",
