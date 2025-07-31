@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import classnames from 'classnames';
+import { generateMnemonic, validateMnemonic } from 'bip39';
 import Unlock from '../unlock-page';
 import {
   ///: BEGIN:ONLY_INCLUDE_IF(build-flask)
@@ -64,7 +65,6 @@ import {
 import { getEnvironmentType } from '../../../app/scripts/lib/util';
 import { ENVIRONMENT_TYPE_POPUP } from '../../../shared/constants/app';
 import { getLocale } from '../../selectors/selectors';
-import { generateMnemonic, validateMnemonic } from 'bip39';
 import OnboardingFlowSwitch from './onboarding-flow-switch/onboarding-flow-switch';
 import CreatePassword from './create-password/create-password';
 import ReviewRecoveryPhrase from './recovery-phrase/review-recovery-phrase';
@@ -212,6 +212,11 @@ export default function OnboardingFlow() {
   };
 
   const handleImportWithRecoveryPhrase = async (password, srp) => {
+    // 检测助记词类型（12个或24个单词）
+    const wordCount = srp.split(' ').length;
+    const phraseType = wordCount === 24 ? '24' : '12';
+    setSelectedPhraseType(phraseType);
+
     return await dispatch(createNewVaultAndRestore(password, srp));
   };
 

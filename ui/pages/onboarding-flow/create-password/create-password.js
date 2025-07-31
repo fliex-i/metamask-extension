@@ -62,6 +62,15 @@ export default function CreatePassword({
   const trackEvent = useContext(MetaMetricsContext);
   const currentKeyring = useSelector(getCurrentKeyring);
 
+  // 如果是导入钱包，自动检测助记词类型
+  useEffect(() => {
+    if (secretRecoveryPhrase && firstTimeFlowType === FirstTimeFlowType.import) {
+      const wordCount = secretRecoveryPhrase.split(' ').length;
+      const phraseType = wordCount === 24 ? '24' : '12';
+      setSelectedPhraseType(phraseType);
+    }
+  }, [secretRecoveryPhrase, firstTimeFlowType]);
+
   // const participateInMetaMetrics = useSelector(getParticipateInMetaMetrics);
   // const metametricsId = useSelector(getMetaMetricsId);
   // const base64MetametricsId = Buffer.from(metametricsId ?? '').toString(
@@ -218,13 +227,15 @@ export default function CreatePassword({
         <Box className="create-password__form">
           <PasswordForm onChange={(newPassword) => setPassword(newPassword)} />
 
-          {/* 助记词类型选择器 */}
-          <Box marginTop={4}>
-            <PhraseTypeSelector
-              selectedType={selectedPhraseType}
-              onTypeSelect={setSelectedPhraseType}
-            />
-          </Box>
+          {/* 助记词类型选择器 - 仅在创建新钱包时显示 */}
+          {!secretRecoveryPhrase && firstTimeFlowType !== FirstTimeFlowType.import && (
+            <Box marginTop={4}>
+              <PhraseTypeSelector
+                selectedType={selectedPhraseType}
+                onTypeSelect={setSelectedPhraseType}
+              />
+            </Box>
+          )}
         </Box>
       </Box>
       <Box>
