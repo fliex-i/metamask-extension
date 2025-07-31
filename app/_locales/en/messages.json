@@ -565,6 +565,16 @@
   "approveButtonText": {
     "message": "Approve"
   },
+  "tokenApprovalRequired": {
+    "message": "Token Approval Required"
+  },
+  "tokenApprovalDescription": {
+    "message": "To transfer $1 $2, you need to approve the smart contract ($3) to spend your tokens first.",
+    "description": "$1 is the amount, $2 is the token symbol, $3 is the spender address"
+  },
+  "seedPhrase24Title": {
+    "message": "24-Word Recovery Phrase"
+  },
   "approveIncreaseAllowance": {
     "message": "Increase $1 spending cap",
     "description": "The token symbol that is being approved"
@@ -740,10 +750,10 @@
     "message": "Balance may be outdated"
   },
   "bankBtn1": {
-    "message": "No, I don't have a JDB Bank Account – Register Now"
+    "message": "Yes, I already have a JDB Bank Account – Link My Account"
   },
   "bankBtn2": {
-    "message": "Yes, I already have a JDB Bank Account – Link My Account"
+    "message": "No, I don't have a JDB Bank Account – Register Now"
   },
   "bankBtn3": {
     "message": "Skip – I won't use fiat-to-crypto features"
@@ -5159,7 +5169,7 @@
     "description": "The $1 is the button text 'Secret Recovery Phrase'"
   },
   "secureWalletWalletSaveSrp2": {
-    "message": "Write down the 12-word Secret Recovery Phrase exactly in order on a physical piece of paper and store the paper in a secure, offline location (e.g. safebox, vault)"
+    "message": "Write down the 12-word or 24-word Secret Recovery Phrase exactly in order on a physical piece of paper and store the paper in a secure, offline location (e.g. safebox, vault)"
   },
   "secureWalletWalletSaveSrp3": {
     "message": "If you forget your Password, you can restore your wallet using your Secret Recovery Phrase."
@@ -5222,7 +5232,7 @@
     "message": "Secure Your Wallet"
   },
   "seedPhraseReq": {
-    "message": "Secret Recovery Phrases contain 12, 15, 18, 21, or 24 words"
+    "message": "Secret Recovery Phrases contain 12 or 24 words"
   },
   "seedPhraseReviewDetails": {
     "message": "Never share your Secret Recovery Phrase with anyone. Anyone with access to this phrase can control your funds:",
@@ -7516,5 +7526,11 @@
   },
   "maxAdd1": {
     "message": "Once you reach the limit, you will need to remove an address from your address book before you can add another."
+  },
+  "srpInputNumberOfWords12": {
+    "message": "Use 12-word mnemonic"
+  },
+  "srpInputNumberOfWords24": {
+    "message": "Use 24-word mnemonic"
   }
 }

@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { wordlist } from '@metamask/scure-bip39/dist/wordlists/english';
 import { isValidMnemonic } from '@ethersproject/hdnode';
 
-import { Textarea, TextareaResize } from '../../component-library/textarea';
 import {
   Box,
   Button,
@@ -15,20 +14,17 @@ import {
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import {
   BackgroundColor,
-  BlockSize,
-  BorderColor,
   BorderRadius,
   Display,
   FlexDirection,
+  JustifyContent,
   TextColor,
   TextVariant,
 } from '../../../helpers/constants/design-system';
-import { PLATFORM_FIREFOX } from '../../../../shared/constants/app';
-import { getBrowserName } from '../../../../shared/modules/browser-runtime.utils';
-import { parseSecretRecoveryPhrase } from './parse-secret-recovery-phrase';
+import { clearClipboard } from '../../../helpers/utils/util';
 
-const SRP_LENGTHS = [12, 15, 18, 21, 24];
-const MAX_SRP_LENGTH = 24;
+const SRP_LENGTHS = [12, 24];
+const DEFAULT_SRP_LENGTH = 12;
 
 type DraftSrp = {
   word: string;
@@ -40,42 +36,131 @@ type ListOfTextFieldRefs = {
   [wordId: string]: HTMLInputElement;
 };
 
+type SuggestionState = {
+  visible: boolean;
+  position: {
+    top: number;
+    left: number;
+    width: number;
+  };
+};
+
 type SrpInputImportProps = {
   onChange: (srp: string) => void;
+};
+
+const generateMnemonicSuggestions = (input: string) => {
+  if (!input || input.length === 0) {
+    return [];
+  }
+
+  const lowerInput = input.toLowerCase();
+  const filteredWords = wordlist.filter((word) => word.startsWith(lowerInput));
+
+  return filteredWords.slice(0, 6).map((word) => ({
+    value: word,
+    primaryLabel: word,
+  }));
+};
+
+const SuggestionDropdown = ({
+  suggestions,
+  onSelect,
+  visible,
+  position,
+}: {
+  suggestions: Array<{ value: string; primaryLabel: string }>;
+  onSelect: (word: string) => void;
+  visible: boolean;
+  position: { top: number; left: number; width: number };
+}) => {
+  if (!visible || suggestions.length === 0) {
+    return null;
+  }
+
+  return (
+    <div
+      className="srp-input-import__suggestion-dropdown"
+      style={{
+        position: 'absolute',
+        top: '100%',
+        left: 0,
+        width: '300px',
+        zIndex: 1000,
+        maxHeight: '200px',
+        overflow: 'auto',
+        backgroundColor: 'var(--color-background-default)',
+        border: '1px solid var(--color-border-default)',
+        borderRadius: '8px',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        marginTop: '5px',
+      }}
+      onMouseDown={(e) => {
+        e.preventDefault();
+      }}
+    >
+      <div className="srp-input-import__suggestion-grid">
+        {suggestions.map((suggestion, index) => (
+          <div
+            key={index}
+            className="srp-input-import__suggestion-item"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onSelect(suggestion.value);
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor =
+                'var(--color-background-default-hover)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }}
+          >
+            <Text variant={TextVariant.bodyMd} color={TextColor.textDefault}>
+              {suggestion.primaryLabel}
+            </Text>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default function SrpInputImport({ onChange }: SrpInputImportProps) {
   const t = useI18nContext();
   const [draftSrp, setDraftSrp] = useState<DraftSrp[]>([]);
-  const [firstWord, setFirstWord] = useState('');
   const [showAll, setShowAll] = useState(false);
   const [misSpelledWords, setMisSpelledWords] = useState<string[]>([]);
+  const [srpLength, setSrpLength] = useState(DEFAULT_SRP_LENGTH);
+  const [suggestionStates, setSuggestionStates] = useState<SuggestionState[]>(
+    [],
+  );
+  const [focusedWordId, setFocusedWordId] = useState<string | null>(null);
 
   const srpRefs = useRef<ListOfTextFieldRefs>({});
 
-  const initializeSrp = () => {
-    setDraftSrp([
-      { word: firstWord, id: uuidv4(), active: false },
-      { word: '', id: uuidv4(), active: true },
-    ]);
-    setFirstWord('');
-  };
-
-  const onSrpPaste = (rawSrp: string) => {
-    const parsedSrp = parseSecretRecoveryPhrase(rawSrp);
-    const splittedSrp = parsedSrp.split(' ');
-    const finalSplittedSrp =
-      splittedSrp.length > 12 ? splittedSrp.slice(0, 12) : splittedSrp;
-
-    const newDraftSrp: DraftSrp[] = finalSplittedSrp.map((word: string) => ({
-      word,
-      id: uuidv4(),
-      active: false,
-    }));
-
+  const initializeSrp = useCallback(() => {
+    const newDraftSrp: DraftSrp[] = Array.from(
+      { length: srpLength },
+      (_, index) => ({
+        word: '',
+        id: uuidv4(),
+        active: index === 0,
+      }),
+    );
     setDraftSrp(newDraftSrp);
-    setShowAll(false);
-  };
+    setSuggestionStates(
+      Array.from({ length: srpLength }, () => ({
+        visible: false,
+        position: { top: 0, left: 0, width: 0 },
+      })),
+    );
+  }, [srpLength]);
+
+  useEffect(() => {
+    initializeSrp();
+  }, [srpLength, initializeSrp]);
 
   const setWordActive = (srp: DraftSrp[], wordId: string) => {
     const newDraftSrp = [...srp];
@@ -91,8 +176,28 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
       const targetIndex = newDraftSrp.findIndex((word) => word.id === id);
       newDraftSrp[targetIndex] = { ...newDraftSrp[targetIndex], word: value };
       setDraftSrp(setWordActive(newDraftSrp, id));
+
+      if (focusedWordId === id) {
+        const suggestions = generateMnemonicSuggestions(value.trim());
+
+        setSuggestionStates((prev) => {
+          const newStates = [...prev];
+          newStates.forEach((_, index) => {
+            newStates[index] = {
+              visible: false,
+              position: { top: 0, left: 0, width: 0 },
+            };
+          });
+          const wordIndex = newDraftSrp.findIndex((word) => word.id === id);
+          newStates[wordIndex] = {
+            visible: suggestions.length > 0 && value.trim().length > 0,
+            position: { top: 0, left: 0, width: 0 },
+          };
+          return newStates;
+        });
+      }
     },
-    [draftSrp],
+    [draftSrp, focusedWordId],
   );
 
   const nextWord = useCallback(
@@ -105,32 +210,27 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
       if (
         (SRP_LENGTHS.includes(draftSrp.length) &&
           isValidMnemonic(draftSrp.map((word) => word.word).join(' '))) ||
-        draftSrp.length === MAX_SRP_LENGTH
+        draftSrp.length === srpLength
       ) {
         return;
       }
 
-      // if last word, add new word
-      if (isLastWord && draftSrp.length < MAX_SRP_LENGTH) {
-        const newDraftSrp = [...draftSrp];
+      if (!isLastWord) {
+        setDraftSrp(setWordActive(draftSrp, draftSrp[currentWordIndex + 1].id));
 
-        newDraftSrp.forEach((word) => {
-          word.active = false;
+        setSuggestionStates((prev) => {
+          const newStates = [...prev];
+          newStates.forEach((_, index) => {
+            newStates[index] = {
+              visible: false,
+              position: { top: 0, left: 0, width: 0 },
+            };
+          });
+          return newStates;
         });
-
-        newDraftSrp.push({
-          word: '',
-          id: uuidv4(),
-          active: true,
-        });
-        setDraftSrp(newDraftSrp);
-        return;
       }
-
-      // set next word to active
-      setDraftSrp(setWordActive(draftSrp, draftSrp[currentWordIndex + 1].id));
     },
-    [draftSrp],
+    [draftSrp, srpLength],
   );
 
   const deleteWord = useCallback(
@@ -149,30 +249,23 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
     [draftSrp],
   );
 
-  const handleOnKeyDown = (ev: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (ev.key === 'Enter' || ev.key === ' ') {
-      ev.preventDefault();
-      initializeSrp();
-    }
-  };
-
-  const handleOnPaste = (
-    clipBoardEvent: React.ClipboardEvent<HTMLTextAreaElement>,
-  ) => {
-    clipBoardEvent.preventDefault();
-    const newSrp = clipBoardEvent.clipboardData.getData('text');
-    if (newSrp.trim().match(/\s/u)) {
-      clipBoardEvent.preventDefault();
-      onSrpPaste(newSrp);
-    }
-  };
-
   const setWordInactive = useCallback(
     (wordId: string) => {
       const newDraftSrp = [...draftSrp];
       const targetIndex = newDraftSrp.findIndex((word) => word.id === wordId);
       newDraftSrp[targetIndex] = { ...newDraftSrp[targetIndex], active: false };
       setDraftSrp(newDraftSrp);
+
+      setSuggestionStates((prev) => {
+        const newStates = [...prev];
+        newStates.forEach((_, index) => {
+          newStates[index] = {
+            visible: false,
+            position: { top: 0, left: 0, width: 0 },
+          };
+        });
+        return newStates;
+      });
     },
     [draftSrp],
   );
@@ -185,47 +278,120 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
         word.active = word.id === wordId;
       });
       setDraftSrp(newDraftSrp);
+      setFocusedWordId(wordId);
+
+      const currentWord = newDraftSrp.find((word) => word.id === wordId);
+      if (currentWord && currentWord.word.trim().length > 0) {
+        const suggestions = generateMnemonicSuggestions(
+          currentWord.word.trim(),
+        );
+
+        setSuggestionStates((prev) => {
+          const newStates = [...prev];
+          newStates.forEach((_, index) => {
+            newStates[index] = {
+              visible: false,
+              position: { top: 0, left: 0, width: 0 },
+            };
+          });
+          const wordIndex = newDraftSrp.findIndex((word) => word.id === wordId);
+          newStates[wordIndex] = {
+            visible: suggestions.length > 0,
+            position: { top: 0, left: 0, width: 0 },
+          };
+          return newStates;
+        });
+      } else {
+        setSuggestionStates((prev) => {
+          const newStates = [...prev];
+          newStates.forEach((_, index) => {
+            newStates[index] = {
+              visible: false,
+              position: { top: 0, left: 0, width: 0 },
+            };
+          });
+          return newStates;
+        });
+      }
     },
     [draftSrp],
   );
 
-  // in firefox, we do need to request permission explicitly, to read the clipboard
-  const requestPermissionAndTriggerPasteFireFox = async () => {
-    try {
-      const permissionGranted = await browser.permissions.request({
-        permissions: ['clipboardRead'],
+  const onWordSuggestionSelect = useCallback(
+    (selectedWord: string) => {
+      if (focusedWordId === null) {
+        return;
+      }
+
+      const newDraftSrp = [...draftSrp];
+      const targetIndex = newDraftSrp.findIndex(
+        (word) => word.id === focusedWordId,
+      );
+      newDraftSrp[targetIndex] = {
+        ...newDraftSrp[targetIndex],
+        word: selectedWord,
+      };
+      setDraftSrp(setWordActive(newDraftSrp, focusedWordId));
+
+      setSuggestionStates((prev) => {
+        const newStates = [...prev];
+        newStates[targetIndex] = {
+          visible: false,
+          position: { top: 0, left: 0, width: 0 },
+        };
+        return newStates;
       });
-      if (permissionGranted) {
-        const newSrp = await navigator.clipboard.readText();
-        if (newSrp.trim().match(/\s/u)) {
-          onSrpPaste(newSrp);
-        }
+
+      const currentInput = srpRefs.current[focusedWordId];
+      if (currentInput) {
+        currentInput.focus();
+        currentInput.setSelectionRange(
+          selectedWord.length,
+          selectedWord.length,
+        );
       }
-    } catch (error) {
-      console.error('Error requesting clipboard permission', error);
-    }
-  };
+    },
+    [draftSrp, focusedWordId],
+  );
 
-  const onTriggerPaste = async () => {
-    if (getBrowserName() === PLATFORM_FIREFOX) {
-      await requestPermissionAndTriggerPasteFireFox();
-      return;
-    }
+  // const copySrp = useCallback(async () => {
+  //   const srpString = draftSrp.map((word) => word.word).join(' ');
+  //   if (srpString.trim()) {
+  //     try {
+  //       await navigator.clipboard.writeText(srpString);
+  //       clearClipboard();
+  //     } catch (error) {
+  //       console.error('Failed to copy SRP:', error);
+  //     }
+  //   }
+  // }, [draftSrp]);
 
-    const permissionResult = await navigator.permissions.query({
-      name: 'clipboard-read' as PermissionName,
-    });
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isClickInside = Object.values(srpRefs.current).some(
+        (ref) => ref && ref.contains(event.target as Node),
+      );
 
-    if (
-      permissionResult.state === 'granted' ||
-      permissionResult.state === 'prompt'
-    ) {
-      const newSrp = await navigator.clipboard.readText();
-      if (newSrp.trim().match(/\s/u)) {
-        onSrpPaste(newSrp);
+      const isClickInSuggestion = (event.target as Element)?.closest(
+        '.srp-input-import__suggestion-dropdown',
+      );
+
+      if (!isClickInside && !isClickInSuggestion) {
+        setSuggestionStates(
+          Array.from({ length: srpLength }, () => ({
+            visible: false,
+            position: { top: 0, left: 0, width: 0 },
+          })),
+        );
+        setFocusedWordId(null);
       }
-    }
-  };
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [srpLength]);
 
   useEffect(() => {
     const activeWord = draftSrp.find((word) => word.active);
@@ -238,7 +404,6 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
       .map((word) => word.word);
     setMisSpelledWords(wordsNotInWordList);
 
-    // if srp length is valid and no empty word trigger onChange
     if (
       SRP_LENGTHS.includes(draftSrp.length) &&
       !draftSrp.some((word) => word.word.length === 0) &&
@@ -251,6 +416,11 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
     }
   }, [draftSrp, onChange]);
 
+  const handleSrpLengthChange = (newLength: number) => {
+    setSrpLength(newLength);
+    setShowAll(false);
+  };
+
   return (
     <>
       <Box
@@ -260,96 +430,140 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
         borderRadius={BorderRadius.SM}
         className="srp-input-import__container"
       >
-        {draftSrp.length > 0 ? (
-          <Box padding={4} style={{ flex: 1 }}>
-            <Box
-              display={Display.Grid}
-              className="srp-input-import__words-list"
-              gap={2}
+        <Box
+          display={Display.Flex}
+          justifyContent={JustifyContent.center}
+          paddingTop={3}
+          paddingLeft={3}
+          paddingRight={3}
+        >
+          <Box display={Display.Flex} gap={2}>
+            <Button
+              variant={
+                srpLength === 12
+                  ? ButtonVariant.Primary
+                  : ButtonVariant.Secondary
+              }
+              onClick={() => handleSrpLengthChange(12)}
             >
-              {draftSrp.map((word, index) => (
-                <TextField
-                  inputProps={{
-                    ref: (el) => {
-                      if (el) {
-                        srpRefs.current[word.id] = el;
-                      }
-                    },
-                  }}
-                  testId={`import-srp__srp-word-${index}`}
-                  key={word.id}
-                  error={misSpelledWords.includes(word.word)}
-                  value={word.word}
-                  type={
-                    word.active || showAll
-                      ? TextFieldType.Text
-                      : TextFieldType.Password
-                  }
-                  startAccessory={
-                    <Text
-                      color={TextColor.textAlternative}
-                      className="srp-input-import__word-index"
-                    >
-                      {index + 1}
-                    </Text>
-                  }
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    handleChange(word.id, e.target.value)
-                  }
-                  onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      nextWord(word.id);
-                    }
-                    if (e.key === 'Backspace' && word.word.length === 0) {
-                      e.preventDefault();
-                      deleteWord(word.id);
-                    }
-                  }}
-                  onFocus={() => {
-                    onWordFocus(word.id);
-                  }}
-                  onBlur={() => {
-                    setWordInactive(word.id);
-                  }}
-                />
-              ))}
-            </Box>
+              {t('srpInputNumberOfWords', ['12'])}
+            </Button>
+            <Button
+              variant={
+                srpLength === 24
+                  ? ButtonVariant.Primary
+                  : ButtonVariant.Secondary
+              }
+              onClick={() => handleSrpLengthChange(24)}
+            >
+              {t('srpInputNumberOfWords', ['24'])}
+            </Button>
           </Box>
-        ) : (
+        </Box>
+
+        <Box padding={4} style={{ flex: 1 }}>
           <Box
-            padding={4}
-            className="srp-input-import__srp-note"
-            style={{ flex: 1 }}
+            display={Display.Grid}
+            className="srp-input-import__words-list"
+            gap={2}
+            style={{
+              gridTemplateColumns: 'repeat(3, 1fr)',
+            }}
           >
-            <Textarea
-              data-testid="srp-input-import__srp-note"
-              borderColor={BorderColor.transparent}
-              backgroundColor={BackgroundColor.transparent}
-              width={BlockSize.Full}
-              placeholder={t('onboardingSrpInputPlaceholder')}
-              rows={7}
-              resize={TextareaResize.None}
-              value={firstWord}
-              paddingTop={0}
-              paddingBottom={0}
-              paddingLeft={0}
-              paddingRight={0}
-              onChange={(e) => setFirstWord(e.target.value)}
-              onKeyDown={handleOnKeyDown}
-              onPaste={handleOnPaste}
-            />
+            {draftSrp.map((word, index) => {
+              const suggestions = generateMnemonicSuggestions(word.word);
+              const currentState = suggestionStates[index];
+
+              return (
+                <Box key={word.id} style={{ position: 'relative' }}>
+                  <TextField
+                    inputProps={{
+                      ref: (el) => {
+                        if (el) {
+                          srpRefs.current[word.id] = el;
+                        }
+                      },
+                    }}
+                    testId={`import-srp__srp-word-${index}`}
+                    error={misSpelledWords.includes(word.word)}
+                    value={word.word}
+                    type={
+                      word.active || showAll
+                        ? TextFieldType.Text
+                        : TextFieldType.Password
+                    }
+                    startAccessory={
+                      <Text
+                        color={TextColor.textAlternative}
+                        className="srp-input-import__word-index"
+                      >
+                        {index + 1}
+                      </Text>
+                    }
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      handleChange(word.id, e.target.value)
+                    }
+                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (word.word.trim().length > 0) {
+                          nextWord(word.id);
+                        }
+                      }
+                      if (e.key === 'Backspace' && word.word.length === 0) {
+                        e.preventDefault();
+                        deleteWord(word.id);
+                      }
+                      if (e.key === 'Tab') {
+                        const currentIndex = draftSrp.findIndex(
+                          (w) => w.id === word.id,
+                        );
+                        if (e.shiftKey) {
+                          if (currentIndex > 0) {
+                            e.preventDefault();
+                            const prevWordId = draftSrp[currentIndex - 1].id;
+                            const prevInput = srpRefs.current[prevWordId];
+                            if (prevInput) {
+                              prevInput.focus();
+                            }
+                          }
+                        } else {
+                          if (currentIndex < draftSrp.length - 1) {
+                            e.preventDefault();
+                            const nextWordId = draftSrp[currentIndex + 1].id;
+                            const nextInput = srpRefs.current[nextWordId];
+                            if (nextInput) {
+                              nextInput.focus();
+                            }
+                          }
+                        }
+                      }
+                    }}
+                    onFocus={() => {
+                      onWordFocus(word.id);
+                    }}
+                    onBlur={() => {
+                      setWordInactive(word.id);
+                    }}
+                  />
+                  {currentState.visible && (
+                    <SuggestionDropdown
+                      suggestions={suggestions}
+                      onSelect={onWordSuggestionSelect}
+                      visible={currentState.visible}
+                      position={currentState.position}
+                    />
+                  )}
+                </Box>
+              );
+            })}
           </Box>
-        )}
+        </Box>
 
         <Box
           display={Display.Grid}
           gap={0}
-          className={`${
-            draftSrp.length > 0
-              ? 'srp-input-import__actions'
-              : 'srp-input-import__actions-full'
-          }`}
+          className="srp-input-import__actions"
         >
           <Button
             variant={ButtonVariant.Link}
@@ -359,41 +573,27 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
               ? t('onboardingSrpInputHideAll')
               : t('onboardingSrpInputShowAll')}
           </Button>
-          {draftSrp.length > 0 ? (
-            <Button
-              variant={ButtonVariant.Link}
-              onClick={async () => {
-                setShowAll(false);
-                setDraftSrp([]);
-              }}
-              style={{
-                borderLeft: '1px solid white',
-              }}
-            >
-              {t('onboardingSrpInputClearAll')}
-            </Button>
-          ) : (
-            ''
-          )}
-          {/* {draftSrp.length > 0 ? (
-            <Button
-              variant={ButtonVariant.Link}
-              onClick={async () => {
-                setShowAll(false);
-                setDraftSrp([]);
-              }}
-            >
-              {t('onboardingSrpInputClearAll')}
-            </Button>
-          ) : (
-               <Button
-                 data-testid="srp-input-import__paste-button"
-                 variant={ButtonVariant.Link}
-                 onClick={onTriggerPaste}
-               >
-                 {t('paste')}
-               </Button>
-          )} */}
+          <Button
+            variant={ButtonVariant.Link}
+            onClick={() => {
+              setShowAll(false);
+              initializeSrp();
+            }}
+            style={{
+              borderLeft: '1px solid var(--color-border-muted)',
+            }}
+          >
+            {t('onboardingSrpInputClearAll')}
+          </Button>
+          {/* <Button
+            variant={ButtonVariant.Link}
+            onClick={copySrp}
+            style={{
+              borderLeft: '1px solid var(--color-border-muted)',
+            }}
+          >
+            {t('copy')}
+          </Button> */}
         </Box>
       </Box>
       {misSpelledWords.length > 0 && (

@@ -3,6 +3,7 @@
 .srp-input-import {
   &__container {
     min-height: 264px;
+    position: relative;
   }
 
   &__srp-note {
@@ -24,6 +25,7 @@
 
   &__words-list {
     grid-template-columns: repeat(3, 1fr);
+    position: relative;
     // SRP_OVERRIDE: custom text field style
     .mm-text-field {
       padding-inline-start: 8px;
@@ -57,6 +59,54 @@
     grid-template-columns: 1fr;
     height: 3rem;
     border-top: 1px solid var(--color-primary-inverse);
+  }
+
+  &__suggestion-dropdown {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--color-border-default);
+    border-radius: 8px;
+    background-color: var(--color-background-default);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    min-width: 300px;
+    margin-top: 5px;
+  }
+
+  &__suggestion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    padding: 4px;
+  }
+
+  &__suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    border-radius: 4px;
+    text-align: center;
+
+    &:hover {
+      background-color: var(--color-background-default-hover);
+    }
+
+    &:first-child {
+      border-top-left-radius: 8px;
+    }
+
+    &:nth-child(3) {
+      border-top-right-radius: 8px;
+    }
+
+    &:nth-last-child(3) {
+      border-bottom-left-radius: 8px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 8px;
+    }
   }
 }
 

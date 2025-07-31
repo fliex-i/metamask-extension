@@ -1,16 +1,17 @@
 import { isValidMnemonic } from '@ethersproject/hdnode';
-import React, { useCallback, useState } from 'react';
+import { wordlist } from '@metamask/scure-bip39/dist/wordlists/english';
+import React, { useCallback, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import TextField from '../../ui/text-field';
 import { clearClipboard } from '../../../helpers/utils/util';
 import { BannerAlert, Text } from '../../component-library';
-import Dropdown from '../../ui/dropdown';
 import ShowHideToggle from '../../ui/show-hide-toggle';
 import {
   TextAlign,
   TextVariant,
   Severity,
+  TextColor,
 } from '../../../helpers/constants/design-system';
 import { parseSecretRecoveryPhrase } from './parse-secret-recovery-phrase';
 
@@ -18,6 +19,62 @@ const defaultNumberOfWords = 12;
 
 const hasUpperCase = (draftSrp) => {
   return draftSrp !== draftSrp.toLowerCase();
+};
+
+const generateMnemonicSuggestions = (input) => {
+  if (!input || input.length === 0) {
+    return [];
+  }
+
+  const lowerInput = input.toLowerCase();
+  const filteredWords = wordlist.filter((word) => word.startsWith(lowerInput));
+
+  return filteredWords.slice(0, 6).map((word) => ({
+    value: word,
+    primaryLabel: word,
+  }));
+};
+
+const SuggestionDropdown = ({ suggestions, onSelect, visible, position }) => {
+  if (!visible || suggestions.length === 0) {
+    return null;
+  }
+
+  return (
+    <div
+      className="import-srp__suggestion-dropdown"
+      style={{
+        position: 'absolute',
+        top: position.top,
+        left: position.left,
+        width: position.width,
+        zIndex: 1000,
+        maxHeight: '200px',
+        overflow: 'auto',
+      }}
+      onMouseDown={(e) => {
+        e.preventDefault();
+      }}
+    >
+      <div className="import-srp__suggestion-grid">
+        {suggestions.map((suggestion, index) => (
+          <div
+            key={index}
+            className="import-srp__suggestion-item"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onSelect(suggestion.value);
+            }}
+          >
+            <Text variant={TextVariant.bodyMd} color={TextColor.textDefault}>
+              {suggestion.primaryLabel}
+            </Text>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default function SrpInput({ onChange, srpText }) {
@@ -30,8 +87,15 @@ export default function SrpInput({ onChange, srpText }) {
     new Array(defaultNumberOfWords).fill(false),
   );
   const [numberOfWords, setNumberOfWords] = useState(defaultNumberOfWords);
+  const [suggestionStates, setSuggestionStates] = useState(() =>
+    new Array(defaultNumberOfWords)
+      .fill(null)
+      .map(() => ({ visible: false, position: {} })),
+  );
+  const [focusedInputIndex, setFocusedInputIndex] = useState(-1);
 
   const t = useI18nContext();
+  const inputRefs = useRef([]);
 
   const onSrpChange = useCallback(
     (newDraftSrp) => {
@@ -76,8 +140,66 @@ export default function SrpInput({ onChange, srpText }) {
       const newSrp = draftSrp.slice();
       newSrp[index] = newWord.trim();
       onSrpChange(newSrp);
+
+      if (index === focusedInputIndex) {
+        const suggestions = generateMnemonicSuggestions(newWord.trim());
+
+        if (suggestions.length > 0 && newWord.trim().length > 0) {
+          const inputElement = inputRefs.current[index];
+          const rect = inputElement
+            ? inputElement.getBoundingClientRect()
+            : null;
+
+          setSuggestionStates((prev) => {
+            const newStates = [...prev];
+            newStates[index] = {
+              visible: true,
+              position: {
+                top: rect ? rect.bottom + 5 : 50,
+                left: rect ? rect.left : 0,
+                width: rect ? Math.max(rect.width, 300) : 300,
+              },
+            };
+            return newStates;
+          });
+        } else {
+          setSuggestionStates((prev) => {
+            const newStates = [...prev];
+            newStates[index] = { visible: false, position: {} };
+            return newStates;
+          });
+        }
+      }
     },
-    [draftSrp, onSrpChange, pasteFailed],
+    [draftSrp, onSrpChange, pasteFailed, focusedInputIndex],
+  );
+
+  const onSrpWordSuggestionSelect = useCallback(
+    (selectedWord) => {
+      if (focusedInputIndex === -1) {
+        return;
+      }
+
+      const newSrp = draftSrp.slice();
+      newSrp[focusedInputIndex] = selectedWord;
+
+      onSrpChange(newSrp);
+
+      setSuggestionStates((prev) => {
+        const newStates = [...prev];
+        newStates[focusedInputIndex] = { visible: false, position: {} };
+        return newStates;
+      });
+
+      const nextIndex = focusedInputIndex + 1;
+      if (nextIndex < numberOfWords) {
+        const nextInput = inputRefs.current[nextIndex];
+        if (nextInput) {
+          nextInput.focus();
+        }
+      }
+    },
+    [draftSrp, onSrpChange, numberOfWords, focusedInputIndex],
   );
 
   const onSrpPaste = useCallback(
@@ -111,6 +233,12 @@ export default function SrpInput({ onChange, srpText }) {
         );
       }
       setShowSrp(new Array(newNumberOfWords).fill(false));
+      setSuggestionStates(
+        new Array(newNumberOfWords)
+          .fill(null)
+          .map(() => ({ visible: false, position: {} })),
+      );
+      setFocusedInputIndex(-1);
       onSrpChange(newDraftSrp);
       clearClipboard();
     },
@@ -140,10 +268,42 @@ export default function SrpInput({ onChange, srpText }) {
       }
       setNumberOfWords(newNumberOfWords);
       setShowSrp(new Array(newNumberOfWords).fill(false));
+      setSuggestionStates(
+        new Array(newNumberOfWords)
+          .fill(null)
+          .map(() => ({ visible: false, position: {} })),
+      );
+      setFocusedInputIndex(-1);
       onSrpChange(newDraftSrp);
     },
     [draftSrp, onSrpChange],
   );
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const isClickInside = inputRefs.current.some(
+        (ref) => ref && ref.contains(event.target),
+      );
+
+      const isClickInSuggestion = event.target.closest(
+        '.import-srp__suggestion-dropdown',
+      );
+
+      if (!isClickInside && !isClickInSuggestion) {
+        setSuggestionStates(
+          new Array(numberOfWords)
+            .fill(null)
+            .map(() => ({ visible: false, position: {} })),
+        );
+        setFocusedInputIndex(-1);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [numberOfWords]);
 
   return (
     <div className="import-srp__container">
@@ -175,39 +335,68 @@ export default function SrpInput({ onChange, srpText }) {
       <div className="import-srp__srp">
         {[...Array(numberOfWords).keys()].map((index) => {
           const id = `import-srp__srp-word-${index}`;
+          const suggestions = generateMnemonicSuggestions(draftSrp[index]);
+          const currentState = suggestionStates[index];
+
           return (
             <div key={index} className="import-srp__srp-word">
               <label htmlFor={id} className="import-srp__srp-word-label">
                 <Text>{`${index + 1}.`}</Text>
               </label>
-              <TextField
-                id={id}
-                data-testid={id}
-                type={showSrp[index] ? 'text' : 'password'}
-                onChange={(e) => {
-                  e.preventDefault();
-                  onSrpWordChange(index, e.target.value);
-                }}
-                value={draftSrp[index]}
-                autoComplete="off"
-                onPaste={(event) => {
-                  const newSrp = event.clipboardData.getData('text');
+              <div className="import-srp__srp-word-input-container">
+                <div
+                  className="import-srp__srp-word-input-wrapper"
+                  style={{ position: 'relative', flex: 1 }}
+                >
+                  <TextField
+                    id={id}
+                    data-testid={id}
+                    type={showSrp[index] ? 'text' : 'password'}
+                    onChange={(e) => {
+                      e.preventDefault();
+                      onSrpWordChange(index, e.target.value);
+                    }}
+                    onFocus={() => {
+                      setFocusedInputIndex(index);
+                    }}
+                    onBlur={() => {
+                      setTimeout(() => {
+                        if (focusedInputIndex === index) {
+                          setFocusedInputIndex(-1);
+                        }
+                      }, 100);
+                    }}
+                    value={draftSrp[index]}
+                    autoComplete="off"
+                    onPaste={(event) => {
+                      const newSrp = event.clipboardData.getData('text');
 
-                  if (newSrp.trim().match(/\s/u)) {
-                    event.preventDefault();
-                    onSrpPaste(newSrp);
-                  }
-                }}
-              />
-              <ShowHideToggle
-                id={`${id}-checkbox`}
-                ariaLabelHidden={t('srpWordHidden')}
-                ariaLabelShown={t('srpWordShown')}
-                shown={showSrp[index]}
-                data-testid={`${id}-checkbox`}
-                onChange={() => toggleShowSrp(index)}
-                title={t('srpToggleShow')}
-              />
+                      if (newSrp.trim().match(/\s/u)) {
+                        event.preventDefault();
+                        onSrpPaste(newSrp);
+                      }
+                    }}
+                    ref={(el) => {
+                      inputRefs.current[index] = el;
+                    }}
+                  />
+                  <SuggestionDropdown
+                    suggestions={suggestions}
+                    onSelect={(word) => onSrpWordSuggestionSelect(word)}
+                    visible={suggestionStates[index].visible}
+                    position={suggestionStates[index].position}
+                  />
+                </div>
+                <ShowHideToggle
+                  id={`${id}-checkbox`}
+                  ariaLabelHidden={t('srpWordHidden')}
+                  ariaLabelShown={t('srpWordShown')}
+                  shown={showSrp[index]}
+                  data-testid={`${id}-checkbox`}
+                  onChange={() => toggleShowSrp(index)}
+                  title={t('srpToggleShow')}
+                />
+              </div>
             </div>
           );
         })}

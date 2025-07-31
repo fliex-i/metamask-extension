@@ -567,6 +567,16 @@
   "assetMultipleNFTsBalance": {
     "message": "$1個のNFT"
   },
+  "tokenApprovalRequired": {
+    "message": "トークンの承認が必要です"
+  },
+  "tokenApprovalDescription": {
+    "message": "$1 $2を送金するには、まずスマートコントラクト($3)にトークンの使用を許可する必要があります。",
+    "description": "$1は金額、$2はトークンシンボル、$3はスマートコントラクトのアドレス"
+  },
+  "seedPhrase24Title": {
+    "message": "24語の復旧フレーズ"
+  },
   "assetOptions": {
     "message": "アセットのオプション"
   },
@@ -5004,7 +5014,7 @@
     "description": "$1は「秘密のリカバリーフレーズ」ボタンテキスト"
   },
   "secureWalletWalletSaveSrp2": {
-    "message": "12個の単語からなるシークレットリカバリーフレーズを順番どおりに紙に書き写し、金庫や耐火保管庫など、オフラインで安全な場所に保管してください。"
+    "message": "12個または24個の単語からなるシークレットリカバリーフレーズを順番どおりに紙に書き写し、金庫や耐火保管庫など、オフラインで安全な場所に保管してください。"
   },
   "secureWalletWalletSaveSrp3": {
     "message": "パスワードを忘れた場合でも、シークレットリカバリーフレーズがあればウォレットを復元できます。"
@@ -5059,7 +5069,7 @@
     "message": "ウォレットの保護"
   },
   "seedPhraseReq": {
-    "message": "シークレットリカバリーフレーズは、12、15、18、21、24語で構成されます"
+    "message": "シークレットリカバリーフレーズは、12、24語で構成されます"
   },
   "seedPhraseReviewDetails": {
     "message": "シークレットリカバリーフレーズの管理について:"
@@ -7227,5 +7237,11 @@
   },
   "maxAdd1": {
     "message": "上限に達した場合は、新しいアドレスを追加する前に、既存のアドレスを削除する必要があります。"
+  },
+  "srpInputNumberOfWords12": {
+    "message": "12語のニーモニックを使用する"
+  },
+  "srpInputNumberOfWords24": {
+    "message": "24語のニーモニックを使用する"
   }
 }

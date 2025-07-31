@@ -71,6 +71,63 @@
     width: 2em;
   }
 
+  &__srp-word-input-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 8px;
+  }
+
+  &__srp-word-input-wrapper {
+    position: relative;
+    flex: 1;
+  }
+
+  &__suggestion-dropdown {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--color-border-default);
+    border-radius: 8px;
+    background-color: var(--color-background-default);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  &__suggestion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    padding: 4px;
+  }
+
+  &__suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    border-radius: 4px;
+    text-align: center;
+
+    &:hover {
+      background-color: var(--color-background-default-hover);
+    }
+
+    &:first-child {
+      border-top-left-radius: 8px;
+    }
+
+    &:nth-child(3) {
+      border-top-right-radius: 8px;
+    }
+
+    &:nth-last-child(3) {
+      border-bottom-left-radius: 8px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 8px;
+    }
+  }
+
   &__srp-error {
     margin-top: 4px;
     grid-area: error;

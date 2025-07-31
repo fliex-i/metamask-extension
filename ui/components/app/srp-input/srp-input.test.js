@@ -41,6 +41,128 @@ describe('srp-input', () => {
     jest.resetAllMocks();
   });
 
+  describe('mnemonic suggestions', () => {
+    it('should show suggestions when typing "a"', async () => {
+      const onChange = jest.fn();
+
+      const { getByTestId, queryByText } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      getByTestId('import-srp__srp-word-0').focus();
+      await userEvent.keyboard('a');
+
+      // 等待联想下拉出现
+      await waitFor(() => {
+        expect(queryByText('abandon')).toBeInTheDocument();
+        expect(queryByText('ability')).toBeInTheDocument();
+        expect(queryByText('able')).toBeInTheDocument();
+        expect(queryByText('about')).toBeInTheDocument();
+        expect(queryByText('above')).toBeInTheDocument();
+        expect(queryByText('absent')).toBeInTheDocument();
+      });
+    });
+
+    it('should select suggestion when clicked', async () => {
+      const onChange = jest.fn();
+
+      const { getByTestId, queryByText } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      getByTestId('import-srp__srp-word-0').focus();
+      await userEvent.keyboard('a');
+
+      // 等待联想下拉出现并点击选项
+      await waitFor(() => {
+        expect(queryByText('abandon')).toBeInTheDocument();
+      });
+
+      await userEvent.click(queryByText('abandon'));
+
+      // 验证输入框的值已更新
+      expect(getByTestId('import-srp__srp-word-0')).toHaveValue('abandon');
+
+      // 验证焦点已移动到下一个输入框
+      expect(getByTestId('import-srp__srp-word-1')).toHaveFocus();
+    });
+
+    it('should hide suggestions when clicking outside', async () => {
+      const onChange = jest.fn();
+
+      const { getByTestId, queryByText } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      getByTestId('import-srp__srp-word-0').focus();
+      await userEvent.keyboard('a');
+
+      // 等待联想下拉出现
+      await waitFor(() => {
+        expect(queryByText('abandon')).toBeInTheDocument();
+      });
+
+      // 点击页面其他地方
+      await userEvent.click(document.body);
+
+      // 验证联想下拉已隐藏
+      await waitFor(() => {
+        expect(queryByText('abandon')).not.toBeInTheDocument();
+      });
+    });
+
+    it('should not show suggestions for empty input', async () => {
+      const onChange = jest.fn();
+
+      const { getByTestId, queryByText } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      getByTestId('import-srp__srp-word-0').focus();
+
+      // 验证没有联想下拉出现
+      expect(queryByText('abandon')).not.toBeInTheDocument();
+    });
+
+    it('should filter suggestions based on input', async () => {
+      const onChange = jest.fn();
+
+      const { getByTestId, queryByText } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      getByTestId('import-srp__srp-word-0').focus();
+      await userEvent.keyboard('ab');
+
+      // 等待联想下拉出现，应该只显示以"ab"开头的单词
+      await waitFor(() => {
+        expect(queryByText('abandon')).toBeInTheDocument();
+        expect(queryByText('ability')).toBeInTheDocument();
+        expect(queryByText('able')).toBeInTheDocument();
+        expect(queryByText('about')).toBeInTheDocument();
+        expect(queryByText('above')).toBeInTheDocument();
+        expect(queryByText('absent')).toBeInTheDocument();
+        // 不应该显示不以"ab"开头的单词
+        expect(queryByText('ability')).toBeInTheDocument();
+      });
+    });
+  });
+
   describe('onChange event', () => {
     it('should not fire event on render', async () => {
       const onChange = jest.fn();
