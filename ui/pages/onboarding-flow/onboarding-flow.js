@@ -64,6 +64,7 @@ import {
 import { getEnvironmentType } from '../../../app/scripts/lib/util';
 import { ENVIRONMENT_TYPE_POPUP } from '../../../shared/constants/app';
 import { getLocale } from '../../selectors/selectors';
+import { generateMnemonic, validateMnemonic } from 'bip39';
 import OnboardingFlowSwitch from './onboarding-flow-switch/onboarding-flow-switch';
 import CreatePassword from './create-password/create-password';
 import ReviewRecoveryPhrase from './recovery-phrase/review-recovery-phrase';
@@ -84,6 +85,8 @@ import AccountNotFound from './account-not-found/account-not-found';
 
 export default function OnboardingFlow() {
   const [secretRecoveryPhrase, setSecretRecoveryPhrase] = useState('');
+  const [secretRecoveryPhrase24, setSecretRecoveryPhrase24] = useState('');
+  const [selectedPhraseType, setSelectedPhraseType] = useState('12'); // '12' 或 '24'
   const dispatch = useDispatch();
   const { pathname, search } = useLocation();
   const history = useHistory();
@@ -162,18 +165,49 @@ export default function OnboardingFlow() {
     showTermsOfUse,
   ]);
 
-  const handleCreateNewAccount = async (password) => {
-    const newSecretRecoveryPhrase = await dispatch(
-      createNewVaultAndGetSeedPhrase(password),
-    );
-    setSecretRecoveryPhrase(newSecretRecoveryPhrase);
+  const handleCreateNewAccount = async (password, phraseType = '12') => {
+    try {
+      // 生成24个助记词
+      const mnemonic24 = generateMnemonic(256);
+      console.log('Is valid:', validateMnemonic(mnemonic24));
+      console.log('Generated 24-word mnemonic:');
+      console.log(mnemonic24);
+      console.log('Word count:', mnemonic24.split(' ').length);
+
+      // 根据用户选择创建不同的钱包
+      if (phraseType === '24') {
+        // 使用24个助记词创建钱包
+        await dispatch(createNewVaultAndRestore(password, mnemonic24));
+        setSecretRecoveryPhrase(mnemonic24);
+        setSecretRecoveryPhrase24(mnemonic24);
+        setSelectedPhraseType('24');
+      } else {
+        // 使用标准的12个助记词创建钱包
+        const newSecretRecoveryPhrase = await dispatch(
+          createNewVaultAndGetSeedPhrase(password),
+        );
+        setSecretRecoveryPhrase(newSecretRecoveryPhrase);
+        setSecretRecoveryPhrase24(mnemonic24);
+        setSelectedPhraseType('12');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleUnlock = async (password) => {
     const retrievedSecretRecoveryPhrase = await dispatch(
       unlockAndGetSeedPhrase(password),
     );
+
+    // 检测助记词类型（12个或24个单词）
+    const wordCount = retrievedSecretRecoveryPhrase.split(' ').length;
+    const phraseType = wordCount === 24 ? '24' : '12';
+
     setSecretRecoveryPhrase(retrievedSecretRecoveryPhrase);
+    setSecretRecoveryPhrase24(retrievedSecretRecoveryPhrase);
+    setSelectedPhraseType(phraseType);
+
     history.push(nextRoute);
   };
 
@@ -297,6 +331,9 @@ export default function OnboardingFlow() {
                 render={() => (
                   <ReviewRecoveryPhrase
                     secretRecoveryPhrase={secretRecoveryPhrase}
+                    secretRecoveryPhrase24={secretRecoveryPhrase24}
+                    selectedPhraseType={selectedPhraseType}
+                    onPhraseTypeSelect={setSelectedPhraseType}
                   />
                 )}
               />
@@ -305,6 +342,8 @@ export default function OnboardingFlow() {
                 render={() => (
                   <ConfirmRecoveryPhrase
                     secretRecoveryPhrase={secretRecoveryPhrase}
+                    secretRecoveryPhrase24={secretRecoveryPhrase24}
+                    selectedPhraseType={selectedPhraseType}
                   />
                 )}
               />
@@ -428,6 +467,9 @@ export default function OnboardingFlow() {
               render={() => (
                 <ReviewRecoveryPhrase
                   secretRecoveryPhrase={secretRecoveryPhrase}
+                  secretRecoveryPhrase24={secretRecoveryPhrase24}
+                  selectedPhraseType={selectedPhraseType}
+                  onPhraseTypeSelect={setSelectedPhraseType}
                 />
               )}
             />
@@ -436,6 +478,8 @@ export default function OnboardingFlow() {
               render={() => (
                 <ConfirmRecoveryPhrase
                   secretRecoveryPhrase={secretRecoveryPhrase}
+                  secretRecoveryPhrase24={secretRecoveryPhrase24}
+                  selectedPhraseType={selectedPhraseType}
                 />
               )}
             />

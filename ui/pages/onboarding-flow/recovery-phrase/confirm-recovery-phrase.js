@@ -70,16 +70,24 @@ const generateQuizWords = (secretRecoveryPhrase) => {
   return quizWords;
 };
 
-export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
+export default function ConfirmRecoveryPhrase({
+  secretRecoveryPhrase = '',
+  secretRecoveryPhrase24 = '',
+  selectedPhraseType = '12'
+}) {
   const history = useHistory();
   const t = useI18nContext();
   const dispatch = useDispatch();
   const trackEvent = useContext(MetaMetricsContext);
   const { search } = useLocation();
   const hdEntropyIndex = useSelector(getHDEntropyIndex);
+  const currentPhrase = selectedPhraseType === '24' && secretRecoveryPhrase24
+    ? secretRecoveryPhrase24
+    : secretRecoveryPhrase;
+
   const splitSecretRecoveryPhrase = useMemo(
-    () => (secretRecoveryPhrase ? secretRecoveryPhrase.split(' ') : []),
-    [secretRecoveryPhrase],
+    () => (currentPhrase ? currentPhrase.split(' ') : []),
+    [currentPhrase],
   );
   const searchParams = new URLSearchParams(search);
   const isFromReminderParam = searchParams.get('isFromReminder')
@@ -265,4 +273,6 @@ export default function ConfirmRecoveryPhrase({ secretRecoveryPhrase = '' }) {
 
 ConfirmRecoveryPhrase.propTypes = {
   secretRecoveryPhrase: PropTypes.string,
+  secretRecoveryPhrase24: PropTypes.string,
+  selectedPhraseType: PropTypes.oneOf(['12', '24']),
 };

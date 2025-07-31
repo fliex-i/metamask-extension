@@ -4770,6 +4770,30 @@
   "seedPhraseIntroTitle": {
     "message": "保护您的钱包安全"
   },
+  "phraseTypeSelectorTitle": {
+    "message": "选择助记词类型"
+  },
+  "phraseType12Words": {
+    "message": "12个助记词"
+  },
+  "phraseType24Words": {
+    "message": "24个助记词"
+  },
+  "phraseType12Description": {
+    "message": "标准BIP39助记词\n更简短，易于记忆"
+  },
+  "phraseType24Description": {
+    "message": "增强安全性\n更高的熵值"
+  },
+  "phraseTypeGenerated": {
+    "message": "已生成"
+  },
+  "phraseTypeSelectorDescription": {
+    "message": "选择后，系统将使用选定的助记词类型创建您的钱包"
+  },
+  "phraseTypeSelectorDescriptionBackup": {
+    "message": "选择后，您将使用选定的助记词进行后续的备份和确认流程"
+  },
   "seedPhraseReq": {
     "message": "私钥助记词包含 12、15、18、21 或 24 个字词"
   },

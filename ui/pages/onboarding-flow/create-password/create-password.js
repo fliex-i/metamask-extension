@@ -44,6 +44,7 @@ import PasswordForm from '../../../components/app/password-form/password-form';
 import LoadingScreen from '../../../components/ui/loading-screen';
 import { PLATFORM_FIREFOX } from '../../../../shared/constants/app';
 import { getBrowserName } from '../../../../shared/modules/browser-runtime.utils';
+import PhraseTypeSelector from '../recovery-phrase/phrase-type-selector/phrase-type-selector';
 
 export default function CreatePassword({
   createNewAccount,
@@ -52,6 +53,7 @@ export default function CreatePassword({
 }) {
   const t = useI18nContext();
   const [password, setPassword] = useState('');
+  const [selectedPhraseType, setSelectedPhraseType] = useState('12'); // '12' 或 '24'
   const [newAccountCreationInProgress, setNewAccountCreationInProgress] =
     useState(false);
 
@@ -135,7 +137,7 @@ export default function CreatePassword({
 
     if (createNewAccount) {
       setNewAccountCreationInProgress(true);
-      await createNewAccount(password);
+      await createNewAccount(password, selectedPhraseType);
     }
 
     trackEvent({
@@ -215,6 +217,14 @@ export default function CreatePassword({
         </Box>
         <Box className="create-password__form">
           <PasswordForm onChange={(newPassword) => setPassword(newPassword)} />
+
+          {/* 助记词类型选择器 */}
+          <Box marginTop={4}>
+            <PhraseTypeSelector
+              selectedType={selectedPhraseType}
+              onTypeSelect={setSelectedPhraseType}
+            />
+          </Box>
         </Box>
       </Box>
       <Box>

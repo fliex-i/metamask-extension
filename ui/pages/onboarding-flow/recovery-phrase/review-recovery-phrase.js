@@ -18,9 +18,7 @@ import {
   TextVariant,
   JustifyContent,
   BlockSize,
-  TextColor,
   IconColor,
-  FontWeight,
   Display,
   FlexDirection,
   AlignItems,
@@ -34,7 +32,11 @@ import { getHDEntropyIndex } from '../../../selectors/selectors';
 import SRPDetailsModal from '../../../components/app/srp-details-modal';
 import RecoveryPhraseChips from './recovery-phrase-chips';
 
-export default function RecoveryPhrase({ secretRecoveryPhrase }) {
+export default function RecoveryPhrase({
+  secretRecoveryPhrase,
+  secretRecoveryPhrase24,
+  selectedPhraseType,
+}) {
   const history = useHistory();
   const t = useI18nContext();
   const { search } = useLocation();
@@ -98,8 +100,13 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
             {t('seedPhraseReviewTitle')}
           </Text>
         </Box>
+
         <RecoveryPhraseChips
-          secretRecoveryPhrase={secretRecoveryPhrase.split(' ')}
+          secretRecoveryPhrase={
+            selectedPhraseType === '24' && secretRecoveryPhrase24
+              ? secretRecoveryPhrase24.split(' ')
+              : secretRecoveryPhrase.split(' ')
+          }
           setInputValue={handleInputValue}
         />
         <Box
@@ -200,4 +207,7 @@ export default function RecoveryPhrase({ secretRecoveryPhrase }) {
 
 RecoveryPhrase.propTypes = {
   secretRecoveryPhrase: PropTypes.string,
+  secretRecoveryPhrase24: PropTypes.string,
+  selectedPhraseType: PropTypes.oneOf(['12', '24']),
+  onPhraseTypeSelect: PropTypes.func,
 };
