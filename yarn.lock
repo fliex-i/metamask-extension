@@ -17562,6 +17562,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bip39@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "bip39@npm:3.1.0"
+  dependencies:
+    "@noble/hashes": "npm:^1.2.0"
+  checksum: 10/406c0b5bdab0d43df2ff8916c5b57bb7f65cd36a115cbd7620a75b972638f8511840bfc27bfc68946027086fd33ed3050d8cd304e85fd527503b23d857a8486e
+  languageName: node
+  linkType: hard
+
 "bip66@npm:^2.0.0":
   version: 2.0.0
   resolution: "bip66@npm:2.0.0"
@@ -31578,6 +31587,7 @@ __metadata:
     base64-js: "npm:^1.5.1"
     bify-module-groups: "npm:^2.0.0"
     bignumber.js: "npm:^4.1.0"
+    bip39: "npm:^3.1.0"
     bitcoin-address-validation: "npm:^2.2.3"
     blo: "npm:1.2.0"
     bn.js: "npm:^5.2.1"

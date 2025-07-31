@@ -5250,6 +5250,30 @@
   "seedPhraseReviewTitle": {
     "message": "Save Your Secret Recovery Phrase"
   },
+  "phraseTypeSelectorTitle": {
+    "message": "Select Recovery Phrase Type"
+  },
+  "phraseType12Words": {
+    "message": "12-Word Recovery Phrase"
+  },
+  "phraseType24Words": {
+    "message": "24-Word Recovery Phrase"
+  },
+  "phraseType12Description": {
+    "message": "Standard BIP39 recovery phrase\nShorter and easier to remember"
+  },
+  "phraseType24Description": {
+    "message": "Enhanced security\nHigher entropy"
+  },
+  "phraseTypeGenerated": {
+    "message": "Generated"
+  },
+  "phraseTypeSelectorDescription": {
+    "message": "After selection, the system will create your wallet using the selected recovery phrase type"
+  },
+  "phraseTypeSelectorDescriptionBackup": {
+    "message": "After selection, you will use the selected recovery phrase for the subsequent backup and confirmation process"
+  },
   "select": {
     "message": "Select"
   },

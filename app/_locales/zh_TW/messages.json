@@ -947,6 +947,30 @@
   "seedPhraseIntroTitle": {
     "message": "保護您的錢包"
   },
+  "phraseTypeSelectorTitle": {
+    "message": "選擇助記詞類型"
+  },
+  "phraseType12Words": {
+    "message": "12個助記詞"
+  },
+  "phraseType24Words": {
+    "message": "24個助記詞"
+  },
+  "phraseType12Description": {
+    "message": "標準BIP39助記詞\n更簡短，易於記憶"
+  },
+  "phraseType24Description": {
+    "message": "增強安全性\n更高的熵值"
+  },
+  "phraseTypeGenerated": {
+    "message": "已生成"
+  },
+  "phraseTypeSelectorDescription": {
+    "message": "選擇後，系統將使用選定的助記詞類型創建您的錢包"
+  },
+  "phraseTypeSelectorDescriptionBackup": {
+    "message": "選擇後，您將使用選定的助記詞進行後續的備份和確認流程"
+  },
   "seedPhraseReq": {
     "message": "助憶詞為 12, 15, 18, 21 或 24 個單字"
   },

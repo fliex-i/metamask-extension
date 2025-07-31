@@ -347,7 +347,22 @@ export function unlockAndGetSeedPhrase(
 
     try {
       await submitPassword(password);
-      const seedPhrase = await getSeedPhrase(password);
+
+      // 获取当前状态以找到HD keyring的ID
+      const state = await submitRequestToBackground('getState');
+      const hdKeyrings = state.keyrings?.filter(keyring => keyring.type === 'HD Key Tree') || [];
+
+      if (hdKeyrings.length === 0) {
+        throw new Error('No HD keyring found');
+      }
+
+      // 使用第一个HD keyring的ID
+      const keyringId = hdKeyrings[0].metadata?.id;
+      if (!keyringId) {
+        throw new Error('HD keyring ID not found');
+      }
+
+      const seedPhrase = await getSeedPhrase(password, keyringId);
       await forceUpdateMetamaskState(dispatch);
       return seedPhrase;
     } catch (error) {

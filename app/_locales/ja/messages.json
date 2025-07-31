@@ -5082,6 +5082,30 @@
   "seedPhraseReviewTitle": {
     "message": "シークレットリカバリーフレーズを確認"
   },
+  "phraseTypeSelectorTitle": {
+    "message": "リカバリーフレーズの種類を選択"
+  },
+  "phraseType12Words": {
+    "message": "12語のリカバリーフレーズ"
+  },
+  "phraseType24Words": {
+    "message": "24語のリカバリーフレーズ"
+  },
+  "phraseType12Description": {
+    "message": "標準BIP39リカバリーフレーズ\nより短く、覚えやすい"
+  },
+  "phraseType24Description": {
+    "message": "セキュリティ強化\nより高いエントロピー"
+  },
+  "phraseTypeGenerated": {
+    "message": "生成済み"
+  },
+  "phraseTypeSelectorDescription": {
+    "message": "選択後、システムは選択されたリカバリーフレーズの種類を使用してウォレットを作成します"
+  },
+  "phraseTypeSelectorDescriptionBackup": {
+    "message": "選択後、選択されたリカバリーフレーズを後続のバックアップと確認プロセスで使用します"
+  },
   "select": {
     "message": "選択"
   },
