@@ -17,6 +17,7 @@ import {
   BorderRadius,
   Display,
   FlexDirection,
+  FlexWrap,
   JustifyContent,
   TextColor,
   TextVariant,
@@ -437,7 +438,12 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
           paddingLeft={3}
           paddingRight={3}
         >
-          <Box display={Display.Flex} gap={2}>
+          <Box
+            display={Display.Flex}
+            gap={2}
+            flexWrap={FlexWrap.Wrap}
+            justifyContent={JustifyContent.center}
+          >
             <Button
               variant={
                 srpLength === 12

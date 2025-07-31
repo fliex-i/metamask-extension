@@ -324,7 +324,14 @@ export default function SrpInput({ onChange, srpText }) {
             paddingRight: '12px',
           }}
         >
-          <div style={{ display: Display.Flex, gap: '8px' }}>
+          <div
+            style={{
+              display: Display.Flex,
+              gap: '8px',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}
+          >
             <Button
               variant={
                 numberOfWords === 12

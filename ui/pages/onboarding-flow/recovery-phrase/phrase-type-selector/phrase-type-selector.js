@@ -19,6 +19,7 @@ import {
   BorderColor,
   BorderRadius,
   BorderStyle,
+  FlexWrap,
 } from '../../../../helpers/constants/design-system';
 
 export default function PhraseTypeSelector({
@@ -45,6 +46,8 @@ export default function PhraseTypeSelector({
         flexDirection={FlexDirection.Row}
         gap={3}
         width={BlockSize.Full}
+        flexWrap={FlexWrap.Wrap}
+        justifyContent={JustifyContent.center}
       >
         <Box
           display={Display.Flex}
