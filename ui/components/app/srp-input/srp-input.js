@@ -5,17 +5,26 @@ import PropTypes from 'prop-types';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import TextField from '../../ui/text-field';
 import { clearClipboard } from '../../../helpers/utils/util';
-import { BannerAlert, Text } from '../../component-library';
+import {
+  BannerAlert,
+  Text,
+  Button,
+  ButtonVariant,
+} from '../../component-library';
 import ShowHideToggle from '../../ui/show-hide-toggle';
 import {
   TextAlign,
   TextVariant,
   Severity,
   TextColor,
+  Display,
+  FlexDirection,
+  JustifyContent,
 } from '../../../helpers/constants/design-system';
 import { parseSecretRecoveryPhrase } from './parse-secret-recovery-phrase';
 
 const defaultNumberOfWords = 12;
+const SRP_LENGTHS = [12, 24];
 
 const hasUpperCase = (draftSrp) => {
   return draftSrp !== draftSrp.toLowerCase();
@@ -245,31 +254,18 @@ export default function SrpInput({ onChange, srpText }) {
     [numberOfWords, onSrpChange, pasteFailed, setPasteFailed],
   );
 
-  const numberOfWordsOptions = [];
-  for (let i = 12; i <= 24; i += 3) {
-    numberOfWordsOptions.push({
-      name: t('srpInputNumberOfWords', [`${i}`]),
-      value: `${i}`,
-    });
-  }
-
   const handleNumberOfWordsChange = useCallback(
-    (newSelectedOption) => {
-      const newNumberOfWords = parseInt(newSelectedOption, 10);
-      if (Number.isNaN(newNumberOfWords)) {
-        throw new Error('Unable to parse option as integer');
-      }
-
-      let newDraftSrp = draftSrp.slice(0, newNumberOfWords);
-      if (newDraftSrp.length < newNumberOfWords) {
+    (newLength) => {
+      let newDraftSrp = draftSrp.slice(0, newLength);
+      if (newDraftSrp.length < newLength) {
         newDraftSrp = newDraftSrp.concat(
-          new Array(newNumberOfWords - newDraftSrp.length).fill(''),
+          new Array(newLength - newDraftSrp.length).fill(''),
         );
       }
-      setNumberOfWords(newNumberOfWords);
-      setShowSrp(new Array(newNumberOfWords).fill(false));
+      setNumberOfWords(newLength);
+      setShowSrp(new Array(newLength).fill(false));
       setSuggestionStates(
-        new Array(newNumberOfWords)
+        new Array(newLength)
           .fill(null)
           .map(() => ({ visible: false, position: {} })),
       );
@@ -319,6 +315,38 @@ export default function SrpInput({ onChange, srpText }) {
             </Text>
           )}
         </label>
+        <div
+          style={{
+            display: Display.Flex,
+            justifyContent: JustifyContent.center,
+            paddingTop: '12px',
+            paddingLeft: '12px',
+            paddingRight: '12px',
+          }}
+        >
+          <div style={{ display: Display.Flex, gap: '8px' }}>
+            <Button
+              variant={
+                numberOfWords === 12
+                  ? ButtonVariant.Primary
+                  : ButtonVariant.Secondary
+              }
+              onClick={() => handleNumberOfWordsChange(12)}
+            >
+              {t('phraseType12Words')}
+            </Button>
+            <Button
+              variant={
+                numberOfWords === 24
+                  ? ButtonVariant.Primary
+                  : ButtonVariant.Secondary
+              }
+              onClick={() => handleNumberOfWordsChange(24)}
+            >
+              {t('phraseType24Words')}
+            </Button>
+          </div>
+        </div>
         {/* <BannerAlert
           className="import-srp__paste-tip"
           severity={Severity.Info}

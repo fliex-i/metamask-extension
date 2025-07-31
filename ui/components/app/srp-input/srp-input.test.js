@@ -1973,6 +1973,163 @@ describe('srp-input', () => {
     });
   });
 
+  describe('number of words selection', () => {
+    it('should show 12 and 24 word buttons', () => {
+      const onChange = jest.fn();
+
+      const { getByText } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      expect(getByText('I have a 12-word phrase')).toBeInTheDocument();
+      expect(getByText('I have a 24-word phrase')).toBeInTheDocument();
+    });
+
+    it('should default to 12 words', () => {
+      const onChange = jest.fn();
+
+      const { getByText, getByTestId, queryByTestId } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      // 12-word button should be primary (selected)
+      const button12 = getByText('I have a 12-word phrase');
+      expect(button12.closest('button')).toHaveClass('mm-button--primary');
+
+      // 24-word button should be secondary (not selected)
+      const button24 = getByText('I have a 24-word phrase');
+      expect(button24.closest('button')).toHaveClass('mm-button--secondary');
+
+      // Should show 12 input fields
+      expect(getByTestId('import-srp__srp-word-0')).toBeInTheDocument();
+      expect(getByTestId('import-srp__srp-word-11')).toBeInTheDocument();
+      expect(queryByTestId('import-srp__srp-word-12')).not.toBeInTheDocument();
+    });
+
+    it('should switch to 24 words when 24-word button is clicked', async () => {
+      const onChange = jest.fn();
+
+      const { getByText, getByTestId, queryByTestId } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      // Click 24-word button
+      await userEvent.click(getByText('I have a 24-word phrase'));
+
+      // 24-word button should now be primary (selected)
+      const button24 = getByText('I have a 24-word phrase');
+      expect(button24.closest('button')).toHaveClass('mm-button--primary');
+
+      // 12-word button should now be secondary (not selected)
+      const button12 = getByText('I have a 12-word phrase');
+      expect(button12.closest('button')).toHaveClass('mm-button--secondary');
+
+      // Should show 24 input fields
+      expect(getByTestId('import-srp__srp-word-0')).toBeInTheDocument();
+      expect(getByTestId('import-srp__srp-word-23')).toBeInTheDocument();
+      expect(queryByTestId('import-srp__srp-word-24')).not.toBeInTheDocument();
+    });
+
+    it('should switch back to 12 words when 12-word button is clicked', async () => {
+      const onChange = jest.fn();
+
+      const { getByText, getByTestId, queryByTestId } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      // First switch to 24 words
+      await userEvent.click(getByText('I have a 24-word phrase'));
+
+      // Then switch back to 12 words
+      await userEvent.click(getByText('I have a 12-word phrase'));
+
+      // 12-word button should be primary (selected)
+      const button12 = getByText('I have a 12-word phrase');
+      expect(button12.closest('button')).toHaveClass('mm-button--primary');
+
+      // 24-word button should be secondary (not selected)
+      const button24 = getByText('I have a 24-word phrase');
+      expect(button24.closest('button')).toHaveClass('mm-button--secondary');
+
+      // Should show 12 input fields
+      expect(getByTestId('import-srp__srp-word-0')).toBeInTheDocument();
+      expect(getByTestId('import-srp__srp-word-11')).toBeInTheDocument();
+      expect(queryByTestId('import-srp__srp-word-12')).not.toBeInTheDocument();
+    });
+
+    it('should preserve existing words when switching between 12 and 24', async () => {
+      const onChange = jest.fn();
+
+      const { getByText, getByTestId } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      // Type some words in 12-word mode
+      await userEvent.type(getByTestId('import-srp__srp-word-0'), 'test');
+      await userEvent.type(getByTestId('import-srp__srp-word-1'), 'word');
+
+      // Switch to 24 words
+      await userEvent.click(getByText('I have a 24-word phrase'));
+
+      // Words should be preserved
+      expect(getByTestId('import-srp__srp-word-0')).toHaveValue('test');
+      expect(getByTestId('import-srp__srp-word-1')).toHaveValue('word');
+
+      // Type more words in 24-word mode
+      await userEvent.type(getByTestId('import-srp__srp-word-12'), 'more');
+      await userEvent.type(getByTestId('import-srp__srp-word-13'), 'words');
+
+      // Switch back to 12 words
+      await userEvent.click(getByText('I have a 12-word phrase'));
+
+      // First 12 words should be preserved
+      expect(getByTestId('import-srp__srp-word-0')).toHaveValue('test');
+      expect(getByTestId('import-srp__srp-word-1')).toHaveValue('word');
+      expect(getByTestId('import-srp__srp-word-12')).toHaveValue('more');
+      expect(getByTestId('import-srp__srp-word-13')).toHaveValue('words');
+    });
+
+    it('should clear additional words when switching from 24 to 12', async () => {
+      const onChange = jest.fn();
+
+      const { getByText, getByTestId, queryByTestId } = renderWithLocalization(
+        <SrpInput
+          onChange={onChange}
+          srpText={enLocale.secretRecoveryPhrase.message}
+        />,
+      );
+
+      // Switch to 24 words
+      await userEvent.click(getByText('I have a 24-word phrase'));
+
+      // Type words beyond the 12th position
+      await userEvent.type(getByTestId('import-srp__srp-word-15'), 'extra');
+      await userEvent.type(getByTestId('import-srp__srp-word-20'), 'words');
+
+      // Switch back to 12 words
+      await userEvent.click(getByText('I have a 12-word phrase'));
+
+      // Words beyond 12 should not exist
+      expect(queryByTestId('import-srp__srp-word-15')).not.toBeInTheDocument();
+      expect(queryByTestId('import-srp__srp-word-20')).not.toBeInTheDocument();
+    });
+  });
+
   describe('paste error', () => {
     it('should show paste error when too many words are pasted', async () => {
       const onChange = jest.fn();

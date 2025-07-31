@@ -446,7 +446,7 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
               }
               onClick={() => handleSrpLengthChange(12)}
             >
-              {t('srpInputNumberOfWords', ['12'])}
+              {t('phraseType12Words')}
             </Button>
             <Button
               variant={
@@ -456,7 +456,7 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
               }
               onClick={() => handleSrpLengthChange(24)}
             >
-              {t('srpInputNumberOfWords', ['24'])}
+              {t('phraseType24Words')}
             </Button>
           </Box>
         </Box>
