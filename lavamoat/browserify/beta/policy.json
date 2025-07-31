@@ -5959,6 +5959,15 @@
         "string.prototype.matchall>es-abstract>gopd": true,
         "koa>is-generator-function>has-tostringtag": true
       }
+    },
+    "bip39": {
+      "globals": {
+        "crypto": true
+      },
+      "packages": {
+        "browserify>buffer": true,
+        "@noble/hashes": true
+      }
     }
   }
 }

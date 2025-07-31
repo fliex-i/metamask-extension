@@ -9294,6 +9294,15 @@
       "packages": {
         "gulp-zip>yazl>buffer-crc32": true
       }
+    },
+    "bip39": {
+      "globals": {
+        "crypto": true
+      },
+      "packages": {
+        "browserify>buffer": true,
+        "@noble/hashes": true
+      }
     }
   }
 }

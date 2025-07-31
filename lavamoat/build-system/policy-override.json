@@ -577,6 +577,15 @@
         "process.stderr": true,
         "process.stdout": true
       }
+    },
+    "bip39": {
+      "globals": {
+        "crypto": true
+      },
+      "packages": {
+        "browserify>buffer": true,
+        "@noble/hashes": true
+      }
     }
   }
 }

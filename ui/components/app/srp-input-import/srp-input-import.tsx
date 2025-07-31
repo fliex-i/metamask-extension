@@ -510,10 +510,10 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
                           nextWord(word.id);
                         }
                       }
-                      if (e.key === 'Backspace' && word.word.length === 0) {
-                        e.preventDefault();
-                        deleteWord(word.id);
-                      }
+                      // if (e.key === 'Backspace' && word.word.length === 0) {
+                      //   e.preventDefault();
+                      //   deleteWord(word.id);
+                      // }
                       if (e.key === 'Tab') {
                         const currentIndex = draftSrp.findIndex(
                           (w) => w.id === word.id,
