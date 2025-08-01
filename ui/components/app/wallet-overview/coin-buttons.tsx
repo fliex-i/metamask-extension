@@ -516,6 +516,7 @@ const CoinButtons = ({
           {showReceiveModal && selectedReceiveAddress && (
             <ReceiveModal
               address={selectedReceiveAddress}
+              token={selectedToken}
               onClose={() => {
                 setShowReceiveModal(false);
                 setSelectedReceiveAddress(null);

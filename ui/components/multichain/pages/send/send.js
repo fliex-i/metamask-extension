@@ -26,6 +26,7 @@ import {
   getDraftTransactionExists,
   getDraftTransactionID,
   getRecipient,
+  getRecipientUserInput,
   getRecipientWarningAcknowledgement,
   getSendAnalyticProperties,
   getSendErrors,
@@ -322,6 +323,7 @@ export const SendPage = () => {
 
   // Submit button
   const recipient = useSelector(getRecipient);
+  const recipientUserInput = useSelector(getRecipientUserInput);
   const showKnownRecipientWarning =
     recipient.warning === 'knownAddressRecipient';
   const recipientWarningAcknowledged = useSelector(
@@ -431,13 +433,15 @@ export const SendPage = () => {
         )}
         <Box marginTop={6}>
           <SendPageRecipientInput />
-          <div
-            style={{ color: '#DC3D43', fontSize: '14px', marginBottom: '10px' }}
-          >
-            {t('qrTips')}
-            <br />
-            {t('qrTips1')}
-          </div>
+          {!recipientUserInput && (
+            <div
+              style={{ color: '#DC3D43', fontSize: '14px', marginBottom: '10px' }}
+            >
+              {t('qrTips')}
+              <br />
+              {t('qrTips1')}
+            </div>
+          )}
           {isSendFormShown ? (
             <SendPageRecipientContent
               requireContractAddressAcknowledgement={

@@ -5,12 +5,7 @@ import PropTypes from 'prop-types';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import TextField from '../../ui/text-field';
 import { clearClipboard } from '../../../helpers/utils/util';
-import {
-  BannerAlert,
-  Text,
-  Button,
-  ButtonVariant,
-} from '../../component-library';
+import { BannerAlert, Text, Box } from '../../component-library';
 import ShowHideToggle from '../../ui/show-hide-toggle';
 import {
   TextAlign,
@@ -20,6 +15,12 @@ import {
   Display,
   FlexDirection,
   JustifyContent,
+  AlignItems,
+  BorderStyle,
+  BorderColor,
+  BorderRadius,
+  BlockSize,
+  FlexWrap,
 } from '../../../helpers/constants/design-system';
 import { parseSecretRecoveryPhrase } from './parse-secret-recovery-phrase';
 
@@ -315,7 +316,7 @@ export default function SrpInput({ onChange, srpText }) {
             </Text>
           )}
         </label>
-        <div
+        {/* <div
           style={{
             display: Display.Flex,
             justifyContent: JustifyContent.center,
@@ -339,8 +340,12 @@ export default function SrpInput({ onChange, srpText }) {
                   : ButtonVariant.Secondary
               }
               onClick={() => handleNumberOfWordsChange(12)}
+              padding={3}
+              style={{
+                fontSize: '14px',
+              }}
             >
-              {t('phraseType12Words')}
+              {t('phraseType12Words')} <br /> {t('phraseType12Words1')}
             </Button>
             <Button
               variant={
@@ -349,11 +354,76 @@ export default function SrpInput({ onChange, srpText }) {
                   : ButtonVariant.Secondary
               }
               onClick={() => handleNumberOfWordsChange(24)}
+              padding={3}
+              style={{
+                fontSize: '14px',
+              }}
             >
-              {t('phraseType24Words')}
+              {t('phraseType24Words')} <br /> {t('phraseType24Words1')}
             </Button>
           </div>
-        </div>
+        </div> */}
+        <Box
+          display={Display.Flex}
+          flexDirection={FlexDirection.Row}
+          gap={3}
+          width={BlockSize.Full}
+          flexWrap={FlexWrap.Wrap}
+          justifyContent={JustifyContent.center}
+          marginTop={4}
+        >
+          <Box
+            display={Display.Flex}
+            flexDirection={FlexDirection.Column}
+            alignItems={AlignItems.center}
+            justifyContent={JustifyContent.center}
+            padding={3}
+            borderStyle={BorderStyle.solid}
+            borderColor={
+              numberOfWords === 12
+                ? BorderColor.primaryDefault
+                : BorderColor.borderMuted
+            }
+            borderRadius={BorderRadius.MD}
+            style={{
+              flex: 1,
+              cursor: 'pointer',
+              backgroundColor: numberOfWords === 12 ? '#f0f8ff' : 'transparent',
+              textAlign: 'center',
+              fontSize: '14px',
+              maxWidth: '260px',
+            }}
+            onClick={() => handleNumberOfWordsChange(12)}
+          >
+            {t('phraseType12Words')} <br /> {t('phraseType12Words1')}
+          </Box>
+
+          <Box
+            display={Display.Flex}
+            flexDirection={FlexDirection.Column}
+            alignItems={AlignItems.center}
+            justifyContent={JustifyContent.center}
+            padding={3}
+            borderStyle={BorderStyle.solid}
+            borderColor={
+              numberOfWords === 24
+                ? BorderColor.primaryDefault
+                : BorderColor.borderMuted
+            }
+            borderRadius={BorderRadius.MD}
+            style={{
+              flex: 1,
+              cursor: 'pointer',
+              backgroundColor: numberOfWords === 24 ? '#f0f8ff' : 'transparent',
+              textAlign: 'center',
+              fontSize: '14px',
+              maxWidth: '260px',
+            }}
+            onClick={() => handleNumberOfWordsChange(24)}
+          >
+            {t('phraseType24Words')} <br /> {t('phraseType24Words1')}
+          </Box>
+        </Box>
         {/* <BannerAlert
           className="import-srp__paste-tip"
           severity={Severity.Info}

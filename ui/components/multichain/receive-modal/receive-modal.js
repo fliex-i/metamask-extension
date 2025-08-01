@@ -20,6 +20,7 @@ import {
   FlexDirection,
 } from '../../../helpers/constants/design-system';
 import { endTrace, TraceName } from '../../../../shared/lib/trace';
+import { AssetType } from '../../../../shared/constants/transaction';
 
 export const ReceiveModal = ({ address, token, onClose, onBack }) => {
   const t = useI18nContext();
@@ -32,6 +33,23 @@ export const ReceiveModal = ({ address, token, onClose, onBack }) => {
     () => ({ data: currentAccount.address }),
     [currentAccount],
   );
+
+  // Generate token display name based on token prop
+  const tokenDisplayName = useMemo(() => {
+    if (!token) {
+      return 'ETH'; // Default to ETH if no token is provided
+    }
+
+    if (token.type === AssetType.native) {
+      return token.symbol;
+    }
+
+    if (token.type === AssetType.token) {
+      return `${token.symbol}`;
+    }
+
+    return token.symbol || 'Token';
+  }, [token]);
 
   useEffect(() => {
     endTrace({ name: TraceName.ReceiveModal });
@@ -54,7 +72,7 @@ export const ReceiveModal = ({ address, token, onClose, onBack }) => {
           style={{ overflowY: 'auto' }}
         >
           <div style={{ textAlign: 'center', fontSize: '20px' }}>
-            USDT (ERC-20)
+            {tokenDisplayName} (ERC-20)
           </div>
           <div
             className="attention"

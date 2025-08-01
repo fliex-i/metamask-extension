@@ -115,7 +115,7 @@ export default class TransactionBreakdown extends PureComponent {
             />
           </TransactionBreakdownRow>
         )}
-        <TransactionBreakdownRow
+        {/* <TransactionBreakdownRow
           title={
             l1HexGasTotal
               ? t('transactionHistoryL2GasLimitLabel')
@@ -131,8 +131,8 @@ export default class TransactionBreakdown extends PureComponent {
               value={gas}
             />
           )}
-        </TransactionBreakdownRow>
-        {typeof gasUsed === 'string' && (
+        </TransactionBreakdownRow> */}
+        {/* {typeof gasUsed === 'string' && (
           <TransactionBreakdownRow
             title={`${t('gasUsed')} (${t('units')})`}
             className="transaction-breakdown__row-title"
@@ -142,8 +142,8 @@ export default class TransactionBreakdown extends PureComponent {
               value={gasUsed}
             />
           </TransactionBreakdownRow>
-        )}
-        {isEIP1559Transaction && typeof baseFee !== 'undefined' ? (
+        )} */}
+        {/* {isEIP1559Transaction && typeof baseFee !== 'undefined' ? (
           <TransactionBreakdownRow title={t('transactionHistoryBaseFee')}>
             <CurrencyDisplay
               className="transaction-breakdown__value"
@@ -168,7 +168,7 @@ export default class TransactionBreakdown extends PureComponent {
               hideLabel
             />
           </TransactionBreakdownRow>
-        ) : null}
+        ) : null} */}
         {!isEIP1559Transaction && (
           <TransactionBreakdownRow
             title={
@@ -192,7 +192,7 @@ export default class TransactionBreakdown extends PureComponent {
             )}
           </TransactionBreakdownRow>
         )}
-        {isEIP1559Transaction && (
+        {/* {isEIP1559Transaction && (
           <TransactionBreakdownRow title={t('transactionHistoryTotalGasFee')}>
             <UserPreferencedCurrencyDisplay
               className="transaction-breakdown__value"
@@ -251,7 +251,7 @@ export default class TransactionBreakdown extends PureComponent {
               />
             )}
           </TransactionBreakdownRow>
-        )}
+        )} */}
         <TransactionBreakdownRow title={t('total')}>
           <UserPreferencedCurrencyDisplay
             className="transaction-breakdown__value transaction-breakdown__value--eth-total"

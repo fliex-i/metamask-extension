@@ -162,8 +162,9 @@ const getTransactionGroupRecipientAddressFilterAllChain = (
 const tokenTransactionFilter = ({
   initialTransaction: { type, destinationTokenSymbol, sourceTokenSymbol },
 }) => {
+  // Show all token transactions including receives
   if (TOKEN_CATEGORY_HASH[type]) {
-    return false;
+    return true; // Changed from false to true to show token transactions
   } else if (
     [TransactionType.swap, TransactionType.swapAndSend].includes(type)
   ) {

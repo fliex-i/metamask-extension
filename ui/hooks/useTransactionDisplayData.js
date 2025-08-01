@@ -396,12 +396,25 @@ export function useTransactionDisplayData(transactionGroup) {
     type === TransactionType.tokenMethodTransferFrom ||
     type === TransactionType.tokenMethodTransfer
   ) {
-    category = TransactionGroupCategory.send;
-    title = t('sendSpecifiedTokens', [
-      token?.symbol || nft?.name || t('token'),
-    ]);
-    recipientAddress = getTokenAddressParam(tokenData);
-    subtitle = t('toAddress', [shortenAddress(recipientAddress)]);
+    // Check if this is a receive transaction (to current user's address)
+    const isReceiveTransaction = isEqualCaseInsensitive(
+      getTokenAddressParam(tokenData),
+      selectedAddress
+    );
+
+    if (isReceiveTransaction) {
+      category = TransactionGroupCategory.receive;
+      title = t('receive');
+      prefix = '';
+      subtitle = t('fromAddress', [shortenAddress(senderAddress)]);
+    } else {
+      category = TransactionGroupCategory.send;
+      title = t('sendSpecifiedTokens', [
+        token?.symbol || nft?.name || t('token'),
+      ]);
+      recipientAddress = getTokenAddressParam(tokenData);
+      subtitle = t('toAddress', [shortenAddress(recipientAddress)]);
+    }
   } else if (type === TransactionType.tokenMethodSafeTransferFrom) {
     category = TransactionGroupCategory.send;
     title = t('safeTransferFrom');

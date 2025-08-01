@@ -70,7 +70,9 @@ export default function ImportSrpSettings() {
       hasUpperCase(secretRecoveryPhrase) ||
       !isValidMnemonic(secretRecoveryPhrase)
     ) {
-      newSrpError = t('invalidSeedPhraseNotFound');
+      newSrpError = `${t('invalidSeedPhraseNotFound')}\n${t(
+        'invalidSeedPhraseNotFound1',
+      )}`;
     }
 
     setSrpError(newSrpError);
@@ -93,7 +95,8 @@ export default function ImportSrpSettings() {
     } catch (error) {
       if (
         error instanceof Error &&
-        error.message === 'This Secret Recovery Phrase has already been imported.'
+        error.message ===
+          'This Secret Recovery Phrase has already been imported.'
       ) {
         setSrpError(t('duplicateAccountError1'));
       } else {
@@ -141,9 +144,7 @@ export default function ImportSrpSettings() {
                 ariaLabel={t('back')}
                 style={{ background: '#EDEDED', borderRadius: '99px' }}
               />
-              <Text variant={TextVariant.headingLg}>
-                {t('importSrp')}
-              </Text>
+              <Text variant={TextVariant.headingLg}>{t('importSrp')}</Text>
             </Box>
             <Text variant={TextVariant.bodyMd}>{t('importPrivateKeys')}</Text>
             <br />

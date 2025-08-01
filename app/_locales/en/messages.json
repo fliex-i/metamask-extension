@@ -3010,6 +3010,9 @@
   "invalidSeedPhraseNotFound": {
     "message": "Secret Recovery Phrase not found."
   },
+  "invalidSeedPhraseNotFound1": {
+    "message": ""
+  },
   "ipfsGateway": {
     "message": "IPFS gateway"
   },
@@ -4193,6 +4196,9 @@
   "onboardingSrpImportError": {
     "message": "Use only lowercase letters, check your spelling, and put the words in the original order."
   },
+  "onboardingSrpImportError1": {
+    "message": ""
+  },
   "onboardingSrpInputClearAll": {
     "message": "Clear all"
   },
@@ -5261,13 +5267,19 @@
     "message": "Save Your Secret Recovery Phrase"
   },
   "phraseTypeSelectorTitle": {
-    "message": "Select Recovery Phrase Type"
+    "message": "Select Secret Recovery Phrase Type"
   },
   "phraseType12Words": {
     "message": "12-Word Recovery Phrase"
   },
+  "phraseType12Words1": {
+    "message": ""
+  },
   "phraseType24Words": {
     "message": "24-Word Recovery Phrase"
+  },
+  "phraseType24Words1": {
+    "message": ""
   },
   "phraseType12Description": {
     "message": "Standard BIP39 recovery phrase\nShorter and easier to remember"
@@ -7556,5 +7568,8 @@
   },
   "srpInputNumberOfWords24": {
     "message": "Use 24-word mnemonic"
+  },
+  "saveName": {
+    "message": "Save"
   }
 }

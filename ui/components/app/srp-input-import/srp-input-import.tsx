@@ -13,7 +13,11 @@ import {
 } from '../../component-library';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import {
+  AlignItems,
   BackgroundColor,
+  BlockSize,
+  BorderColor,
+  BorderStyle,
   BorderRadius,
   Display,
   FlexDirection,
@@ -431,7 +435,7 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
         borderRadius={BorderRadius.SM}
         className="srp-input-import__container"
       >
-        <Box
+        {/* <Box
           display={Display.Flex}
           justifyContent={JustifyContent.center}
           paddingTop={3}
@@ -451,8 +455,12 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
                   : ButtonVariant.Secondary
               }
               onClick={() => handleSrpLengthChange(12)}
+              padding={3}
+              style={{
+                fontSize: '14px',
+              }}
             >
-              {t('phraseType12Words')}
+              {t('phraseType12Words')} <br /> {t('phraseType12Words1')}
             </Button>
             <Button
               variant={
@@ -461,9 +469,76 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
                   : ButtonVariant.Secondary
               }
               onClick={() => handleSrpLengthChange(24)}
+              padding={3}
+              style={{
+                fontSize: '14px',
+              }}
             >
-              {t('phraseType24Words')}
+              {t('phraseType24Words')} <br /> {t('phraseType24Words1')}
             </Button>
+          </Box>
+        </Box> */}
+        <Box
+          display={Display.Flex}
+          flexDirection={FlexDirection.Row}
+          gap={3}
+          width={BlockSize.Full}
+          flexWrap={FlexWrap.Wrap}
+          justifyContent={JustifyContent.center}
+          paddingLeft={4}
+          paddingRight={4}
+          paddingTop={4}
+        >
+          <Box
+            display={Display.Flex}
+            flexDirection={FlexDirection.Column}
+            alignItems={AlignItems.center}
+            justifyContent={JustifyContent.center}
+            padding={3}
+            borderStyle={BorderStyle.solid}
+            borderColor={
+              srpLength === 12
+                ? BorderColor.primaryDefault
+                : BorderColor.borderMuted
+            }
+            borderRadius={BorderRadius.MD}
+            style={{
+              flex: 1,
+              cursor: 'pointer',
+              backgroundColor: srpLength === 12 ? '#f0f8ff' : 'transparent',
+              textAlign: 'center',
+              fontSize: '14px',
+              maxWidth: '260px',
+            }}
+            onClick={() => handleSrpLengthChange(12)}
+          >
+            {t('phraseType12Words')} <br /> {t('phraseType12Words1')}
+          </Box>
+
+          <Box
+            display={Display.Flex}
+            flexDirection={FlexDirection.Column}
+            alignItems={AlignItems.center}
+            justifyContent={JustifyContent.center}
+            padding={3}
+            borderStyle={BorderStyle.solid}
+            borderColor={
+              srpLength === 24
+                ? BorderColor.primaryDefault
+                : BorderColor.borderMuted
+            }
+            borderRadius={BorderRadius.MD}
+            style={{
+              flex: 1,
+              cursor: 'pointer',
+              backgroundColor: srpLength === 24 ? '#f0f8ff' : 'transparent',
+              textAlign: 'center',
+              fontSize: '14px',
+              maxWidth: '260px',
+            }}
+            onClick={() => handleSrpLengthChange(24)}
+          >
+            {t('phraseType24Words')} <br /> {t('phraseType24Words1')}
           </Box>
         </Box>
 
@@ -605,7 +680,8 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
       {misSpelledWords.length > 0 && (
         <Box marginTop={2}>
           <Text color={TextColor.errorDefault} variant={TextVariant.bodySm}>
-            {t('onboardingSrpImportError')}
+            {t('onboardingSrpImportError')} <br />{' '}
+            {t('onboardingSrpImportError1')}
           </Text>
         </Box>
       )}

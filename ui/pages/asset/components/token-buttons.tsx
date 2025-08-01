@@ -56,6 +56,8 @@ import { getMultichainIsEvm } from '../../../selectors/multichain';
 
 ///: BEGIN:ONLY_INCLUDE_IF(multichain)
 import { useHandleSendNonEvm } from '../../../components/app/wallet-overview/hooks/useHandleSendNonEvm';
+import { ReceiveModal } from '../../../components/multichain/receive-modal';
+import ReceiveAssetListModal from '../../../components/multichain/receive-modal/receive-asset-list-modal';
 ///: END:ONLY_INCLUDE_IF
 
 ///: BEGIN:ONLY_INCLUDE_IF(solana-swaps)
@@ -64,6 +66,8 @@ import { MultichainNetworks } from '../../../../shared/constants/multichain/netw
 
 import { getCurrentChainId } from '../../../../shared/modules/selectors/networks';
 import { Asset } from '../types/asset';
+import { trace, TraceName } from '../../../../shared/lib/trace';
+import { SwapsEthToken } from '../../../selectors';
 
 const TokenButtons = ({
   token,
@@ -106,6 +110,18 @@ const TokenButtons = ({
   ///: BEGIN:ONLY_INCLUDE_IF(multichain)
   const handleSendNonEvm = useHandleSendNonEvm(token.address as CaipAssetType);
   ///: END:ONLY_INCLUDE_IF
+
+  // Receive modal state
+  const [showReceiveModal, setShowReceiveModal] = useState(false);
+  const [showAssetListModal, setShowAssetListModal] = useState(false);
+  const [selectedReceiveAddress, setSelectedReceiveAddress] = useState<
+    string | null
+  >(null);
+  const [selectedToken, setSelectedToken] = useState<SwapsEthToken | null>(
+    null,
+  );
+
+  const { address: selectedAddress } = account;
 
   useEffect(() => {
     const handleResize = () => {
@@ -285,8 +301,204 @@ const TokenButtons = ({
     multichainChainId,
   ]);
 
-  console.log('displayNewIconButtons:', displayNewIconButtons);
+  const handleReceiveOnClick = useCallback(() => {
+    trace({ name: TraceName.ReceiveModal });
+    trackEvent({
+      event: MetaMetricsEventName.NavReceiveButtonClicked,
+      category: MetaMetricsEventCategory.Navigation,
+      properties: {
+        text: 'Receive',
+        location: 'Token Overview',
+        chain_id: currentChainId,
+      },
+    });
+    setShowAssetListModal(true);
+  }, [currentChainId, trackEvent]);
+
+    console.log('displayNewIconButtons:', displayNewIconButtons);
   console.log('process.env.REMOVE_GNS:', process.env.REMOVE_GNS);
+
+  ///: BEGIN:ONLY_INCLUDE_IF(multichain)
+  return (
+    <>
+      {showAssetListModal && (
+        <ReceiveAssetListModal
+          isOpen={showAssetListModal}
+          onClose={() => setShowAssetListModal(false)}
+          onSelectAsset={(_chainId, address, token) => {
+            const receiveAddress = address || selectedAddress || '';
+            setSelectedReceiveAddress(receiveAddress);
+            setShowAssetListModal(false);
+            setShowReceiveModal(true);
+            setSelectedToken(token);
+          }}
+        />
+      )}
+      {showReceiveModal && selectedReceiveAddress && (
+        <ReceiveModal
+          address={selectedReceiveAddress}
+          token={selectedToken}
+          onClose={() => {
+            setShowReceiveModal(false);
+            setSelectedReceiveAddress(null);
+            setSelectedToken(null);
+          }}
+          onBack={() => {
+            setShowReceiveModal(false);
+            setShowAssetListModal(true);
+          }}
+        />
+      )}
+      <Box
+        display={Display.Flex}
+        gap={3}
+        justifyContent={JustifyContent.spaceEvenly}
+      >
+        <IconButton
+          className="token-overview__button"
+          Icon={
+            displayNewIconButtons ? (
+              <Icon
+                name={IconName.Money}
+                color={IconColor.iconAlternative}
+                size={IconSize.Md}
+              />
+            ) : (
+              <Icon
+                name={IconName.PlusAndMinus}
+                color={IconColor.iconDefault}
+                size={IconSize.Sm}
+              />
+            )
+          }
+          label={
+            isWideScreen
+              ? t('buyAndSell')
+              : `${t('buyAndSell1')}\n${t('buyAndSell2')}`
+          }
+          data-testid="token-overview-buy"
+          onClick={handleBuyAndSellOnClick}
+          // TODO: Fix in https://github.com/MetaMask/metamask-extension/issues/31880
+          // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+          disabled={token.isERC721 || !isBuyableChain}
+          round={!displayNewIconButtons}
+          textProps={{
+            ellipsis: false,
+          }}
+        />
+
+        <IconButton
+          className="token-overview__button"
+          Icon={
+            displayNewIconButtons ? (
+              <Icon
+                name={IconName.SwapHorizontal}
+                color={IconColor.iconAlternative}
+                size={IconSize.Md}
+              />
+            ) : (
+              <Icon
+                name={IconName.SwapHorizontal}
+                color={IconColor.iconDefault}
+                size={IconSize.Sm}
+              />
+            )
+          }
+          onClick={handleSwapOnClick}
+          label={isWideScreen ? t('swap') : `${t('swap1')}\n${t('swap2')}`}
+          disabled={!isSwapsChain}
+          round={!displayNewIconButtons}
+          textProps={{
+            ellipsis: false,
+          }}
+        />
+
+        <IconButton
+          className="token-overview__button"
+          onClick={handleSendOnClick}
+          Icon={
+            displayNewIconButtons ? (
+              <Icon
+                name={IconName.Send}
+                color={IconColor.iconAlternative}
+                size={IconSize.Md}
+              />
+            ) : (
+              <Icon
+                name={IconName.Arrow2UpRight}
+                color={IconColor.iconDefault}
+                size={IconSize.Sm}
+              />
+            )
+          }
+          label={t('send')}
+          data-testid="eth-overview-send"
+          disabled={token.isERC721}
+          round={!displayNewIconButtons}
+          textProps={{
+            ellipsis: false,
+          }}
+        />
+
+        <IconButton
+          className="token-overview__button"
+          data-testid="token-overview-receive"
+          Icon={
+            displayNewIconButtons ? (
+              <Icon
+                name={IconName.QrCode}
+                color={IconColor.iconAlternative}
+                size={IconSize.Md}
+              />
+            ) : (
+              <Icon
+                name={IconName.ScanBarcode}
+                color={IconColor.iconDefault}
+                size={IconSize.Sm}
+              />
+            )
+          }
+          label={t('receiveBtn')}
+          onClick={handleReceiveOnClick}
+          round={!displayNewIconButtons}
+          textProps={{
+            ellipsis: false,
+          }}
+        />
+
+        {/* {displayNewIconButtons ? null : (
+          <IconButton
+            className="token-overview__button"
+            data-testid="token-overview-bridge"
+            Icon={
+              displayNewIconButtons ? (
+                <Icon
+                  name={IconName.Bridge}
+                  color={IconColor.iconAlternative}
+                  size={IconSize.Md}
+                />
+              ) : (
+                <Icon
+                  name={IconName.Bridge}
+                  color={IconColor.iconDefault}
+                  size={IconSize.Sm}
+                />
+              )
+            }
+            label={t('bridge')}
+            onClick={() => handleBridgeOnClick(false)}
+            disabled={!isBridgeChain}
+            round={!displayNewIconButtons}
+            textProps={{
+              ellipsis: false,
+            }}
+          />
+        )} */}
+      </Box>
+    </>
+  );
+  ///: END:ONLY_INCLUDE_IF
+
   return (
     <Box
       display={Display.Flex}

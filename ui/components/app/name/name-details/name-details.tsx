@@ -438,7 +438,7 @@ export default function NameDetails({
               onClick={handleSaveClick}
               size={ButtonSize.Lg}
             >
-              {t('save')}
+              {t('saveName')}
             </Button>
             {showFooterWarning && (
               <Text

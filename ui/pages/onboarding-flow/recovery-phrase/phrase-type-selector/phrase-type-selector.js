@@ -15,11 +15,11 @@ import {
   AlignItems,
   BlockSize,
   TextVariant,
-  TextColor,
   BorderColor,
   BorderRadius,
   BorderStyle,
   FlexWrap,
+  TextAlign,
 } from '../../../../helpers/constants/design-system';
 
 export default function PhraseTypeSelector({
@@ -66,12 +66,12 @@ export default function PhraseTypeSelector({
             flex: 1,
             cursor: 'pointer',
             backgroundColor: selectedType === '12' ? '#f0f8ff' : 'transparent',
+            textAlign: 'center',
+            fontSize: '14px',
           }}
           onClick={() => onTypeSelect('12')}
         >
-          <Text variant={TextVariant.headingSm} style={{ fontSize: '16px' }}>
-            {t('phraseType12Words')}
-          </Text>
+          {t('phraseType12Words')} <br /> {t('phraseType12Words1')}
         </Box>
 
         <Box
@@ -91,12 +91,12 @@ export default function PhraseTypeSelector({
             flex: 1,
             cursor: 'pointer',
             backgroundColor: selectedType === '24' ? '#f0f8ff' : 'transparent',
+            textAlign: 'center',
+            fontSize: '14px',
           }}
           onClick={() => onTypeSelect('24')}
         >
-          <Text variant={TextVariant.headingSm} style={{ fontSize: '16px' }}>
-            {t('phraseType24Words')}
-          </Text>
+          {t('phraseType24Words')} <br /> {t('phraseType24Words1')}
         </Box>
       </Box>
     </Box>

@@ -398,7 +398,7 @@
     "message": "このトランザクションの推定増減額が更新されました。先に進む前によく確認してください。"
   },
   "alertMessageFirstTimeInteraction": {
-    "message": "このアドレスとやり取りするのは初めてです。先に進む前に、これが正しいことを確認してください。"
+    "message": "このアドレスとの取引は初めてです。続行する前に、正しいアドレスかどうか必ず確認してください。"
   },
   "alertMessageGasEstimateFailed": {
     "message": "正確な手数料を提供できず、この見積もりは高い可能性があります。カスタムガスリミットの入力をお勧めしますが、それでもトランザクションが失敗するリスクがあります。"
@@ -437,7 +437,7 @@
     "message": "結果が変更されました"
   },
   "alertReasonFirstTimeInteraction": {
-    "message": "初回のやり取り"
+    "message": "ご注意ください"
   },
   "alertReasonGasEstimateFailed": {
     "message": "不正確な手数料"
@@ -3109,6 +3109,12 @@
   "loadingTokenList": {
     "message": "トークンリストをロードしています"
   },
+  "invalidSeedPhraseNotFound": {
+    "message": "シークレットリカバリーフレーズが異なります。"
+  },
+  "invalidSeedPhraseNotFound1": {
+    "message": "再度正確なつづり、順番であることを確認の上お試しください。"
+  },
   "localhost": {
     "message": "Localhost 8545"
   },
@@ -3317,7 +3323,7 @@
     "message": "名前がすでに使用されています"
   },
   "nameInstructionsNew": {
-    "message": "このアドレスを知っている場合は、今後認識できるようニックネームを付けてください。",
+    "message": "このウォレットアドレスを今後も利用する場合は、アドレス帳に登録しておくと次回以降の操作がスムーズになります。",
     "description": "Instruction text in name component modal when value is not recognised."
   },
   "nameInstructionsRecognized": {
@@ -3329,7 +3335,7 @@
     "description": "Instruction text in name component modal when value is saved."
   },
   "nameLabel": {
-    "message": "ニックネーム",
+    "message": "登録名",
     "description": "Label above name input field in name component modal."
   },
   "nameModalMaybeProposedName": {
@@ -3337,7 +3343,7 @@
     "description": "$1 is the proposed name"
   },
   "nameModalTitleNew": {
-    "message": "不明なアドレス",
+    "message": "アドレス帳に追加しますか？",
     "description": "Title of the modal created by the name component when value is not recognised."
   },
   "nameModalTitleRecognized": {
@@ -3365,7 +3371,7 @@
     "message": "MetaMask"
   },
   "nameSetPlaceholder": {
-    "message": "ニックネームを選択...",
+    "message": "登録名を記入ください",
     "description": "Placeholder text for name input field in name component modal."
   },
   "nativeNetworkPermissionRequestDescription": {
@@ -3629,7 +3635,7 @@
     "message": "以前保有"
   },
   "nickname": {
-    "message": "ニックネーム"
+    "message": "登録名"
   },
   "noAccountsFound": {
     "message": "指定された検索クエリでアカウントが見つかりませんでした"
@@ -5093,13 +5099,19 @@
     "message": "シークレットリカバリーフレーズを確認"
   },
   "phraseTypeSelectorTitle": {
-    "message": "リカバリーフレーズの種類を選択"
+    "message": "シークレットリカバリーフレーズを選択"
   },
   "phraseType12Words": {
-    "message": "12語のリカバリーフレーズ"
+    "message": "12単語の"
+  },
+  "phraseType12Words1": {
+    "message": "シークレットリカバリーフレーズ"
   },
   "phraseType24Words": {
-    "message": "24語のリカバリーフレーズ"
+    "message": "24単語の"
+  },
+  "phraseType24Words1": {
+    "message": "シークレットリカバリーフレーズ"
   },
   "phraseType12Description": {
     "message": "標準BIP39リカバリーフレーズ\nより短く、覚えやすい"
@@ -5366,7 +5378,7 @@
     "message": "予測される増減額"
   },
   "simulationDetailsTitleTooltip": {
-    "message": "予測される変化は、このトランザクションを実行すると起きる可能性がある変化です。これは単に予測に過ぎず、保証されたものではありません。"
+    "message": "このトランザクション実行後に起こり得る変化の目安です。あくまで予測であり、確定ではありません。"
   },
   "simulationDetailsTotalFiat": {
     "message": "合計 = $1",
@@ -7205,7 +7217,10 @@
     "message": "ウォレットのインポートに成功"
   },
   "onboardingSrpImportError": {
-    "message": "小文字のみを使用し、スペルを確認し、単語の順序は元のままにしてください."
+    "message": "シークレットリカバリーフレーズが異なります。"
+  },
+  "onboardingSrpImportError1": {
+    "message": "再度正確なつづり、順番であることを確認の上お試しください。"
   },
   "unlockPageIncorrectPasswords": {
     "message": "パスワードが正しくありません"
@@ -7267,5 +7282,8 @@
   },
   "srpInputNumberOfWords24": {
     "message": "24語のニーモニックを使用する"
+  },
+  "saveName": {
+    "message": "アドレス帳へ追加"
   }
 }

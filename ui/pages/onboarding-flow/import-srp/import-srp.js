@@ -83,7 +83,9 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
       hasUpperCase(secretRecoveryPhrase) ||
       !isValidMnemonic(secretRecoveryPhrase)
     ) {
-      newSrpError = t('invalidSeedPhraseNotFound');
+      newSrpError = `${t('invalidSeedPhraseNotFound')}\n${t(
+        'invalidSeedPhraseNotFound1',
+      )}`;
     }
 
     setSrpError(newSrpError);
