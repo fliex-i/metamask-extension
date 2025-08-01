@@ -199,7 +199,12 @@ export default function ImportSRP({ submitSecretRecoveryPhrase }) {
                     variant={TextVariant.bodySm}
                     color={TextColor.errorDefault}
                   >
-                    {srpError}
+                    {srpError.split('\n').map((line, index) => (
+                      <React.Fragment key={index}>
+                        {line}
+                        {index < srpError.split('\n').length - 1 && <br />}
+                      </React.Fragment>
+                    ))}
                   </Text>
                 </Box>
               )}

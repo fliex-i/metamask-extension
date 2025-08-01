@@ -433,9 +433,13 @@ export const SendPage = () => {
         )}
         <Box marginTop={6}>
           <SendPageRecipientInput />
-          {!recipientUserInput && (
+          {!recipientUserInput && !isSendFormShown && (
             <div
-              style={{ color: '#DC3D43', fontSize: '14px', marginBottom: '10px' }}
+              style={{
+                color: '#DC3D43',
+                fontSize: '14px',
+                marginBottom: '10px',
+              }}
             >
               {t('qrTips')}
               <br />
