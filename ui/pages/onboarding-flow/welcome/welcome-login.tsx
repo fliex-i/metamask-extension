@@ -1,6 +1,7 @@
 // import EventEmitter from 'events';
 import React from 'react';
 import classnames from 'classnames';
+import { useSelector } from 'react-redux';
 // import Mascot from '../../../components/ui/mascot';
 import {
   Box,
@@ -20,6 +21,7 @@ import {
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import { isFlask, isBeta } from '../../../helpers/utils/build-types';
 import ExpandableInputButton from '../../../components/ui/expandable-input-button';
+import { getCurrentLocale } from '../../../ducks/locale/locale';
 
 type WelcomeLoginProps = {
   onCreate: () => void;
@@ -31,6 +33,18 @@ export default function WelcomeLogin({
   onImport,
 }: WelcomeLoginProps) {
   const t = useI18nContext();
+  const currentLocale = useSelector(getCurrentLocale);
+
+  // Determine the terms and conditions URL based on current locale
+  const termsConditionsUrl = currentLocale === 'ja'
+    ? 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84_JP.pdf'
+    : 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_Terms_and_Conditions_EN.pdf';
+
+  // Determine the privacy policy URL based on current locale
+  const privacyPolicyUrl = currentLocale === 'ja'
+    ? 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_%E3%83%95%E3%82%9A%E3%83%A9%E3%82%A4%E3%83%8F%E3%82%99%E3%82%B7%E3%83%BC%E3%83%9B%E3%82%9A%E3%83%AA%E3%82%B7%E3%83%BC_JP.pdf'
+    : 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_Privacy_Policy_EN.pdf';
+
   return (
     <Box
       style={{ height: '100%' }}
@@ -130,7 +144,7 @@ export default function WelcomeLogin({
           <Box
             type="link"
             as="a"
-            href="https://www.crypto-bridge.co/wp-content/uploads/2025/06/ENJP-CryptoBridge-Terms-Conditions-2025-06-12.pdf"
+            href={termsConditionsUrl}
             target="_blank"
             className="welcome-login__footer__link"
           >
@@ -142,7 +156,7 @@ export default function WelcomeLogin({
           <Box
             type="link"
             as="a"
-            href="https://www.crypto-bridge.co/wp-content/uploads/2025/06/EN_JP-CryptoBridge-Privacy-Policy-2025-06-12-1.pdf"
+            href={privacyPolicyUrl}
             target="_blank"
             className="welcome-login__footer__link"
           >
