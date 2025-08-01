@@ -4822,6 +4822,10 @@
   "receive": {
     "message": "Receive"
   },
+  "receiveToken": {
+    "message": "Receive $1",
+    "description": "$1 is the token symbol"
+  },
   "receiveBtn": {
     "message": "Receive"
   },

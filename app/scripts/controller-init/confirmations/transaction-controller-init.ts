@@ -92,7 +92,7 @@ export const TransactionControllerInit: ControllerInitFunction<
     },
     incomingTransactions: {
       client: `extension-${process.env.METAMASK_VERSION?.replace(/\./gu, '-')}`,
-      includeTokenTransfers: true,
+      includeTokenTransfers: false,
       isEnabled: () =>
         preferencesController().state.useExternalServices &&
         onboardingController().state.completedOnboarding,

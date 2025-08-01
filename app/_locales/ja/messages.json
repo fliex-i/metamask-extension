@@ -368,7 +368,7 @@
     "message": "AirGap Vault"
   },
   "alert": {
-    "message": "エラー：残高不足"
+    "message": "ご注意ください"
   },
   "alertAccountTypeUpgradeMessage": {
     "message": "アカウントをスマートアカウントにアップデートしようとしています。アカウントアドレスはそのままで、より高速なトランザクションと低いネットワーク手数料が利用できるようになります。$1。"
@@ -4663,6 +4663,10 @@
   },
   "receive": {
     "message": "仮想通貨の受取"
+  },
+  "receiveToken": {
+    "message": "$1の受取",
+    "description": "$1 is the token symbol"
   },
   "receiveBtn": {
     "message": "受取"
