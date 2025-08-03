@@ -68,3 +68,45 @@
     padding: 16px;
   }
 }
+
+// Activity tabs styles
+.activity-tabs {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding: 0 16px;
+
+  &__tab {
+    &--active {
+      color: var(--color-primary-default);
+      border-bottom: 2px solid var(--color-primary-default);
+    }
+  }
+
+  &.activity-receive-tabs{
+    .tab{
+      width: 120px;
+    }
+  }
+}
+
+// Receive transaction list styles
+.receive-transaction-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  &__transactions {
+    flex: 1;
+  }
+
+  &__date-group {
+    margin-bottom: 16px;
+  }
+}
+
+// 确保接收交易的状态显示为绿色
+.receive-transaction-list .transaction-status-label {
+  color: var(--color-success-default) !important;
+}
+

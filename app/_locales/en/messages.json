@@ -6959,7 +6959,7 @@
     "message": "not connected"
   },
   "total": {
-    "message": "Total"
+    "message": "Network Fee"
   },
   "totalBalance": {
     "message": "Total balance"
@@ -7575,5 +7575,17 @@
   },
   "saveName": {
     "message": "Save"
+  },
+  "noReceiveTransactions": {
+    "message": "No receive transactions"
+  },
+  "error": {
+    "message": "Error"
+  },
+  "transactionId": {
+    "message": "Transaction ID"
+  },
+  "date": {
+    "message": "Date"
   }
 }

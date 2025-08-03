@@ -159,18 +159,51 @@ const getTransactionGroupRecipientAddressFilterAllChain = (
   };
 };
 
+// 判断是否为发送交易的函数
+const isSendTransaction = (transaction) => {
+  const { type } = transaction;
+
+  // 排除接收交易
+  if (type === TransactionType.incoming) {
+    return false;
+  }
+
+  // 包含发送交易类型
+  const sendTypes = [
+    TransactionType.simpleSend,
+    TransactionType.tokenMethodTransfer,
+    TransactionType.contractInteraction,
+    TransactionType.swap,
+    TransactionType.swapAndSend,
+  ];
+
+  return sendTypes.includes(type);
+};
+
+// 过滤只显示发送交易的函数
+const sendTransactionFilter = (transactionGroup) => {
+  return transactionGroup.transactions.some(isSendTransaction);
+};
+
 const tokenTransactionFilter = ({
   initialTransaction: { type, destinationTokenSymbol, sourceTokenSymbol },
 }) => {
-  // Show all token transactions including receives
+  // 只显示发送类型的交易，排除接收交易
+  if (type === TransactionType.incoming) {
+    return false; // 隐藏接收交易
+  }
+
+  // 显示发送交易
   if (TOKEN_CATEGORY_HASH[type]) {
-    return true; // Changed from false to true to show token transactions
+    return true; // 显示代币发送交易
   } else if (
     [TransactionType.swap, TransactionType.swapAndSend].includes(type)
   ) {
     return destinationTokenSymbol === 'ETH' || sourceTokenSymbol === 'ETH';
   }
-  return true;
+
+  // 显示其他发送类型
+  return type === TransactionType.simpleSend || type === TransactionType.contractInteraction;
 };
 
 const getFilteredTransactionGroups = (
@@ -179,14 +212,17 @@ const getFilteredTransactionGroups = (
   tokenAddress,
   chainId,
 ) => {
+  // 首先过滤只显示发送交易
+  const sendOnlyGroups = transactionGroups.filter(sendTransactionFilter);
+
   if (hideTokenTransactions) {
-    return transactionGroups.filter(tokenTransactionFilter);
+    return sendOnlyGroups.filter(tokenTransactionFilter);
   } else if (tokenAddress) {
-    return transactionGroups.filter(
+    return sendOnlyGroups.filter(
       getTransactionGroupRecipientAddressFilter(tokenAddress, chainId),
     );
   }
-  return transactionGroups;
+  return sendOnlyGroups;
 };
 
 const getFilteredTransactionGroupsAllChains = (
@@ -194,14 +230,17 @@ const getFilteredTransactionGroupsAllChains = (
   hideTokenTransactions,
   tokenAddress,
 ) => {
+  // 首先过滤只显示发送交易
+  const sendOnlyGroups = transactionGroups.filter(sendTransactionFilter);
+
   if (hideTokenTransactions) {
-    return transactionGroups.filter(tokenTransactionFilter);
+    return sendOnlyGroups.filter(tokenTransactionFilter);
   } else if (tokenAddress) {
-    return transactionGroups.filter(
+    return sendOnlyGroups.filter(
       getTransactionGroupRecipientAddressFilterAllChain(tokenAddress),
     );
   }
-  return transactionGroups;
+  return sendOnlyGroups;
 };
 
 const groupTransactionsByDate = (
@@ -276,11 +315,22 @@ export const filterTransactionsByToken = (
   nonEvmTransactions = { transactions: [] },
   tokenAddress,
 ) => {
+  // 首先过滤只显示发送交易
+  const sendOnlyTransactions = (nonEvmTransactions.transactions || []).filter(
+    (transaction) => {
+      // 排除接收交易，只显示发送交易
+      return transaction.type !== 'receive' && transaction.type !== 'incoming';
+    },
+  );
+
   if (!tokenAddress) {
-    return nonEvmTransactions;
+    return {
+      ...nonEvmTransactions,
+      transactions: sendOnlyTransactions,
+    };
   }
 
-  const transactionForToken = (nonEvmTransactions.transactions || []).filter(
+  const transactionForToken = sendOnlyTransactions.filter(
     (transaction) => {
       return [...transaction.to, ...transaction.from].some(
         (item) => item.asset.type === tokenAddress,

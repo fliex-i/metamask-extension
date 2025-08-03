@@ -6704,7 +6704,7 @@
     "message": "未接続"
   },
   "total": {
-    "message": "合計"
+    "message": "ネットワーク手数料"
   },
   "totalBalance": {
     "message": "合計残高"
@@ -6722,10 +6722,10 @@
     "message": "$2でのトランザクションがキャンセルされました"
   },
   "transactionConfirmed": {
-    "message": "$2でトランザクションが承認されました。"
+    "message": "$2 に、取引が承認されました。"
   },
   "transactionCreated": {
-    "message": "トランザクションは$1の値が$2で作成されました。"
+    "message": "$2 に、ネットワーク手数料 $1 ETH (小数点省略) の取引が作成されました。"
   },
   "transactionDataFunction": {
     "message": "関数"
@@ -6786,7 +6786,7 @@
     "message": "トランザクション設定"
   },
   "transactionSubmitted": {
-    "message": "$1の推定ガス代が$2でトランザクションが送信されました。"
+    "message": "$2 に、ネットワーク手数料 $1 ETH (小数点省略) で取引が送信されました。"
   },
   "transactionTotalGasFee": {
     "message": "ガス代合計",
@@ -7289,5 +7289,20 @@
   },
   "saveName": {
     "message": "アドレス帳へ追加"
+  },
+  "noReceiveTransactions": {
+    "message": "受取トランザクションがありません"
+  },
+  "error": {
+    "message": "エラー"
+  },
+  "transactionId": {
+    "message": "トランザクションID"
+  },
+  "value": {
+    "message": "金額"
+  },
+  "date": {
+    "message": "日付"
   }
 }

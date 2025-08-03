@@ -18,7 +18,7 @@ import AssetList from '../../app/assets/asset-list';
 // import DeFiTab from '../../app/assets/defi-list/defi-tab';
 import { useAssetListTokenDetection } from '../../app/assets/hooks';
 import NftsTab from '../../app/assets/nfts/nfts-tab';
-import TransactionList from '../../app/transaction-list';
+import { ActivityTabs } from '../../app/transaction-list/activity-tabs';
 import { Box } from '../../component-library';
 import { Tab, Tabs } from '../../ui/tabs';
 import { AccountOverviewCommonProps } from './common';
@@ -148,14 +148,13 @@ export const AccountOverviewTabs = ({
 
         {showActivity && (
           <Tab
-            name={t('nfts')}
+            name={t('activity')}
             tabKey="activity"
             data-testid="account-overview__activity-tab"
             {...tabProps}
           >
-            <TransactionList
+            <ActivityTabs
               boxProps={{ paddingTop: 3 }}
-              hideTokenTransactions={false}
             />
           </Tab>
         )}
