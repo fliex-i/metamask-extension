@@ -6725,7 +6725,7 @@
     "message": "$2 に、取引が承認されました。"
   },
   "transactionCreated": {
-    "message": "$2 に、ネットワーク手数料 $1 ETH (小数点省略) の取引が作成されました。"
+    "message": "$2 に、 $1 の取引が作成されました。"
   },
   "transactionDataFunction": {
     "message": "関数"
@@ -6786,7 +6786,7 @@
     "message": "トランザクション設定"
   },
   "transactionSubmitted": {
-    "message": "$2 に、ネットワーク手数料 $1 ETH (小数点省略) で取引が送信されました。"
+    "message": "$2 に、推定ネットワーク手数料 $1 (小数点省略) で取引が送信されました。"
   },
   "transactionTotalGasFee": {
     "message": "ガス代合計",
