@@ -65,7 +65,10 @@ export const AddressListItem = ({
   return (
     <Box
       display={Display.Flex}
-      padding={4}
+      paddingTop={3}
+      paddingBottom={3}
+      paddingLeft={0}
+      paddingRight={0}
       as="button"
       onClick={(e: React.MouseEvent) => {
         e.stopPropagation();

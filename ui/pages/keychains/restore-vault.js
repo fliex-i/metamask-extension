@@ -10,7 +10,11 @@ import CreateNewVault from '../../components/app/create-new-vault';
 import Button from '../../components/ui/button';
 import Box from '../../components/ui/box';
 import { Text } from '../../components/component-library';
-import { TextVariant, TextColor } from '../../helpers/constants/design-system';
+import {
+  TextVariant,
+  TextColor,
+  TextAlign,
+} from '../../helpers/constants/design-system';
 import ZENDESK_URLS from '../../helpers/constants/zendesk-url';
 import {
   MetaMetricsEventCategory,
@@ -75,11 +79,16 @@ class RestoreVaultPage extends Component {
                 {t('resetWallet')}
               </Text>
             </Box>
-            <Text color={TextColor.textDefault}>
+            <Text color={TextColor.textDefault} textAlign={TextAlign.Center}>
               {t('resetWalletSubHeader')}
             </Text>
 
-            <Text color={TextColor.textDefault} marginTop={4} marginBottom={4}>
+            <Text
+              color={TextColor.textDefault}
+              marginTop={4}
+              marginBottom={4}
+              textAlign={TextAlign.Center}
+            >
               {t('resetWalletWarning')}
             </Text>
             <CreateNewVault

@@ -46,6 +46,10 @@
     }
   }
 
+  &__words-list-setting {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
   &__word-index {
     width: 20px;
   }

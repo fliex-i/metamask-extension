@@ -452,7 +452,7 @@ export const ReceiveTransactionList: React.FC<ReceiveTransactionListProps> = ({
                       symbol={transfer.symbol}
                     />
                   }
-                  title={`${t('receive')}`}
+                  title={`${t('receives')}`}
                   subtitle={
                     <TransactionStatusLabel
                       status="confirmed"
@@ -513,7 +513,7 @@ export const ReceiveTransactionList: React.FC<ReceiveTransactionListProps> = ({
                 textAlign={TextAlign.Left}
                 style={{ fontSize: '18px' }}
               >
-                {t('receive')}
+                {t('receives')}
               </Text>
             </ModalHeader>
 

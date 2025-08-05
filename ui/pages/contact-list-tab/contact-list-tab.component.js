@@ -204,7 +204,6 @@ export default class ContactListTab extends Component {
               history.push(CONTACT_ADD_ROUTE);
             }
           }}
-          margin={4}
           size={Size.LG}
           disabled={isContactLimitReached}
           style={{ width: '100%' }}
@@ -241,14 +240,7 @@ export default class ContactListTab extends Component {
     const { t } = this.context;
     const { hasLayerHeader } = this.state;
     return (
-      <div
-        // style={
-        //   hasLayerHeader
-        //     ? { padding: '20px 0', display: 'flex', alignItems: 'center' }
-        //     : { position: 'absolute', top: 16, left: 16, zIndex: 10 }
-        // }
-        style={{ padding: '20px 0', display: 'flex', alignItems: 'center' }}
-      >
+      <div style={{ display: 'flex', alignItems: 'center' }}>
         <ButtonIcon
           iconName={IconName.ArrowLeft}
           ariaLabel={t('back')}

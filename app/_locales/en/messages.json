@@ -7587,5 +7587,8 @@
   },
   "date": {
     "message": "Date"
+  },
+  "receives": {
+    "message": "Receive"
   }
 }

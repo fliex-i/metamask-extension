@@ -45,19 +45,19 @@ export default function IconButton(props) {
     }
 
     // Otherwise, render the string label with existing logic
-    if (label.length > 10) {
-      return (
-        <Tooltip title={label} position="bottom">
-          <Text
-            className="icon-button-round__label-large"
-            ellipsis
-            variant={TextVariant.bodySmMedium}
-          >
-            {label}
-          </Text>
-        </Tooltip>
-      );
-    }
+    // if (label.length > 10) {
+    //   return (
+    //     <Tooltip title={label} position="bottom">
+    //       <Text
+    //         className="icon-button-round__label-large"
+    //         ellipsis
+    //         variant={TextVariant.bodySmMedium}
+    //       >
+    //         {label}
+    //       </Text>
+    //     </Tooltip>
+    //   );
+    // }
 
     return (
       <Text

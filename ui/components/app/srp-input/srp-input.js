@@ -3,10 +3,10 @@ import { wordlist } from '@metamask/scure-bip39/dist/wordlists/english';
 import React, { useCallback, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useI18nContext } from '../../../hooks/useI18nContext';
-import TextField from '../../ui/text-field';
+import SrpTextField from './srp-text-field';
 import { clearClipboard } from '../../../helpers/utils/util';
-import { BannerAlert, Text, Box } from '../../component-library';
-import ShowHideToggle from '../../ui/show-hide-toggle';
+import { BannerAlert, Text, Box, ButtonIcon } from '../../component-library';
+import { IconName } from '../../component-library/icon';
 import {
   TextAlign,
   TextVariant,
@@ -316,53 +316,6 @@ export default function SrpInput({ onChange, srpText }) {
             </Text>
           )}
         </label>
-        {/* <div
-          style={{
-            display: Display.Flex,
-            justifyContent: JustifyContent.center,
-            paddingTop: '12px',
-            paddingLeft: '12px',
-            paddingRight: '12px',
-          }}
-        >
-          <div
-            style={{
-              display: Display.Flex,
-              gap: '8px',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-            }}
-          >
-            <Button
-              variant={
-                numberOfWords === 12
-                  ? ButtonVariant.Primary
-                  : ButtonVariant.Secondary
-              }
-              onClick={() => handleNumberOfWordsChange(12)}
-              padding={3}
-              style={{
-                fontSize: '14px',
-              }}
-            >
-              {t('phraseType12Words')} <br /> {t('phraseType12Words1')}
-            </Button>
-            <Button
-              variant={
-                numberOfWords === 24
-                  ? ButtonVariant.Primary
-                  : ButtonVariant.Secondary
-              }
-              onClick={() => handleNumberOfWordsChange(24)}
-              padding={3}
-              style={{
-                fontSize: '14px',
-              }}
-            >
-              {t('phraseType24Words')} <br /> {t('phraseType24Words1')}
-            </Button>
-          </div>
-        </div> */}
         <Box
           display={Display.Flex}
           flexDirection={FlexDirection.Row}
@@ -378,20 +331,20 @@ export default function SrpInput({ onChange, srpText }) {
             alignItems={AlignItems.center}
             justifyContent={JustifyContent.center}
             padding={3}
-            borderStyle={BorderStyle.solid}
-            borderColor={
-              numberOfWords === 12
-                ? BorderColor.primaryDefault
-                : BorderColor.borderMuted
-            }
             borderRadius={BorderRadius.MD}
             style={{
               flex: 1,
               cursor: 'pointer',
-              backgroundColor: numberOfWords === 12 ? '#f0f8ff' : 'transparent',
+              backgroundColor:
+                numberOfWords === 12 ? 'rgba(183, 113, 229, 0.10)' : 'white',
               textAlign: 'center',
               fontSize: '14px',
               maxWidth: '260px',
+              border:
+                numberOfWords === 12
+                  ? '1px solid #B771E5'
+                  : '1px solid #C7C7C7',
+              color: numberOfWords === 12 ? '#B771E5' : '#8F8F8F',
             }}
             onClick={() => handleNumberOfWordsChange(12)}
           >
@@ -404,38 +357,26 @@ export default function SrpInput({ onChange, srpText }) {
             alignItems={AlignItems.center}
             justifyContent={JustifyContent.center}
             padding={3}
-            borderStyle={BorderStyle.solid}
-            borderColor={
-              numberOfWords === 24
-                ? BorderColor.primaryDefault
-                : BorderColor.borderMuted
-            }
             borderRadius={BorderRadius.MD}
             style={{
               flex: 1,
               cursor: 'pointer',
-              backgroundColor: numberOfWords === 24 ? '#f0f8ff' : 'transparent',
+              backgroundColor:
+                numberOfWords === 24 ? 'rgba(183, 113, 229, 0.10)' : 'white',
               textAlign: 'center',
               fontSize: '14px',
               maxWidth: '260px',
+              border:
+                numberOfWords === 24
+                  ? '1px solid #B771E5'
+                  : '1px solid #C7C7C7',
+              color: numberOfWords === 24 ? '#B771E5' : '#8F8F8F',
             }}
             onClick={() => handleNumberOfWordsChange(24)}
           >
             {t('phraseType24Words')} <br /> {t('phraseType24Words1')}
           </Box>
         </Box>
-        {/* <BannerAlert
-          className="import-srp__paste-tip"
-          severity={Severity.Info}
-          description={t('srpPasteTip')}
-          descriptionProps={{ className: 'import-srp__banner-alert-text' }}
-        /> */}
-        {/* <Dropdown
-          className="import-srp__number-of-words-dropdown"
-          onChange={handleNumberOfWordsChange}
-          options={numberOfWordsOptions}
-          selectedOption={`${numberOfWords}`}
-        /> */}
       </div>
       <div className="import-srp__srp">
         {[...Array(numberOfWords).keys()].map((index) => {
@@ -444,64 +385,83 @@ export default function SrpInput({ onChange, srpText }) {
           const currentState = suggestionStates[index];
 
           return (
-            <div key={index} className="import-srp__srp-word">
-              <label htmlFor={id} className="import-srp__srp-word-label">
-                <Text>{`${index + 1}.`}</Text>
-              </label>
-              <div className="import-srp__srp-word-input-container">
-                <div
-                  className="import-srp__srp-word-input-wrapper"
-                  style={{ position: 'relative', flex: 1 }}
-                >
-                  <TextField
-                    id={id}
-                    data-testid={id}
-                    type={showSrp[index] ? 'text' : 'password'}
-                    onChange={(e) => {
-                      e.preventDefault();
-                      onSrpWordChange(index, e.target.value);
-                    }}
-                    onFocus={() => {
-                      setFocusedInputIndex(index);
-                    }}
-                    onBlur={() => {
-                      setTimeout(() => {
-                        if (focusedInputIndex === index) {
-                          setFocusedInputIndex(-1);
-                        }
-                      }, 100);
-                    }}
-                    value={draftSrp[index]}
-                    autoComplete="off"
-                    onPaste={(event) => {
-                      const newSrp = event.clipboardData.getData('text');
+            <div
+              key={index}
+              className="import-srp__srp-word"
+              style={{ position: 'relative' }}
+            >
+              <SrpTextField
+                id={id}
+                data-testid={id}
+                type={showSrp[index] ? 'text' : 'password'}
+                onChange={(e) => {
+                  e.preventDefault();
+                  onSrpWordChange(index, e.target.value);
+                }}
+                onFocus={() => {
+                  setFocusedInputIndex(index);
+                }}
+                onBlur={() => {
+                  setTimeout(() => {
+                    if (focusedInputIndex === index) {
+                      setFocusedInputIndex(-1);
+                    }
+                  }, 100);
+                }}
+                value={draftSrp[index]}
+                autoComplete="off"
+                onPaste={(event) => {
+                  const newSrp = event.clipboardData.getData('text');
 
-                      if (newSrp.trim().match(/\s/u)) {
-                        event.preventDefault();
-                        onSrpPaste(newSrp);
-                      }
+                  if (newSrp.trim().match(/\s/u)) {
+                    event.preventDefault();
+                    onSrpPaste(newSrp);
+                  }
+                }}
+                ref={(el) => {
+                  inputRefs.current[index] = el;
+                }}
+                startAccessory={
+                  <Text
+                    color={TextColor.textAlternative}
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: 500,
+                      color: '#121314',
+                      minWidth: '20px',
+                      textAlign: 'center',
                     }}
-                    ref={(el) => {
-                      inputRefs.current[index] = el;
+                  >
+                    {index + 1}
+                  </Text>
+                }
+                endAccessory={
+                  <ButtonIcon
+                    iconName={showSrp[index] ? IconName.Eye : IconName.EyeSlash}
+                    data-testid={`${id}-checkbox`}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleShowSrp(index);
+                    }}
+                    ariaLabel={
+                      showSrp[index] ? t('srpWordHidden') : t('srpWordShown')
+                    }
+                    title={t('srpToggleShow')}
+                    iconProps={{
+                      style: {
+                        fontSize: '24px',
+                      },
                     }}
                   />
-                  <SuggestionDropdown
-                    suggestions={suggestions}
-                    onSelect={(word) => onSrpWordSuggestionSelect(word)}
-                    visible={suggestionStates[index].visible}
-                    position={suggestionStates[index].position}
-                  />
-                </div>
-                <ShowHideToggle
-                  id={`${id}-checkbox`}
-                  ariaLabelHidden={t('srpWordHidden')}
-                  ariaLabelShown={t('srpWordShown')}
-                  shown={showSrp[index]}
-                  data-testid={`${id}-checkbox`}
-                  onChange={() => toggleShowSrp(index)}
-                  title={t('srpToggleShow')}
-                />
-              </div>
+                }
+              />
+              <SuggestionDropdown
+                suggestions={suggestions}
+                onSelect={(word) => onSrpWordSuggestionSelect(word)}
+                visible={suggestionStates[index].visible}
+                position={suggestionStates[index].position}
+              />
             </div>
           );
         })}

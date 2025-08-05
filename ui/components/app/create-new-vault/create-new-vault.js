@@ -177,10 +177,10 @@ export default function CreateNewVault({
                       : t('passwordToggleShow')
                   }
                   data-testid="toggle-password-visibility"
-                  color={IconColor.iconDefault}
                   iconProps={{
                     style: {
                       fontSize: '20px !important',
+                      color: 'var(--color-text-muted) !important',
                     },
                   }}
                 />
@@ -215,10 +215,10 @@ export default function CreateNewVault({
                       : t('passwordToggleShow')
                   }
                   data-testid="toggle-confirm-password-visibility"
-                  color={IconColor.iconDefault}
                   iconProps={{
                     style: {
                       fontSize: '20px !important',
+                      color: 'var(--color-text-muted) !important',
                     },
                   }}
                 />
@@ -267,17 +267,6 @@ export default function CreateNewVault({
           </ul>
         </div>
       </div>
-      {/* {includeTerms ? (
-        <div className="create-new-vault__terms">
-          <Checkbox
-            id="create-new-vault-terms-checkbox"
-            data-testid="create-new-vault-terms-checkbox"
-            isChecked={termsChecked}
-            onChange={toggleTermsCheck}
-            label={termsOfUse}
-          />
-        </div>
-      ) : null} */}
       <Button
         data-testid="create-new-vault-submit-button"
         className="create-new-vault__submit-button"

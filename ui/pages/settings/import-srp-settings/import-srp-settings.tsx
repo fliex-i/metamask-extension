@@ -171,7 +171,10 @@ export default function ImportSrpSettings() {
             </Box>
             <Box width={BlockSize.Full}>
               <form onSubmit={(e) => e.preventDefault()}>
-                <SrpInputImport onChange={setSecretRecoveryPhrase} />
+                <SrpInputImport
+                  onChange={setSecretRecoveryPhrase}
+                  isSetting={true}
+                />
                 {srpError && (
                   <Box marginTop={2}>
                     <Text

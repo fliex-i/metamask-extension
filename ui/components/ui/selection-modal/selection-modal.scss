@@ -1,0 +1,19 @@
+.selection-modal {
+  &__dialog {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  // 匹配AutoLockModal的样式
+  &__option {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #f8f0ff !important;
+    }
+
+    &--selected {
+      background-color: #f0f0f0 !important;
+    }
+  }
+}

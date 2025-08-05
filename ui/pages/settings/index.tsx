@@ -24,7 +24,7 @@ import {
 import AutoLockModal from '../../components/auto-lock-modal/auto-lock-modal';
 import availableCurrencies from '../../helpers/constants/available-conversions.json';
 import availableCurrenciesJp from '../../helpers/constants/available-conversions-jp.json';
-import Dropdown from '../../components/ui/dropdown';
+import SelectionModal from '../../components/ui/selection-modal';
 import {
   DEFAULT_ROUTE,
   RESTORE_VAULT_ROUTE,
@@ -43,7 +43,11 @@ import {
   MetaMetricsEventAccountType,
 } from '../../../shared/constants/metametrics';
 import { getHDEntropyIndex } from '../../selectors/selectors';
-import { Display, FlexDirection } from '../../helpers/constants/design-system';
+import {
+  Display,
+  FlexDirection,
+  TextVariant,
+} from '../../helpers/constants/design-system';
 import { ImportAccount } from '../../components/multichain/import-account';
 import { getCurrentCurrency } from '../../ducks/metamask/metamask';
 
@@ -98,6 +102,7 @@ const SettingsPage: React.FC = () => {
       value: locale.code,
     };
   });
+
   const t = useI18nContext();
   const updateLocale = async (newLocale: string) => {
     try {
@@ -108,6 +113,8 @@ const SettingsPage: React.FC = () => {
   };
   const [isOpen, setIsOpen] = useState(false);
   const [isAutoLockModalOpen, setIsAutoLockModalOpen] = useState(false);
+  const [isCurrencyModalOpen, setIsCurrencyModalOpen] = useState(false);
+  const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
   const hdEntropyIndex = useSelector(getHDEntropyIndex);
 
   const currentCurrency = useSelector(getCurrentCurrency);
@@ -282,7 +289,19 @@ const SettingsPage: React.FC = () => {
                   <Box
                     key={_key}
                     className="settings-page__tabs__tab__items-item"
-                    onClick={item.onClick ? () => item.onClick?.() : undefined}
+                    onClick={(e) => {
+                      if (item.currency) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsCurrencyModalOpen(true);
+                      } else if (item.isLanguage) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsLanguageModalOpen(true);
+                      } else if (item.onClick) {
+                        item.onClick();
+                      }
+                    }}
                   >
                     {item.link ? (
                       <Box
@@ -323,37 +342,29 @@ const SettingsPage: React.FC = () => {
                             </Text>
                           )}
                           {item.currency && (
-                            <Dropdown
-                              data-testid="currency-select"
-                              options={currencyOptions}
-                              selectedOption={currentCurrency}
-                              onChange={(newCurrency) => {
-                                updateCurrency(newCurrency);
-                              }}
-                              className="center__dropdown"
-                            />
+                            <Box style={{ cursor: 'pointer' }}>
+                              <Text variant={TextVariant.bodyMd}>
+                                {currencyOptions.find(
+                                  (option) => option.value === currentCurrency,
+                                )?.name || currentCurrency}
+                              </Text>
+                            </Box>
                           )}
                           {item.isLanguage && (
-                            <Dropdown
-                              data-testid="locale-select"
-                              options={localeOptions}
-                              className="center__dropdown"
-                              selectedOption={currentLocale}
-                              onChange={async (newLocale) =>
-                                updateLocale(newLocale)
-                              }
-                            />
+                            <Box style={{ cursor: 'pointer' }}>
+                              <Text variant={TextVariant.bodyMd}>
+                                {localeOptions.find(
+                                  (option) => option.value === currentLocale,
+                                )?.name || currentLocale}
+                              </Text>
+                            </Box>
                           )}
                         </Box>
-                        {!item.currency &&
-                          !item.isLanguage &&
-                          !item.dontNeedRightIcon && (
-                            <Box
-                              as="img"
-                              src="./images/setting/arrow-right.svg"
-                              alt="arrow"
-                            />
-                          )}
+                        <Box
+                          as="img"
+                          src="./images/setting/arrow-right.svg"
+                          alt="arrow"
+                        />
                       </>
                     )}
                   </Box>
@@ -395,6 +406,38 @@ const SettingsPage: React.FC = () => {
       <AutoLockModal
         isOpen={isAutoLockModalOpen}
         onClose={() => setIsAutoLockModalOpen(false)}
+      />
+
+      <SelectionModal
+        isOpen={isCurrencyModalOpen}
+        onClose={() => setIsCurrencyModalOpen(false)}
+        title={t('defaultCurrency')}
+        options={currencyOptions}
+        selectedOption={currentCurrency || ''}
+        onSelect={(newCurrency) => {
+          updateCurrency(newCurrency);
+        }}
+        onCancel={() => {
+          // 取消时不需要做任何操作，状态会自动重置
+        }}
+        data-testid="currency-select-modal"
+      />
+
+      <SelectionModal
+        isOpen={isLanguageModalOpen}
+        onClose={() => setIsLanguageModalOpen(false)}
+        title={t('language')}
+        options={localeOptions}
+        selectedOption={currentLocale || ''}
+        onSelect={async (newLocale) => {
+          await updateLocale(newLocale);
+          // 确保语言更新完成后再关闭模态框
+          setIsLanguageModalOpen(false);
+        }}
+        onCancel={() => {
+          // 取消时不需要做任何操作，状态会自动重置
+        }}
+        data-testid="locale-select-modal"
       />
     </>
   );

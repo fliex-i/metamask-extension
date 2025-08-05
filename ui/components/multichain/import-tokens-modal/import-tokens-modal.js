@@ -921,6 +921,7 @@ export const ImportTokensModal = ({ onClose }) => {
                       />
                       <Box>
                         <FormTextField
+                          id="token-contract-address"
                           paddingLeft={4}
                           paddingRight={4}
                           size={Size.LG}
@@ -958,6 +959,7 @@ export const ImportTokensModal = ({ onClose }) => {
                         {showSymbolAndDecimals && (
                           <Box>
                             <FormTextField
+                              id="token-symbol"
                               paddingLeft={4}
                               paddingRight={4}
                               paddingTop={4}
@@ -980,6 +982,7 @@ export const ImportTokensModal = ({ onClose }) => {
                               }}
                             />
                             <FormTextField
+                              id="token-decimals"
                               paddingLeft={4}
                               paddingRight={4}
                               paddingTop={4}

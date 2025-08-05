@@ -4,7 +4,10 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 80vw;
+  width: 95vw;
+  padding: 16px;
+  box-sizing: border-box;
+  margin: 0 auto;
   background-color: var(--color-background-default);
     @media screen and (max-width: 768px) {
     width: 85vw;
@@ -16,6 +19,7 @@
 
 .address-book {
   flex: 0.4 1 100%;
+  margin-top: 12px;
 
   @include design-system.screen-sm-max {
     flex: 1;

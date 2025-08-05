@@ -52,6 +52,7 @@ type SuggestionState = {
 
 type SrpInputImportProps = {
   onChange: (srp: string) => void;
+  isSetting?: boolean;
 };
 
 const generateMnemonicSuggestions = (input: string) => {
@@ -132,7 +133,10 @@ const SuggestionDropdown = ({
   );
 };
 
-export default function SrpInputImport({ onChange }: SrpInputImportProps) {
+export default function SrpInputImport({
+  onChange,
+  isSetting = false,
+}: SrpInputImportProps) {
   const t = useI18nContext();
   const [draftSrp, setDraftSrp] = useState<DraftSrp[]>([]);
   const [showAll, setShowAll] = useState(false);
@@ -435,49 +439,6 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
         borderRadius={BorderRadius.SM}
         className="srp-input-import__container"
       >
-        {/* <Box
-          display={Display.Flex}
-          justifyContent={JustifyContent.center}
-          paddingTop={3}
-          paddingLeft={3}
-          paddingRight={3}
-        >
-          <Box
-            display={Display.Flex}
-            gap={2}
-            flexWrap={FlexWrap.Wrap}
-            justifyContent={JustifyContent.center}
-          >
-            <Button
-              variant={
-                srpLength === 12
-                  ? ButtonVariant.Primary
-                  : ButtonVariant.Secondary
-              }
-              onClick={() => handleSrpLengthChange(12)}
-              padding={3}
-              style={{
-                fontSize: '14px',
-              }}
-            >
-              {t('phraseType12Words')} <br /> {t('phraseType12Words1')}
-            </Button>
-            <Button
-              variant={
-                srpLength === 24
-                  ? ButtonVariant.Primary
-                  : ButtonVariant.Secondary
-              }
-              onClick={() => handleSrpLengthChange(24)}
-              padding={3}
-              style={{
-                fontSize: '14px',
-              }}
-            >
-              {t('phraseType24Words')} <br /> {t('phraseType24Words1')}
-            </Button>
-          </Box>
-        </Box> */}
         <Box
           display={Display.Flex}
           flexDirection={FlexDirection.Row}
@@ -495,20 +456,18 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
             alignItems={AlignItems.center}
             justifyContent={JustifyContent.center}
             padding={3}
-            borderStyle={BorderStyle.solid}
-            borderColor={
-              srpLength === 12
-                ? BorderColor.primaryDefault
-                : BorderColor.borderMuted
-            }
             borderRadius={BorderRadius.MD}
             style={{
               flex: 1,
               cursor: 'pointer',
-              backgroundColor: srpLength === 12 ? '#f0f8ff' : 'transparent',
+              backgroundColor:
+                srpLength === 12 ? 'rgba(183, 113, 229, 0.10)' : 'white',
               textAlign: 'center',
               fontSize: '14px',
               maxWidth: '260px',
+              border:
+                srpLength === 12 ? '1px solid #B771E5' : '1px solid #C7C7C7',
+              color: srpLength === 12 ? '#B771E5' : '#8F8F8F',
             }}
             onClick={() => handleSrpLengthChange(12)}
           >
@@ -521,20 +480,18 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
             alignItems={AlignItems.center}
             justifyContent={JustifyContent.center}
             padding={3}
-            borderStyle={BorderStyle.solid}
-            borderColor={
-              srpLength === 24
-                ? BorderColor.primaryDefault
-                : BorderColor.borderMuted
-            }
             borderRadius={BorderRadius.MD}
             style={{
               flex: 1,
               cursor: 'pointer',
-              backgroundColor: srpLength === 24 ? '#f0f8ff' : 'transparent',
+              backgroundColor:
+                srpLength === 24 ? 'rgba(183, 113, 229, 0.10)' : 'white',
               textAlign: 'center',
               fontSize: '14px',
               maxWidth: '260px',
+              border:
+                srpLength === 24 ? '1px solid #B771E5' : '1px solid #C7C7C7',
+              color: srpLength === 24 ? '#B771E5' : '#8F8F8F',
             }}
             onClick={() => handleSrpLengthChange(24)}
           >
@@ -545,7 +502,9 @@ export default function SrpInputImport({ onChange }: SrpInputImportProps) {
         <Box padding={4} style={{ flex: 1 }}>
           <Box
             display={Display.Grid}
-            className="srp-input-import__words-list"
+            className={`srp-input-import__words-list ${
+              isSetting ? 'srp-input-import__words-list-setting' : ''
+            }`}
             gap={2}
             style={{
               gridTemplateColumns: 'repeat(3, 1fr)',

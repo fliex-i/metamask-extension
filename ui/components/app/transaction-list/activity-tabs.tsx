@@ -41,7 +41,7 @@ export const ActivityTabs: React.FC<ActivityTabsProps> = ({ boxProps }) => {
           />
         </Tab>
         <Tab
-          name={t('receive')}
+          name={t('receives')}
           tabKey="receive"
           data-testid="activity-tabs__receive-tab"
           {...tabProps}

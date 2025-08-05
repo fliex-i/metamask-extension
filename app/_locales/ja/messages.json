@@ -7304,5 +7304,8 @@
   },
   "date": {
     "message": "日付"
+  },
+  "receives": {
+    "message": "受取"
   }
 }

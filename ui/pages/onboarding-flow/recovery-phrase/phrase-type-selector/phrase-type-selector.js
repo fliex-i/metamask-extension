@@ -55,19 +55,17 @@ export default function PhraseTypeSelector({
           alignItems={AlignItems.center}
           justifyContent={JustifyContent.center}
           padding={3}
-          borderStyle={BorderStyle.solid}
-          borderColor={
-            selectedType === '12'
-              ? BorderColor.primaryDefault
-              : BorderColor.borderMuted
-          }
           borderRadius={BorderRadius.MD}
           style={{
             flex: 1,
             cursor: 'pointer',
-            backgroundColor: selectedType === '12' ? '#f0f8ff' : 'transparent',
+            backgroundColor:
+              selectedType === '12' ? 'rgba(183, 113, 229, 0.10)' : 'white',
             textAlign: 'center',
             fontSize: '14px',
+            border:
+              selectedType === '12' ? '1px solid #B771E5' : '1px solid #C7C7C7',
+            color: selectedType === '12' ? '#B771E5' : '#8F8F8F',
           }}
           onClick={() => onTypeSelect('12')}
         >
@@ -80,19 +78,17 @@ export default function PhraseTypeSelector({
           alignItems={AlignItems.center}
           justifyContent={JustifyContent.center}
           padding={3}
-          borderStyle={BorderStyle.solid}
-          borderColor={
-            selectedType === '24'
-              ? BorderColor.primaryDefault
-              : BorderColor.borderMuted
-          }
           borderRadius={BorderRadius.MD}
           style={{
             flex: 1,
             cursor: 'pointer',
-            backgroundColor: selectedType === '24' ? '#f0f8ff' : 'transparent',
+            backgroundColor:
+              selectedType === '24' ? 'rgba(183, 113, 229, 0.10)' : 'white',
             textAlign: 'center',
             fontSize: '14px',
+            border:
+              selectedType === '24' ? '1px solid #B771E5' : '1px solid #C7C7C7',
+            color: selectedType === '24' ? '#B771E5' : '#8F8F8F',
           }}
           onClick={() => onTypeSelect('24')}
         >

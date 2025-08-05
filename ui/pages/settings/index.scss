@@ -531,9 +531,20 @@
 .center__dropdown{
   // width: 150px;
   display: inline-block;
+  height: auto !important;
   .dropdown__select{
     border: none;
     text-align: right;
+    padding: 0 40px 0 16px;
+  }
+}
+
+// 确保currency和language选择器可以正常点击
+.settings-page__tabs__tab__items-item__center {
+  & > div[style*="cursor: pointer"] {
+    pointer-events: auto;
+    z-index: 1;
+    position: relative;
   }
 }
 
