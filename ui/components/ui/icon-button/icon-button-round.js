@@ -26,7 +26,7 @@ export default function IconButton(props) {
   const renderLabel = () => {
     if (labelElement) {
       return (
-                <div
+        <div
           style={{
             fontSize: '12px',
             width: '70px',
@@ -36,7 +36,7 @@ export default function IconButton(props) {
             alignItems: 'center',
             textAlign: 'center',
             gap: '2px',
-            minHeight: '2rem'
+            minHeight: '2rem',
           }}
         >
           {labelElement}
@@ -45,19 +45,17 @@ export default function IconButton(props) {
     }
 
     // Otherwise, render the string label with existing logic
-    // if (label.length > 10) {
-    //   return (
-    //     <Tooltip title={label} position="bottom">
-    //       <Text
-    //         className="icon-button-round__label-large"
-    //         ellipsis
-    //         variant={TextVariant.bodySmMedium}
-    //       >
-    //         {label}
-    //       </Text>
-    //     </Tooltip>
-    //   );
-    // }
+    if (label.length > 10) {
+      return (
+        <Text
+          className="icon-button-round__label-large"
+          ellipsis
+          variant={TextVariant.bodySmMedium}
+        >
+          {label}
+        </Text>
+      );
+    }
 
     return (
       <Text
