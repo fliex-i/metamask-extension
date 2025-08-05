@@ -289,7 +289,7 @@ const SettingsPage: React.FC = () => {
                   <Box
                     key={_key}
                     className="settings-page__tabs__tab__items-item"
-                    onClick={(e) => {
+                    onClick={(e: any) => {
                       if (item.currency) {
                         e.preventDefault();
                         e.stopPropagation();
@@ -414,8 +414,9 @@ const SettingsPage: React.FC = () => {
         title={t('defaultCurrency')}
         options={currencyOptions}
         selectedOption={currentCurrency || ''}
-        onSelect={(newCurrency) => {
-          updateCurrency(newCurrency);
+        onSelect={async (newCurrency) => {
+          await updateCurrency(newCurrency);
+          setIsCurrencyModalOpen(false);
         }}
         onCancel={() => {
           // 取消时不需要做任何操作，状态会自动重置
