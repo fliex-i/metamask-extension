@@ -23,6 +23,7 @@ import {
   getFirstTimeFlowType,
   getFirstTimeFlowTypeRouteAfterMetaMetricsOptIn,
 } from '../../../selectors';
+import { getCurrentLocale } from '../../../ducks/locale/locale';
 
 import {
   MetaMetricsEventCategory,
@@ -54,7 +55,7 @@ export default function OnboardingMetametrics() {
   const t = useI18nContext();
   const dispatch = useDispatch();
   const history = useHistory();
-
+  const currentLocale = useSelector(getCurrentLocale);
   const firstTimeFlowType = useSelector(getFirstTimeFlowType);
 
   const dataCollectionForMarketing = useSelector(getDataCollectionForMarketing);
@@ -200,7 +201,7 @@ export default function OnboardingMetametrics() {
           </Box>
         </li>
       </ul>
-      <Checkbox
+      {/* <Checkbox
         id="metametrics-opt-in"
         data-testid="metametrics-data-collection-checkbox"
         isChecked={dataCollectionForMarketing}
@@ -214,7 +215,10 @@ export default function OnboardingMetametrics() {
         }
         paddingBottom={3}
         alignItems={AlignItems.flexStart}
-      />
+      /> */}
+      <Text fontWeight={FontWeight.Medium}  paddingBottom={3}>
+        {t('onboardingMetametricsUseDataCheckbox')}
+      </Text>
       <Text
         color={TextColor.textAlternative}
         textAlign={TextAlign.Left}
@@ -224,7 +228,11 @@ export default function OnboardingMetametrics() {
       >
         {t('onboardingMetametricsInfuraTerms', [
           <a
-            href="https://www.crypto-bridge.co/wp-content/uploads/2025/06/privacy.pdf"
+            href={`${
+              currentLocale === 'ja'
+                ? 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_%E3%83%95%E3%82%9A%E3%83%A9%E3%82%A4%E3%83%8F%E3%82%99%E3%82%B7%E3%83%BC%E3%83%9B%E3%82%9A%E3%83%AA%E3%82%B7%E3%83%BC_JP.pdf'
+                : 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_Privacy_Policy_EN.pdf'
+            }`}
             target="_blank"
             rel="noopener noreferrer"
             key="privacy-link"

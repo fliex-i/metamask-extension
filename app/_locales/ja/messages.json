@@ -4001,11 +4001,11 @@
     "message": "CryptoBridgeでは、サービス向上を目的として、基本的な利用状況や診断データを収集させていただくことがあります。これらのデータが販売されることは一切ありません。"
   },
   "onboardingMetametricsInfuraTerms": {
-    "message": "他の目的で使用する場合は、事前にお知らせいたします。詳しくはプライバシーポリシー をご覧ください。設定からいつでもオプトアウトが可能です。",
+    "message": "他の目的で使用する場合は、事前にお知らせいたします。詳しくは$1をご覧ください。設定からいつでもオプトアウトが可能です。",
     "description": "$1 represents `onboardingMetametricsInfuraTermsPolicy`"
   },
   "onboardingMetametricsInfuraTermsPolicy": {
-    "message": "プライバシー ポリシー"
+    "message": "プライバシーポリシー"
   },
   "onboardingMetametricsNeverCollect": {
     "message": "$1 拡張機能およびアプリ内でのクリックや画面の表示回数などは記録されますが、ユーザーのパブリックアドレスなどの情報は収集・保存されません。",
