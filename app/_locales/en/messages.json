@@ -5245,27 +5245,30 @@
     "message": "Secret Recovery Phrases contain 12 or 24 words"
   },
   "seedPhraseReviewDetails": {
-    "message": "Never share your Secret Recovery Phrase with anyone. Anyone with access to this phrase can control your funds:",
+    "message": "Be sure to write down all the words by hand (12 or 24 words)",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
   },
   "seedPhraseReviewDetails1": {
-    "message": "Do not save your Secret Recovery Phrase anywhere online or on your phone, as these are vulnerable to hacker attacks.",
+    "message": "The “Secret Recovery Phrase” is extremely important and required to restore your wallet.",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
   },
   "seedPhraseReviewDetails2": {
-    "message": "Write it down on a piece of paper and store it in a safe, offline location.",
+    "message": "Never share it with others or save it online",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
   },
   "seedPhraseReviewDetails3": {
-    "message": "CryptoBridge staff will never ask you for this phrase.",
+    "message": "Write it down on paper and store it in a secure, offline location",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
   },
   "seedPhraseReviewDetails4": {
-    "message": "Please make sure to save your Secret Recovery Phrase securely — you may need it to import your wallet again in future updated versions.",
+    "message": "Anyone with this phrase can access your wallet and funds",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
   },
   "seedPhraseReviewDetails5": {
-    "message": ""
+    "message": "You will need it to restore your wallet when changing devices or reinstalling"
+  },
+  "seedPhraseReviewDetails6": {
+    "message": " CryptoBridge will never ask for your Secret Recovery Phrase"
   },
   "seedPhraseReviewTitle": {
     "message": "Save Your Secret Recovery Phrase"
@@ -7590,5 +7593,17 @@
   },
   "receives": {
     "message": "Receive"
+  },
+  "chooseTips":{
+    "message": "If you’re new, choose “12 words”. For higher security, experienced users can select “24 words”."
+  },
+  "chooseTips1":{
+    "message": "If you’re new, choose “12 words”. For higher security, experienced users can select “24 words”."
+  },
+  "userManual1":{
+    "message": "If you’re unsure how to proceed, please refer to the"
+  },
+  "userManual2":{
+    "message": ""
   }
 }

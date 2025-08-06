@@ -252,17 +252,18 @@ const SettingsPage: React.FC = () => {
               currentLocale === 'ja'
                 ? 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_%E3%83%95%E3%82%9A%E3%83%A9%E3%82%A4%E3%83%8F%E3%82%99%E3%82%B7%E3%83%BC%E3%83%9B%E3%82%9A%E3%83%AA%E3%82%B7%E3%83%BC_JP.pdf'
                 : 'https://www.crypto-bridge.co/wp-content/uploads/2025/07/CryptoBridge_Privacy_Policy_EN.pdf',
-          },
-          {
-            name: t('userManual'),
-            icon: './images/setting/book.svg',
-            link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
-          },
-          {
-            name: t('FAQ'),
-            icon: './images/setting/faq.svg',
-            link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
-          },
+          }
+          // ,
+          // {
+          //   name: t('userManual'),
+          //   icon: './images/setting/book.svg',
+          //   link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
+          // },
+          // {
+          //   name: t('FAQ'),
+          //   icon: './images/setting/faq.svg',
+          //   link: 'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
+          // },
         ],
       },
     ],

@@ -93,6 +93,36 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
                 <span>{t('lockNow')}</span>
               </li>
+              <li
+                onClick={() => {
+                  window.open(
+                    'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
+                    '_blank',
+                  );
+                }}
+              >
+                <ButtonIcon
+                  iconName={IconName.Book}
+                  ariaLabel={t('userManual')}
+                ></ButtonIcon>
+
+                <span>{t('userManual')}</span>
+              </li>
+              <li
+                onClick={() => {
+                  window.open(
+                    'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
+                    '_blank',
+                  );
+                }}
+              >
+                <ButtonIcon
+                  iconName={IconName.Faq}
+                  ariaLabel={t('FAQ')}
+                ></ButtonIcon>
+
+                <span>{t('FAQ')}</span>
+              </li>
             </ul>
           </div>
         )}

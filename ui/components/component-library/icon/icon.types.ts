@@ -122,6 +122,7 @@ export enum IconName {
   Extension = 'extension',
   EyeSlash = 'eye-slash',
   Eye = 'eye',
+  Faq = 'faq',
   FaceId = 'face-id',
   Feedback = 'feedback',
   File = 'file',

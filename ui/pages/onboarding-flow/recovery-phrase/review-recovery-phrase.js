@@ -114,11 +114,11 @@ export default function RecoveryPhrase({
           style={{
             background: '#FFF1F0',
             borderRadius: '3px',
-            padding: '12px',
+            padding: '12px 8px',
           }}
           display={Display.Flex}
           alignItems={AlignItems.flexStart}
-          gap={3}
+          gap={2}
         >
           <Box
             style={{
@@ -141,6 +141,7 @@ export default function RecoveryPhrase({
               'seedPhraseReviewDetails3',
               'seedPhraseReviewDetails4',
               'seedPhraseReviewDetails5',
+              'seedPhraseReviewDetails6',
             ].map((key, index) => {
               const text = t(key);
               if (!text || text === key) {
@@ -152,13 +153,12 @@ export default function RecoveryPhrase({
                   display={Display.Flex}
                   alignItems={AlignItems.flexStart}
                 >
-                  {index !== 0 && (
+                  {index !== 0 && index !== 1 && (
                     <Text
                       style={{
                         color: '#D92D20',
                         marginRight: 8,
                         fontSize: 18,
-                        lineHeight: '22px',
                       }}
                     >
                       •
@@ -166,7 +166,10 @@ export default function RecoveryPhrase({
                   )}
                   <Text
                     variant={TextVariant.bodyMd}
-                    style={{ color: '#D92D20' }}
+                    style={{
+                      color: '#D92D20',
+                      fontWeight: index === 0 ? 'bold' : 'normal',
+                    }}
                   >
                     {text}
                   </Text>

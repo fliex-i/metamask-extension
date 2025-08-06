@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useI18nContext } from '../../../../hooks/useI18nContext';
-import {
-  Box,
-  Button,
-  ButtonVariant,
-  ButtonSize,
-  Text,
-} from '../../../../components/component-library';
+import { Box, Text } from '../../../../components/component-library';
 import {
   Display,
   FlexDirection,
@@ -15,11 +9,8 @@ import {
   AlignItems,
   BlockSize,
   TextVariant,
-  BorderColor,
   BorderRadius,
-  BorderStyle,
   FlexWrap,
-  TextAlign,
 } from '../../../../helpers/constants/design-system';
 
 export default function PhraseTypeSelector({
@@ -34,13 +25,20 @@ export default function PhraseTypeSelector({
     <Box
       display={Display.Flex}
       flexDirection={FlexDirection.Column}
-      gap={4}
       width={BlockSize.Full}
     >
       <Text variant={TextVariant.headingMd} as="h3">
         {t('phraseTypeSelectorTitle')}
       </Text>
-
+      <Text
+        variant={TextVariant.bodySm}
+        as="p"
+        fontSize={12}
+        style={{ color: '#B771E5' }}
+      >
+        {t('chooseTips')} <br />
+        {t('chooseTips1')}
+      </Text>
       <Box
         display={Display.Flex}
         flexDirection={FlexDirection.Row}
@@ -48,6 +46,7 @@ export default function PhraseTypeSelector({
         width={BlockSize.Full}
         flexWrap={FlexWrap.Wrap}
         justifyContent={JustifyContent.center}
+        marginTop={4}
       >
         <Box
           display={Display.Flex}

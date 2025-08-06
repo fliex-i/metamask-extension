@@ -59,13 +59,48 @@ const BankAccountRequiredModal: React.FC<BankAccountRequiredModalProps> = ({
             <Text
               textAlign={TextAlign.Center}
               color={TextColor.textAlternative}
-              style={{ marginBottom: 8, color: '#121312' }}
+              style={{ color: '#121312' }}
             >
               {t('bankTips')}
             </Text>
           </Box>
         </ModalBody>
         <ModalFooter flexDirection={FlexDirection.Column} gap={2}>
+          <div
+            style={{
+              fontSize: '16px',
+              color: '#B771E5',
+              textAlign: 'center',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '4px',
+            }}
+          >
+            {t('userManual1')}
+            <span
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+                borderRadius: '4px',
+                border: '1px solid #B771E5',
+                padding: '4px',
+                fontSize: '12px',
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                window.open(
+                  'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
+                  '_blank',
+                );
+              }}
+            >
+              <img src="/images/home/user.svg" alt="" width={12} height={12} />{' '}
+              {t('userManual')}
+            </span>
+            {t('userManual2')}
+          </div>
           <div
             onClick={onLink}
             style={{
@@ -78,6 +113,7 @@ const BankAccountRequiredModal: React.FC<BankAccountRequiredModalProps> = ({
               cursor: 'pointer',
               borderRadius: '12px',
               color: 'white',
+              marginTop: '16px',
             }}
           >
             {t('bankBtn2')}

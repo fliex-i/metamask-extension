@@ -73,7 +73,7 @@ const generateQuizWords = (secretRecoveryPhrase) => {
 export default function ConfirmRecoveryPhrase({
   secretRecoveryPhrase = '',
   secretRecoveryPhrase24 = '',
-  selectedPhraseType = '12'
+  selectedPhraseType = '12',
 }) {
   const history = useHistory();
   const t = useI18nContext();
@@ -81,9 +81,10 @@ export default function ConfirmRecoveryPhrase({
   const trackEvent = useContext(MetaMetricsContext);
   const { search } = useLocation();
   const hdEntropyIndex = useSelector(getHDEntropyIndex);
-  const currentPhrase = selectedPhraseType === '24' && secretRecoveryPhrase24
-    ? secretRecoveryPhrase24
-    : secretRecoveryPhrase;
+  const currentPhrase =
+    selectedPhraseType === '24' && secretRecoveryPhrase24
+      ? secretRecoveryPhrase24
+      : secretRecoveryPhrase;
 
   const splitSecretRecoveryPhrase = useMemo(
     () => (currentPhrase ? currentPhrase.split(' ') : []),
@@ -193,7 +194,7 @@ export default function ConfirmRecoveryPhrase({
               <Box
                 display={Display.Flex}
                 alignItems={AlignItems.flexStart}
-                gap={3}
+                gap={2}
               >
                 <Box
                   style={{
@@ -216,6 +217,7 @@ export default function ConfirmRecoveryPhrase({
                     'seedPhraseReviewDetails3',
                     'seedPhraseReviewDetails4',
                     'seedPhraseReviewDetails5',
+                    'seedPhraseReviewDetails6',
                   ].map((key, index) => {
                     const text = t(key);
                     if (!text || text === key) {
@@ -227,7 +229,7 @@ export default function ConfirmRecoveryPhrase({
                         display={Display.Flex}
                         alignItems={AlignItems.flexStart}
                       >
-                        {index !== 0 && (
+                        {index !== 0 && index !== 1 && (
                           <Text
                             style={{
                               color: '#D92D20',
@@ -241,7 +243,10 @@ export default function ConfirmRecoveryPhrase({
                         )}
                         <Text
                           variant={TextVariant.bodyMd}
-                          style={{ color: '#D92D20' }}
+                          style={{
+                            color: '#D92D20',
+                            fontWeight: index === 0 ? 'bold' : 'normal',
+                          }}
                         >
                           {text}
                         </Text>

@@ -48,6 +48,7 @@ import {
 import { BorderStyle } from '../../../helpers/constants/design-system';
 import { ENVIRONMENT_TYPE_FULLSCREEN } from '../../../../shared/constants/app';
 import { getEnvironmentType } from '../../../../app/scripts/lib/util';
+import { getCurrentLocale } from '../../../ducks/locale/locale';
 
 // import { AccountDetailsMenuItem, ViewExplorerMenuItem } from '../menu-items';
 
@@ -68,7 +69,7 @@ export const GlobalMenu = ({
   const dispatch = useDispatch();
   const trackEvent = useContext(MetaMetricsContext);
   const basicFunctionality = useSelector(getUseExternalServices);
-
+  const currentLocale = useSelector(getCurrentLocale);
   const history = useHistory();
 
   const { notificationsUnreadCount } = useUnreadNotificationsCounter();
@@ -205,7 +206,12 @@ export const GlobalMenu = ({
       <MenuItem
         iconName={IconName.Headphones}
         onClick={() => {
-          window.open('https://www.crypto-bridge.co/jp/#support', '_blank');
+          window.open(
+            currentLocale === 'ja'
+              ? 'https://www.crypto-bridge.co/jp/#support'
+              : 'https://www.crypto-bridge.co/#support',
+            '_blank',
+          );
         }}
         data-testid="global-menu-contact-us"
       >
@@ -229,6 +235,30 @@ export const GlobalMenu = ({
         data-testid="global-menu-lock"
       >
         {t('lockCryptoBridge')}
+      </MenuItem>
+      <MenuItem
+        iconName={IconName.Book}
+        onClick={() => {
+          window.open(
+            'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
+            '_blank',
+          );
+        }}
+        data-testid="global-menu-user-manual"
+      >
+        {t('userManual')}
+      </MenuItem>
+      <MenuItem
+        iconName={IconName.Faq}
+        onClick={() => {
+          window.open(
+            'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
+            '_blank',
+          );
+        }}
+        data-testid="global-menu-faq"
+      >
+        {t('FAQ')}
       </MenuItem>
     </Popover>
   );
