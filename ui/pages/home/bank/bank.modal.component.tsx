@@ -90,10 +90,13 @@ const BankAccountRequiredModal: React.FC<BankAccountRequiredModalProps> = ({
                 cursor: 'pointer',
               }}
               onClick={() => {
-                window.open(
-                  'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf',
-                  '_blank',
-                );
+                const link = document.createElement('a');
+                link.href =
+                  'https://www.crypto-bridge.co/wp-content/uploads/2025/06/FAQ-JP-01.pdf';
+                link.download = 'FAQ-JP-01.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
               }}
             >
               <img src="/images/home/user.svg" alt="" width={12} height={12} />{' '}
