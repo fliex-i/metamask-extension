@@ -5245,7 +5245,7 @@
     "message": "Secret Recovery Phrases contain 12 or 24 words"
   },
   "seedPhraseReviewDetails": {
-    "message": "Be sure to write down all the words by hand (12 or 24 words)",
+    "message": "Be sure to write down all the words by hand in order (12 or 24 words)",
     "description": "The $1 is the bolded text 'Secret Recovery Phrase' and $2 is 'seedPhraseReviewDetails2'"
   },
   "seedPhraseReviewDetails1": {

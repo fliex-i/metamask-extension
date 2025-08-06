@@ -291,8 +291,8 @@ export default function OnboardingFlow() {
             marginInline="auto"
             borderColor={BorderColor.borderMuted}
             style={{
-              maxWidth: isWelcomeAndUnlockPage ? 'none' : '584px',
-              width: isWelcomeAndUnlockPage ? '100%' : '584px',
+              maxWidth: isWelcomeAndUnlockPage ? 'none' : '600px',
+              width: isWelcomeAndUnlockPage ? '100%' : '600px',
               minHeight: isWelcomeAndUnlockPage ? 'auto' : '627px',
               height:
                 pathname === ONBOARDING_WELCOME_ROUTE || isPopup
